@@ -55,3 +55,5 @@ coverage.xml
 # Misc
 .DS_Store
 Thumbs.db
+
+certificate.pem
