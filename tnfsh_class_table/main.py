@@ -636,57 +636,32 @@ class class_table:
             raise IOError(f"無法存取檔案 '{filename}': {e}")
         except Exception as e:
             raise Exception(f"匯出 ICS 時發生未預期的錯誤: {e}")
-class CommandExecutor(ABC):
-    """指令執行器的抽象基類
+from abc import ABC, abstractmethod
+from typing import Any, Optional, List
+import gradio as gr
+import requests
+
+class Interface(ABC):
+    """介面抽象基類
     
-    定義了處理課表相關命令的基本介面。
+    整合了指令執行和介面顯示功能。
     
     Attributes:
-        _url_template (str): 課表URL的模板字串
+        commands (dict): 支援的指令對應表
     """
     
     def __init__(self) -> None:
-        self._url_template: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C{}{}.html"
-    
-    @abstractmethod
-    def display(self, class_code: str) -> Any:
-        """顯示課表內容的抽象方法
-        
-        Args:
-            class_code (str): 班級代碼
-            
-        Returns:
-            Any: 根據實作方式回傳不同格式的課表資料
-        """
-        pass
-    
-    @abstractmethod
-    def save_json(self, class_code: str) -> Any:
-        """儲存課表為JSON格式的抽象方法
-        
-        Args:
-            class_code (str): 班級代碼
-            
-        Returns:
-            Any: 根據實作方式回傳不同格式的結果
-        """
-        pass
-    
-    @abstractmethod
-    def save_csv(self, class_code: str) -> Any:
-        """儲存課表為CSV格式的抽象方法
-        
-        Args:
-            class_code (str): 班級代碼
-            
-        Returns:
-            Any: 根據實作方式回傳不同格式的結果
-        """
-        pass
-    
-    def _get_url(self, class_code: str) -> str:
-        """
-        根據班級代碼生成課表URL
+        self.commands = {
+            "display": self.display,
+            "save_json": self.save_json,
+            "save_csv": self.save_csv, 
+            "save_ics": self.save_ics,
+            "help": self.help
+        }
+
+    @staticmethod
+    def get_url(class_code: str) -> str:
+        """根據班級代碼生成課表URL
         
         Args:
             class_code (str): 3位數的班級代碼
@@ -697,13 +672,15 @@ class CommandExecutor(ABC):
         Raises:
             TableError: 當班級代碼無效或無法找到對應課表時
         """
+        url_template = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C{}{}.html"
         class_type_list = [101, 106, 108]
+        
         if not class_code.isdigit() or len(class_code) != 3:
             raise class_table.TableError("無效的班級代碼，須為3位數字")
             
         for class_type in class_type_list:
             try:
-                url = self._url_template.format(class_type, class_code)
+                url = url_template.format(class_type, class_code)
                 response = requests.get(url, timeout=10)
                 if response.status_code == 200:
                     return url
@@ -712,21 +689,58 @@ class CommandExecutor(ABC):
                 
         raise class_table.TableError(f"無法找到班級 {class_code} 的課表")
 
+    def execute(self, command_str: str) -> Any:
+        """執行指令"""
+        parts = command_str.split()
+        if not parts:
+            return "請輸入命令"
+
+        command = parts[0]
+        args = parts[1:] if len(parts) > 1 else []
+
+        if command in self.commands:
+            return self.commands[command](args) if args else "請指定班級代碼"
+        return f"未知的命令: {command}"
+
     @abstractmethod
-    def save_ics(self, class_code: str) -> Any:
-        """儲存課表為ICS格式的抽象方法
-        
-        Args:
-            class_code (str): 班級代碼
-            
-        Returns:
-            Any: 根據實作方式回傳不同格式的結果
-        """
+    def display(self, args: List[str]) -> Any:
+        """顯示課表"""
         pass
-class CmdExecutor(CommandExecutor):
-    """命令列的指令執行器"""
-    def display(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
+    
+    @abstractmethod
+    def save_json(self, args: List[str]) -> Any:
+        """儲存為JSON"""
+        pass
+
+    @abstractmethod 
+    def save_csv(self, args: List[str]) -> Any:
+        """儲存為CSV"""
+        pass
+
+    @abstractmethod
+    def save_ics(self, args: List[str]) -> Any:
+        """儲存為ICS"""
+        pass
+        
+    def help(self, args: List[str] = None) -> str:
+        """顯示說明"""
+        return """支援的指令：
+    - display [班級代碼]: 顯示課表
+    - save_json [班級代碼]: 儲存為JSON檔案
+    - save_csv [班級代碼]: 儲存為CSV檔案 (Google Calendar格式)
+    - save_ics [班級代碼]: 儲存為ICS檔案 (iCalendar格式)
+    - help: 顯示此說明"""
+
+    @abstractmethod
+    def run(self) -> None:
+        """啟動介面"""
+        pass
+
+class CommandLineInterface(Interface):
+    """命令列介面實作"""
+    
+    def display(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
         try:
             current_table = class_table(url)
             print("=== 課表內容 ===")
@@ -740,185 +754,94 @@ class CmdExecutor(CommandExecutor):
         except Exception as e:
             return f"發生錯誤: {str(e)}"
 
-    def save_json(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
+    def save_json(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
         try:
             filepath = class_table(url).export_to_json()
             return f"課表已成功儲存至 {filepath}"
         except Exception as e:
             return f"發生錯誤: {str(e)}"
 
-    def save_csv(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
+    def save_csv(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
         try:
-            filepath = class_table(url).export_to_csv()
+            filepath = class_table(url).export_to_csv() 
             return f"課表已成功儲存至 {filepath}"
         except Exception as e:
             return f"發生錯誤: {str(e)}"
-        
-    def save_ics(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
+
+    def save_ics(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
         try:
             filepath = class_table(url).export_to_ics()
             return f"課表已成功儲存至 {filepath}"
         except Exception as e:
             return f"發生錯誤: {str(e)}"
-
-class GradioExecutor(CommandExecutor):
-    """Gradio介面的指令執行器"""
-    def display(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
-        try:
-            table = class_table(url)
-            # 轉換課表格式為 Dataframe 可用的格式
-            rows = []
-            for row in table.table:
-                formatted_row = []
-                for item in row:
-                    if isinstance(item, dict):
-                        subject = list(item.keys())[0]
-                        teacher = item[subject]
-                        formatted_row.append(f"{subject}\n{teacher}")
-                    else:
-                        formatted_row.append("")
-                rows.append(formatted_row)
-                
-            # 建立欄位名稱（星期一到星期五）
-            columns = ["星期一", "星期二", "星期三", "星期四", "星期五"]
             
-            return gr.Dataframe(
-                value=rows,
-                headers=columns
-            ), None
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-
-    def save_json(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
-        try:
-            table = class_table(url)
-            filepath = table.export_to_json()
-            return gr.File(value=filepath)  
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-
-    def save_csv(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
-        try:
-            table = class_table(url)
-            filepath = table.export_to_csv()
-            return gr.File(value=filepath)  
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-    
-    def save_ics(self, class_code: str) -> Any:
-        url = self._get_url(class_code)
-        try: 
-            table = class_table(url)
-            filepath = table.export_to_ics()
-            return gr.File(value=filepath)
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-
-# 修改 Commands 類別
-class Commands:
-    def __init__(self, executor: CommandExecutor) -> None:
-        self.executor = executor
-        self.commands = {
-            "display": self.display,
-            "save_json": self.save_json,
-            "save_csv": self.save_csv,
-            "save_ics": self.save_ics,
-            "help": self.help
-        }
-
-    def execute(self, command_str: str) -> Any:
-        parts = command_str.split()
-        if not parts:
-            return "請輸入命令"
-
-        command = parts[0]
-        args = parts[1:] if len(parts) > 1 else []
-
-        if command in self.commands:
-            return self.commands[command](args)
-        return f"未知的命令: {command}"
-
-    def display(self, args: List[str]) -> Any:
-        if not args:
-            return "請指定班級代碼"
-        return self.executor.display(args[0])
-
-    def save_json(self, args: List[str]) -> Any:
-        if not args:
-            return "請指定班級代碼"
-        return self.executor.save_json(args[0])
-
-    def save_csv(self, args: List[str]) -> Any:
-        if not args:
-            return "請指定班級代碼"
-        return self.executor.save_csv(args[0])
-
-    def save_ics(self, args: List[str]) -> Any:
-        if not args:
-            return "請指定班級代碼"
-        return self.executor.save_ics(args[0])
-
-    def help(self, args: List[str] = None) -> str:
-        return """支援的指令：
-    - display [班級代碼]: 顯示課表
-    - save_json [班級代碼]: 儲存為JSON檔案
-    - save_csv [班級代碼]: 儲存為CSV檔案 (Google Calendar格式)
-    - save_ics [班級代碼]: 儲存為ICS檔案 (iCalendar格式)
-    - help: 顯示此說明"""
-
-# 修改介面類別
-class UserInterface(ABC):
-    def __init__(self, executor: CommandExecutor) -> None:
-        self.commands = Commands(executor)
-    
-    @abstractmethod
-    def run(self) -> None:
-        pass
-
-class CommandLineInterface(UserInterface):
-    def __init__(self) -> None:
-        super().__init__(CmdExecutor())
-    
     def run(self) -> None:
         while True:
             try:
                 command = input("請輸入指令 (輸入 help 查看說明): ")
                 if command.lower() == "exit":
                     break
-                result = self.commands.execute(command)
+                result = self.execute(command)
                 if isinstance(result, str):
                     print(result)
             except Exception as e:
                 print(f"錯誤: {str(e)}")
 
-class GradioInterface(UserInterface):
-    """Gradio網頁介面實作
+class GradioInterface(Interface):
+    """Gradio網頁介面實作"""
     
-    提供網頁化的使用者介面，支援課表的顯示和檔案下載。
-    """
-    
-    def __init__(self) -> None:
-        super().__init__(GradioExecutor())
-    
-    def run(self) -> None:
-        """啟動Gradio介面"""
-        def handle_command(command: str) -> tuple[gr.components.Component, Optional[gr.components.Component]]:
-            """處理使用者輸入的命令
-            
-            Args:
-                command (str): 使用者輸入的命令字串
+    def display(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
+        try:
+            table = class_table(url)
+            rows = []
+            for row in table.table:
+                formatted_row = []
+                for item in row:
+                    if isinstance(item, dict):
+                        subject = list(item.keys())[0]
+                        teacher = list(item[subject].keys())[0]
+                        formatted_row.append(f"{subject}:{teacher}")
+                    else:
+                        formatted_row.append("")
+                rows.append(formatted_row)
                 
-            Returns:
-                tuple: (課表顯示元件, 檔案下載元件)
-            """
+            columns = ["星期一", "星期二", "星期三", "星期四", "星期五"]
+            return gr.Dataframe(value=rows, headers=columns), None
+        except Exception as e:
+            return gr.Dataframe(value=[[str(e)]])
+
+    def save_json(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
+        try:
+            filepath = class_table(url).export_to_json()
+            return gr.File(value=filepath)
+        except Exception as e:
+            return gr.Dataframe(value=[[str(e)]])
+
+    def save_csv(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
+        try:
+            filepath = class_table(url).export_to_csv()
+            return gr.File(value=filepath)
+        except Exception as e:
+            return gr.Dataframe(value=[[str(e)]])
+    
+    def save_ics(self, args: List[str]) -> Any:
+        url = self.get_url(args[0])
+        try:
+            filepath = class_table(url).export_to_ics()
+            return gr.File(value=filepath)
+        except Exception as e:
+            return gr.Dataframe(value=[[str(e)]])
+            
+    def run(self) -> None:
+        def handle_command(command: str) -> tuple[gr.components.Component, Optional[gr.components.Component]]:
             try:
-                result = self.commands.execute(command)
+                result = self.execute(command)
                 if isinstance(result, tuple):
                     return result
                 elif isinstance(result, gr.Dataframe):
@@ -944,42 +867,95 @@ class GradioInterface(UserInterface):
 
 class App:
     """應用程式主類別"""
-    def __init__(self) -> None:
-        self.interfaces = {
-            "cmd": CommandLineInterface,
-            "gradio": GradioInterface,
-            "both": None,
-            "": None
-        }
     
-    def run(self, interface_type: str = "") -> None:
-        if interface_type == "" or interface_type == "both":
-            
+    @staticmethod
+    def run(interface_type: str = "") -> None:
+        """啟動應用程式
+        
+        Args:
+            interface_type (str): 介面類型 ("cmd"/"gradio"/"both"/""，預設為 both)
+        """
+        if interface_type.lower() in ["", "both"]:
             print("請等待gradio開啟完畢再輸入指令\n")
-            # 使用執行緒來運行 Cmd
+            # 使用執行緒來運行命令列介面
+            def run_cmd_with_delay():
+                sleep(3)  # 等待3秒
+                CommandLineInterface().run()
+            
             cmd_thread = threading.Thread(
-                target=self._run_cmd,
-                daemon=True  # 設為 daemon thread，主程式結束時會自動結束
+                target=run_cmd_with_delay,
+                daemon=True
             )
             cmd_thread.start()
-            gradio_interface = GradioInterface()
-            gradio_interface.run()
+            # 啟動Gradio介面 
+            GradioInterface().run()
             
         else:
-            interface_class = self.interfaces.get(interface_type, CommandLineInterface)
-            interface = interface_class()
+            # 根據指定類型啟動對應介面
+            interface = (GradioInterface() if interface_type.lower() == "gradio" 
+                       else CommandLineInterface())
             interface.run()
-    
-    def _run_cmd(self) -> None:
-        """在獨立執行緒中運行 Cmd"""
-        sleep(3)
-        cmd_interface = CommandLineInterface()
-        cmd_interface.run()
+
+
+import requests
+import re
+import json
+from bs4 import BeautifulSoup
+
+class IndexScraper:
+    def __init__(self, url, data_type):
+        self.url = url
+        self.data_type = data_type  # "teacher" 或 "class"
+
+    def scrape_data(self):
+        response = requests.get(self.url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        if self.data_type == "teacher":
+            return self._scrape_teacher_data(soup)
+        elif self.data_type == "class":
+            return self._scrape_class_data(soup)
+        else:
+            raise ValueError("Invalid data_type. Must be 'teacher' or 'class'.")
+
+    def _scrape_teacher_data(self, soup):
+        grade_dict = {}
+        for tr in soup.find_all("tr"):
+            for a in tr.find_all("a"):
+                link = a.get("href")
+                #print(a)
+                text = a.text.strip()
+                match = re.search(r'([\u4e00-\u9fa5]+)', text)
+                if link and match:
+                    text = match.group(1)
+                    grade_dict.setdefault("所有老師", []).append({text: link})  # 所有老師放在一起
+        return grade_dict
+
+    def _scrape_class_data(self, soup):
+        grade_dict = {}
+        current_grade = None
+        for tr in soup.find_all("tr"):
+            grade_tag = tr.find("span")
+            if grade_tag and not tr.find("a"):
+                current_grade = grade_tag.text.strip()
+                grade_dict[current_grade] = []
+            for a in tr.find_all("a"):
+                link = a.get("href")
+                text = a.text.strip()
+                if link and text.isdigit() and current_grade:
+                    grade_dict[current_grade].append({text: link})
+        return grade_dict
+
+
+
+
+
 
 def main() -> None:
-    app = App()
     interface_type = input("請選擇使用者介面(cmd / gradio / both，預設為 both): ")
-    app.run(interface_type)
+    interface_type = "gradio"
+    App().run(interface_type)
 
 def test() -> None:
     def _get_url(class_code: str) -> str:
@@ -1010,10 +986,39 @@ def test() -> None:
                 continue
                 
         raise class_table.TableError(f"無法找到班級 {class_code} 的課表")
-    test = class_table(_get_url("307"))
-    test.export_to_ics()
+    def get_complete_data():
+        base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+        urls = ("_ClassIndex.html",
+                "_TeachIndex.html")
+        data_types = ("class", "teacher")
+
+        result = {"base_url":base_url, "root": "course.html"}
+        for url, data_type in zip(urls, data_types):
+            scraper = IndexScraper(base_url + url, data_type)
+            data = scraper.scrape_data()
+            result[data_type] = {"url": url, "data":data}
+
+        return result
+    def get_teacher_in_new_wiki():
+        data = get_complete_data()
+        #print(json.dumps(data, indent=4, ensure_ascii=False))
+        teacher_data = data["teacher"]["data"]["所有老師"]
+        base_url = "https://tnfshwiki.tfcis.org"
+        for teacher in teacher_data:
+            teacher_name = list(teacher.keys())[0]
+            teacher_link = teacher[teacher_name]
+            response = requests.head(base_url + "/" +teacher_name, timeout=10)
+            if response.status_code != 200:
+                print(f'{teacher_name}: {response.status_code}')
+           
+    #test = class_table(_get_url("307"))
+    #test.export_to_ics()
     #test = NewWiki()
     #test.export_teacher_data_to_json()
+    
+    
+    #print(json.dumps(data, indent=4, ensure_ascii=False))
+    get_teacher_in_new_wiki()
     
 
 if __name__ == "__main__":
