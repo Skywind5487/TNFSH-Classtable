@@ -12,6 +12,64 @@ import icalendar
 from urllib.parse import unquote
 from time import sleep
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import concurrent.futures
+
+def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
+    """將資料輸出為指定格式的字串並直接打印
+    
+    Args:
+        data: 要輸出的資料
+        format (str): 輸出格式，支援 "json" 或 "html" (預設為 "json")
+        remove_attrs (bool): 是否移除 HTML 標籤的屬性 (預設為 True，但保留 href)
+    """
+    if format.lower() == "json":
+        if hasattr(data, 'name'):  # 如果是 BeautifulSoup 元素
+            output = json.dumps({
+                'name': data.name,
+                'text': data.text,
+                'attrs': data.attrs
+            }, ensure_ascii=False, indent=2)
+        else:
+            output = json.dumps(data, ensure_ascii=False, indent=2)
+        print(output)
+    
+    elif format.lower() == "html":
+        if isinstance(data, (str, BeautifulSoup, Tag)):
+            try:
+                # 如果是字串且看起來不像 HTML，直接打印
+                if isinstance(data, str) and not data.strip().startswith('<'):
+                    print(data)
+                    return None
+                
+                # 建立新的 BeautifulSoup 物件
+                soup = BeautifulSoup(str(data), 'html.parser')
+                
+                if remove_attrs:
+                    for tag in soup.find_all():
+                        if tag.name == 'a':
+                            # 保留 a 標籤的 href
+                            href = tag.get('href', '')
+                            tag.attrs = {'href': href} if href else {}
+                        else:
+                            # 移除其他標籤的屬性
+                            tag.attrs = {}
+                
+                # 移除空白行並打印
+                output = soup.prettify()
+                output = '\n'.join(line for line in output.split('\n') if line.strip())
+                print(output)
+            
+            except Exception as e:
+                print(f"HTML 解析錯誤: {e}")
+                print(str(data))
+        else:
+            print(str(data))
+    
+    else:
+        raise ValueError("不支援的格式。請使用 'json' 或 'html'")
+    
+    return None
 
 class NewWiki:
     """
@@ -21,12 +79,12 @@ class NewWiki:
     """
 
     def __init__(self) -> None:
-        """
-        初始化 NewWiki 類別
-        """
         self.base_url = "https://tnfshwiki.tfcis.org"
-        self.teacher_index = self._get_new_wiki_teacher_index()
+        # 使用線程池進行並發請求
+        with ThreadPoolExecutor(max_workers=20) as executor:
+            self.teacher_index = self._get_new_wiki_teacher_index(executor)
         self.teacher_reverse_index = self._build_teacher_reverse_index()
+
     
     def _get_new_wiki_normal_url(self, title: str) -> str:
         """
@@ -54,89 +112,68 @@ class NewWiki:
         url = f"{self.base_url}/index.php?title={title}&mobileaction=toggle_view_mobile"
         return url
     
-    def _get_new_wiki_teacher_index(self) -> Dict[str, Dict[str, Union[str, Dict[str, str]]]]:
-        """
-        從新竹園 Wiki 網站取得教師索引
+    def _get_new_wiki_teacher_index(self, executor: ThreadPoolExecutor) -> Dict[str, Dict[str, Union[str, Dict[str, str]]]]:
+            """並發從新竹園 Wiki 網站取得教師索引"""
+            def _get_new_wiki_subject() -> Dict[str, Dict[str, str]]:
+                title = "分類:科目"
+                url = self._get_new_wiki_mobile_url(title)
+                try:
+                    response = requests.get(url, timeout=5)
+                    response.raise_for_status()
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    subject_list = soup.find_all("div", class_="mw-category mw-category-columns")[1]
 
-        架構:
-        {
-            科目: {
-                "url": "example.com",
-                "teachers": {
-                    老師名稱: URL
-                }
+                    subject_index = {}
+                    for subject in subject_list.find_all("a"):
+                        subject_name = subject.text.strip()
+                        subject_url = subject.get("href")
+                        if subject_name == "術與人文科":
+                            continue
+                        if subject_name and subject_url:
+                            subject_index[subject_name] = {"url": unquote(subject_url)}
+                    return subject_index
+                except requests.RequestException:
+                    return {}
+
+            def _get_subject_teacher_list(subject_name: str) -> Dict[str, str]:
+                url = self._get_new_wiki_mobile_url(f"分類:{subject_name}老師")
+                try:
+                    response = requests.get(url, timeout=5)
+                    response.raise_for_status()
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    if not soup.find("div", class_="mw-category"):
+                        return {}
+
+                    teacher_list = soup.find("div", class_="mw-category").find_all("a")
+                    teacher_names = [teacher.text for teacher in teacher_list]
+                    teacher_urls = [unquote(teacher.get("href")) for teacher in teacher_list]
+                    return dict(zip(teacher_names, teacher_urls))
+                except requests.RequestException:
+                    return {}
+
+            # 取得科目索引
+            teacher_index = _get_new_wiki_subject()
+            if not teacher_index:
+                return {}
+
+            # 建立並發任務
+            future_to_subject = {
+                executor.submit(_get_subject_teacher_list, subject_name): subject_name
+                for subject_name in teacher_index
             }
-        }
 
-        Returns:
-            Dict[str, Dict[str, Union[str, Dict[str, str]]]]: 教師索引資料
-        """
-        def _get_new_wiki_subject() -> Dict[str, Dict[str, str]]:
-            """
-            取得科目列表
+            # 收集結果
+            for future in as_completed(future_to_subject):
+                subject_name = future_to_subject[future]
+                try:
+                    teacher_list = future.result()
+                    teacher_index[subject_name]["teachers"] = teacher_list
+                except Exception as e:
+                    print(f"處理科目 {subject_name} 時發生錯誤: {e}")
+                    teacher_index[subject_name]["teachers"] = {}
 
-            Returns:
-                Dict[str, Dict[str, str]]: 科目名稱與對應的 URL
-            """
-            title = "分類:科目"
-            url = self._get_new_wiki_mobile_url(title)
-            try:
-                response = requests.get(url, timeout=5)
-                response.raise_for_status()
-            except requests.RequestException:
-                return {}  # 若請求失敗，回傳空字典
+            return teacher_index
 
-            soup = BeautifulSoup(response.content, 'html.parser')
-            # 取得第二個 mw-category-columns div (包含實際科目列表)
-            #print(soup.find_all("div", class_="mw-category mw-category-columns"))
-            subject_list = soup.find_all("div", class_="mw-category mw-category-columns")[1]
-
-            subject_index = {}
-            # 遍歷所有 a 標籤
-            for subject in subject_list.find_all("a"):
-                subject_name = subject.text.strip()
-                subject_url = subject.get("href")
-                if subject_name == "術與人文科":  # 跳過特定科目
-                    continue
-                if subject_name and subject_url:  # 確保資料有效
-                    subject_index[subject_name] = {"url": unquote(subject_url)}
-
-            return subject_index
-
-        def _get_subject_teacher_list(subject_name: str) -> Dict[str, str]:
-            """
-            取得特定科目的教師列表
-
-            Args:
-                subject_name (str): 科目名稱
-
-            Returns:
-                Dict[str, str]: 教師名稱與對應的 URL
-            """
-            url = self._get_new_wiki_mobile_url(f"分類:{subject_name}老師")
-            try:
-                response = requests.get(url, timeout=5)
-                response.raise_for_status()
-            except requests.RequestException:
-                return {}  # 若請求失敗，回傳空字典
-
-            soup = BeautifulSoup(response.content, 'html.parser')
-            if not soup.find("div", class_="mw-category"):
-                return {}  # 若無教師資料，回傳空字典
-
-            teacher_list = soup.find("div", class_="mw-category").find_all("a")
-            teacher_names = [teacher.text for teacher in teacher_list]
-            teacher_urls = [unquote(teacher.get("href")) for teacher in teacher_list]
-            return dict(zip(teacher_names, teacher_urls))
-
-        # 取得科目索引
-        teacher_index = _get_new_wiki_subject()
-        # 遍歷每個科目，取得對應的教師列表
-        for subject_name in teacher_index:
-            teacher_index[subject_name]["teachers"] = _get_subject_teacher_list(subject_name)
-
-        return teacher_index
-    
     def _build_teacher_reverse_index(self) -> Dict[str, Dict[str, str]]:
         """
         建立教師反查表，將教師名稱對應到其教授的科目與相關資訊
@@ -152,6 +189,7 @@ class NewWiki:
                     "new_wiki_url": self._get_new_wiki_normal_url(teacher_url.replace("/", ""))
                 }
         return reverse_index
+    
     def export_teacher_data_to_json(self, filepath: Optional[str] = None) -> str:
         """
         將教師索引與教師反查表匯出為單一 JSON 格式
@@ -182,6 +220,7 @@ class NewWiki:
             return filepath
         except Exception as e:
             raise Exception(f"Failed to write JSON file: {str(e)}")
+
 class class_table:
     """課表處理的主要類別
     
@@ -197,7 +236,6 @@ class class_table:
         last_update (str): 課表最後更新時間
         class_ (Dict[str, Union[int, str]]): 班級資訊
     """
-
     class TableError(Exception):
         """課表處理相關錯誤的例外類別
         
@@ -325,30 +363,77 @@ class class_table:
         return lessons
 
     def _get_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
-        """解析課表內容為結構化資料
-
-        Returns:
-            List[List[Dict[str, str]]]: 課表二維陣列，每個元素為課程與教師的對應
-
-        Example:
-            >>> table = class_table(url).get_table()
-            >>> print(table[0][0])  # 第一節星期一的課程
-            {"國文": {"王小明": "TK07.HTML"}}
-        """
+        """解析課表內容為結構化資料"""
         table = self.regular_soup_table.find_all('tr')
-        def class_name_split(class_td) -> Union[Dict[str, str], str]:
-            """分析課程字串為課程名稱和教師名稱"""
-            ps = class_td.find_all('p')
-            if len(ps) == 0:
-                return ps
-            class_teacher = ps[-1].text.strip("\n").strip("\r").replace(" ","")
-            class_teacher_link = ps[-1].find('a').get('href') if ps[-1].find('a') else ""
-            class_name = ''.join([p.text for p in ps[:-1]]).strip("\n").strip("\r").replace(" ","")
-            return {class_name: {class_teacher: class_teacher_link}} if class_name else class_teacher
+        def class_name_split(class_td) -> Dict[str, Dict[str, str]]:
+            """分析課程字串為課程名稱和教師名稱，統一回傳字典格式
+            
+            Args:
+                class_td: BeautifulSoup的Tag物件，包含課程資訊
+                
+            Returns:
+                Dict[str, Dict[str, str]]: 格式為 {課程名稱: {教師名稱: 連結}}
+            """
+            def clean_text(text: str) -> str:
+                """清理文字內容，移除多餘空格與換行"""
+                return text.strip("\n").strip("\r").strip(" ").replace(" ", ", ")
 
-        return [[
-            class_name_split(class_) for class_ in row.find_all('td')[2:]
-        ] for row in table]
+            def is_teacher_p(p_tag) -> bool:
+                """檢查是否為包含教師資訊的p標籤"""
+                return bool(p_tag.find_all('a'))
+            
+            def parse_teachers(teacher_ps) -> Dict[str, str]:
+                """解析所有教師p標籤的資訊"""
+                teachers_dict = {}
+                for p in teacher_ps:
+                    for link in p.find_all('a'):
+                        name = clean_text(link.text)
+                        href = link.get('href', '')
+                        teachers_dict[name] = href
+                return teachers_dict
+            
+            def combine_class_name(class_ps) -> str:
+                """組合課程名稱"""
+                texts = [clean_text(p.text) for p in class_ps]
+                return ''.join(filter(None, texts)).replace("\n", ", ")
+            
+            # 如果沒有找到任何 p 標籤
+            ps = class_td.find_all('p')
+            if not ps:
+                return {"": {"": ""}}
+            
+            # 區分教師資訊和課程名稱的p標籤
+            teacher_ps = []
+            class_ps = []
+            
+            for p in ps:
+                if is_teacher_p(p):
+                    teacher_ps.append(p)
+                else:
+                    class_ps.append(p)
+            
+            # 取得所有教師資訊
+            teachers_dict = parse_teachers(teacher_ps) if teacher_ps else {"": ""}
+            
+            # 組合課程名稱
+            if class_ps:
+                class_name = combine_class_name(class_ps)
+            elif teacher_ps:  # 只有教師資訊，沒有課程名稱
+                class_name = "找不到課程"
+            else:  # 沒有任何資訊
+                class_name = ""
+            
+            # 組合最終結果
+            if class_name or teachers_dict != {"": ""}:
+                return {class_name: teachers_dict}
+            return {"": {"": ""}}
+        
+        result = [[
+            class_name_split(class_) 
+            for class_ in row.find_all('td')[2:]
+            ] for row in table
+        ]
+        return result
 
     def _get_class_code(self) -> Dict[str, Union[int, str]]:
         """
@@ -377,7 +462,7 @@ class class_table:
                 }
         return {"grade": "", "class": ""}
 
-    def _get_event_description(self, teacher: Dict[str, str]) -> str:
+    def _get_event_description(self, teachers: Dict[str, str]) -> str:
         def _get_a_href(url: str, text: str) -> str:
             return f'<a href="{url}">{text}</a>'
 
@@ -396,7 +481,8 @@ class class_table:
 
             # 若無完全匹配，搜尋包含教師名稱的項目
             partial_matches = [
-                (info_list["new_wiki_url"], name) for name, info_list in teacher_data["reverse_teacher_index"].items()
+                (info_list["new_wiki_url"], name) 
+                for name, info_list in teacher_data["reverse_teacher_index"].items()
                 if teacher_name in name
             ]
 
@@ -416,35 +502,46 @@ class class_table:
             return partial_matches
 
         description = []
-        teacher_name = list(teacher.keys())[0]
-        teacher_link = teacher[teacher_name]
-        if teacher:
-            teacher_url = f"http://w3.tnfsh.tn.edu.tw/deanofstudies/course/{teacher_link}"
-            new_wiki_links = _get_new_wiki_teacher_links_and_name(teacher_name)
-            tnfsh_official_url = "https://www.tnfsh.tn.edu.tw"
-            tnfsh_lesson_information_url = "https://www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22,4,25"
+        tnfsh_official_url = "https://www.tnfsh.tn.edu.tw"
+        tnfsh_lesson_information_url = "https://www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22,4,25"
 
-            description.append(
-                f"教師： {_get_a_href(teacher_url, f"{teacher_name}-課表")}\n"
-                f"本班課表連結： {_get_a_href(self.url, f'{self.class_code['grade']}{self.class_code['class']}-課表')}\n"
-            )
+        if teachers and teachers != {"": ""}:  # 如果有教師資訊
+            # 課表連結
+            table_links = []
+            for teacher_name, teacher_link in teachers.items():
+                teacher_url = f"http://w3.tnfsh.tn.edu.tw/deanofstudies/course/{teacher_link}"
+                table_links.append(f"{_get_a_href(teacher_url, f'{teacher_name}-課表')}")
+            description.append(f"教師課表： {' | '.join(table_links)}")
 
-            if new_wiki_links:
-                new_wiki_descriptions = []
-                new_wiki_descriptions.append("新竹園wiki：")
-                for link, name in new_wiki_links:
-                    new_wiki_descriptions.append(f"{_get_a_href(link, name)} ")
-                description.append("".join(new_wiki_descriptions))
+            # 竹園wiki連結
+            wiki_links = []
+            for teacher_name in teachers.keys():
+                new_wiki_links = _get_new_wiki_teacher_links_and_name(teacher_name)
+                if new_wiki_links:
+                    wiki_links.extend(
+                        [_get_a_href(link, f"{name}-wiki") for link, name in new_wiki_links]
+                    )
+            if wiki_links:
+                description.append(f"新竹園wiki： {' | '.join(wiki_links)}")
             else:
                 description.append("新竹園wiki： 無相關資料")
 
             description.append(
-                f"南一中官網： {_get_a_href(tnfsh_official_url, '南一中官網')}"
-                f"\n南一中官網-課程資訊： {_get_a_href(tnfsh_lesson_information_url, '教學進度、總體計畫、多元選修等等')}"
+                f"本班課表連結： {_get_a_href(self.url, f'{self.class_code['grade']}{self.class_code['class']}-課表')}"
             )
         else:
-            return "hi"
+            description.append("教師： 無相關資料")
+            description.append(
+                f"本班課表連結： {_get_a_href(self.url, f'{self.class_code['grade']}{self.class_code['class']}-課表')}"
+            )
+        description.append("")
+        description.append(
+            f"南一中官網： {_get_a_href(tnfsh_official_url, '南一中官網')}"
+            f"\n南一中官網-課程資訊： {_get_a_href(tnfsh_lesson_information_url, '教學進度、總體計畫、多元選修等等')}"
+        )
+        
         return "\n".join(description)
+    
     def export_to_json(self, filepath: Optional[str] = None) -> str:
         """將課表資料匯出為JSON格式
         
@@ -456,11 +553,6 @@ class class_table:
             
         Raises:
             Exception: 當檔案寫入失敗時
-            
-        Example:
-            >>> table = class_table("https://example.com/table")
-            >>> filepath = table.export_to_json("output.json")
-            >>> print(f"檔案已儲存至 {filepath}")
         """
         data: Dict[str, Any] = {
             "metadata": {
@@ -478,9 +570,9 @@ class class_table:
         # 如果未指定檔案路徑，則自動生成
         if filepath is None:
             class_info = self.class_code
-            grade = class_info.get("grade", "0")
-            class_num = class_info.get("class", "0")
-            filepath = f"class_{grade}{class_num:02d}.json"
+            grade = str(class_info.get("grade", "0"))
+            class_num = str(class_info.get("class", "0")).zfill(2)  # 使用 zfill 補零
+            filepath = f"class_{grade}{class_num}.json"
 
         # 寫入 JSON 檔案
         try:
@@ -488,8 +580,8 @@ class class_table:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             return filepath
         except Exception as e:
-                raise Exception(f"Failed to write JSON file: {str(e)}")
-    
+            raise Exception(f"Failed to write JSON file: {str(e)}")
+ 
     def export_to_csv(self, filepath: str = None) -> str:
         """將課表匯出為 Google Calendar 格式的 CSV"""
         import csv
@@ -512,6 +604,7 @@ class class_table:
                     for day_index, day in enumerate(lessons):
                         if not day:
                             continue
+                        #print(day)
                         lesson_name = list(day.keys())[0]
                         teacher = list(day.values())[0]
                         start_time, end_time = self.lessons[lesson_index_name]
@@ -522,7 +615,7 @@ class class_table:
                             start_datetime = datetime.strptime(f"{current_date.date()} {start_time}", "%Y-%m-%d %H:%M")
                             end_datetime = datetime.strptime(f"{current_date.date()} {end_time}", "%Y-%m-%d %H:%M")
                             
-                            # 設定每週重複
+                            # 設定每週重複(但repeat不能用在google calendar)
                             repeat_rule = ("FREQ=WEEKLY;"
                                            "COUNT=52;"
                                            "BYDAY=MO,TU,WE,TH,FR;"
@@ -547,6 +640,7 @@ class class_table:
             raise IOError(f"無法存取檔案 '{filepath}': {e}")
         except Exception as e:
             raise Exception(f"匯出 CSV 時發生未預期的錯誤: {e}")
+    
     def export_to_ics(self, filename: str = None) -> str:
         """將課表匯出為 ICS 格式檔案"""
         if filename is None:
@@ -793,77 +887,179 @@ class CommandLineInterface(Interface):
 class GradioInterface(Interface):
     """Gradio網頁介面實作"""
     
+    def __init__(self) -> None:
+        super().__init__()
+        # 設定年級和班級選項
+        self.grades = ["一", "二", "三"] 
+        self.classes = [f"{i:02d}" for i in range(1, 27)]
+        self.export_formats = ["JSON", "CSV", "ICS"]
+
+    def _get_class_code(self, grade: str, class_num: str) -> str:
+        """將年級和班級轉換為班級代碼"""
+        grade_map = {"一": "1", "二": "2", "三": "3"}
+        return f"{grade_map[grade]}{class_num}"
+
     def display(self, args: List[str]) -> Any:
-        url = self.get_url(args[0])
+        """顯示課表 (實作抽象方法)"""
         try:
+            if len(args) != 2:
+                return gr.Dataframe(), "錯誤: 需要年級和班級參數"
+            grade, class_num = args
+            return self._display_table(grade, class_num)
+        except Exception as e:
+            return gr.Dataframe(), f"錯誤: {str(e)}"
+
+    def save_json(self, args: List[str]) -> Any:
+        """儲存為JSON (實作抽象方法)"""
+        try:
+            if len(args) != 2:
+                return None, "錯誤: 需要年級和班級參數"
+            grade, class_num = args
+            return self._save_file(grade, class_num, "JSON")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
+
+    def save_csv(self, args: List[str]) -> Any:
+        """儲存為CSV (實作抽象方法)"""
+        try:
+            if len(args) != 2:
+                return None, "錯誤: 需要年級和班級參數"
+            grade, class_num = args
+            return self._save_file(grade, class_num, "CSV")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
+
+    def save_ics(self, args: List[str]) -> Any:
+        """儲存為ICS (實作抽象方法)"""
+        try:
+            if len(args) != 2:
+                return None, "錯誤: 需要年級和班級參數"
+            grade, class_num = args
+            return self._save_file(grade, class_num, "ICS")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
+
+    def _display_table(self, grade: str, class_num: str) -> tuple[gr.Dataframe, str]:
+        """顯示課表的實際邏輯"""
+        try:
+            class_code = self._get_class_code(grade, class_num)
+            url = self.get_url(class_code)
             table = class_table(url)
+            
             rows = []
             for row in table.table:
                 formatted_row = []
                 for item in row:
                     if isinstance(item, dict):
+                        print(item)
                         subject = list(item.keys())[0]
-                        teacher = list(item[subject].keys())[0]
-                        formatted_row.append(f"{subject}:{teacher}")
+                        teacher = list(item[subject].keys())
+                        teachers = ", ".join(teacher)
+                        text = f"{subject}: \n{teachers}"
+                        formatted_row.append(text)
                     else:
                         formatted_row.append("")
                 rows.append(formatted_row)
-                
-            columns = ["星期一", "星期二", "星期三", "星期四", "星期五"]
-            return gr.Dataframe(value=rows, headers=columns), None
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-
-    def save_json(self, args: List[str]) -> Any:
-        url = self.get_url(args[0])
-        try:
-            filepath = class_table(url).export_to_json()
-            return gr.File(value=filepath)
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-
-    def save_csv(self, args: List[str]) -> Any:
-        url = self.get_url(args[0])
-        try:
-            filepath = class_table(url).export_to_csv()
-            return gr.File(value=filepath)
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
-    
-    def save_ics(self, args: List[str]) -> Any:
-        url = self.get_url(args[0])
-        try:
-            filepath = class_table(url).export_to_ics()
-            return gr.File(value=filepath)
-        except Exception as e:
-            return gr.Dataframe(value=[[str(e)]])
             
-    def run(self) -> None:
-        def handle_command(command: str) -> tuple[gr.components.Component, Optional[gr.components.Component]]:
-            try:
-                result = self.execute(command)
-                if isinstance(result, tuple):
-                    return result
-                elif isinstance(result, gr.Dataframe):
-                    return result, None
-                elif isinstance(result, gr.File):
-                    return gr.Dataframe(value=[["檔案已生成"]]), result
-                else:
-                    return gr.Dataframe(value=[[str(result)]]), None
-            except Exception as e:
-                return gr.Dataframe(value=[[str(e)]]), None
+            columns = ["星期一", "星期二", "星期三", "星期四", "星期五"]
+            message = f"成功載入 {grade}年{class_num}班 課表，點擊格子可以展開文字\n連結:\n{url}"
+            return gr.Dataframe(value=rows, headers=columns), message
+            
+        except Exception as e:
+            return gr.Dataframe(), f"錯誤: {str(e)}"
+
+    def _get_file_info(self, table: class_table, format: str) -> str:
+        """產生檔案相關資訊文字"""
+        info = []
+        info.append("=== 課表資訊 ===")
+        info.append(f"班級：{table.class_code['grade']}年{table.class_code['class']}班")
+        info.append(f"最後更新：{table.last_update}")
+        info.append(f"課表連結：{table.url}")
+        info.append("")
         
-        interface = gr.Interface(
-            fn=handle_command,
-            inputs=gr.Textbox(label="輸入指令"),
-            outputs=[
-                gr.Dataframe(label="課表"),
-                gr.File(label="下載檔案")
-            ],
-            title="臺南一中課表查詢系統",
-            description="輸入 help 查看可用指令"
+        info.append("=== 檔案說明 ===")
+        if format == "JSON":
+            info.append("JSON 格式包含完整的課表資料，適合程式讀取與資料分析")
+            info.append("可使用任何文字編輯器開啟")
+        elif format == "CSV":
+            info.append("CSV 格式適合匯入 Google Calendar")
+            info.append("匯入步驟：")
+            info.append("1. 前往 Google Calendar 設定")
+            info.append("2. 選擇「匯入與匯出」")
+            info.append("3. 選擇「匯入」並上傳 CSV 檔案")
+        elif format == "ICS":
+            info.append("ICS 格式適合匯入各種行事曆軟體")
+            info.append("匯入步驟：")
+            info.append("- iOS/macOS: 直接開啟檔案")
+            info.append("- Google Calendar: 透過設定匯入")
+            info.append("- Outlook: 透過行事曆匯入選項")
+        
+        return "\n".join(info)
+
+    def _save_file(self, grade: str, class_num: str, format: str) -> tuple[gr.File, str, str]:
+        """儲存檔案的實際邏輯"""
+        try:
+            class_code = self._get_class_code(grade, class_num)
+            url = self.get_url(class_code)
+            table = class_table(url)
+            
+            if format == "JSON":
+                filepath = table.export_to_json()
+            elif format == "CSV":
+                filepath = table.export_to_csv()
+            elif format == "ICS":
+                filepath = table.export_to_ics()
+            
+            message = f"已將 {grade}年{class_num}班 課表儲存為 {format} 格式"
+            info = self._get_file_info(table, format)
+            
+            return gr.File(value=filepath), message, info
+            
+        except Exception as e:
+            return None, f"錯誤: {str(e)}", ""
+
+    def run(self) -> None:
+        """啟動Gradio介面"""
+        with gr.Blocks(title="臺南一中課表查詢系統") as interface:
+            gr.Markdown("# 臺南一中課表查詢系統")
+            
+            with gr.Tab("顯示課表"):
+                with gr.Row():
+                    display_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    display_class = gr.Dropdown(choices=self.classes, label="班級")
+                    display_btn = gr.Button("顯示課表")
+                display_table = gr.Dataframe(label="課表")
+            
+            with gr.Tab("下載課表"):
+                with gr.Row():
+                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    save_class = gr.Dropdown(choices=self.classes, label="班級")
+                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_btn = gr.Button("下載課表")
+                save_file = gr.File(label="下載檔案")
+                file_info = gr.TextArea(label="檔案資訊", interactive=False)
+            
+            message = gr.Textbox(label="系統訊息", interactive=False)
+            
+            # 設定事件處理
+            display_btn.click(
+                fn=lambda g, c: self._display_table(g, c),
+                inputs=[display_grade, display_class],
+                outputs=[display_table, message]
+            )
+            
+            save_btn.click(
+                fn=lambda g, c, f: self._save_file(g, c, f),
+                inputs=[save_grade, save_class, save_format],
+                outputs=[save_file, message, file_info]
+            )
+
+        # 啟動介面
+        interface.launch(
+            share=False, 
+            inbrowser=True,
+            show_error=True
         )
-        interface.launch(share=True)
 
 class App:
     """應用程式主類別"""
@@ -953,7 +1149,7 @@ class IndexScraper:
 
 
 def main() -> None:
-    interface_type = input("請選擇使用者介面(cmd / gradio / both，預設為 both): ")
+    #interface_type = input("請選擇使用者介面(cmd / gradio / both，預設為 both): ")
     interface_type = "gradio"
     App().run(interface_type)
 
@@ -1011,14 +1207,14 @@ def test() -> None:
             if response.status_code != 200:
                 print(f'{teacher_name}: {response.status_code}')
            
-    #test = class_table(_get_url("307"))
-    #test.export_to_ics()
+    test = class_table(_get_url("319"))
+    test.export_to_json()
     #test = NewWiki()
     #test.export_teacher_data_to_json()
     
     
     #print(json.dumps(data, indent=4, ensure_ascii=False))
-    get_teacher_in_new_wiki()
+    #get_teacher_in_new_wiki()
     
 
 if __name__ == "__main__":
