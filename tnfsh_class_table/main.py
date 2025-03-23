@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup, Tag
 import re
 import json
 from datetime import datetime
-from typing import Dict, List, Optional, Union, Any
+from typing import Dict, List, Optional, Union, Any, Tuple
 from abc import ABC, abstractmethod
 import gradio as gr
 import threading
@@ -71,21 +71,199 @@ def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> 
     
     return None
 
-class NewWiki:
-    """
-    新竹園 Wiki 資料處理類別
 
-    提供與新竹園 Wiki 相關的功能，例如取得教師索引、科目列表等。
-    """
-
+class TNFSHClassTableIndex:
+    """台南一中課表索引的單例類別"""
+    
+    _instance = None
+    _initialized = False
+    
+    def __new__(cls) -> 'TNFSHClassTableIndex':
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+    
     def __init__(self) -> None:
-        self.base_url = "https://tnfshwiki.tfcis.org"
-        # 使用線程池進行並發請求
-        with ThreadPoolExecutor(max_workers=20) as executor:
-            self.teacher_index = self._get_new_wiki_teacher_index(executor)
-        self.teacher_reverse_index = self._build_teacher_reverse_index()
+        # 確保初始化只執行一次
+        if not TNFSHClassTableIndex._initialized:
+            self.base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+            self.index = self._get_index()
+            self.reverse_index = self._build_reverse_index()
+            TNFSHClassTableIndex._initialized = True
+
+    def _get_index(self) -> Dict[str, Union[str, Dict[str, Union[str, Dict[str, Dict[str, str]]]]]]:
+        """取得完整的台南一中課表索引"""
+        urls = ("_ClassIndex.html", "_TeachIndex.html")
+        data_types = ("class", "teacher")
+        result = {
+            "base_url": self.base_url,
+            "root": "course.html"
+        }
+
+        for url, data_type in zip(urls, data_types):
+            try:
+                # 發送請求獲取頁面內容
+                response = requests.get(self.base_url + url, timeout=10)
+                response.raise_for_status()
+                soup = BeautifulSoup(response.content, 'html.parser')
+                parsed_data = {}
+                current_category = None
+                for tr in soup.find_all("tr"):
+                    category_tag = tr.find("span")
+                    if category_tag and not tr.find("a"):
+                        current_category = category_tag.text.strip()
+                        parsed_data[current_category] = {}
+                    for a in tr.find_all("a"):
+                        link = a.get("href")
+                        text = a.text.strip()
+                        if text.isdigit() and link:
+                            parsed_data[current_category][text] = link
+                        else:
+                            match = re.search(r'([\u4e00-\u9fa5]+)', text)
+                            if match:
+                                text = match.group(1)
+                                parsed_data[current_category][text] =  link
+                            else:
+                                text = text.replace("\r", "").replace("\n", "").replace(" ", "").strip()
+                                if len(text) > 3:
+                                    text = text[3:].strip()
+                                    parsed_data[current_category][text] = link
+
+                result[data_type] = {
+                    "url": url,
+                    "data": parsed_data
+                }
+
+            except Exception as e:
+                print(f"Error processing {data_type}: {str(e)}")
+                result[data_type] = {
+                    "url": url,
+                    "data": {}
+                }
+
+        return result
+    
+    def _build_reverse_index(self) -> Dict[str, Dict[str, str]]:
+        """建立反查表，將老師/班級對應到其 URL 和分類。
+
+        Returns:
+            Dict[str, Dict[str, str]]: 反查表結構為 {老師/班級: {url: url, category: category}}
+        """
+        reverse_index = {}
+        
+        # 處理教師資料
+        if "teacher" in self.index:
+            teacher_data = self.index["teacher"]["data"]
+            for subject, teachers in teacher_data.items():
+                for teacher_name, teacher_url in teachers.items():
+                    reverse_index[teacher_name] = {
+                        "url": teacher_url,
+                        "category": subject
+                    }
+        
+        # 處理班級資料
+        if "class" in self.index:
+            class_data = self.index["class"]["data"]
+            for grade, classes in class_data.items():
+                for class_num, class_url in classes.items():
+                    reverse_index[class_num] = {
+                        "url": class_url,
+                        "category": grade
+                    }
+        
+        return reverse_index
+    
+    def export(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
+        """匯出索引資料為 JSON 格式
+        
+        Args:
+            export_type (str): 要匯出的資料類型 ("index"/"reverse_index"/"all"，預設為 "all")
+            filepath (str, optional): 輸出檔案路徑，若未指定則自動生成
+            
+        Returns:
+            str: 實際儲存的檔案路徑
+            
+        Raises:
+            ValueError: 當 export_type 不合法時
+            Exception: 當檔案寫入失敗時
+        """
+        # 驗證 export_type
+        valid_types = ["index", "reverse_index", "all"]
+
+        if export_type.lower() not in valid_types:
+            raise ValueError(f"不支援的匯出類型。請使用 {', '.join(valid_types)}")
+        
+        if export_type == "all":
+            export_type = "index_all"
+        # 準備要匯出的資料
+        export_data = {}
+        if export_type.lower() == "index":
+            export_data["index"] = self.index
+        elif export_type.lower() == "reverse_index":
+            export_data["reverse_index"] = self.reverse_index
+        else:  # all
+            export_data = {
+                "index": self.index,
+                "reverse_index": self.reverse_index
+            }
+
+        # 加入匯出時間
+        export_data["export_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # 如果未指定檔案路徑，則自動生成
+        if filepath is None:
+            filepath = f"tnfsh_class_table_{export_type}.json"
+
+        # 寫入 JSON 檔案
+        try:
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(export_data, f, ensure_ascii=False, indent=2)
+            return filepath
+        except Exception as e:
+            raise Exception(f"Failed to write JSON file: {str(e)}")
+    
+    def refresh(self) -> None:
+        """重新載入索引資料"""
+        self.index = self._get_index()
+        self.reverse_index = self._build_reverse_index()
+        
+    @classmethod
+    def get_instance(cls) -> 'TNFSHClassTableIndex':
+        """取得單例實例
+        
+        Returns:
+            TNFSHClassTableIndex: 索引類別的單例實例
+        """
+        if cls._instance is None:
+            cls._instance = cls()
+        return cls._instance
+
 
     
+
+
+
+
+class NewWikiTeacherIndex:
+    """新竹園 Wiki 教師索引的單例類別"""
+    
+    _instance = None
+    _initialized = False
+    
+    def __new__(cls) -> 'NewWikiTeacherIndex':
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+    
+    def __init__(self) -> None:
+        # 確保初始化只執行一次
+        if not NewWikiTeacherIndex._initialized:
+            self.base_url = "https://tnfshwiki.tfcis.org"
+            # 使用線程池進行並發請求
+            with ThreadPoolExecutor(max_workers=20) as executor:
+                self.teacher_index = self._get_new_wiki_teacher_index(executor)
+            self.reverse_index = self._build_teacher_reverse_index()
+            NewWikiTeacherIndex._initialized = True
     def _get_new_wiki_normal_url(self, title: str) -> str:
         """
         生成新竹園 Wiki 的標準版 URL
@@ -175,52 +353,78 @@ class NewWiki:
             return teacher_index
 
     def _build_teacher_reverse_index(self) -> Dict[str, Dict[str, str]]:
-        """
-        建立教師反查表，將教師名稱對應到其教授的科目與相關資訊
-
-        Returns:
-            Dict[str, Dict[str, str]]: 教師反查表
-        """
+        """建立教師反查表，將教師名稱對應到其科目與URL"""
         reverse_index = {}
         for subject, data in self.teacher_index.items():
             for teacher, teacher_url in data["teachers"].items():
-                reverse_index[teacher] = {  # 直接存儲為字典
-                    "subject": subject,
-                    "new_wiki_url": self._get_new_wiki_normal_url(teacher_url.replace("/", ""))
+                reverse_index[teacher] = {
+                    "url": teacher_url,
+                    "category": subject  # 統一使用 category 作為分類
                 }
         return reverse_index
     
-    def export_teacher_data_to_json(self, filepath: Optional[str] = None) -> str:
-        """
-        將教師索引與教師反查表匯出為單一 JSON 格式
-
+    def export(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
+        """匯出索引資料為 JSON 格式
+        
         Args:
+            export_type (str): 要匯出的資料類型 ("index"/"reverse_index"/"all"，預設為 "all")
             filepath (str, optional): 輸出檔案路徑，若未指定則自動生成
-
+            
         Returns:
             str: 實際儲存的檔案路徑
-
+            
         Raises:
+            ValueError: 當 export_type 不合法時
             Exception: 當檔案寫入失敗時
         """
-        data = {
-            "teacher_index": self.teacher_index,
-            "reverse_teacher_index": self.teacher_reverse_index,
-            "export_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        }
+        # 驗證 export_type
+        valid_types = ["index", "reverse_index", "all"]
+        if export_type.lower() not in valid_types:
+            raise ValueError(f"不支援的匯出類型。請使用 {', '.join(valid_types)}")
+
+        # 準備要匯出的資料
+        export_data = {}
+        if export_type.lower() == "index":
+            export_data["index"] = self.teacher_index
+        elif export_type.lower() == "reverse_index":
+            export_data["reverse_index"] = self.reverse_index
+        else:  # all
+            export_data = {
+                "index": self.teacher_index,
+                "reverse_index": self.reverse_index
+            }
+
+        # 加入匯出時間
+        export_data["export_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         # 如果未指定檔案路徑，則自動生成
         if filepath is None:
-            filepath = f"new_wiki_teacher_data.json"
-        
+            filepath = f"new_wiki_teacher_{export_type}.json"
+
         # 寫入 JSON 檔案
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+                json.dump(export_data, f, ensure_ascii=False, indent=2)
             return filepath
         except Exception as e:
             raise Exception(f"Failed to write JSON file: {str(e)}")
 
+    def refresh(self) -> None:
+        """重新載入索引資料"""
+        with ThreadPoolExecutor(max_workers=20) as executor:
+            self.teacher_index = self._get_new_wiki_teacher_index(executor)
+        self.reverse_index = self._build_teacher_reverse_index()
+
+    @classmethod
+    def get_instance(cls) -> 'NewWikiTeacherIndex':
+        """取得單例實例
+        
+        Returns:
+            NewWikiTeacherIndex: 索引類別的單例實例
+        """
+        if cls._instance is None:
+            cls._instance = cls()
+        return cls._instance
 class class_table:
     """課表處理的主要類別
     
@@ -469,7 +673,7 @@ class class_table:
         def _get_new_wiki_teacher_links_and_name(teacher_name: str) -> List[Tuple[str, str]]:
             """取得新竹園 Wiki 教師連結列表，返回 (URL, 名稱) 的列表"""
             if not os.path.exists("new_wiki_teacher_data.json"):
-                teacher_data = NewWiki().export_teacher_data_to_json()
+                teacher_data = NewWikiTeacherIndex().export_teacher_data_to_json()
 
             with open("new_wiki_teacher_data.json", "r", encoding="utf-8") as f:
                 teacher_data = json.load(f)
@@ -1093,59 +1297,6 @@ class App:
             interface.run()
 
 
-import requests
-import re
-import json
-from bs4 import BeautifulSoup
-
-class IndexScraper:
-    def __init__(self, url, data_type):
-        self.url = url
-        self.data_type = data_type  # "teacher" 或 "class"
-
-    def scrape_data(self):
-        response = requests.get(self.url, timeout=10)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, 'html.parser')
-
-        if self.data_type == "teacher":
-            return self._scrape_teacher_data(soup)
-        elif self.data_type == "class":
-            return self._scrape_class_data(soup)
-        else:
-            raise ValueError("Invalid data_type. Must be 'teacher' or 'class'.")
-
-    def _scrape_teacher_data(self, soup):
-        grade_dict = {}
-        for tr in soup.find_all("tr"):
-            for a in tr.find_all("a"):
-                link = a.get("href")
-                #print(a)
-                text = a.text.strip()
-                match = re.search(r'([\u4e00-\u9fa5]+)', text)
-                if link and match:
-                    text = match.group(1)
-                    grade_dict.setdefault("所有老師", []).append({text: link})  # 所有老師放在一起
-        return grade_dict
-
-    def _scrape_class_data(self, soup):
-        grade_dict = {}
-        current_grade = None
-        for tr in soup.find_all("tr"):
-            grade_tag = tr.find("span")
-            if grade_tag and not tr.find("a"):
-                current_grade = grade_tag.text.strip()
-                grade_dict[current_grade] = []
-            for a in tr.find_all("a"):
-                link = a.get("href")
-                text = a.text.strip()
-                if link and text.isdigit() and current_grade:
-                    grade_dict[current_grade].append({text: link})
-        return grade_dict
-
-
-
-
 
 
 def main() -> None:
@@ -1206,17 +1357,21 @@ def test() -> None:
             response = requests.head(base_url + "/" +teacher_name, timeout=10)
             if response.status_code != 200:
                 print(f'{teacher_name}: {response.status_code}')
-           
-    test = class_table(_get_url("319"))
-    test.export_to_json()
+    url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/TA01.html"
+    #test = class_table(url)
+    #test.export_to_json()
     #test = NewWiki()
     #test.export_teacher_data_to_json()
     
-    
     #print(json.dumps(data, indent=4, ensure_ascii=False))
     #get_teacher_in_new_wiki()
+
+    test = TNFSHClassTableIndex()
+    test.export()
+    #print(test.url)
+    #print_format(test.index, "json")
     
 
 if __name__ == "__main__":
-    main()
-    #test()
+    #main()
+    test()
