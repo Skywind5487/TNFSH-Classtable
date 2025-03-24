@@ -120,6 +120,8 @@
 #### 1️⃣ 安裝 `uv`
 `uv` 是一個 Python 的虛擬環境管理工具。
 請在專案資料夾打開 powershell / 終端機。
+對於Windows用戶，顯示的會是`在終端中開啟`
+參考資料: [參考資料](https://dev.to/codemee/shi-yong-uv-guan-li-python-huan-jing-53hg)
 
 - **Windows**：
   在 PowerShell 中輸入：
