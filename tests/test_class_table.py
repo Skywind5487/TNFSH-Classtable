@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock, patch
-from tnfsh_class_table.main import class_table, TableError, Commands
+from tnfsh_class_table.main import TNFSHClassTable, TableError, Commands
 
 # 模擬的 HTML 內容
 MOCK_HTML = """
@@ -27,7 +27,7 @@ def mock_response():
 def table(mock_response):
     """建立測試用的課表物件"""
     with patch('requests.get', return_value=mock_response):
-        return class_table("http://example.com")
+        return TNFSHClassTable("http://example.com")
 
 def test_get_class(table):
     """測試班級資訊擷取"""
@@ -47,7 +47,7 @@ def test_invalid_url():
     with patch('requests.get') as mock_get:
         mock_get.side_effect = Exception("Connection error")
         with pytest.raises(TableError):
-            class_table("http://invalid-url.com")
+            TNFSHClassTable("http://invalid-url.com")
 
 def test_write_json(table, tmp_path):
     """測試JSON檔案輸出"""
