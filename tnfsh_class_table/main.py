@@ -95,6 +95,7 @@ class TNFSHClassTableIndex:
         """取得完整的台南一中課表索引"""
         urls = ("_ClassIndex.html", "_TeachIndex.html")
         data_types = ("class", "teacher")
+
         result = {
             "base_url": self.base_url,
             "root": "course.html"
@@ -255,7 +256,7 @@ class NewWikiTeacherIndex:
             self.base_url = "https://tnfshwiki.tfcis.org"
             # 使用線程池進行並發請求
             with ThreadPoolExecutor(max_workers=10) as executor:
-                self.teacher_index = self._get_new_wiki_teacher_index(executor)
+                self.index = self._get_new_wiki_teacher_index(executor)
             self.reverse_index = self._build_teacher_reverse_index()
             NewWikiTeacherIndex._initialized = True
     
@@ -356,7 +357,7 @@ class NewWikiTeacherIndex:
     def _build_teacher_reverse_index(self) -> Dict[str, Dict[str, str]]:
         """建立教師反查表，將教師名稱對應到其科目與URL"""
         reverse_index = {}
-        for subject, data in self.teacher_index.items():
+        for subject, data in self.index.items():
             for teacher, teacher_url in data["teachers"].items():
                 reverse_index[teacher] = {
                     "url": teacher_url,
@@ -386,12 +387,12 @@ class NewWikiTeacherIndex:
         # 準備要匯出的資料
         export_data = {}
         if export_type.lower() == "index":
-            export_data["index"] = self.teacher_index
+            export_data["index"] = self.index
         elif export_type.lower() == "reverse_index":
             export_data["reverse_index"] = self.reverse_index
         else:  # all
             export_data = {
-                "index": self.teacher_index,
+                "index": self.index,
                 "reverse_index": self.reverse_index
             }
 
@@ -413,7 +414,7 @@ class NewWikiTeacherIndex:
     def refresh(self) -> None:
         """重新載入索引資料"""
         with ThreadPoolExecutor(max_workers=10) as executor:
-            self.teacher_index = self._get_new_wiki_teacher_index(executor)
+            self.index = self._get_new_wiki_teacher_index(executor)
         self.reverse_index = self._build_teacher_reverse_index()
 
     @classmethod
@@ -484,11 +485,11 @@ class TNFSHClassTable:
         target = self.target
         aliases = {"朱蒙":"吳銘"}
         try:
-            url = base_url + "/" + reverse_index[target]["url"]
+            url = base_url + reverse_index[target]["url"]
             return url
         except:
             try:
-                url = base_url + "/" + reverse_index[aliases[target]]["url"]
+                url = base_url + reverse_index[aliases[target]]["url"]
                 return url
             except Exception as e:
                 raise ValueError(f'找不到班級或老師: {str(e)}')
@@ -994,11 +995,13 @@ class TNFSHClassTable:
             raise ValueError(f'沒有模式: {type}')
 
         if type == "json":
-            self._export_to_json(filepath)
+            filepath = self._export_to_json(filepath)
         elif type == "csv":
-            self._export_to_csv(filepath)
+            filepath = self._export_to_csv(filepath)
         elif type == "ics":
-            self._export_to_ics(filepath)
+            filepath = self._export_to_ics(filepath)
+        
+        return filepath
 
 
 from abc import ABC, abstractmethod
@@ -1079,17 +1082,24 @@ class GradioInterface(Interface):
     def __init__(self) -> None:
         super().__init__()
         # 設定年級和班級選項
-        self.grades = ["一", "二", "三"] 
-        self.classes = [f"{i:02d}" for i in range(1, 27)]
+        self.teacher_index = TNFSHClassTableIndex.get_instance()
+        self.grades = list(self.teacher_index.index["class"]["data"].keys())
+        self.classes = [f"{i:02d}" for i in range(1, 20)]
         self.export_formats = ["JSON", "CSV", "ICS"]
+        
+        # 建立教師列表
+        
 
-    def display(self, args: List[str]) -> Any:
+    def display(self, target_type:str, args: List[str]) -> Any:
         """顯示課表 (實作抽象方法)"""
         try:
             if len(args) != 2:
                 return gr.Dataframe(), "錯誤: 需要年級和班級參數"
             grade, class_num = args
-            return self._display_table(grade, class_num)
+            grade = str(self.grades.index(grade) + 1)
+            class_num = class_num.zfill(2)
+            #print(grade)
+            return self._display_table(target_type, grade + class_num)
         except Exception as e:
             return gr.Dataframe(), f"錯誤: {str(e)}"
 
@@ -1123,30 +1133,43 @@ class GradioInterface(Interface):
         except Exception as e:
             return None, f"錯誤: {str(e)}"
 
-    def _display_table(self, grade: str, class_num: str) -> tuple[gr.Dataframe, str]:
-        """顯示課表的實際邏輯"""
+    def _display_table(self, target_type: str, target: str) -> tuple[gr.Dataframe, str]:
+        """顯示課表內容
+
+        Args:
+            target_type (str): 目標類型，"class" 或 "teacher"
+            target (str): 目標識別符，如班級代碼或教師名稱
+
+        Returns:
+            tuple[gr.Dataframe, str]: (課表資料框, 訊息)
+        """
+
         try:
-            class_num = class_num.zfill(2)
-            table = TNFSHClassTable(grade + class_num) 
-            
+            table = TNFSHClassTable(target)
+            print(target)
+            # 轉換課表數據為顯示格式
             rows = []
-            for row in table.table:
+            for period in table.table:
                 formatted_row = []
-                for item in row:
-                    if isinstance(item, dict):
-                        #print(item)
-                        subject = list(item.keys())[0]
-                        teacher = list(item[subject].keys())
-                        teachers = ", ".join(teacher)
-                        text = f"{subject}: \n{teachers}"
-                        formatted_row.append(text)
+                for course in period:
+                    if isinstance(course, dict):
+                        course_name = list(course.keys())[0]
+                        teachers = ", ".join(list(course[course_name].keys()))
+                        cell_text = f"{course_name}\n{teachers}" if teachers else course_name
+                        formatted_row.append(cell_text)
                     else:
                         formatted_row.append("")
                 rows.append(formatted_row)
             
-            columns = ["星期一", "星期二", "星期三", "星期四", "星期五"]
-            message = f"成功載入 {grade}年{class_num}班 課表，點擊格子可以展開文字\n連結:\n{url}"
-            return gr.Dataframe(value=rows, headers=columns), message
+            # 設定表頭
+            headers = ["星期一", "星期二", "星期三", "星期四", "星期五"]
+            
+            # 生成訊息
+            message = f"成功載入 {target} 的課表"
+            if target_type == "class":
+                message = f"成功載入 {target[0]}{target[1:]}班 的課表"
+            
+            return gr.Dataframe(value=rows, headers=headers), message
             
         except Exception as e:
             return gr.Dataframe(), f"錯誤: {str(e)}"
@@ -1170,27 +1193,34 @@ class GradioInterface(Interface):
             info.append("1. 前往 Google Calendar 設定")
             info.append("2. 選擇「匯入與匯出」")
             info.append("3. 選擇「匯入」並上傳 CSV 檔案")
+            info.append("CSV 格式在 Google Calendar 不支援 repeat ")
         elif format == "ICS":
             info.append("ICS 格式適合匯入各種行事曆軟體")
             info.append("匯入步驟：")
             info.append("- iOS/macOS: 直接開啟檔案")
-            info.append("- Google Calendar: 透過設定匯入")
             info.append("- Outlook: 透過行事曆匯入選項")
+            info.append("- Google Calendar: 透過設定匯入")
+            info.append("Google Calendar 匯入方法: ")
+            info.append("1. 按右上角藍色向下箭頭下載日曆")
+            info.append("2. 打開網頁版 google calendar")
+            info.append("(若為手機則選「顯示電腦版網站」)")
+            info.append("3. 點擊右上方齒輪 -> 設定")
+            info.append("4. 左欄 -> 新增日曆 -> 建立新日曆")
+            info.append("5. 輸入名稱後建立日曆")
+            info.append("6. 點選左欄 -> 匯入及匯出 -> 匯入")
+            info.append("7. 選擇檔案 -> 選擇剛剛下載的檔案")
+            info.append("8. 選擇日曆 -> 匯入")
         
         return "\n".join(info)
 
     def _save_file(self, grade: str, class_num: str, format: str) -> tuple[gr.File, str, str]:
         """儲存檔案的實際邏輯"""
         try:
+            grade = str(self.grades.index(grade) + 1)
             class_num = class_num.zfill(2)
             table = TNFSHClassTable(grade + class_num)
             
-            if format == "JSON":
-                filepath = table.export_to_json()
-            elif format == "CSV":
-                filepath = table.export_to_csv()
-            elif format == "ICS":
-                filepath = table.export_to_ics()
+            filepath = table.export(format.lower())
             
             message = f"已將 {grade}年{class_num}班 課表儲存為 {format} 格式"
             info = self._get_file_info(table, format)
@@ -1198,11 +1228,15 @@ class GradioInterface(Interface):
             return gr.File(value=filepath), message, info
             
         except Exception as e:
-            return None, f"錯誤:https://g0v.hackmd.io/@jothon/Sch001courses/https%3A%2F%2Fg0v.hackmd.io%2F%40jothon%2FSch001SSR2022 {str(e)}", ""
+            return None, f"錯誤: {str(e)}", ""
 
     def run(self) -> None:
         """啟動Gradio介面"""
-        with gr.Blocks(title="臺南一中課表查詢系統") as interface:
+        int
+        with gr.Blocks(
+            title="臺南一中課表查詢系統",
+            theme="Zarkel/IBM_Carbon_Theme"
+        ) as interface:
             gr.Markdown("# 臺南一中課表查詢系統")
             
             with gr.Tab("顯示課表"):
@@ -1225,7 +1259,7 @@ class GradioInterface(Interface):
             
             # 設定事件處理
             display_btn.click(
-                fn=lambda g, c: self._display_table(g, c),
+                fn=lambda g, c: self.display("class", [g , c]),
                 inputs=[display_grade, display_class],
                 outputs=[display_table, message]
             )
@@ -1233,14 +1267,16 @@ class GradioInterface(Interface):
             save_btn.click(
                 fn=lambda g, c, f: self._save_file(g, c, f),
                 inputs=[save_grade, save_class, save_format],
-                outputs=[save_file, message, file_info]
+                outputs=[save_file, message, file_info],
             )
-
         # 啟動介面
         interface.launch(
-            share=False, 
-            inbrowser=True,
-            show_error=True
+            share=True,
+            inbrowser=True, 
+            show_error=True,
+            debug=True,
+            prevent_thread_lock=True
+            
         )
 
 class App:
@@ -1283,16 +1319,20 @@ def main() -> None:
     App().run(interface_type)
 
 def test() -> None:
-    test = TNFSHClassTableIndex()
-    test = TNFSHClassTable("顏永進")
-    test.export("ics")
+    #test = TNFSHClassTableIndex()
+    #test = TNFSHClassTable("顏永進")
+    #test.export("ics")
     #test = NewWikiTeacherIndex().get_instance()
     #test.refresh()
     #test.export("all")
     #print_format(test.teacher_index, "json")
+    test = GradioInterface()
+    test.display(["高一", "7"])
+    #print(test.grades)
+    #print_format(test.teacher_index.teacher_index, "json")
 
     
 
 if __name__ == "__main__":
-    #main()
-    test()
+    main()
+    #test()
