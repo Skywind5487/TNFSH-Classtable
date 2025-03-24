@@ -113,12 +113,13 @@
 ### 2. 解壓縮專案
 1. 在「下載」資料夾找到 `TNFSH-Classtable-main.zip`。
 2. 右鍵點擊壓縮檔，選擇「解壓縮全部」。
-3. 將產生的資料夾 `TNFSH-Classtable-main` 移到你喜歡的地方。
+3. 將產生的資料夾 `TNFSH-Classtable-main` 移到你喜歡的地方(下稱專案資料夾)。
 
 ### 3. 安裝環境
 
 #### 1️⃣ 安裝 `uv`
 `uv` 是一個 Python 的虛擬環境管理工具。
+請在專案資料夾打開 powershell / 終端機。
 
 - **Windows**：
   在 PowerShell 中輸入：
