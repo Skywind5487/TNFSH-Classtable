@@ -173,7 +173,7 @@ class TNFSHClassTableIndex:
         
         return reverse_index
     
-    def export(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
+    def export_json(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
         """匯出索引資料為 JSON 格式
         
         Args:
@@ -290,22 +290,13 @@ class NewWikiTeacherIndex:
         def _get_new_wiki_subject() -> Dict[str, Dict[str, str]]:
             title = "分類:科目"
             url = self._get_new_wiki_normal_url(title)
-            print(url)
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-                'Referer': 'https://tnfshwiki.tfcis.org/',
-                'Accept-Language': 'en-US,en;q=0.9',
-            }
-            response = requests.get(url, headers=headers, timeout=10)
-            print(response.status_code)
             try:
                 response = requests.get(url, timeout=5)
-                print(response.status_code)
                 response.raise_for_status()
                 soup = BeautifulSoup(response.content, 'html.parser')
-                print(soup)
-                subject_list = soup.find_all("div", class_="mw-category")#[1]
-                print(subject_list)
+
+                subject_list = soup.find_all("div", class_="mw-category")[1]
+                #print(subject_list)
                 subject_index = {}
                 for subject in subject_list.find_all("a"):
                     subject_name = subject.text.strip()
@@ -320,11 +311,11 @@ class NewWikiTeacherIndex:
 
         def _get_subject_teacher_list(subject_name: str) -> Dict[str, str]:
             url = self._get_new_wiki_mobile_url(f"分類:{subject_name}老師")
-            print(url)
+            #print(url)
             try:
                 response = requests.get(url, timeout=5)
                 response.raise_for_status()
-                print(response.status_code)
+                #print(response.status_code)
                 soup = BeautifulSoup(response.content, 'html.parser')
                 if not soup.find("div", class_="mw-category"):
                     return {}
@@ -333,7 +324,7 @@ class NewWikiTeacherIndex:
                 teacher_names = [teacher.text for teacher in teacher_list]
                 teacher_urls = [unquote(teacher.get("href")) for teacher in teacher_list]
                 result = dict(zip(teacher_names, teacher_urls))
-                print(result)
+                #print(result)
                 return result
             except requests.RequestException:
                 return {}
@@ -618,16 +609,23 @@ class TNFSHClassTable:
 
             def is_teacher_p(p_tag) -> bool:
                 """檢查是否為包含教師資訊的p標籤"""
-                return bool(p_tag.find_all('a'))
+                check = bool(p_tag.find_all('a'))
+                if check:
+                    pass
+                    #print(p_tag)
+                return check
             
             def parse_teachers(teacher_ps) -> Dict[str, str]:
                 """解析所有教師p標籤的資訊"""
                 teachers_dict = {}
+                #print(teacher_ps)
+                
                 for p in teacher_ps:
                     for link in p.find_all('a'):
                         name = clean_text(link.text)
                         href = link.get('href', '')
                         teachers_dict[name] = href
+                #print(teachers_dict)
                 return teachers_dict
             
             def combine_class_name(class_ps) -> str:
@@ -643,27 +641,32 @@ class TNFSHClassTable:
             # 區分教師資訊和課程名稱的p標籤
             teacher_ps = []
             class_ps = []
-            
+            #print(ps, "\n")
             for p in ps:
+                #print(p)
                 if is_teacher_p(p):
+                    #print(p)
                     teacher_ps.append(p)
                 else:
                     class_ps.append(p)
-            
+                    #print(p)
+            #print("teacher_ps", teacher_ps)
             # 取得所有教師資訊
-            teachers_dict = parse_teachers(teacher_ps) if teacher_ps else {"": ""}
-            
+            teachers_dict = parse_teachers(teacher_ps) if teacher_ps != [] else {"": ""}
+            #print(teachers_dict)
             # 組合課程名稱
             if class_ps:
                 class_name = combine_class_name(class_ps)
-            elif teacher_ps:  # 只有教師資訊，沒有課程名稱
+            elif teacher_ps == {'':''}:  # 只有教師資訊，沒有課程名稱
                 class_name = "找不到課程"
             else:  # 沒有任何資訊
                 class_name = ""
             
             # 組合最終結果
             if class_name or teachers_dict != {"": ""}:
-                return {class_name: teachers_dict}
+                result = {class_name: teachers_dict}
+                #print(result)
+                return result
             return {"": {"": ""}}
         
         result = [[
@@ -671,6 +674,7 @@ class TNFSHClassTable:
             for class_ in row.find_all('td')[2:]
             ] for row in table
         ]
+        #print_format(result, "json")
         return result
 
     def _get_event_description(self, target: Dict[str, str]) -> str:
@@ -681,7 +685,6 @@ class TNFSHClassTable:
             """取得新竹園 Wiki 教師連結列表，返回 (URL, 名稱) 的列表"""
            
             Index = NewWikiTeacherIndex.get_instance()
-            
             teacher_data = Index.reverse_index
             #print_format(Index.teacher_index)
             # 先直接搜尋完全匹配的教師名稱
@@ -700,7 +703,6 @@ class TNFSHClassTable:
             if partial_matches:
                 return partial_matches
             else:
-                return [("url", "name")]
                 # 如果還是找不到，嘗試直接生成 URL 並檢查是否有效
                 base_url = "https://tnfshwiki.tfcis.org"
                 teacher_url = f"{base_url}/{teacher_name}"
@@ -725,7 +727,10 @@ class TNFSHClassTable:
                     teacher_url = f"http://w3.tnfsh.tn.edu.tw/deanofstudies/course/{teacher_link}"
                     table_links.append(f"{_get_a_href(teacher_url, f'{teacher_name}-課表')}")
                 description.append(f"教師課表連結： {' | '.join(table_links)}")
-                
+                description.append(
+                    f"本班課表連結： {_get_a_href(self.url, f'{self.target}-課表')}"
+                )
+
                 # 竹園wiki連結
                 wiki_links = []
                 for teacher_name in target.keys():
@@ -739,9 +744,7 @@ class TNFSHClassTable:
                 else:
                     description.append("新竹園wiki： 無相關資料")
 
-                description.append(
-                    f"本班課表連結： {_get_a_href(self.url, f'{self.target}-課表')}"
-                )
+
             else:
                 description.append("教師： 無相關資料")
                 description.append(
@@ -855,6 +858,8 @@ class TNFSHClassTable:
                         if not day:
                             continue
                         lesson_name = list(day.keys())[0]
+                        if lesson_name == "":
+                            continue
                         teacher = list(day.values())[0]
                         start_time, end_time = self.lessons[lesson_index_name]
                         
@@ -923,6 +928,9 @@ class TNFSHClassTable:
                         continue
                         
                     lesson_name = list(day.keys())[0]
+                    if lesson_name == "":
+                        continue
+                    #print(lesson_name)
                     teacher = list(day.values())[0]
                     start_time, end_time = self.lessons[lesson_index_name]
                     
@@ -1126,7 +1134,7 @@ class GradioInterface(Interface):
                 formatted_row = []
                 for item in row:
                     if isinstance(item, dict):
-                        print(item)
+                        #print(item)
                         subject = list(item.keys())[0]
                         teacher = list(item[subject].keys())
                         teachers = ", ".join(teacher)
@@ -1190,7 +1198,7 @@ class GradioInterface(Interface):
             return gr.File(value=filepath), message, info
             
         except Exception as e:
-            return None, f"錯誤: {str(e)}", ""
+            return None, f"錯誤:https://g0v.hackmd.io/@jothon/Sch001courses/https%3A%2F%2Fg0v.hackmd.io%2F%40jothon%2FSch001SSR2022 {str(e)}", ""
 
     def run(self) -> None:
         """啟動Gradio介面"""
@@ -1250,7 +1258,7 @@ class App:
             # 使用執行緒來運行命令列介面
             def run_cmd_with_delay():
                 sleep(3)  # 等待3秒
-                CommandLineInterface().run()
+                #CommandLineInterface().run()
             
             cmd_thread = threading.Thread(
                 target=run_cmd_with_delay,
@@ -1262,8 +1270,8 @@ class App:
             
         else:
             # 根據指定類型啟動對應介面
-            interface = (GradioInterface() if interface_type.lower() == "gradio" 
-                       else CommandLineInterface())
+            interface = (GradioInterface())# if interface_type.lower() == "gradio" )
+                       #else CommandLineInterface())
             interface.run()
 
 
@@ -1275,11 +1283,12 @@ def main() -> None:
     App().run(interface_type)
 
 def test() -> None:
-    #test = TNFSHClassTableIndex().refresh()
-    #test = TNFSHClassTable("107")
-    #test.export("csv")
-    test = NewWikiTeacherIndex().get_instance()
-    test.refresh()
+    test = TNFSHClassTableIndex()
+    test = TNFSHClassTable("顏永進")
+    test.export("ics")
+    #test = NewWikiTeacherIndex().get_instance()
+    #test.refresh()
+    #test.export("all")
     #print_format(test.teacher_index, "json")
 
     
