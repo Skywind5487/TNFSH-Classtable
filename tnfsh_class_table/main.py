@@ -20,7 +20,7 @@ def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> 
     
     Args:
         data: 要輸出的資料
-        format (str): 輸出格式，支援 "json" 或 "html" (預設為 "json")
+        format (str): 輸出格式，支援 "json"、"html" 或 "2d_list" (預設為 "json")
         remove_attrs (bool): 是否移除 HTML 標籤的屬性 (預設為 True，但保留 href)
     """
     if format.lower() == "json":
@@ -66,8 +66,15 @@ def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> 
         else:
             print(str(data))
     
+    elif format.lower() == "2d_list":
+        if isinstance(data, list) and all(isinstance(row, list) for row in data):
+            for row in data:
+                print("\t".join(map(str, row)))
+        else:
+            print("資料格式錯誤，無法以 2D 列表格式輸出")
+    
     else:
-        raise ValueError("不支援的格式。請使用 'json' 或 'html'")
+        raise ValueError("不支援的格式。請使用 'json'、'html' 或 '2d_list'")
     
     return None
 
@@ -1311,6 +1318,113 @@ class App:
             interface.run()
 
 
+def course_swap_finder(src_teacher: str, src_course: Tuple[int, int], src_course_streak: int):
+    src_course = [src_course[1] - 1, src_course[0] - 1] # day, period to period day
+
+    def _get_class_stutus(table: List[List[Dict[str, Dict[str, str]]]]) -> List[List[bool]]:
+        """取得課表的空堂狀態
+    
+        Returns:
+            List[List[bool]]: 二維陣列，代表每個時段是否有課
+            外層 list 為 period (節次)，內層 list 為 day (星期一到五)
+        """
+        status = []
+        for period in table:
+            period_status = []
+            for course in period:
+                period_status.append(bool(course != {"": {"": ""}}))
+            status.append(period_status)
+        return status
+
+    def _get_class_code(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int]) -> list[str]:
+        """取得課程代碼
+        
+        Returns:
+            list[str]: 指定位置的課程代碼列表
+            若位置超出範圍或該時段無課程，則回傳空列表
+            src_course 格式為 (period, day)，period 為節次，day 為星期幾
+        """
+        if src_course[0] < 0 or src_course[1] < 0 or src_course[0] >= len(table) or src_course[1] >= len(table[0]):
+            return []  # Return an empty list if indices are out of bounds
+        src_course = table[src_course[0]][src_course[1]]
+        if not src_course:  # Check if src_course is empty
+            return []
+        src_course_class = list(list(src_course.values())[0].keys())
+        if not src_course_class:
+            return []
+        #print(src_course)
+        #print(src_course_class)
+        return src_course_class
+
+    def _check_streak_same_target(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int], src_course_streak: int) -> bool:
+        """檢查連堂狀態
+        
+        Returns:
+            bool: 是否為相同課程的連堂
+            src_course 格式為 (period, day)，period 為節次，day 為星期幾
+        """
+        src_course_class_code = _get_class_code(table, src_course)
+        for i in range(src_course_streak):
+            offset_couse_class_code = _get_class_code(table, (src_course[0] + i, src_course[1]))
+            if src_course_class_code != offset_couse_class_code:
+                return False
+       #print(src_course_class_code)
+        return True
+
+    def _check_streak_empty(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int], src_course_streak: int) -> bool:
+        """檢查連堂是否為空堂
+        
+        Returns:
+            bool: 指定的連續時段是否皆為空堂
+            src_course 格式為 (period, day)，period 為節次，day 為星期幾
+        """
+        for i in range(src_course_streak):
+            if src_course[0] + i >= len(table) or src_course[1] >= len(table[0]):
+                return False  # Out of bounds
+            if table[src_course[0] + i][src_course[1]] != {"": {"": ""}}:
+                return False
+        return True
+
+    def _find_dst_streak_and_empty(table: List[List[Dict[str, Dict[str, str]]]], src_course_streak: int) -> List[Tuple[int, int]]:
+        """尋找目標連堂
+        
+        Returns:
+            List[Tuple[int, int]]: 找到的連堂位置列表
+            每個元組格式為 (period, day)，period 為節次，day 為星期幾
+        """
+        streak_course = []
+        for i in range(len(table)):
+            for j in range(len(table[0])):
+                check = _check_streak_same_target(table, (i, j), src_course_streak)
+                if check:
+                    streak_course.append((i, j))
+        return streak_course
+
+    src_teacher_table = TNFSHClassTable(src_teacher)
+    table = src_teacher_table.table
+    if _check_streak_empty(table, src_course, src_course_streak):
+        print("給定連堂為空堂")
+        return
+    else:
+        print("給定連堂不為空堂")
+
+    if _check_streak_same_target(table, src_course, src_course_streak):
+        print("給定連堂確實為連堂")
+    else:
+        print("給定連堂不為連堂")
+        return
+
+    status = _get_class_stutus(table)
+    print_format(status, "2d_list")
+    dst_class_codes = _get_class_code(table, src_course)
+    for dst_class_code in dst_class_codes:
+        dst_teacher_table = TNFSHClassTable(dst_class_code)
+        dst_table = dst_teacher_table.table
+        streak_and_empty = _find_dst_streak_and_empty(dst_table, src_course_streak)
+        #print(streak_and_empty)
+    
+    
+
 
 
 def main() -> None:
@@ -1319,20 +1433,12 @@ def main() -> None:
     App().run(interface_type)
 
 def test() -> None:
-    #test = TNFSHClassTableIndex()
-    #test = TNFSHClassTable("顏永進")
-    #test.export("ics")
-    #test = NewWikiTeacherIndex().get_instance()
-    #test.refresh()
-    #test.export("all")
-    #print_format(test.teacher_index, "json")
-    test = GradioInterface()
-    test.display(["高一", "7"])
-    #print(test.grades)
-    #print_format(test.teacher_index.teacher_index, "json")
+    course_swap_finder("顏永進", (2, 1), 2)
 
     
 
 if __name__ == "__main__":
-    main()
-    #test()
+    #main()
+    test()
+
+
