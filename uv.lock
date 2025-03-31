@@ -160,6 +160,15 @@ wheels = [
 ]
 
 [[package]]
+name = "distro"
+version = "1.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277 },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.115.12"
 source = { registry = "https://pypi.org/simple" }
@@ -308,6 +317,23 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/52/36/bbdede67400277bef33d3ec0e6a31750da972c469f75966b4930c753218f/groovy-0.1.2.tar.gz", hash = "sha256:25c1dc09b3f9d7e292458aa762c6beb96ea037071bf5e917fc81fb78d2231083", size = 17325 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/28/27/3d6dcadc8a3214d8522c1e7f6a19554e33659be44546d44a2f7572ac7d2a/groovy-0.1.2-py3-none-any.whl", hash = "sha256:7f7975bab18c729a257a8b1ae9dcd70b7cafb1720481beae47719af57c35fa64", size = 14090 },
+]
+
+[[package]]
+name = "groq"
+version = "0.20.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8f/fc/e5a03586ffad7ae6c7996f388ca321a3bf8b9fa544a36a934ce4b6b44211/groq-0.20.0.tar.gz", hash = "sha256:2a201d41cae768c53d411dabcfea2333e2e138df22d909ed555ece426f1e016f", size = 121936 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/95/37/9b415df5dd1e6a685d3e8fd4e564a5e80f4f87c19d82829ad027fa2bb150/groq-0.20.0-py3-none-any.whl", hash = "sha256:c27b89903eb2b77f94ed95837ff3cadfc8c9e670953b1c5e5e2e855fea54b6c5", size = 124919 },
 ]
 
 [[package]]
@@ -828,6 +854,8 @@ dependencies = [
     { name = "google" },
     { name = "google-genai" },
     { name = "gradio" },
+    { name = "groq" },
+    { name = "huggingface-hub" },
     { name = "icalendar" },
     { name = "requests" },
 ]
@@ -838,6 +866,8 @@ requires-dist = [
     { name = "google", specifier = ">=3.0.0" },
     { name = "google-genai", specifier = ">=1.8.0" },
     { name = "gradio", specifier = ">=5.21.0,<6.0.0" },
+    { name = "groq", specifier = ">=0.20.0" },
+    { name = "huggingface-hub", specifier = ">=0.29.3" },
     { name = "icalendar", specifier = "==5.0.11" },
     { name = "requests", specifier = ">=2.32.3,<3.0.0" },
 ]
