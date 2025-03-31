@@ -24,31 +24,16 @@ def _src_check(src_teacher_table, src_course):
     else:
         return False
 
-def search(src_teacher: str, src_course: tuple[int, int], src_course_streak: int, path: list[tuple[str, tuple[int, int]]], tables: dict[str, list[list[bool]]], depth:int, max_depth: int):
-    if _is_empty(src_teacher, src_course):
-        return path
-    if depth >= max_depth:
-        return []
-           
+class CourseNode:
+    def __init__(self, course:tuple[int,int], parent=None):
+        self.neighbours = []
+        self.parent = parent
+        self.time: tuple[int,int] = course
 
-def bi_side_search(src_teacher: str, src_course: tuple[int, int], src_course_streak: int):
+class TeacherNode:
+    def __init__(self, name:str, course:tuple[int,int], parent=None):
+        self
+        self.children = []
     
-    src_course = _swap_period_day(src_course)
-    src_teacher_table = _get_table(src_teacher)
-    
-    if not _src_check(src_teacher_table, src_course):
-        return
 
-    target_class = _get_target(src_teacher_table, src_course)
-    if len(target_class) != 1:
-        return "不支援多班級調課"
-    
-    target_class_streak_and_empty = _find_all_streak_and_empty(_get_table(target_class[0]), src_course_streak)
-    
-    for target_course in target_class_streak_and_empty:
-        target_teacher = _get_target(_get_table(target_class[0]), target_course)
-        target_teacher_table = _get_table(target_teacher[0])
-        if _is_empty(target_teacher_table, src_course):
-            pass
-        elif _is_streak(src_teacher_table, target_course):
-            seacrch()
+def search(src_course, src_teacher: , max_depth:int):
