@@ -478,6 +478,7 @@ class TNFSHClassTable:
         self.regular_soup_table: Tag = self._get_regular_soup_table()
         self.lessons: Dict[str, List[str]] = self._get_lesson()
         self.table: List[List[Dict[str, Dict[str, str]]]] = self._get_table()
+        self.transpose_table: List[List[Dict[str, Dict[str, str]]]] = self._get_transpose_table()
         self.last_update: str = self._get_last_update()
     def _get_type(self):
         target = self.target
@@ -797,6 +798,10 @@ class TNFSHClassTable:
             return _get_class_event_description(self, target)
         elif self.type == "teacher":
             return _get_teacher_event_description(self, target)
+
+    def _get_transpose_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
+        """Transpose the .table 2D array to swap rows and columns."""
+        return list(map(list, zip(*self.table)))
 
     def _export_to_json(self, filepath: Optional[str] = None) -> str:
         """將課表資料匯出為JSON格式
