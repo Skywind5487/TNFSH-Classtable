@@ -437,7 +437,7 @@ class GradioInterface(Interface):
 
 class AIAssistant:
     def __init__(self):
-        self.client = genai.Client(api_key='AIzaSyATCTiPbnypcnFeFJZuyuXCNK7DYXe_U6A')
+        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
         self.chat = None
         self.get_chat()
 
