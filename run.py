@@ -1,2 +1,2 @@
-from tnfsh_class_table.main import main
+from tnfsh_class_table.backend import main
 main()
