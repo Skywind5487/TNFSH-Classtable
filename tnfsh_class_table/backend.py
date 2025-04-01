@@ -15,69 +15,69 @@ import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import concurrent.futures
 
-def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
-    """將資料輸出為指定格式的字串並直接打印
-    
-    Args:
-        data: 要輸出的資料
-        format (str): 輸出格式，支援 "json"、"html" 或 "2d_list" (預設為 "json")
-        remove_attrs (bool): 是否移除 HTML 標籤的屬性 (預設為 True，但保留 href)
-    """
-    if format.lower() == "json":
-        if hasattr(data, 'name'):  # 如果是 BeautifulSoup 元素
-            output = json.dumps({
-                'name': data.name,
-                'text': data.text,
-                'attrs': data.attrs
-            }, ensure_ascii=False, indent=2)
-        else:
-            output = json.dumps(data, ensure_ascii=False, indent=2)
-        print(output)
-    
-    elif format.lower() == "html":
-        if isinstance(data, (str, BeautifulSoup, Tag)):
-            try:
-                # 如果是字串且看起來不像 HTML，直接打印
-                if isinstance(data, str) and not data.strip().startswith('<'):
-                    print(data)
-                    return None
+class Util:
+    def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
+        """將資料輸出為指定格式的字串並直接打印
+        
+        Args:
+            data: 要輸出的資料
+            format (str): 輸出格式，支援 "json"、"html" 或 "2d_list" (預設為 "json")
+            remove_attrs (bool): 是否移除 HTML 標籤的屬性 (預設為 True，但保留 href)
+        """
+        if format.lower() == "json":
+            if hasattr(data, 'name'):  # 如果是 BeautifulSoup 元素
+                output = json.dumps({
+                    'name': data.name,
+                    'text': data.text,
+                    'attrs': data.attrs
+                }, ensure_ascii=False, indent=2)
+            else:
+                output = json.dumps(data, ensure_ascii=False, indent=2)
+            print(output)
+        
+        elif format.lower() == "html":
+            if isinstance(data, (str, BeautifulSoup, Tag)):
+                try:
+                    # 如果是字串且看起來不像 HTML，直接打印
+                    if isinstance(data, str) and not data.strip().startswith('<'):
+                        print(data)
+                        return None
+                    
+                    # 建立新的 BeautifulSoup 物件
+                    soup = BeautifulSoup(str(data), 'html.parser')
+                    
+                    if remove_attrs:
+                        for tag in soup.find_all():
+                            if tag.name == 'a':
+                                # 保留 a 標籤的 href
+                                href = tag.get('href', '')
+                                tag.attrs = {'href': href} if href else {}
+                            else:
+                                # 移除其他標籤的屬性
+                                tag.attrs = {}
+                    
+                    # 移除空白行並打印
+                    output = soup.prettify()
+                    output = '\n'.join(line for line in output.split('\n') if line.strip())
+                    print(output)
                 
-                # 建立新的 BeautifulSoup 物件
-                soup = BeautifulSoup(str(data), 'html.parser')
-                
-                if remove_attrs:
-                    for tag in soup.find_all():
-                        if tag.name == 'a':
-                            # 保留 a 標籤的 href
-                            href = tag.get('href', '')
-                            tag.attrs = {'href': href} if href else {}
-                        else:
-                            # 移除其他標籤的屬性
-                            tag.attrs = {}
-                
-                # 移除空白行並打印
-                output = soup.prettify()
-                output = '\n'.join(line for line in output.split('\n') if line.strip())
-                print(output)
-            
-            except Exception as e:
-                print(f"HTML 解析錯誤: {e}")
+                except Exception as e:
+                    print(f"HTML 解析錯誤: {e}")
+                    print(str(data))
+            else:
                 print(str(data))
+        
+        elif format.lower() == "2d_list":
+            if isinstance(data, list) and all(isinstance(row, list) for row in data):
+                for row in data:
+                    print("\t".join(map(str, row)))
+            else:
+                print("資料格式錯誤，無法以 2D 列表格式輸出")
+        
         else:
-            print(str(data))
-    
-    elif format.lower() == "2d_list":
-        if isinstance(data, list) and all(isinstance(row, list) for row in data):
-            for row in data:
-                print("\t".join(map(str, row)))
-        else:
-            print("資料格式錯誤，無法以 2D 列表格式輸出")
-    
-    else:
-        raise ValueError("不支援的格式。請使用 'json'、'html' 或 '2d_list'")
-    
-    return None
-
+            raise ValueError("不支援的格式。請使用 'json'、'html' 或 '2d_list'")
+        
+        return None
 
 class TNFSHClassTableIndex:
     """台南一中課表索引的單例類別"""
@@ -478,6 +478,7 @@ class TNFSHClassTable:
         self.regular_soup_table: Tag = self._get_regular_soup_table()
         self.lessons: Dict[str, List[str]] = self._get_lesson()
         self.table: List[List[Dict[str, Dict[str, str]]]] = self._get_table()
+        self.transposed_table: List[List[Dict[str, Dict[str, str]]]] = self._get_transpose_table()
         self.last_update: str = self._get_last_update()
     def _get_type(self):
         target = self.target
@@ -684,6 +685,10 @@ class TNFSHClassTable:
         ]
         #print_format(result, "json")
         return result
+
+    def _get_transpose_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
+        table = self.table
+        return [list(row) for row in zip(*table)]
 
     def _get_event_description(self, target: Dict[str, str]) -> str:
         def _get_a_href(url: str, text: str) -> str:
@@ -945,14 +950,8 @@ class TNFSHClassTable:
                     try:
                         current_date = monday + timedelta(days=day_index)
                         
-                        start_datetime = datetime.strptime(
-                            f"{current_date.date()} {start_time}",
-                            "%Y-%m-%d %H:%M"
-                        )
-                        end_datetime = datetime.strptime(
-                            f"{current_date.date()} {end_time}",
-                            "%Y-%m-%d %H:%M"
-                        )
+                        start_datetime = datetime.strptime(f"{current_date.date()} {start_time}", "%Y-%m-%d %H:%M")
+                        end_datetime = datetime.strptime(f"{current_date.date()} {end_time}", "%Y-%m-%d %H:%M")
                         
                         # 建立事件
                         event = Event()
@@ -1009,436 +1008,3 @@ class TNFSHClassTable:
             filepath = self._export_to_ics(filepath)
         
         return filepath
-
-
-from abc import ABC, abstractmethod
-from typing import Any, Optional, List
-import gradio as gr
-import requests
-
-class Interface(ABC):
-    """介面抽象基類
-    
-    整合了指令執行和介面顯示功能。
-    
-    Attributes:
-        commands (dict): 支援的指令對應表
-    """
-    
-    def __init__(self) -> None:
-        self.commands = {
-            "display": self.display,
-            "save_json": self.save_json,
-            "save_csv": self.save_csv, 
-            "save_ics": self.save_ics,
-            "help": self.help
-        }
-
-    def execute(self, command_str: str) -> Any:
-        """執行指令"""
-        parts = command_str.split()
-        if not parts:
-            return "請輸入命令"
-
-        command = parts[0]
-        args = parts[1:] if len(parts) > 1 else []
-
-        if command in self.commands:
-            return self.commands[command](args) if args else "請指定班級代碼"
-        return f"未知的命令: {command}"
-
-    @abstractmethod
-    def display(self, args: List[str]) -> Any:
-        """顯示課表"""
-        pass
-    
-    @abstractmethod
-    def save_json(self, args: List[str]) -> Any:
-        """儲存為JSON"""
-        pass
-
-    @abstractmethod 
-    def save_csv(self, args: List[str]) -> Any:
-        """儲存為CSV"""
-        pass
-
-    @abstractmethod
-    def save_ics(self, args: List[str]) -> Any:
-        """儲存為ICS"""
-        pass
-        
-    def help(self, args: List[str] = None) -> str:
-        """顯示說明"""
-        return """支援的指令：
-    - display [班級代碼]: 顯示課表
-    - save_json [班級代碼]: 儲存為JSON檔案
-    - save_csv [班級代碼]: 儲存為CSV檔案 (Google Calendar格式)
-    - save_ics [班級代碼]: 儲存為ICS檔案 (iCalendar格式)
-    - help: 顯示此說明"""
-
-    @abstractmethod
-    def run(self) -> None:
-        """啟動介面"""
-        pass
-
-
-
-class GradioInterface(Interface):
-    """Gradio網頁介面實作"""
-    
-    def __init__(self) -> None:
-        super().__init__()
-        # 設定年級和班級選項
-        self.teacher_index = TNFSHClassTableIndex.get_instance()
-        self.grades = list(self.teacher_index.index["class"]["data"].keys())
-        self.classes = [f"{i:02d}" for i in range(1, 20)]
-        self.export_formats = ["JSON", "CSV", "ICS"]
-        
-        # 建立教師列表
-        
-
-    def display(self, target_type:str, args: List[str]) -> Any:
-        """顯示課表 (實作抽象方法)"""
-        try:
-            if len(args) != 2:
-                return gr.Dataframe(), "錯誤: 需要年級和班級參數"
-            grade, class_num = args
-            grade = str(self.grades.index(grade) + 1)
-            class_num = class_num.zfill(2)
-            #print(grade)
-            return self._display_table(target_type, grade + class_num)
-        except Exception as e:
-            return gr.Dataframe(), f"錯誤: {str(e)}"
-
-    def save_json(self, args: List[str]) -> Any:
-        """儲存為JSON (實作抽象方法)"""
-        try:
-            if len(args) != 2:
-                return None, "錯誤: 需要年級和班級參數"
-            grade, class_num = args
-            return self._save_file(grade, class_num, "JSON")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def save_csv(self, args: List[str]) -> Any:
-        """儲存為CSV (實作抽象方法)"""
-        try:
-            if len(args) != 2:
-                return None, "錯誤: 需要年級和班級參數"
-            grade, class_num = args
-            return self._save_file(grade, class_num, "CSV")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def save_ics(self, args: List[str]) -> Any:
-        """儲存為ICS (實作抽象方法)"""
-        try:
-            if len(args) != 2:
-                return None, "錯誤: 需要年級和班級參數"
-            grade, class_num = args
-            return self._save_file(grade, class_num, "ICS")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def _display_table(self, target_type: str, target: str) -> tuple[gr.Dataframe, str]:
-        """顯示課表內容
-
-        Args:
-            target_type (str): 目標類型，"class" 或 "teacher"
-            target (str): 目標識別符，如班級代碼或教師名稱
-
-        Returns:
-            tuple[gr.Dataframe, str]: (課表資料框, 訊息)
-        """
-
-        try:
-            table = TNFSHClassTable(target)
-            print(target)
-            # 轉換課表數據為顯示格式
-            rows = []
-            for period in table.table:
-                formatted_row = []
-                for course in period:
-                    if isinstance(course, dict):
-                        course_name = list(course.keys())[0]
-                        teachers = ", ".join(list(course[course_name].keys()))
-                        cell_text = f"{course_name}\n{teachers}" if teachers else course_name
-                        formatted_row.append(cell_text)
-                    else:
-                        formatted_row.append("")
-                rows.append(formatted_row)
-            
-            # 設定表頭
-            headers = ["星期一", "星期二", "星期三", "星期四", "星期五"]
-            
-            # 生成訊息
-            message = f"成功載入 {target} 的課表"
-            if target_type == "class":
-                message = f"成功載入 {target[0]}{target[1:]}班 的課表"
-            
-            return gr.Dataframe(value=rows, headers=headers), message
-            
-        except Exception as e:
-            return gr.Dataframe(), f"錯誤: {str(e)}"
-
-    def _get_file_info(self, table: TNFSHClassTable, format: str) -> str:
-        """產生檔案相關資訊文字"""
-        info = []
-        info.append("=== 課表資訊 ===")
-        info.append(f"班級：{table.target}班")
-        info.append(f"最後更新：{table.last_update}")
-        info.append(f"課表連結：{table.url}")
-        info.append("")
-        
-        info.append("=== 檔案說明 ===")
-        if format == "JSON":
-            info.append("JSON 格式包含完整的課表資料，適合程式讀取與資料分析")
-            info.append("可使用任何文字編輯器開啟")
-        elif format == "CSV":
-            info.append("CSV 格式適合匯入 Google Calendar")
-            info.append("匯入步驟：")
-            info.append("1. 前往 Google Calendar 設定")
-            info.append("2. 選擇「匯入與匯出」")
-            info.append("3. 選擇「匯入」並上傳 CSV 檔案")
-            info.append("CSV 格式在 Google Calendar 不支援 repeat ")
-        elif format == "ICS":
-            info.append("ICS 格式適合匯入各種行事曆軟體")
-            info.append("匯入步驟：")
-            info.append("- iOS/macOS: 直接開啟檔案")
-            info.append("- Outlook: 透過行事曆匯入選項")
-            info.append("- Google Calendar: 透過設定匯入")
-            info.append("Google Calendar 匯入方法: ")
-            info.append("1. 按右上角藍色向下箭頭下載日曆")
-            info.append("2. 打開網頁版 google calendar")
-            info.append("(若為手機則選「顯示電腦版網站」)")
-            info.append("3. 點擊右上方齒輪 -> 設定")
-            info.append("4. 左欄 -> 新增日曆 -> 建立新日曆")
-            info.append("5. 輸入名稱後建立日曆")
-            info.append("6. 點選左欄 -> 匯入及匯出 -> 匯入")
-            info.append("7. 選擇檔案 -> 選擇剛剛下載的檔案")
-            info.append("8. 選擇日曆 -> 匯入")
-        
-        return "\n".join(info)
-
-    def _save_file(self, grade: str, class_num: str, format: str) -> tuple[gr.File, str, str]:
-        """儲存檔案的實際邏輯"""
-        try:
-            grade = str(self.grades.index(grade) + 1)
-            class_num = class_num.zfill(2)
-            table = TNFSHClassTable(grade + class_num)
-            
-            filepath = table.export(format.lower())
-            
-            message = f"已將 {grade}年{class_num}班 課表儲存為 {format} 格式"
-            info = self._get_file_info(table, format)
-            
-            return gr.File(value=filepath), message, info
-            
-        except Exception as e:
-            return None, f"錯誤: {str(e)}", ""
-
-    def run(self) -> None:
-        """啟動Gradio介面"""
-        int
-        with gr.Blocks(
-            title="臺南一中課表查詢系統",
-            theme="Zarkel/IBM_Carbon_Theme"
-        ) as interface:
-            gr.Markdown("# 臺南一中課表查詢系統")
-            
-            with gr.Tab("顯示課表"):
-                with gr.Row():
-                    display_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    display_class = gr.Dropdown(choices=self.classes, label="班級")
-                    display_btn = gr.Button("顯示課表")
-                display_table = gr.Dataframe(label="課表")
-            
-            with gr.Tab("下載課表"):
-                with gr.Row():
-                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    save_class = gr.Dropdown(choices=self.classes, label="班級")
-                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_btn = gr.Button("下載課表")
-                save_file = gr.File(label="下載檔案")
-                file_info = gr.TextArea(label="檔案資訊", interactive=False)
-            
-            message = gr.Textbox(label="系統訊息", interactive=False)
-            
-            # 設定事件處理
-            display_btn.click(
-                fn=lambda g, c: self.display("class", [g , c]),
-                inputs=[display_grade, display_class],
-                outputs=[display_table, message]
-            )
-            
-            save_btn.click(
-                fn=lambda g, c, f: self._save_file(g, c, f),
-                inputs=[save_grade, save_class, save_format],
-                outputs=[save_file, message, file_info],
-            )
-        # 啟動介面
-        interface.launch(
-            share=True,
-            inbrowser=True, 
-            show_error=True,
-            debug=True,
-            prevent_thread_lock=True
-            
-        )
-
-class App:
-    """應用程式主類別"""
-    
-    @staticmethod
-    def run(interface_type: str = "") -> None:
-        """啟動應用程式
-        
-        Args:
-            interface_type (str): 介面類型 ("cmd"/"gradio"/"both"/""，預設為 both)
-        """
-        if interface_type.lower() in ["", "both"]:
-            print("請等待gradio開啟完畢再輸入指令\n")
-            # 使用執行緒來運行命令列介面
-            def run_cmd_with_delay():
-                sleep(3)  # 等待3秒
-                #CommandLineInterface().run()
-            
-            cmd_thread = threading.Thread(
-                target=run_cmd_with_delay,
-                daemon=True
-            )
-            cmd_thread.start()
-            # 啟動Gradio介面 
-            GradioInterface().run()
-            
-        else:
-            # 根據指定類型啟動對應介面
-            interface = (GradioInterface())# if interface_type.lower() == "gradio" )
-                       #else CommandLineInterface())
-            interface.run()
-
-
-def course_swap_finder(src_teacher: str, src_course: Tuple[int, int], src_course_streak: int):
-    src_course = [src_course[1] - 1, src_course[0] - 1] # day, period to period day
-
-    def _get_class_stutus(table: List[List[Dict[str, Dict[str, str]]]]) -> List[List[bool]]:
-        """取得課表的空堂狀態
-    
-        Returns:
-            List[List[bool]]: 二維陣列，代表每個時段是否有課
-            外層 list 為 period (節次)，內層 list 為 day (星期一到五)
-        """
-        status = []
-        for period in table:
-            period_status = []
-            for course in period:
-                period_status.append(bool(course != {"": {"": ""}}))
-            status.append(period_status)
-        return status
-
-    def _get_class_code(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int]) -> list[str]:
-        """取得課程代碼
-        
-        Returns:
-            list[str]: 指定位置的課程代碼列表
-            若位置超出範圍或該時段無課程，則回傳空列表
-            src_course 格式為 (period, day)，period 為節次，day 為星期幾
-        """
-        if src_course[0] < 0 or src_course[1] < 0 or src_course[0] >= len(table) or src_course[1] >= len(table[0]):
-            return []  # Return an empty list if indices are out of bounds
-        src_course = table[src_course[0]][src_course[1]]
-        if not src_course:  # Check if src_course is empty
-            return []
-        src_course_class = list(list(src_course.values())[0].keys())
-        if not src_course_class:
-            return []
-        #print(src_course)
-        #print(src_course_class)
-        return src_course_class
-
-    def _check_streak_same_target(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int], src_course_streak: int) -> bool:
-        """檢查連堂狀態
-        
-        Returns:
-            bool: 是否為相同課程的連堂
-            src_course 格式為 (period, day)，period 為節次，day 為星期幾
-        """
-        src_course_class_code = _get_class_code(table, src_course)
-        for i in range(src_course_streak):
-            offset_couse_class_code = _get_class_code(table, (src_course[0] + i, src_course[1]))
-            if src_course_class_code != offset_couse_class_code:
-                return False
-       #print(src_course_class_code)
-        return True
-
-    def _check_streak_empty(table: List[List[Dict[str, Dict[str, str]]]], src_course: Tuple[int, int], src_course_streak: int) -> bool:
-        """檢查連堂是否為空堂
-        
-        Returns:
-            bool: 指定的連續時段是否皆為空堂
-            src_course 格式為 (period, day)，period 為節次，day 為星期幾
-        """
-        for i in range(src_course_streak):
-            if src_course[0] + i >= len(table) or src_course[1] >= len(table[0]):
-                return False  # Out of bounds
-            if table[src_course[0] + i][src_course[1]] != {"": {"": ""}}:
-                return False
-        return True
-
-    def _find_dst_streak_and_empty(table: List[List[Dict[str, Dict[str, str]]]], src_course_streak: int) -> List[Tuple[int, int]]:
-        """尋找目標連堂
-        
-        Returns:
-            List[Tuple[int, int]]: 找到的連堂位置列表
-            每個元組格式為 (period, day)，period 為節次，day 為星期幾
-        """
-        streak_course = []
-        for i in range(len(table)):
-            for j in range(len(table[0])):
-                check = _check_streak_same_target(table, (i, j), src_course_streak)
-                if check:
-                    streak_course.append((i, j))
-        return streak_course
-
-    src_teacher_table = TNFSHClassTable(src_teacher)
-    table = src_teacher_table.table
-    if _check_streak_empty(table, src_course, src_course_streak):
-        print("給定連堂為空堂")
-        return
-    else:
-        print("給定連堂不為空堂")
-
-    if _check_streak_same_target(table, src_course, src_course_streak):
-        print("給定連堂確實為連堂")
-    else:
-        print("給定連堂不為連堂")
-        return
-
-    status = _get_class_stutus(table)
-    print_format(status, "2d_list")
-    dst_class_codes = _get_class_code(table, src_course)
-    for dst_class_code in dst_class_codes:
-        dst_teacher_table = TNFSHClassTable(dst_class_code)
-        dst_table = dst_teacher_table.table
-        streak_and_empty = _find_dst_streak_and_empty(dst_table, src_course_streak)
-        #print(streak_and_empty)
-    
-    
-
-
-
-def main() -> None:
-    #interface_type = input("請選擇使用者介面(cmd / gradio / both，預設為 both): ")
-    interface_type = "gradio"
-    App().run(interface_type)
-
-def test() -> None:
-    course_swap_finder("顏永進", (2, 1), 2)
-
-    
-
-if __name__ == "__main__":
-    #main()
-    test()
-
-
