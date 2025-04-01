@@ -479,6 +479,7 @@ class TNFSHClassTable:
         self.regular_soup_table: Tag = self._get_regular_soup_table()
         self.lessons: Dict[str, List[str]] = self._get_lesson()
         self.table: List[List[Dict[str, Dict[str, str]]]] = self._get_table()
+        self.transposed_table: List[List[Dict[str, Dict[str, str]]]] = self._get_transpose_table()
         self.last_update: str = self._get_last_update()
     def _get_type(self):
         target = self.target
@@ -685,6 +686,10 @@ class TNFSHClassTable:
         ]
         #print_format(result, "json")
         return result
+
+    def _get_transpose_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
+        table = self.table
+        return [list(row) for row in zip(*table)]
 
     def _get_event_description(self, target: Dict[str, str]) -> str:
         def _get_a_href(url: str, text: str) -> str:
