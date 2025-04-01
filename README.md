@@ -6,7 +6,7 @@
 ---
 
 ## 立刻體驗
-[Hugging Face](https://huggingface.co/spaces/Skywind5487/TNFSH-Classtable)
+[Hugging Face](https://huggingface.co/spaces/Skywind5487/TNFSHClassTable)
 
 ## 🚀 核心功能
 
