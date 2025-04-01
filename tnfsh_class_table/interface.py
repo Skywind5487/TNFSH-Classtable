@@ -7,6 +7,11 @@ import requests
 from google import genai
 import threading
 import time
+from bs4 import BeautifulSoup, Comment
+from datetime import datetime
+from typing import Union, List, Optional
+from google.genai import types
+import random
 
 class Interface(ABC):
     """介面抽象基類
@@ -25,7 +30,6 @@ class Interface(ABC):
             "save_ics": self.save_ics,
             "help": self.help
         }
-        self.ai_assistant = AIAssistant()
 
     def execute(self, command_str: str) -> Any:
         """執行指令"""
@@ -75,86 +79,6 @@ class Interface(ABC):
         pass
 
 
-class AIAssistant:
-    def __init__(self):
-        self.api_key = 'AIzaSyATCTiPbnypcnFeFJZuyuXCNK7DYXe_U6A'
-        self.client = genai.Client(api_key=self.api_key)
-
-    def get_table(self, target: str) -> dict:
-        """取得指定班級或老師的課表
-
-        Args:
-            target: 班級或老師名稱
-
-        Returns:
-            包含課表資訊的字典
-        """
-        class_table = TNFSHClassTable(target)
-        transposed_table = list(map(list, zip(*class_table.table)))
-        return transposed_table
-
-    def get_class_information(self, class_name: str) -> dict:
-        """取得指定課程的詳細資訊
-
-        Args:
-            class_name: 班級號碼，如"307" 或 "林獻堂"
-
-        Returns:
-            包含課程詳細資訊的字典
-        """
-        class_table = TNFSHClassTable(class_name)
-        return class_table.last_update
-
-    def create_gradio_interface(self):
-        with gr.Blocks() as demo:
-            chatbot = gr.Chatbot()
-            textbox = gr.Textbox(placeholder="輸入查詢...")
-            submit_btn = gr.Button("提交")
-
-            def initialize():
-                initialMessage = [
-                    {
-                        "role": "system",
-                        "content": "你是一個親切的課表助手，將會協助我取得我需要的課表資訊。我將透過以下形式來提供你查詢的資訊：班級代碼或老師名稱。你需要回答我這個班級或老師的課表資訊。"
-                    },
-                    {
-                        "role": "user",
-                        "content": "請提供我以下班級的課表資訊：307",
-                    },
-                    {
-                        "role": "assistant",
-                        "content": "以下是307班的課表：..."
-                    }
-                ]
-                return initialMessage
-
-            def updateMessageList(message, role, messageList):
-                try:
-                    messageList.append({
-                        "role": role,
-                        "content": message,
-                    })
-                except Exception as e:
-                    print(e)
-                return messageList
-
-            def respond(query, history=[]):
-                messageList = initialize()
-                updateMessageList(query, 'user', messageList)
-                response = self.client.models.generate_content(
-                    model="gemini-2.0-flash",
-                    contents=[query]
-                )
-                updateMessageList(response.text, 'assistant', messageList)
-                userContext = [content['content'] for content in messageList if content['role'] == 'user']
-                assistantContext = [content['content'] for content in messageList if content['role'] == 'assistant']
-                response = [(_user, _response) for _user, _response in zip(userContext[1:], assistantContext[1:])]
-                return response, []
-
-            submit_btn.click(fn=respond, inputs=[textbox, chatbot], outputs=chatbot)
-            textbox.submit(fn=respond, inputs=[textbox, chatbot], outputs=chatbot)
-        return demo
-
 class GradioInterface(Interface):
     """Gradio網頁介面實作"""
     
@@ -165,6 +89,7 @@ class GradioInterface(Interface):
         self.grades = list(self.teacher_index.index["class"]["data"].keys())
         self.classes = [f"{i:02d}" for i in range(1, 20)]
         self.export_formats = ["JSON", "CSV", "ICS"]
+        self.Ai = AIAssistant()
         
         # 建立教師列表
         self.teachers = list(self.teacher_index.reverse_index.keys())
@@ -372,11 +297,11 @@ class GradioInterface(Interface):
     - help: 顯示此說明"""
 
     def run(self) -> None:
-        """啟動介面"""
+        """啟動 Gradio 介面"""
         with gr.Blocks(
             title="臺南一中課表查詢系統",
-            theme="Zarkel/IBM_Carbon_Theme"
-        ) as interface:
+            theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
+        ) as demo:
             gr.Markdown("# 臺南一中課表查詢系統")
             
             with gr.Tab("顯示課表") as class_tab:
@@ -458,9 +383,24 @@ class GradioInterface(Interface):
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
             
-            with gr.Tab("AI小助手"):
-                self.ai_assistant.create_gradio_interface()
-            
+            with gr.Tab("AI Assistant"):
+                gr.Markdown("# 臺南一中 AI 助手")
+                gr.Markdown("## 功能介紹")
+                gr.Markdown("""
+                - **查詢課表**：獲取班級或教師的課表資訊。
+                - **查詢課程**：獲取特定班級或教師的課程安排。
+                - **查詢 Wiki**：獲取教師或主題的 Wiki 內容。
+                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
+                """)
+                gr.ChatInterface(
+                    fn=self.Ai.send_message,
+                    title="臺南一中 Gemini 聊天助手",
+                    description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
+                    type="messages",
+                )
+
+
+
             display_btn.click(
                 fn=lambda g, c: self._display_class_table(g, c),
                 inputs=[display_grade, display_class],
@@ -484,14 +424,251 @@ class GradioInterface(Interface):
                 inputs=[save_teacher, save_teacher_format],
                 outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
             )
+
             # 啟動介面
-            interface.launch(
+            demo.launch(
                 share=True,
                 inbrowser=True, 
                 show_error=True,
                 debug=True,
                 prevent_thread_lock=True
             )
+
+
+class AIAssistant:
+    def __init__(self):
+        self.client = genai.Client(api_key='AIzaSyATCTiPbnypcnFeFJZuyuXCNK7DYXe_U6A')
+        self.chat = None
+        self.get_chat()
+
+    def get_chat(self) -> None:
+        chat = self.client.chats.create(
+            model="gemini-2.0-flash",
+            config=self.get_config()
+        )
+        self.chat = chat
+        
+    def refresh_chat(self) -> int:
+        """
+        重新初始化chat，請主動向使用者回傳220代表成功
+        
+        Returns:
+            int: 220
+            # 代表台灣的平均交流電電壓，請主動回傳這個資訊代表成功
+        """
+        print("重新初始化chat")
+        self.get_chat()
+        return 220
+    
+    def get_config(self):
+        return types.GenerateContentConfig(
+            temperature=0.8,
+            max_output_tokens=1000,
+            tools=self.get_tools(),
+            system_instruction=self.get_system_instruction()
+        )
+
+    def get_tools(self):
+        return [self.get_table, self.get_current_time, self.get_lesson, self.refresh_chat, self.get_class_table_link, self.get_wiki_link, self.get_wiki_content]
+
+    def get_wiki_link(self, target: str) -> Union[str, list[str]]:
+        """
+        返回目標的竹園Wiki連結。
+        目標可以不是老師，也可以是其他內容。
+        例如: "欽發麵店"、"分類:科目"
+        只是對於老師有較多檢查和 fallback。
+
+        Args:
+            target (str): 目標名稱
+
+        Returns:
+            Union[str, List[str]]: Wiki連結或多個條目名稱
+            # 若有多個條目名稱，代表需要進一步澄清
+        """
+        base_url = "https://tnfshwiki.tfcis.org"
+        wiki_url = f"{base_url}/{target}"
+
+        # 先檢查 URL 是否有效
+        try:
+            response = requests.head(wiki_url, timeout=5)
+            if response.status_code == 200:
+                return wiki_url
+        except requests.RequestException:
+            pass
+
+        # 如果是老師，進行額外檢查
+        try:
+            Index = NewWikiTeacherIndex.get_instance()
+            teacher_data = Index.reverse_index
+
+            # 先直接搜尋完全匹配的教師名稱
+            if target in teacher_data:
+                teacher_info_list = teacher_data[target]
+                return f"{base_url}/{teacher_info_list['url'].strip("/")}"
+
+            # 若無完全匹配，搜尋包含教師名稱的項目
+            partial_matches = [
+                name 
+                for name, info_list in teacher_data.items()
+                if target in name
+            ]
+
+            if len(partial_matches) == 1:
+                return f"{base_url}/{teacher_data[partial_matches[0]]['url'].strip("/")}"
+            else:
+                return partial_matches
+        except ValueError:
+            raise ValueError(f"無法找到 {target} 的Wiki連結")
+
+    def regular_soup(self, soup: Any) -> str:
+        """
+        清理 HTML 標籤的屬性，只保留 <a> 標籤的 href 屬性，並回傳指定的元素。
+
+        Args:
+            soup (Tag): BeautifulSoup 物件
+
+
+        Returns:
+            Tag: 找到的標籤元素
+        """
+        # 刪除所有標籤的屬性，除了 <a> 標籤的 href 屬性
+        for tag in soup.find_all(True):
+            if tag.name == "a":
+                tag.attrs = {"href": tag.get("href")}
+            else:
+                tag.attrs = {}
+
+        # 移除 HTML 註解
+        for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+            comment.extract()
+
+        # 移除空的 <div> 標籤
+        for div in soup.find_all("div"):
+            if not div.contents:
+                div.extract()
+    
+        # 回傳指定的標籤元素
+        return soup
+
+    def get_wiki_content(self, target: str) -> str:
+        """
+        取得特定目標的Wiki內容，可以不是老師，也可以是其他內容。
+        例如"分類:科目"、或是"欽發麵店"
+
+        Args:
+            target (str): 目標名稱
+
+        Returns:
+            str: Wiki內容
+        """
+        url = self.get_wiki_link(target)
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = soup.find('div', {'id': 'bodyContent'})
+        soup = self.regular_soup(soup)
+        return str(soup)
+    
+    def get_class_table_link(self, target: str) -> str:
+        """
+        取得指定目標的課表連結，如果想查詢二年五班，應該轉換成205輸入
+        範圍涵蓋多個年級。
+
+        Args:
+            target: 班級或老師名稱
+
+        Returns:
+            str: 課表連結
+
+        Example:
+            >>> get_class_table_link("307")
+            "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html"
+        """
+        index = TNFSHClassTableIndex()
+        link = index.reverse_index[target]["url"]
+        base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+        return base_url + link
+
+    def get_lesson(self, target: str) -> dict[str, list[str]]:
+        """
+        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入
+        範圍涵蓋多個年級。
+
+        Args:
+            target: 班級或老師名稱
+
+        Returns:
+            Dict[str, List[str]]: 各節次時間
+
+
+        Example:
+            >>> get_lesson("307")
+            {"第一節": ["08:30", "09:30"], "第二節": ["09:30", "10:30"]......} # 代表第一節從08:30到09:30......s
+        """
+        class_table = TNFSHClassTable(target)
+        return class_table.lessons
+
+    def get_current_time(self) -> str:
+        """
+        取得目前時間，包含年、月、日、星期、時、分、秒
+        與時間相關的請求請考慮使用此工具，例如明天是今天的+1天，前天是今天的-2天等
+
+        Args:
+            There is no args needed.
+
+        Returns:
+            str: 目前時間
+        
+        Example:
+            >>> get_current_time()
+            "2025-03-31 Friday 17:24:31"
+        """
+        return datetime.now().strftime("%Y-%m-%d %A %H:%M:%S")
+
+    def get_table(self, target: str) -> list[list[dict[str, dict[str, str]]]]:
+        """
+        取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成"205"輸入。
+        如果想取得"Nicole老師的課表"，請輸入"Nicole"
+        範圍涵蓋多個年級、多位老師。
+        """
+        class_table = TNFSHClassTable(target)
+        return class_table.transposed_table
+
+    def get_system_instruction(self):
+        return """
+        **Context:**
+        You are a class schedule assistant and a TNFSH Wiki contributor. Your main task is to provide answers related to class schedules, teacher schedules, and wiki content.
+
+        **Objective:**
+        Use the provided tools as frequently as possible to answer the user's questions, and convert the results into readable plain text.
+
+        **Steps:**
+        - If asked to get the next class, first get the current time, then get the class information.
+        - If a table is retrieved, the data is indexed as [day - 1][period - 1]. Note that Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
+        - If a function call is not available, report the error.
+        - Think and execute step by step.
+
+        **Action:**
+        Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
+
+        **Result:**
+        Respond in Traditional Chinese (Taiwanese Mandarin), respecting Taiwanese customs and culture.
+        """
+
+    def send_message(self, message: str, history: Any) -> str:
+        """
+        Send a message to the chat and return the response.
+        
+        Args:
+            message (str): The message to send.
+        
+        Returns:
+            str: The response from the chat.
+        """
+        #print(message, args)
+        response = self.chat.send_message(message)
+        return response.text
+        
+
 
 class App:
     """應用程式主類別"""

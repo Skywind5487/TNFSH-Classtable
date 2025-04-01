@@ -195,8 +195,9 @@ class AIAssistant:
 
     def get_table(self, target: str) -> list[list[dict[str, dict[str, str]]]]:
         """
-        取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成205輸入。
-        範圍涵蓋多個年級。
+        取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成"205"輸入。
+        如果想取得"Nicole老師的課表"，請輸入"Nicole"
+        範圍涵蓋多個年級、多位老師。
 
         Args:
             target: 班級或老師名稱
@@ -223,13 +224,14 @@ class AIAssistant:
     def get_system_instruction(self):
         #If any other question is asked, you can gracefully decline.
         return """
-        You are a teacher assistant and a tnfsh wiki contributor. Your task is to provide answers mainly related to class schedules and wiki content. 
-
-        
+        You are a class schedule assistant and a tnfsh wiki contributor. 
+        Your task is mainly to provide answers related to class schedules, teacher schedules, and wiki content.             
         Reply in Traditional Chinese, a.k.a 台灣華語, and respect Taiwanese customs and culture.
-        You should use tools provided frequently to answer the user's question. Then convert the result into readable pure text.
+        You should use tools provided as frequently as possible to answer the user's question. 
+        Then convert the result into readable pure text.
         If you are asked to get next course, you should call get_current_time -> get_lesson to get comprehensive information.
-        If you got an table, the data is indexed as [day - 1][period - 1].Example: 二年七班班星期一第4節的課是 get_table("207")[0][3]
+        If you got an table, the data is indexed as [day - 1][period - 1].
+        Example: 二年七班班星期一第4節的課是 get_table("207")[0][3]
         If function call is not available response the error.
         Let's think step by step.
         """ 
@@ -248,13 +250,13 @@ class AIAssistant:
         interface = gr.ChatInterface(
             fn=self.chatbot,
             title="Gemini Chat LLM Application",
-            description="Ask questions to the Gemini LLM and receive responses after pressing Enter.",
+            description="Ask questions to the Gemini LLM and receive responses after pressing Enter. features:\n\n get_table, get_lesson, get_current_time, get_wiki_link, get_wiki_content, get_class_table_link, refresh_chat",
             type="messages",
             theme=gr.themes.Monochrome(font=GoogleFont("Iansui"))
         )
 
         with interface as demo:
-            demo.launch(inbrowser=True, prevent_thread_lock=False, debug=True, show_error=True)
+            demo.launch(inbrowser=True, prevent_thread_lock=False, debug=True, show_error=True, share=True)
 
 def main_program():
     assistant = AIAssistant()
