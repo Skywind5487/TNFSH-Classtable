@@ -1,154 +1,37 @@
-# 🏫 TNFSH Classtable
+# 🏫 TNFSH 課表查詢系統
 
-本專案旨在處理台南一中班級課表的相關資料，提供多種功能與格式支援，並整合圖形化介面以提升使用體驗。
-
----
-## 即刻體驗
-[點我體驗colab](https://colab.research.google.com/github/Skywind5487/TNFSH-Classtable/blob/main/tnfsh-classtable-alpha.ipynb)
-依照頁面指引即可!
-
-## ✨ Features
-
-### 🗂️ 課表解析
-- 支援南一中課表索引解析：
-  - **匯出格式**：`JSON` (index, reverse_index, all)
-- 支援南一中課表解析：
-  - 適用於老師與班級課表
-  - **匯出格式**：`JSON`, `CSV`, `ICS`
-
-### 📋 新竹園 Wiki 整合
-- 獲取教師索引資料：
-  - **匯出格式**：`JSON` (index, reverse_index)
-
-### 🌐 圖形化 Web 介面
-- 使用 **Gradio** 提供直觀的網頁操作介面：
-  - **功能**：顯示課表、匯出資料
-  - **匯出格式**：`JSON`, `CSV`, `ICS`
-
-### 📅 日曆功能
-- 支援課表匯出為日曆格式：
-  - **檔名格式**：`type_target.[csv, ics]`
-  - **重複規則**：RRule (重複至 2/1 或 7/1 再加一週)
-- 注意：Google Calendar 無法解析 CSV 的重複規則。
+**臺南一中專屬的課表查詢與管理工具**  
+提供班級與教師課表查詢、資料匯出、AI 助手、調課查詢等功能，讓課表管理更輕鬆！
 
 ---
 
-## 📅 日曆內容
+## 立刻體驗
+[Hugging Face](https://huggingface.co/spaces/Skywind5487/TNFSH-Classtable)
 
-- **檔名格式**：`type_target.[csv, ics]`
-- **重複規則**：RRule (重複至 2/1 或 7/1 再加一週)
+## 🚀 核心功能
 
-> 注意：Google Calendar 無法解析 CSV 的重複規則。
+### 📊 課表解析
+- **班級與教師課表解析**：支援多種格式匯出，包括 `JSON`、`CSV`、`ICS`。
+- **索引資料**：快速查詢班級與教師的課表連結與詳細資訊。
 
----
+### 📅 日曆整合
+- **ICS 格式**：支援匯入 Google Calendar、Outlook 等行事曆軟體。
+  - 教學: [Google Calendar](https://support.google.com/calendar/answer/37118?hl=zh-Hant)
+  - 手機請調整到電腦板模式
+- **CSV 格式**：適合匯入 Google Calendar，提供簡易匯入步驟。
+- **重複規則**：自動處理學期重複，無需手動調整。
 
-## 📂 專案架構
+### 🤖 AI 助手
+- **自然語言查詢**：支援班級課表、教師課表、竹園Wiki 內容查詢。
+- **調課建議**：提供教師調課可能性分析（Alpha 功能）。
 
-本專案以單檔執行為理念，適應簡單易用的 Colab 環境：[點我體驗](https://colab.research.google.com/github/Skywind5487/TNFSH-Classtable/blob/main/tnfsh-classtable-alpha.ipynb)
 
-專案主要分為以下幾個 Class：
 
----
-
-### 1. `NewWikiTeacherIndex`
-**屬性**：
-- `teacher_index`：教師索引資料。
-- `reverse_index`：反向教師索引資料。
-
-**方法**：
-- `export(export_type: str, filepath: Optional[str])`：匯出索引資料，支援格式：`JSON`。export_type: `index`,`reverse_index`, `all`
-
----
-
-### 2. `TNFSHClassTableIndex`
-**屬性**：
-- `index`：班級與教師課表索引資料。
-- `reverse_index`：反向索引資料。
-
-**方法**：
-- `export_json(export_type: str, filepath: Optional[str])`：匯出索引資料，支援格式：`JSON`。export_type: `index`,`reverse_index`, `all`
-- `refresh()`：重新載入索引資料。
-
----
-
-### 3. `TNFSHClassTable`
-**屬性**：
-- `url`：課表網頁的 URL。
-- `soup`：課表網頁經過 html parser 的檔案
-- `lessons`：課程時間對應表。
-- `table`：結構化的課表資料。
-- `last_update`：課表最後更新時間。
-
-**方法**：
-- `export(type: str, filepath: Optional[str])`：匯出課表資料，支援格式(type)：`JSON`, `CSV`, `ICS`。
-
----
-
-### 4. `GradioInterface`
-**屬性**：
-- `grades`：年級選項（如：`["一", "二", "三"]`）。
-- `classes`：班級選項（如：`["01", "02", ..., "26"]`）。
-- `export_formats`：匯出格式選項（如：`["JSON", "CSV", "ICS"]`）。
-
-**方法**：
-- `display(args: List[str])`：顯示課表。
-- `save_json(args: List[str])`：儲存課表為 JSON 格式。
-- `save_csv(args: List[str])`：儲存課表為 CSV 格式。
-- `save_ics(args: List[str])`：儲存課表為 ICS 格式。
-- `run()`：啟動 Gradio 介面。
-
----
-
-### 5. `App`
-**方法**：
-- `run(interface_type: str)`：啟動應用程式，支援介面類型：`"gradio"` 或 `"both"`。
-
----
-
-## 📝 型別說明
-
-### TNFSHClassTable 的資料結構
-
-```python
-class TNFSHClassTable:
-    target: str  # 目標識別符 (班級代碼或教師名稱)
-    type: Literal["class", "teacher"]  # 目標類型
-    lessons: Dict[str, List[str]]  # 節次時間對應
-    table: List[List[Dict[str, Dict[str, str]]]]  # 課表資料結構
-```
-
-#### 課表資料範例
-
-```python
-{
-    "target": "101",  # 或教師名稱
-    "type": "class",  # 或 "teacher"
-    "lessons": {
-        "第一節": ["08:10", "09:00"],
-        # ...more periods...
-    },
-    "table": [
-        [  # 每一列代表一節課
-            {  # 每一格代表一堂課
-                "課程名稱": {
-                    "教師名稱": "教師頁面連結"
-                }
-            },
-            # ...more courses...
-        ],
-        # ...more periods...
-    ]
-}
-```
-
----
-
-## 🚀 使用方式
-
-### 1. 下載專案
+### 🛠️ 使用教學
+#### 1. 下載專案
 點擊[下載專案](https://github.com/Skywind5487/TNFSH-Classtable/archive/refs/heads/main.zip)來下載最新的 repo。
 
-### 2. 解壓縮專案
+#### 2. 解壓縮專案
 1. 在「下載」資料夾找到 `TNFSH-Classtable-main.zip`。
 2. 右鍵點擊壓縮檔，選擇「解壓縮全部」。
 3. 將產生的資料夾 `TNFSH-Classtable-main` 移到你喜歡的地方(下稱專案資料夾)。
@@ -198,28 +81,32 @@ uv python run.py
 
 ## 🧪 測試
 
-還沒寫完。
-執行單元測試以確保功能正常：
+還沒寫完。執行單元測試以確保功能正常：
 ```bash
-pytest tests/
+python interface.py
 ```
 
----
+### 2. 使用 AI 助手
+- **查詢課表**：例如「請告訴我 205 班的課表」。
+- **查詢 Wiki**：例如「請告訴我顏永進老師的 Wiki 內容」。
 
-## 📚 資料來源
-
-- [台南一中課表根目錄](http://w3.tnfsh.tn.edu.tw/deanofstudies/course/course.html)
-- [新竹園 Wiki](https://tnfshwiki.tfcis.org)
-- [台南一中官網](https://www.tnfsh.tn.edu.tw)
-
----
-
-## 🤝 貢獻
-
-歡迎提交 Issue 或 Pull Request 來改進本專案。
+### 3. 匯出課表
+- 選擇班級或教師，並選擇匯出格式（`JSON`、`CSV`、`ICS`）。
 
 ---
 
-## 📜 授權
+## 📜 專案架構
+- **`interface.py`**：Gradio 介面與 AI 助手實作。
+- **`backend.py`**：課表解析與資料處理核心邏輯。
+- **`README.md`**：專案說明與使用指南。
 
-本專案採用 [MIT License](LICENSE) 授權。
+---
+
+## License
+我們使用[MIT](LICENSE)許可證。
+
+
+
+
+## 📞 聯絡我們
+如有任何問題或建議，歡迎透過 [GitHub Issues](https://github.com/Skywind5487/TNFSH-Classtable/issues) 聯繫我們！
