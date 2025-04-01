@@ -1,20 +1,17 @@
 from backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
-
-from abc import ABC, abstractmethod
-from typing import Any, Optional, List
+from typing import Any, List
 import gradio as gr
 import requests
 from google import genai
 import threading
-import time
 from bs4 import BeautifulSoup, Comment
 from datetime import datetime
-from typing import Union, List, Optional
+from typing import Union, List
 from google.genai import types
-import random
+import os
 
-class Interface(ABC):
-    """介面抽象基類
+class GradioInterface:
+    """Gradio網頁介面實作
     
     整合了指令執行和介面顯示功能。
     
@@ -30,6 +27,15 @@ class Interface(ABC):
             "save_ics": self.save_ics,
             "help": self.help
         }
+        # 設定年級和班級選項
+        self.teacher_index = TNFSHClassTableIndex.get_instance()
+        self.grades = list(self.teacher_index.index["class"]["data"].keys())
+        self.classes = [f"{i:02d}" for i in range(1, 20)]
+        self.export_formats = ["JSON", "CSV", "ICS"]
+        self.Ai = AIAssistant()
+        
+        # 建立教師列表
+        self.teachers = list(self.teacher_index.reverse_index.keys())
 
     def execute(self, command_str: str) -> Any:
         """執行指令"""
@@ -44,26 +50,54 @@ class Interface(ABC):
             return self.commands[command](args) if args else "請指定班級代碼"
         return f"未知的命令: {command}"
 
-    @abstractmethod
-    def display(self, args: List[str]) -> Any:
+    def display(self, target_type:str, args: List[str]) -> Any:
         """顯示課表"""
-        pass
-    
-    @abstractmethod
+        try:
+            if len(args) != 3 and target_type == "class":
+                return gr.Dataframe(), "錯誤: 需要年級、班級和老師名稱參數"
+            if len(args) != 1 and target_type == "teacher":
+                return gr.Dataframe(), "錯誤: 需要老師名稱參數"
+            if target_type == "class":
+                grade, class_num, teacher = args
+                grade = str(self.grades.index(grade) + 1)
+                class_num = class_num.zfill(2)
+                return self._display_class_table(grade, class_num)
+            elif target_type == "teacher":
+                teacher = args[0]
+                return self._display_teacher_table(teacher)
+        except Exception as e:
+            return gr.Dataframe(), f"錯誤: {str(e)}"
+
     def save_json(self, args: List[str]) -> Any:
         """儲存為JSON"""
-        pass
+        try:
+            if len(args) != 3:
+                return None, "錯誤: 需要年級、班級和老師名稱參數"
+            grade, class_num, teacher = args
+            return self._save_class_file(grade, class_num, "JSON")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
 
-    @abstractmethod 
     def save_csv(self, args: List[str]) -> Any:
         """儲存為CSV"""
-        pass
+        try:
+            if len(args) != 3:
+                return None, "錯誤: 需要年級、班級和老師名稱參數"
+            grade, class_num, teacher = args
+            return self._save_class_file(grade, class_num, "CSV")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
 
-    @abstractmethod
     def save_ics(self, args: List[str]) -> Any:
         """儲存為ICS"""
-        pass
-        
+        try:
+            if len(args) != 3:
+                return None, "錯誤: 需要年級、班級和老師名稱參數"
+            grade, class_num, teacher = args
+            return self._save_class_file(grade, class_num, "ICS")
+        except Exception as e:
+            return None, f"錯誤: {str(e)}"
+
     def help(self, args: List[str] = None) -> str:
         """顯示說明"""
         return """支援的指令：
@@ -73,27 +107,157 @@ class Interface(ABC):
     - save_ics [班級代碼]: 儲存為ICS檔案 (iCalendar格式)
     - help: 顯示此說明"""
 
-    @abstractmethod
     def run(self) -> None:
-        """啟動介面"""
-        pass
+        """啟動 Gradio 介面"""
+        with gr.Blocks(
+            title="臺南一中課表查詢系統",
+            theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
+        ) as demo:
+            gr.Markdown("# 臺南一中課表查詢系統")
+            
+            with gr.Tab("顯示課表") as class_tab:
+                with gr.Row():
+                    display_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    display_class = gr.Dropdown(choices=self.classes, label="班級")
+                    display_btn = gr.Button("顯示課表")
+                display_table = gr.Dataframe(label="課表")
+                class_message = gr.Textbox(label="訊息")
+                class_markdown = gr.Markdown()
+                class_tab.select(
+                    fn=lambda g, c: self._display_class_table(g, c),
+                    inputs=[display_grade, display_class],
+                    outputs=[display_table, class_message]
+                )
+                class_tab.select(
+                    fn=lambda: (display_table, class_message, class_markdown),
+                    inputs=[],
+                    outputs=[display_table, class_message, class_markdown]
+                )
+            
+            with gr.Tab("顯示老師課表") as teacher_tab:
+                with gr.Row():
+                    display_teacher = gr.Textbox(label="老師名稱")
+                    display_teacher_btn = gr.Button("顯示老師課表")
+                display_teacher_table = gr.Dataframe(label="老師課表")
+                teacher_message = gr.Textbox(label="訊息")
+                teacher_markdown = gr.Markdown()
+                teacher_tab.select(
+                    fn=lambda t: self._display_teacher_table(t),
+                    inputs=[display_teacher],
+                    outputs=[display_teacher_table, teacher_message]
+                )
+                teacher_tab.select(
+                    fn=lambda t: (display_teacher_table, teacher_message, teacher_markdown),
+                    inputs=[display_teacher],
+                    outputs=[display_teacher_table, teacher_message, teacher_markdown]
+                )
+                # 顯示老師列表
+                teacher_list_md = ""
+                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
+                    teacher_list_md += f"### {subject}\n"
+                    for teacher in teachers.keys():
+                        teacher_list_md += f"- {teacher}\n"
+                gr.Markdown(teacher_list_md)
+            
+            with gr.Tab("下載課表"):
+                with gr.Row():
+                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    save_class = gr.Dropdown(choices=self.classes, label="班級")
+                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_btn = gr.Button("下載課表")
+                save_file = gr.File(label="下載檔案")
+                file_info = gr.TextArea(label="檔案資訊", interactive=False)
+                save_message = gr.Textbox(label="訊息")
+                gr.Button("下載課表").click(
+                    fn=lambda g, c, f: self._save_class_file(g, c, f),
+                    inputs=[save_grade, save_class, save_format],
+                    outputs=[save_file, save_message, file_info],
+                )
+            
+            with gr.Tab("下載老師課表"):
+                with gr.Row():
+                    save_teacher = gr.Textbox(label="老師名稱")
+                    save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_teacher_btn = gr.Button("下載老師課表")
+                save_teacher_file = gr.File(label="下載檔案")
+                teacher_file_info = gr.TextArea(label="檔案資訊", interactive=False)
+                teacher_save_message = gr.Textbox(label="訊息")
+                gr.Button("下載老師課表").click(
+                    fn=lambda t, f: self._save_teacher_file(t, f),
+                    inputs=[save_teacher, save_teacher_format],
+                    outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
+                )
+                teacher_list_md = ""
+                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
+                    teacher_list_md += f"### {subject}\n"
+                    for teacher in teachers.keys():
+                        teacher_list_md += f"- {teacher}\n"
+                gr.Markdown(teacher_list_md)
+            
+            with gr.Tab("AI Assistant"):
+                gr.Markdown("# 臺南一中 AI 助手")
+                gr.Markdown("## 功能介紹")
+                gr.Markdown("""
+                - **查詢課表**：獲取班級或教師的課表資訊。
+                    - 例如：
+                        - 請告訴我205班的課表
+                        - 請告訴我顏永進老師的課表
+                        - 請告訴我307課表連結
+                        - 請告訴我殷念慈老師的課表連結
+                        - 今天116有什麼課
+                - **查詢 Wiki**：獲取教師或其他條目的 Wiki 內容。
+                    - 例如：
+                        - 請告訴我顏永進老師的Wiki內容
+                        - 請告訴我欽發麵店的Wiki內容
+                        - 請告訴我巫權祐老師的Wiki連結
+                            - 目前連結只支援老師
+                - **查詢調課可能(alpha)**：給定老師、節次，返回可能的調課老師。
+                    - 例如：
+                        - 請告訴我顏永進老師星期五第二節可以調到哪裡
+                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
+                """)
+                gr.ChatInterface(
+                    fn=self.Ai.send_message,
+                    title="臺南一中 Gemini 聊天助手",
+                    description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
+                    type="messages",
+                )
 
 
-class GradioInterface(Interface):
-    """Gradio網頁介面實作"""
-    
-    def __init__(self) -> None:
-        super().__init__()
-        # 設定年級和班級選項
-        self.teacher_index = TNFSHClassTableIndex.get_instance()
-        self.grades = list(self.teacher_index.index["class"]["data"].keys())
-        self.classes = [f"{i:02d}" for i in range(1, 20)]
-        self.export_formats = ["JSON", "CSV", "ICS"]
-        self.Ai = AIAssistant()
-        
-        # 建立教師列表
-        self.teachers = list(self.teacher_index.reverse_index.keys())
-        
+
+            display_btn.click(
+                fn=lambda g, c: self._display_class_table(g, c),
+                inputs=[display_grade, display_class],
+                outputs=[display_table, class_message]
+            )
+
+            display_teacher_btn.click(
+                fn=lambda t: self._display_teacher_table(t),
+                inputs=[display_teacher],
+                outputs=[display_teacher_table, teacher_message]
+            )
+
+            save_btn.click(
+                fn=lambda g, c, f: self._save_class_file(g, c, f),
+                inputs=[save_grade, save_class, save_format],
+                outputs=[save_file, save_message, file_info]
+            )
+
+            save_teacher_btn.click(
+                fn=lambda t, f: self._save_teacher_file(t, f),
+                inputs=[save_teacher, save_teacher_format],
+                outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
+            )
+
+            # 啟動介面
+            demo.launch(
+                share=True,
+                inbrowser=True, 
+                show_error=True,
+                debug=True,
+                prevent_thread_lock=True
+            )
+
     def _display_class_table(self, grade: str, class_num: str) -> tuple[gr.Dataframe, str]:
         """顯示班級課表內容
 
@@ -239,202 +403,6 @@ class GradioInterface(Interface):
     
         return "\n".join(info)
 
-    def display(self, target_type:str, args: List[str]) -> Any:
-        """顯示課表 (實作抽象方法)"""
-        try:
-            if len(args) != 3 and target_type == "class":
-                return gr.Dataframe(), "錯誤: 需要年級、班級和老師名稱參數"
-            if len(args) != 1 and target_type == "teacher":
-                return gr.Dataframe(), "錯誤: 需要老師名稱參數"
-            if target_type == "class":
-                grade, class_num, teacher = args
-                grade = str(self.grades.index(grade) + 1)
-                class_num = class_num.zfill(2)
-                return self._display_class_table(grade, class_num)
-            elif target_type == "teacher":
-                teacher = args[0]
-                return self._display_teacher_table(teacher)
-        except Exception as e:
-            return gr.Dataframe(), f"錯誤: {str(e)}"
-
-    def save_json(self, args: List[str]) -> Any:
-        """儲存為JSON (實作抽象方法)"""
-        try:
-            if len(args) != 3:
-                return None, "錯誤: 需要年級、班級和老師名稱參數"
-            grade, class_num, teacher = args
-            return self._save_class_file(grade, class_num, "JSON")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def save_csv(self, args: List[str]) -> Any:
-        """儲存為CSV (實作抽象方法)"""
-        try:
-            if len(args) != 3:
-                return None, "錯誤: 需要年級、班級和老師名稱參數"
-            grade, class_num, teacher = args
-            return self._save_class_file(grade, class_num, "CSV")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def save_ics(self, args: List[str]) -> Any:
-        """儲存為ICS (實作抽象方法)"""
-        try:
-            if len(args) != 3:
-                return None, "錯誤: 需要年級、班級和老師名稱參數"
-            grade, class_num, teacher = args
-            return self._save_class_file(grade, class_num, "ICS")
-        except Exception as e:
-            return None, f"錯誤: {str(e)}"
-
-    def help(self, args: List[str] = None) -> str:
-        """顯示說明"""
-        return """支援的指令：
-    - display [班級代碼]: 顯示課表
-    - save_json [班級代碼]: 儲存為JSON檔案
-    - save_csv [班級代碼]: 儲存為CSV檔案 (Google Calendar格式)
-    - save_ics [班級代碼]: 儲存為ICS檔案 (iCalendar格式)
-    - help: 顯示此說明"""
-
-    def run(self) -> None:
-        """啟動 Gradio 介面"""
-        with gr.Blocks(
-            title="臺南一中課表查詢系統",
-            theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
-        ) as demo:
-            gr.Markdown("# 臺南一中課表查詢系統")
-            
-            with gr.Tab("顯示課表") as class_tab:
-                with gr.Row():
-                    display_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    display_class = gr.Dropdown(choices=self.classes, label="班級")
-                    display_btn = gr.Button("顯示課表")
-                display_table = gr.Dataframe(label="課表")
-                class_message = gr.Textbox(label="訊息")
-                class_markdown = gr.Markdown()
-                class_tab.select(
-                    fn=lambda g, c: self._display_class_table(g, c),
-                    inputs=[display_grade, display_class],
-                    outputs=[display_table, class_message]
-                )
-                class_tab.select(
-                    fn=lambda: (display_table, class_message, class_markdown),
-                    inputs=[],
-                    outputs=[display_table, class_message, class_markdown]
-                )
-            
-            with gr.Tab("顯示老師課表") as teacher_tab:
-                with gr.Row():
-                    display_teacher = gr.Textbox(label="老師名稱")
-                    display_teacher_btn = gr.Button("顯示老師課表")
-                display_teacher_table = gr.Dataframe(label="老師課表")
-                teacher_message = gr.Textbox(label="訊息")
-                teacher_markdown = gr.Markdown()
-                teacher_tab.select(
-                    fn=lambda t: self._display_teacher_table(t),
-                    inputs=[display_teacher],
-                    outputs=[display_teacher_table, teacher_message]
-                )
-                teacher_tab.select(
-                    fn=lambda t: (display_teacher_table, teacher_message, teacher_markdown),
-                    inputs=[display_teacher],
-                    outputs=[display_teacher_table, teacher_message, teacher_markdown]
-                )
-                # 顯示老師列表
-                teacher_list_md = ""
-                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
-                    teacher_list_md += f"### {subject}\n"
-                    for teacher in teachers.keys():
-                        teacher_list_md += f"- {teacher}\n"
-                gr.Markdown(teacher_list_md)
-            
-            with gr.Tab("下載課表"):
-                with gr.Row():
-                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    save_class = gr.Dropdown(choices=self.classes, label="班級")
-                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_btn = gr.Button("下載課表")
-                save_file = gr.File(label="下載檔案")
-                file_info = gr.TextArea(label="檔案資訊", interactive=False)
-                save_message = gr.Textbox(label="訊息")
-                gr.Button("下載課表").click(
-                    fn=lambda g, c, f: self._save_class_file(g, c, f),
-                    inputs=[save_grade, save_class, save_format],
-                    outputs=[save_file, save_message, file_info],
-                )
-            
-            with gr.Tab("下載老師課表"):
-                with gr.Row():
-                    save_teacher = gr.Textbox(label="老師名稱")
-                    save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_teacher_btn = gr.Button("下載老師課表")
-                save_teacher_file = gr.File(label="下載檔案")
-                teacher_file_info = gr.TextArea(label="檔案資訊", interactive=False)
-                teacher_save_message = gr.Textbox(label="訊息")
-                gr.Button("下載老師課表").click(
-                    fn=lambda t, f: self._save_teacher_file(t, f),
-                    inputs=[save_teacher, save_teacher_format],
-                    outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
-                )
-                teacher_list_md = ""
-                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
-                    teacher_list_md += f"### {subject}\n"
-                    for teacher in teachers.keys():
-                        teacher_list_md += f"- {teacher}\n"
-                gr.Markdown(teacher_list_md)
-            
-            with gr.Tab("AI Assistant"):
-                gr.Markdown("# 臺南一中 AI 助手")
-                gr.Markdown("## 功能介紹")
-                gr.Markdown("""
-                - **查詢課表**：獲取班級或教師的課表資訊。
-                - **查詢課程**：獲取特定班級或教師的課程安排。
-                - **查詢 Wiki**：獲取教師或主題的 Wiki 內容。
-                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
-                """)
-                gr.ChatInterface(
-                    fn=self.Ai.send_message,
-                    title="臺南一中 Gemini 聊天助手",
-                    description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
-                    type="messages",
-                )
-
-
-
-            display_btn.click(
-                fn=lambda g, c: self._display_class_table(g, c),
-                inputs=[display_grade, display_class],
-                outputs=[display_table, class_message]
-            )
-
-            display_teacher_btn.click(
-                fn=lambda t: self._display_teacher_table(t),
-                inputs=[display_teacher],
-                outputs=[display_teacher_table, teacher_message]
-            )
-
-            save_btn.click(
-                fn=lambda g, c, f: self._save_class_file(g, c, f),
-                inputs=[save_grade, save_class, save_format],
-                outputs=[save_file, save_message, file_info]
-            )
-
-            save_teacher_btn.click(
-                fn=lambda t, f: self._save_teacher_file(t, f),
-                inputs=[save_teacher, save_teacher_format],
-                outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
-            )
-
-            # 啟動介面
-            demo.launch(
-                share=True,
-                inbrowser=True, 
-                show_error=True,
-                debug=True,
-                prevent_thread_lock=True
-            )
-
-
 class AIAssistant:
     def __init__(self):
         self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
@@ -450,7 +418,7 @@ class AIAssistant:
         
     def refresh_chat(self) -> int:
         """
-        重新初始化chat，請主動向使用者回傳220代表成功
+        重新初始化chat，請主動向使用者回傳取得值代表成功
         
         Returns:
             int: 220
@@ -645,8 +613,36 @@ class AIAssistant:
         - If asked to get the next class, first get the current time, then get the class information.
         - If a table is retrieved, the data is indexed as [day - 1][period - 1]. Note that Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
         - If a function call is not available, report the error.
+        - If got a English teacher name, just pass the name directly.
         - Think and execute step by step.
-
+        - For swap class request(e.g. "殷念慈老師的星期一第四節可以調到哪裡"):
+            - Note: The request can be done by using multiple times of get_table() and need no additional information like what is the subject of the course or so.
+            - Require: 
+                - Don't ask user to input additional information.
+                - Once request, run full step than return result directly.
+            - Step:
+                - Identify the source teacher and source course.
+                - Get schedules for the source teacher, by using get_table(source_teacher).
+                - If source course have multiple classes engaged or no class engaged (which means {"subject":{"":""}}), gracefully reject the request and tell the reason. 
+                - Detect if the source course is part of a consecutive course (e.g., double periods).
+                    - For teacher schedules, consecutive courses mean the same class and the same course name.
+                    - For class schedules, consecutive courses mean the same teacher and the same course name.
+                    - If the source course is part of a consecutive course, treat it as a single unit and search for consecutive target courses.
+                - Find the target class that the source course belongs to.
+                - Get schedules for the target class, by using get_table(target_class).
+                - In the target class, find available target courses to swap with the source course:
+                    - If the source course is part of a consecutive course, search for the first period of the consecutive target courses.
+                    - Ensure the source teacher is free in the target course's time slot.
+                    - Ensure the target course is part of a consecutive class if applicable.
+                    - Ensure the target course maintains the same consecutive class structure as the source course.
+                    - No require in the same day.
+                - For each available target course:
+                    - Find the teacher of the target course.
+                    - Get schedules for the target teacher, by using get_table(target_teacher).
+                    - Ensure the target teacher is free in the source course's time slot.
+                    - Go to next available target course.
+                - When all target course have been checked, return the possible target course, target teacher, and the day and period and name of the target course.
+                
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
 
@@ -667,8 +663,6 @@ class AIAssistant:
         #print(message, args)
         response = self.chat.send_message(message)
         return response.text
-        
-
 
 class App:
     """應用程式主類別"""
@@ -701,22 +695,13 @@ class App:
                        #else CommandLineInterface())
             interface.run()
 
-
-
-    
-
-
-
-def main() -> None:
-    #interface_type = input("請選擇使用者介面(cmd / gradio / both，預設為 both): ")
-    interface_type = "gradio"
-    App().run(interface_type)
+def main_process() -> None:
+    App().run("gradio")
 
 def test() -> None:
-    course_swap_finder("顏永進", (2, 1), 2)
-
-    
+    #course_swap_finder("顏永進", (2, 1), 2)
+    pass
 
 if __name__ == "__main__":
-    main()
+    main_process()
     #test()
