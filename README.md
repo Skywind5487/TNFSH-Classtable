@@ -1,3 +1,20 @@
+---
+title: TNFSHClassTable
+emoji: 🏆
+colorFrom: yellow
+colorTo: yellow
+sdk: gradio
+sdk_version: 5.23.0
+app_file: app.py
+pinned: false
+license: mit
+short_description: 'parse class table of Tnfsh '
+python_version: '3.13'
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+
 # 🏫 TNFSH 課表查詢系統
 
 **臺南一中專屬的課表查詢與管理工具**  
