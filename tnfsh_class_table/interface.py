@@ -1,4 +1,6 @@
-from backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
+from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
+from tnfsh_class_table.depth_1_change_course import change_course
+
 from typing import Any, List
 import gradio as gr
 import requests
@@ -437,7 +439,7 @@ class AIAssistant:
         )
 
     def get_tools(self):
-        return [self.get_table, self.get_current_time, self.get_lesson, self.refresh_chat, self.get_class_table_link, self.get_wiki_link, self.get_wiki_content]
+        return [self.get_table, self.get_current_time, self.get_lesson, self.refresh_chat, self.get_class_table_link, self.get_wiki_link, self.get_wiki_content, self.get_swap_course]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
         """
@@ -601,6 +603,33 @@ class AIAssistant:
         class_table = TNFSHClassTable(target)
         return class_table.transposed_table
 
+    def get_swap_course(self, source_teacher: str, day: int, period: int) -> dict[str, str]:
+        """
+        取得指定老師的調課資訊，並返回可能的調課老師和課程資訊。
+
+        Args:
+            source_teacher (str): 課程來源老師名稱
+            day (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+
+        Returns:
+            
+        Example:
+            {
+                {
+                    "target_teacher": "陳老師",
+                    "target_course": "數學",
+                    "target_day": 2, # 代表星期二
+                    "target_period": 3 # 代表第三節
+                }, ...
+            }
+        """
+        # 調課邏輯實現
+        courses = change_course(source_teacher, (day, period))
+        if courses == []:
+            return "Please tell user there is no course could be swapped."
+        return courses
+
     def get_system_instruction(self):
         return """
         **Context:**
@@ -615,34 +644,7 @@ class AIAssistant:
         - If a function call is not available, report the error.
         - If got a English teacher name, just pass the name directly.
         - Think and execute step by step.
-        - For swap class request(e.g. "殷念慈老師的星期一第四節可以調到哪裡"):
-            - Note: The request can be done by using multiple times of get_table() and need no additional information like what is the subject of the course or so.
-            - Require: 
-                - Don't ask user to input additional information.
-                - Once request, run full step than return result directly.
-            - Step:
-                - Identify the source teacher and source course.
-                - Get schedules for the source teacher, by using get_table(source_teacher).
-                - If source course have multiple classes engaged or no class engaged (which means {"subject":{"":""}}), gracefully reject the request and tell the reason. 
-                - Detect if the source course is part of a consecutive course (e.g., double periods).
-                    - For teacher schedules, consecutive courses mean the same class and the same course name.
-                    - For class schedules, consecutive courses mean the same teacher and the same course name.
-                    - If the source course is part of a consecutive course, treat it as a single unit and search for consecutive target courses.
-                - Find the target class that the source course belongs to.
-                - Get schedules for the target class, by using get_table(target_class).
-                - In the target class, find available target courses to swap with the source course:
-                    - If the source course is part of a consecutive course, search for the first period of the consecutive target courses.
-                    - Ensure the source teacher is free in the target course's time slot.
-                    - Ensure the target course is part of a consecutive class if applicable.
-                    - Ensure the target course maintains the same consecutive class structure as the source course.
-                    - No require in the same day.
-                - For each available target course:
-                    - Find the teacher of the target course.
-                    - Get schedules for the target teacher, by using get_table(target_teacher).
-                    - Ensure the target teacher is free in the source course's time slot.
-                    - Go to next available target course.
-                - When all target course have been checked, return the possible target course, target teacher, and the day and period and name of the target course.
-                
+
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
 
