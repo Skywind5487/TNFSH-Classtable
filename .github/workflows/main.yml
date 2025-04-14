@@ -23,7 +23,7 @@ jobs:
 
           # The Hugging Face repo id you want to sync to. (ex. 'username/reponame')
           # A repo with this name will be created if it doesn't exist. Required.
-          huggingface_repo_id: 'Skywind5487/tnfsh-classtable'
+          huggingface_repo_id: 'Skywind5487/TNFSHClassTable'
 
           # Hugging Face token with write access. Required.
           # Here, we provide a token that we called `HF_TOKEN` when we added the secret to our GitHub repo.
