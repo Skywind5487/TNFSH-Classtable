@@ -116,6 +116,7 @@ class GradioInterface:
             theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
         ) as demo:
             gr.Markdown("# 臺南一中課表查詢系統")
+            gr.Markdown("[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
             with gr.Tab("下載課表"):
                 gr.Markdown("# 下載到Google Calendar")
                 gr.Markdown("請選ICS格式，並下載檔案後，請參考說明進行匯入")
