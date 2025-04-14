@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  
+
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
@@ -16,6 +16,8 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Fetch LFS objects
+        run: git lfs fetch --all  # 確保所有 LFS 物件都被下載
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
