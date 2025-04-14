@@ -12,6 +12,26 @@ from typing import Union, List
 from google.genai import types
 import os
 
+def print_result(func):
+    """
+    裝飾器：打印函數的執行結果
+    
+    Args:
+        func: 要裝飾的函數
+    
+    Returns:
+        wrapper: 包裝後的函數
+    """
+    def wrapper(*args, **kwargs):
+        print (f"\n=== {func.__name__} 開始執行 ===")
+        result = func(*args, **kwargs)
+        print(f"\n=== {func.__name__} 執行結果 ===")
+        print(f"參數: {args[1:] if len(args) > 1 else 'None'}")
+        print(f"回傳: {result}")
+        print("=" * 30 + "\n")
+        return result
+    return wrapper
+
 class GradioInterface:
     """Gradio網頁介面實作
     
@@ -584,6 +604,7 @@ class AIAssistant:
         base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
         return base_url + link + "  "
 
+    @print_result
     def get_class_table_index_base_url(self) -> str:
         """
         取得課表索引的基本網址
@@ -593,8 +614,9 @@ class AIAssistant:
         Returns:
             str: 課表索引的基本網址
         """
+        print("取得課表索引的基本網址")
         base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/course.html"
-        return TNFSHClassTableIndex.get_instance().base_url
+        return base_url
 
     def get_lesson(self, target: str) -> dict[str, list[str]]:
         """
@@ -632,14 +654,99 @@ class AIAssistant:
         """
         return datetime.now().strftime("%Y-%m-%d %A %H:%M:%S")
 
-    def get_table(self, target: str) -> list[list[dict[str, dict[str, str]]]]:
+    def get_table(self, target: str) -> dict[str, Union[str, list[dict[str, Union[str, list[dict[str, Union[str, list[dict[str, str]]]]]]]]]]:
         """
         取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成"205"輸入。
         如果想取得"Nicole老師的課表"，請輸入"Nicole"
         範圍涵蓋多個年級、多位老師。
+        
+        Returns:
+            dict[str, Union[str, list[dict[str, str]]]]: 課表資訊
+            包含以下鍵值：
+            - all_courses: 所有課程資訊，包含課程名稱、教師名稱、班級代碼、上課時間等
+                - day: 星期幾(1-5)
+                - courses: 課程列表，每個元素包含課程名稱、教師名稱、班級代碼等資訊
+                    - period: 第幾節(1-8)
+                    - subject: 課程名稱
+                    - teachers_of_course: 教師名稱列表，包含教師名稱和連結
+                        - teacher_name: 教師名稱
+                        - link: 教師課表連結    
+            - target: 目標班級或老師名稱
+            - type: 課表類型（班級或老師）
+
+        Example:
+        {
+            "all_courses": [
+                {
+                    "day": 1,
+                    "courses": [
+                        {
+                            "period": 1,
+                            "subject": "",
+                            "class_engaged": [
+                                {
+                                    "class_code": "",
+                                    "link": ""
+                                }
+                            ]
+                        },
+                        {
+                            "period": 2,
+                            "subject": "",
+                            "class_engaged": [
+                                {
+                                    "class_code": "",
+                                    "link": ""
+                                }
+                            ]
+                        }, ...
+                    ]
+                }, ...
+            ],
+            "target": "顏永進",
+            "type": "teacher"
+        }
         """
-        class_table = TNFSHClassTable(target)
-        return class_table.transposed_table
+        target: TNFSHClassTable = TNFSHClassTable(target)
+        table = target.transposed_table
+        result = {}
+        type = target.type
+        result["all_courses"] = []
+        for i, day in enumerate(table):
+            day_result = {}
+            day_result["day"] = i + 1
+            courses = []
+            for j, period in enumerate(day):
+                if isinstance(period, dict):
+                    course = {}
+                    course["period"] = j + 1
+                    course_name = list(period.keys())[0]
+                    objects = list(period[course_name].keys())
+                    links = list(period[course_name].values())
+                    course["subject"] = course_name
+                    if type == "class":
+                        for object, link in zip(objects, links):
+                            course["teachers_of_course"] = []
+                            course["teachers_of_course"].append({
+                                "teacher_name": object,
+                                "link": link
+                            })
+                    else: 
+                        for object, link in zip(objects, links):
+                            course["class_engaged"] = []
+                            course["class_engaged"].append({
+                                "class_code": object,
+                                "link": link
+                            })
+                    courses.append(course)
+                day_result["courses"] = courses
+            result["all_courses"].append(day_result)
+        
+        result["target"] = target.target
+        result["type"] = type
+        #result["lesson"] = target.lessons
+        
+        return result
 
     def get_swap_course(self, source_teacher: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
         """
@@ -687,6 +794,7 @@ class AIAssistant:
             return "Please tell user there is no course could be swapped."
         return courses
     
+    @print_result
     def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
         """
         取得指定班級或老師的課程資訊。
@@ -773,28 +881,29 @@ class AIAssistant:
         """
         index = NewWikiTeacherIndex.get_instance()
         return index.index
-
+    
+    @print_result
     def final_resoloution_get_all_table(self) -> Any:
         """
+        使用前必定要詢問使用者
         獲取所有課表內容的最終解決方案
-        當 tool 無法很好的解決問題時，請使用此函數
-        不過請注意，這個函數會導致程式變慢，因為它會獲取所有課表內容，使用前請先詢問使用者。
+        警告！
+        - 只有當其他方法(除了直接給連結)都不能完成使用者需求時才調用
+        - 這個函數會導致程式變慢，使用前必定要詢問使用者。
+
         Args:
             None
         """
         print("WARNING: final_resoloution_get_all_table")
         class_index = TNFSHClassTableIndex()
         index = class_index.reverse_index
-        import json
-        print(json.dumps(index, indent=4, ensure_ascii=False))
         targets = list(index.keys())
         result = []
         import concurrent.futures
 
         def fetch_target_table(target_name_or_code):
             return {
-            "target_name_or_code": target_name_or_code,
-            "table_of_target": self.get_table(target_name_or_code)
+            "table": self.get_table(target_name_or_code)
             }
 
         max_concurrent_tasks = 12  # 設定併發上限
@@ -819,19 +928,22 @@ class AIAssistant:
         return """
         **Context:**
         You are a TNFSH class schedule assistant and a TNFSH Wiki contributor. Your main task is to provide answers related to class schedules, teacher schedules, and wiki content.
-        TNFSH means Tainan First Senior High School, a high school in Taiwan. A.K.A TNFSH, 台南第一高級中學, 台南一中, 南一中, 真一中. 
-        TNFSH have three grades, each with 19 classes (in usual).
-
+        - TNFSH means Tainan First Senior High School, a high school in Taiwan. A.K.A TNFSH, 台南第一高級中學, 台南一中, 南一中, 真一中. 
+        - TNFSH have three grades, each with 19 classes (in usual, like 101, 102, 103, ... 118, 119, or 301 ~ 319).
+        - You have memories to remember the message before.
+        - Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
+        - The class schedule is divided into 8 periods.
         **Objective:**
         Use the provided tools as frequently as possible to answer the user's questions, and convert the results into readable plain text.
 
         **Steps:**
         - If asked to get the next class, first get the current time, then get the class information.
-        - If a table is retrieved, the data is indexed as [day - 1][period - 1]. Note that Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
-        - If a function call is not available, report the error.
         - If got a English teacher name, just pass the name directly.
+        - Subject names could be not completely same, but they could be similar and have same course content. e.g. 體育 is same as 運動新視野
+        - If asked to get whole grade, iterate through class 1 to class 19. e.g. 101, 102, ..., 119.
         - Think and execute step by step.
         - If got a error, just explain the error message to user.
+        - http://w3.tnfsh.tn.edu.tw/deanofstudies/course/ is not a valid link.
         - Final link: In the end of the response, always give proper link to let user to check the course table.
             - If function call didn't return link, use get_class_table_index_base_url to get the link.
 
@@ -892,7 +1004,8 @@ def main_process() -> None:
 
 def test() -> None:
     aa = AIAssistant()
-    bb = aa.final_resoloution_get_all_table()
+    bb = aa.get_table("顏永進")
+    #bb = TNFSHClassTable("307").export("json")
     import json
     print(json.dumps(bb, indent=4, ensure_ascii=False))
     pass
