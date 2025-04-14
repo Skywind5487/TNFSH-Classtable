@@ -1,4 +1,4 @@
-from tnfsh_class_table.backend import TNFSHClassTable
+from tnfsh_class_table.backend import TNFSHClassTable, TNFSHClassTableIndex
 from typing import Tuple, List, Dict, Union
 
 def is_course_free(teacher:TNFSHClassTable, time: tuple[int, int]) -> bool:
@@ -188,7 +188,7 @@ def check_free(teacher:TNFSHClassTable, time: tuple[int, int], streak) -> bool:
             return True
     return False
 
-def change_course(teacher_name:str, time: tuple[int, int]) -> list[dict[str, Union[str, int]]]:
+def change_course(teacher_name:str, time: tuple[int, int]) -> dict[str, Union[str, int, tuple[int, int], dict[str, Union[str, int]]]]:
     """
     處理課程調動的主要函數
     
@@ -204,21 +204,34 @@ def change_course(teacher_name:str, time: tuple[int, int]) -> list[dict[str, Uni
         time: (星期, 節次) 的元組，注意：使用者輸入的是從1開始的值
 
     Returns:
-        list[dict[str, Union[str, int]]]: 可調課的方案列表，每個方案是一個字典，包含以下鍵值對：
-            - target_teacher: 目標教師姓名
-            - target_course: 課程名稱
-            - target_day: 星期（0-6）
-            - target_period: 節次（0-6）
-        
+        dict[str, Union[str, int, tuple[int, int], dict[str, Union[str, int]]]]: 調課結果
+        包含以下鍵值：
+        - source_teacher: 來源教師姓名
+        - streak_start_time: 連續課程的起始時間 (星期, 節次)
+        - streak: 連續課程的長度
+        - source_course: 來源課程名稱
+        - can_swap_courses: 可調動的課程列表，每個元素包含目標教師、目標課程、目標時間等資訊        
     Example:
-    [
-        {
-            "target_teacher": "陳老師",
-            "target_course": "數學",
-            "target_day": 2,
-            "target_period": 3
-        }, ...
-    ]
+    {
+        "source_teacher": "顏永進",
+        "streak_start_time": (3, 2),
+        "streak": 2,
+        "source_course": "數學",
+        "can_swap_courses": [
+            {
+                "target_teacher": "空堂，無老師",
+                "target_course": "空堂，無課程",
+                "target_day": 3,
+                "target_period": 2
+            },
+            {
+                "target_teacher": "王小明",
+                "target_course": "物理",
+                "target_day": 3,
+                "target_period": 3
+            }, ...
+        ]
+    }
     """
     # 轉換時間格式（使用者輸入從1開始，程式內部從0開始）
     time = (time[0]-1, time[1]-1)
@@ -248,7 +261,7 @@ def change_course(teacher_name:str, time: tuple[int, int]) -> list[dict[str, Uni
     can_swap_course = get_swap_courses(class_status, streak)
 
     # 尋找可行的調課方案
-    result = []
+    courses = []
     for can_swap in can_swap_course:
         # 檢查目標教師是否有空
         if check_free(teacher, can_swap[0], streak):
@@ -259,7 +272,7 @@ def change_course(teacher_name:str, time: tuple[int, int]) -> list[dict[str, Uni
                 course["target_course"] = "空堂，無課程"
                 course["target_day"] = can_swap[0][0] + 1
                 course["target_period"] = can_swap[0][1] + 1
-                result.append(course)
+                courses.append(course)
                 print(f"空堂，可以調課的時間: {can_swap[0]}")
                 continue
             # 獲取並檢查對方教師是否有空
@@ -275,10 +288,16 @@ def change_course(teacher_name:str, time: tuple[int, int]) -> list[dict[str, Uni
                 course["target_course"] = list(class_.transposed_table[can_swap[0][0]][can_swap[0][1]].keys())[0]
                 course["target_day"] = can_swap[0][0] + 1
                 course["target_period"] = can_swap[0][1] + 1
-                result.append(course)
+                courses.append(course)
                 print(f"對方教師 {opposite_teacher.target} 在 {start_time} 時間不衝堂，可以完成調課")
         else:
             print(f"教師 {teacher.target} 在 {can_swap[0]} 時間衝堂，無法調課")
+    result = {}
+    result["source_teacher"] = teacher.target
+    result["streak_start_time"] = start_time
+    result["streak"] = streak
+    result["source_course"] = list(teacher.transposed_table[start_time[0]][start_time[1]].keys())[0]
+    result["can_swap_courses"] = courses
     return result
 
 def test():

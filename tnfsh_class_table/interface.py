@@ -116,7 +116,53 @@ class GradioInterface:
             theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
         ) as demo:
             gr.Markdown("# 臺南一中課表查詢系統")
+            with gr.Tab("下載課表"):
+                gr.Markdown("# 下載到Google Calendar")
+                gr.Markdown("請選ICS格式，並下載檔案後，請參考說明進行匯入")
+                gr.Markdown("說明: [Google匯入日曆說明](https://support.google.com/calendar/answer/37118?hl=zh-Hant)")
+                with gr.Row():
+                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    save_class = gr.Dropdown(choices=self.classes, label="班級")
+                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_btn = gr.Button("下載課表")
+                save_file = gr.File(label="下載檔案")
+                file_info = gr.TextArea(label="檔案資訊", interactive=False)
+                save_message = gr.Textbox(label="訊息")
+                gr.Button("下載課表").click(
+                    fn=lambda g, c, f: self._save_class_file(g, c, f),
+                    inputs=[save_grade, save_class, save_format],
+                    outputs=[save_file, save_message, file_info],
+                )
             
+            with gr.Tab("AI Assistant"):
+                gr.Markdown("# 臺南一中 AI 助手")
+                gr.Markdown("## 功能介紹")
+                gr.Markdown("""
+                - **查詢課表**：獲取班級或教師的課表資訊。
+                    - 例如：
+                        - 請告訴我205班的課表
+                        - 請告訴我顏永進老師的課表
+                        - 請告訴我307課表連結
+                        - 請告訴我殷念慈老師的課表連結
+                        - 今天116有什麼課
+                - **查詢 Wiki**：獲取教師或其他條目的 Wiki 內容。
+                    - 例如：
+                        - 請告訴我顏永進老師的Wiki內容
+                        - 請告訴我欽發麵店的Wiki內容
+                        - 請告訴我巫權祐老師的Wiki連結
+                            - 目前連結只支援老師
+                - **查詢調課可能(alpha)**：給定老師、節次，返回可能的調課老師。
+                    - 例如：
+                        - 請告訴我顏永進老師星期三第二節可以調到哪裡
+                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
+                """)
+                gr.ChatInterface(
+                    fn=self.Ai.send_message,
+                    title="臺南一中 Gemini 聊天助手",
+                    description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
+                    type="messages",
+                )
+
             with gr.Tab("顯示課表") as class_tab:
                 with gr.Row():
                     display_grade = gr.Dropdown(choices=self.grades, label="年級")
@@ -161,20 +207,7 @@ class GradioInterface:
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
             
-            with gr.Tab("下載課表"):
-                with gr.Row():
-                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    save_class = gr.Dropdown(choices=self.classes, label="班級")
-                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_btn = gr.Button("下載課表")
-                save_file = gr.File(label="下載檔案")
-                file_info = gr.TextArea(label="檔案資訊", interactive=False)
-                save_message = gr.Textbox(label="訊息")
-                gr.Button("下載課表").click(
-                    fn=lambda g, c, f: self._save_class_file(g, c, f),
-                    inputs=[save_grade, save_class, save_format],
-                    outputs=[save_file, save_message, file_info],
-                )
+            
             
             with gr.Tab("下載老師課表"):
                 with gr.Row():
@@ -196,34 +229,7 @@ class GradioInterface:
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
             
-            with gr.Tab("AI Assistant"):
-                gr.Markdown("# 臺南一中 AI 助手")
-                gr.Markdown("## 功能介紹")
-                gr.Markdown("""
-                - **查詢課表**：獲取班級或教師的課表資訊。
-                    - 例如：
-                        - 請告訴我205班的課表
-                        - 請告訴我顏永進老師的課表
-                        - 請告訴我307課表連結
-                        - 請告訴我殷念慈老師的課表連結
-                        - 今天116有什麼課
-                - **查詢 Wiki**：獲取教師或其他條目的 Wiki 內容。
-                    - 例如：
-                        - 請告訴我顏永進老師的Wiki內容
-                        - 請告訴我欽發麵店的Wiki內容
-                        - 請告訴我巫權祐老師的Wiki連結
-                            - 目前連結只支援老師
-                - **查詢調課可能(alpha)**：給定老師、節次，返回可能的調課老師。
-                    - 例如：
-                        - 請告訴我顏永進老師星期五第二節可以調到哪裡
-                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
-                """)
-                gr.ChatInterface(
-                    fn=self.Ai.send_message,
-                    title="臺南一中 Gemini 聊天助手",
-                    description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
-                    type="messages",
-                )
+            
 
 
 
@@ -439,7 +445,21 @@ class AIAssistant:
         )
 
     def get_tools(self):
-        return [self.get_table, self.get_current_time, self.get_lesson, self.refresh_chat, self.get_class_table_link, self.get_wiki_link, self.get_wiki_content, self.get_swap_course]
+        return [
+            self.get_table, 
+            self.get_current_time, 
+            self.get_lesson, 
+            self.refresh_chat, 
+            self.get_class_table_link, 
+            self.get_wiki_link, 
+            self.get_wiki_content, 
+            self.get_swap_course, 
+            self.get_specific_course,
+            self.get_class_table_index_base_url,
+            self.get_class_table_index,
+            self.get_wiki_teacher_index,
+            self.final_resoloution_get_all_table      
+            ]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
         """
@@ -447,6 +467,9 @@ class AIAssistant:
         目標可以不是老師，也可以是其他內容。
         例如: "欽發麵店"、"分類:科目"
         只是對於老師有較多檢查和 fallback。
+        當使用者的要求不是得到連結時，應考慮使用別的方法。
+        提供使用者連結使使用者能檢查。
+
 
         Args:
             target (str): 目標名稱
@@ -456,7 +479,7 @@ class AIAssistant:
             # 若有多個條目名稱，代表需要進一步澄清
         """
         base_url = "https://tnfshwiki.tfcis.org"
-        wiki_url = f"{base_url}/{target}"
+        wiki_url = f"{base_url}/{target}  "
 
         # 先檢查 URL 是否有效
         try:
@@ -490,7 +513,7 @@ class AIAssistant:
         except ValueError:
             raise ValueError(f"無法找到 {target} 的Wiki連結")
 
-    def regular_soup(self, soup: Any) -> str:
+    def _regular_soup(self, soup: Any) -> str:
         """
         清理 HTML 標籤的屬性，只保留 <a> 標籤的 href 屬性，並回傳指定的元素。
 
@@ -535,13 +558,15 @@ class AIAssistant:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         soup = soup.find('div', {'id': 'bodyContent'})
-        soup = self.regular_soup(soup)
+        soup = self._regular_soup(soup)
         return str(soup)
     
     def get_class_table_link(self, target: str) -> str:
         """
         取得指定目標的課表連結，如果想查詢二年五班，應該轉換成205輸入
         範圍涵蓋多個年級。
+        當使用者的要求不是得到連結時，應考慮使用別的方法。
+        提供使用者連結使使用者能檢查。
 
         Args:
             target: 班級或老師名稱
@@ -556,7 +581,19 @@ class AIAssistant:
         index = TNFSHClassTableIndex()
         link = index.reverse_index[target]["url"]
         base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
-        return base_url + link
+        return base_url + link + "  "
+
+    def get_class_table_index_base_url(self) -> str:
+        """
+        取得課表索引的基本網址
+        當使用者的要求不是得到連結時，應考慮使用別的方法。
+        提供使用者連結使使用者能檢查。
+
+        Returns:
+            str: 課表索引的基本網址
+        """
+        base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/course.html"
+        return TNFSHClassTableIndex.get_instance().base_url
 
     def get_lesson(self, target: str) -> dict[str, list[str]]:
         """
@@ -603,37 +640,186 @@ class AIAssistant:
         class_table = TNFSHClassTable(target)
         return class_table.transposed_table
 
-    def get_swap_course(self, source_teacher: str, day: int, period: int) -> dict[str, str]:
+    def get_swap_course(self, source_teacher: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
         """
-        取得指定老師的調課資訊，並返回可能的調課老師和課程資訊。
+        取得指定教師的調課資訊，包含可調動的課程列表。
 
         Args:
-            source_teacher (str): 課程來源老師名稱
+            source_teacher (str): 來源教師姓名
             day (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
 
         Returns:
-            
+            dict[str, Union[str, int, tuple[int, int], dict[str, Union[str, int]]]]: 調課結果
+            包含以下鍵值：
+            - source_teacher: 來源教師姓名
+            - streak_start_time: 連續課程的起始時間 (星期, 節次)
+            - streak: 連續課程的長度 # 回應時應註明來源課程所在的連慮課程的起始時間與長度
+            - source_course: 來源課程名稱
+            - can_swap_courses: 可調動的課程列表，每個元素包含目標教師、目標課程、目標時間等資訊        
+
         Example:
-            {
+        {
+            "source_teacher": "顏永進",
+            "streak_start_time": (3, 2),
+            "streak": 2,
+            "source_course": "數學",
+            "can_swap_courses": [
                 {
-                    "target_teacher": "陳老師",
-                    "target_course": "數學",
-                    "target_day": 2, # 代表星期二
-                    "target_period": 3 # 代表第三節
+                    "target_teacher": "空堂，無老師",
+                    "target_course": "空堂，無課程",
+                    "target_day": 3,
+                    "target_period": 2
+                },
+                {
+                    "target_teacher": "王小明",
+                    "target_course": "物理",
+                    "target_day": 3,
+                    "target_period": 3
                 }, ...
-            }
+            ]
+        }
         """
         # 調課邏輯實現
         courses = change_course(source_teacher, (day, period))
         if courses == []:
             return "Please tell user there is no course could be swapped."
         return courses
+    
+    def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
+        """
+        取得指定班級或老師的課程資訊。
+
+        Args:
+            target (str): 班級或老師名稱
+            day (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+
+        Returns:
+            dict[str, Union[str, list[dict[str, str]]]]: 課程資訊
+            # 可能的回傳格式有兩種，依據班級或老師的不同而有所區別。
+            # 1. 如果是班級，返回課程中老師資訊
+            # 2. 如果是老師，返回課程對應的學生資訊
+            # 3. 如果是空堂，返回"該節是空堂"
+        Example:
+            1. 
+            {
+                "subject": "數學",
+                "teacher": [
+                    {
+                        "name": "陳老師",
+                        "link": "example.com/teacher"
+                    }, ...
+                ]
+            }
+            2. 
+            {
+                "subject": "數學",
+                "class": [
+                    {
+                        "class_code": "307",
+                        "link": "example.com/teacher"
+                    }, ...
+                ]
+            }
+        """
+        class_table = TNFSHClassTable(target)
+        table = class_table.transposed_table
+        if day < 1 or day > len(table) or period < 1 or period > len(table[0]):
+            return "請提供有效的星期和節次範圍"
+        course = table[day - 1][period - 1]
+        subject = list(course.keys())[0] 
+        object = list(course[subject].keys())
+        links = list(course[subject].values()) 
+        #print(links)
+        type = class_table.type
+        if type == "class":
+            # 如果是班級，返回班級資訊
+            result = {}
+            result["subject"] = subject
+            result["teacher"] = []
+            for teacher_name, link in zip(object, links):
+                if teacher_name == "" and link == "":
+                    return "該節是空堂"
+                base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+                result["teacher"].append({"teacher_name": teacher_name, "link": base_url + link})
+
+        else:
+            # 如果是老師，返回老師資訊
+            result = {}
+            result["subject"] = subject
+            result["class"] = []
+            for teacher_name, link in zip(object, links):
+                if teacher_name == "" and link == "":
+                    return "該節是空堂"
+                base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+                result["class"].append({"class_code": teacher_name, "link": base_url + link})
+        
+        return result
+    
+    def get_class_table_index(self) -> dict[str, dict[str, str]]:
+        """
+        從源頭課表網站獲取課表索引資料，包括科目與老師名稱、其連結
+        Args:
+            None
+        """
+        index = TNFSHClassTableIndex()
+        return index.index
+    
+    def get_wiki_teacher_index(self) -> dict[str, dict[str, str]]:
+        """
+        從竹園Wiki索引資料，包括科目與老師名稱、其連結
+        """
+        index = NewWikiTeacherIndex.get_instance()
+        return index.index
+
+    def final_resoloution_get_all_table(self) -> Any:
+        """
+        獲取所有課表內容的最終解決方案
+        當 tool 無法很好的解決問題時，請使用此函數
+        不過請注意，這個函數會導致程式變慢，因為它會獲取所有課表內容，使用前請先詢問使用者。
+        Args:
+            None
+        """
+        print("WARNING: final_resoloution_get_all_table")
+        class_index = TNFSHClassTableIndex()
+        index = class_index.reverse_index
+        import json
+        print(json.dumps(index, indent=4, ensure_ascii=False))
+        targets = list(index.keys())
+        result = []
+        import concurrent.futures
+
+        def fetch_target_table(target_name_or_code):
+            return {
+            "target_name_or_code": target_name_or_code,
+            "table_of_target": self.get_table(target_name_or_code)
+            }
+
+        max_concurrent_tasks = 12  # 設定併發上限
+        semaphore = threading.Semaphore(max_concurrent_tasks)
+
+        def fetch_with_limit(target_name_or_code):
+            with semaphore:
+                return fetch_target_table(target_name_or_code)
+
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            target_futures = {executor.submit(fetch_with_limit, target): target for target in targets}
+            for future in concurrent.futures.as_completed(target_futures):
+                try:
+                    result.append(future.result())
+                except Exception as e:
+                    print(f"Error fetching teacher table: {e}")
+        return result
+            
+        
 
     def get_system_instruction(self):
         return """
         **Context:**
-        You are a class schedule assistant and a TNFSH Wiki contributor. Your main task is to provide answers related to class schedules, teacher schedules, and wiki content.
+        You are a TNFSH class schedule assistant and a TNFSH Wiki contributor. Your main task is to provide answers related to class schedules, teacher schedules, and wiki content.
+        TNFSH means Tainan First Senior High School, a high school in Taiwan. A.K.A TNFSH, 台南第一高級中學, 台南一中, 南一中, 真一中. 
+        TNFSH have three grades, each with 19 classes (in usual).
 
         **Objective:**
         Use the provided tools as frequently as possible to answer the user's questions, and convert the results into readable plain text.
@@ -644,6 +830,9 @@ class AIAssistant:
         - If a function call is not available, report the error.
         - If got a English teacher name, just pass the name directly.
         - Think and execute step by step.
+        - If got a error, just explain the error message to user.
+        - Final link: In the end of the response, always give proper link to let user to check the course table.
+            - If function call didn't return link, use get_class_table_index_base_url to get the link.
 
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
@@ -701,7 +890,10 @@ def main_process() -> None:
     App().run("gradio")
 
 def test() -> None:
-    #course_swap_finder("顏永進", (2, 1), 2)
+    aa = AIAssistant()
+    bb = aa.final_resoloution_get_all_table()
+    import json
+    print(json.dumps(bb, indent=4, ensure_ascii=False))
     pass
 
 if __name__ == "__main__":
