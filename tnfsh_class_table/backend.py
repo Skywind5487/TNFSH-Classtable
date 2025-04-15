@@ -696,18 +696,18 @@ class TNFSHClassTable:
 
         def _get_new_wiki_teacher_links_and_name(teacher_name: str) -> List[Tuple[str, str]]:
             """取得新竹園 Wiki 教師連結列表，返回 (URL, 名稱) 的列表"""
-           
+            wiki_base_url = "https://tnfshwiki.tfcis.org"
             Index = NewWikiTeacherIndex.get_instance()
             teacher_data = Index.reverse_index
             #print_format(Index.teacher_index)
             # 先直接搜尋完全匹配的教師名稱
             if teacher_name in teacher_data:
                 teacher_info_list = teacher_data[teacher_name]
-                return [(teacher_info_list["url"], teacher_name)]
+                return [(wiki_base_url + teacher_info_list["url"], teacher_name)]
 
             # 若無完全匹配，搜尋包含教師名稱的項目
             partial_matches = [
-                (info_list["url"], name) 
+                (wiki_base_url + "/" + info_list["url"], name) 
                 for name, info_list in teacher_data.items()
                 if teacher_name in name
             ]
@@ -717,8 +717,8 @@ class TNFSHClassTable:
                 return partial_matches
             else:
                 # 如果還是找不到，嘗試直接生成 URL 並檢查是否有效
-                base_url = "https://tnfshwiki.tfcis.org"
-                teacher_url = f"{base_url}/{teacher_name}"
+                wiki_base_url = "https://tnfshwiki.tfcis.org"
+                teacher_url = f"{wiki_base_url}/{teacher_name}"
                 try:
                     response = requests.head(teacher_url, timeout=5)
                     if response.status_code == 200:
