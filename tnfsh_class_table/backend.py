@@ -996,10 +996,10 @@ class TNFSHClassTable:
             raise Exception(f"匯出 ICS 時發生未預期的錯誤: {e}")    
     def export(self, type:str, filepath: Optional[str] = None):
         type_list = ["json", "csv", "ics"]
-
+        type = type.lower()
         if type not in type_list:
             raise ValueError(f'沒有模式: {type}')
-
+        
         if type == "json":
             filepath = self._export_to_json(filepath)
         elif type == "csv":
