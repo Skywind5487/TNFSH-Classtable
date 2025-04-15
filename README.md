@@ -17,7 +17,7 @@ python_version: '3.13'
 
 Hugging Face: [Skywind5487/TNFSHClassTable](https://huggingface.co/spaces/Skywind5487/TNFSHClassTable)
 
-# 🏫 TNFSH 課表查詢系統
+# 🏫 TNFSH 課表助手
 
 在台南一中，學生每天都在追趕時間、翻找課表：
 「下一節上什麼課？」📚、「明天有沒有體育課？」、「可不可以加到手機行事曆提醒我上課？」
