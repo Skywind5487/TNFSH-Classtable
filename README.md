@@ -12,48 +12,68 @@ short_description: 'parse class table of Tnfsh '
 python_version: '3.13'
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-Github: https://github.com/Skywind5487/TNFSH-Classtable
 
-# 🏫 TNFSH 課表查詢系統
+## 立刻體驗:HuggingFace
 
-**臺南一中專屬的課表查詢與管理工具**  
-提供班級與教師課表查詢、資料匯出、AI 助手、調課查詢等功能，讓課表管理更輕鬆！
+Hugging Face: [Skywind5487/TNFSHClassTable](https://huggingface.co/spaces/Skywind5487/TNFSHClassTable)
+
+# 🏫 TNFSH 課表助手
+
+在台南一中，學生每天都在追趕時間、翻找課表：
+「下一節上什麼課？」📚、「明天有沒有體育課？」、「可不可以加到手機行事曆提醒我上課？」
+這些看似小事，卻是我們每天都在面對的痛點。
+
+本專案正是為了解決這樣的困擾而誕生———
+打造一個專屬於台南一中學生的智慧課表系統，結合日曆整合、AI 助手與即時資訊，讓看課表從此變得方便、好用、智慧。
+
+## 🔑 主要功能
+
+- Google 日曆一鍵匯出 📅：讓 Google 日曆提醒你下一節，不再手動尋找。
+
+- AI 助手整合竹園維基 🤖：找課程、問老師、問維基，一次搞定。
+
+- 課表快速查詢 🗓️：班級與教師課表，一目了然。
+
+- 調課查詢工具 🔄：創新算法與 AI 整合推薦，讓「我跟這個老師不熟不好調課」不再是困難！
+
+## ⚡ 技術亮點
+自主研發兩套調課策略:
+
+- 互換策略 🔁：基於教師兩兩互相調課的算法。
+- 輪換策略 🔄：基於教師向下一個位置調動形成環的算法。
+- 深度優先搜尋 (DFS) 應用 🧠：利用 DFS 算法在複雜的課程調度中探索所有可能方案，實現高效且精確的調課規劃。
+
+doc(尚在準備) 📄：[兩種調課算法](https://hackmd.io/@sky-wind-note/how_to_swap_course) 
+
+
+## 🌟 核心理念
+讓校園與科技接軌，將課表數位化，利用科技讓學生的學習生活更有條理、更加輕鬆 🎓。
 
 ---
 
-## 立刻體驗
-[Hugging Face](https://huggingface.co/spaces/Skywind5487/TNFSHClassTable)
+# Github
 
-## 🚀 核心功能
+Github: [Skywind5487/TNFSH-Classtable](https://github.com/Skywind5487/TNFSH-Classtable)
 
-### 📊 課表解析
-- **班級與教師課表解析**：支援多種格式匯出，包括 `JSON`、`CSV`、`ICS`。
-- **索引資料**：快速查詢班級與教師的課表連結與詳細資訊。
-
-### 📅 日曆整合
-- **ICS 格式**：支援匯入 Google Calendar、Outlook 等行事曆軟體。
-  - 教學: [Google Calendar](https://support.google.com/calendar/answer/37118?hl=zh-Hant)
-  - 手機請調整到電腦板模式
-- **CSV 格式**：適合匯入 Google Calendar，提供簡易匯入步驟。
-- **重複規則**：自動處理學期重複，無需手動調整。
-
-### 🤖 AI 助手(Unstable)
-- **自然語言查詢**：支援班級課表、教師課表、竹園Wiki 內容查詢。
-- **調課建議**：提供教師調課可能性分析（Alpha 功能）。
+---
 
 
+# 🛠️ 開發專區
 
-### 🛠️ 使用教學
-#### 1. 下載專案
+## 專案Wiki
+待補 [Wiki-index](/wiki/wiki_index.md)
+
+## 環境配置
+
+### 1. 下載專案
 點擊[下載專案](https://github.com/Skywind5487/TNFSH-Classtable/archive/refs/heads/main.zip)來下載最新的 repo。
 
-#### 2. 解壓縮專案
+### 2. 解壓縮專案
 1. 在「下載」資料夾找到 `TNFSH-Classtable-main.zip`。
 2. 右鍵點擊壓縮檔，選擇「解壓縮全部」。
 3. 將產生的資料夾 `TNFSH-Classtable-main` 移到你喜歡的地方(下稱專案資料夾)。
 
-### 3. 安裝環境
+### 3. 安裝 python 環境
 
 #### 1️⃣ 安裝 `uv`
 `uv` 是一個 Python 的虛擬環境管理工具。
