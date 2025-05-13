@@ -1,6 +1,25 @@
+"""swap_dfs.py — Core library for DFS-based course swapping logic.
+
+Classes
+-------
+TeacherNode, CourseNode
+
+Public helpers
+--------------
+connect_neighbors, merge_paths
+
+Example usage is provided in `tests/test_swap_dfs.py`.
+"""
 from __future__ import annotations
 
 from typing import List, Dict, Optional, Generator, Set
+
+__all__ = [
+    "TeacherNode",
+    "CourseNode",
+    "connect_neighbors",
+    "merge_paths",
+]
 
 # -----------------------------------------------------------------------------
 # 基本節點類別
@@ -9,9 +28,9 @@ from typing import List, Dict, Optional, Generator, Set
 class TeacherNode:
     def __init__(self, name: str) -> None:
         self.name: str = name
-        self.courses: Dict[str, 'CourseNode'] = {}
+        self.courses: Dict[str, "CourseNode"] = {}
 
-    def __repr__(self) -> str:
+    def __repr__(self) -> str:  # pragma: no cover
         return f"Teacher({self.name})"
 
 
@@ -22,10 +41,10 @@ class CourseNode:
         self.time: str = time
         self.teacher: TeacherNode = teacher
         self.is_free: bool = is_free
-        self.neighbors: List['CourseNode'] = []
+        self.neighbors: List["CourseNode"] = []
         teacher.courses[time] = self
 
-    def __repr__(self) -> str:
+    def __repr__(self) -> str:  # pragma: no cover
         return f"{self.teacher.name.lower()}{self.time}{'_' if self.is_free else ''}"
 
 
@@ -33,158 +52,146 @@ class CourseNode:
 # 工具函式
 # -----------------------------------------------------------------------------
 
-def connect_neighbors(nodes: List['CourseNode']) -> None:
+def connect_neighbors(nodes: List["CourseNode"]) -> None:
+    """Fully connect a group of courses so each becomes each other's neighbor."""
     for course in nodes:
         course.neighbors = [n for n in nodes if n is not course]
 
 
-def get_fwd(src: 'CourseNode', dst: 'CourseNode') -> Optional['CourseNode']:
+def _get_fwd(src: "CourseNode", dst: "CourseNode") -> Optional["CourseNode"]:
     return dst.teacher.courses.get(src.time)
 
 
-def get_bwd(src: 'CourseNode', dst: 'CourseNode') -> Optional['CourseNode']:
+def _get_bwd(src: "CourseNode", dst: "CourseNode") -> Optional["CourseNode"]:
     return src.teacher.courses.get(dst.time)
 
 
-def _is_free(course: Optional['CourseNode'], freed: Set['CourseNode']) -> bool:
-    """判斷課程是否視為空堂：本身標記 is_free 或已在交換路徑中。"""
-    return course is None or course.is_free or course in freed
+def _is_free(course: Optional["CourseNode"], freed: Set["CourseNode"]) -> bool:
+    """A course is considered free if it is None, explicitly marked free, or already freed."""
+    return course is None or (course and course.is_free) or course in freed
 
 
-def bwd_check(src: 'CourseNode', dst: 'CourseNode', *, freed: Set['CourseNode']) -> bool:
-    return _is_free(get_bwd(src, dst), freed)
+def _bwd_check(src: "CourseNode", dst: "CourseNode", *, freed: Set["CourseNode"]) -> bool:
+    return _is_free(_get_bwd(src, dst), freed)
 
 
-def fwd_check(src: 'CourseNode', dst: 'CourseNode', *, freed: Set['CourseNode']) -> bool:
-    return _is_free(get_fwd(src, dst), freed)
+def _fwd_check(src: "CourseNode", dst: "CourseNode", *, freed: Set["CourseNode"]) -> bool:
+    return _is_free(_get_fwd(src, dst), freed)
 
 
 # -----------------------------------------------------------------------------
 # DFS 搜尋
 # -----------------------------------------------------------------------------
 
-MAX_DEPTH: int = 10
+_MAX_DEPTH: int = 10
 
 
-def dfs_swap_path(
-    start: 'CourseNode',
-    current: Optional['CourseNode'] = None,
+def _dfs_swap_path(
+    start: "CourseNode",
+    current: Optional["CourseNode"] = None,
     *,
     depth: int = 0,
-    path: Optional[List['CourseNode']] = None,
-) -> Generator[List['CourseNode'], None, None]:
-    """列舉 *forward* 合法切片；把路徑上的節點視作『已騰空』。"""
+    path: Optional[List["CourseNode"]] = None,
+) -> Generator[List["CourseNode"], None, None]:
+    """Enumerate forward-legal slices, treating nodes on *path* as already freed."""
+    print(f"\n=== DFS 開始 (深度: {depth}) ===")
+    print(f"起點: {start}")
+    print(f"當前節點: {current}")
+    print(f"當前路徑: {path}")
 
     if path is None:
         path = []
     if current is None:
         current = start
-    if depth >= MAX_DEPTH:
+
+    if depth >= _MAX_DEPTH:
+        print(f"達到最大深度 {_MAX_DEPTH}，停止搜尋")
         return
 
-    freed: Set['CourseNode'] = set(path)  # 這些節點已被換開，視為空堂
+    if current.is_free:
+        result = path + [current]
+        print(f"找到空堂！產生路徑: {' -> '.join(str(c) for c in result)}")
+        yield result
+        return
 
+    freed: Set["CourseNode"] = set(path)
+    print(f"已釋放的節點: {freed}")
+
+    print(f"\n檢查 {current} 的所有相鄰節點:")
     for hop1 in current.neighbors:
+        print(f"\n考慮相鄰節點 {hop1}:")
+        
         if hop1 == start:
+            print(f"- 跳過 {hop1} (是起點)")
             continue
-        if not bwd_check(current, hop1, freed=freed):
+            
+        if not _bwd_check(current, hop1, freed=freed):
+            print(f"- 跳過 {hop1} (後向檢查失敗)")
             continue
 
-        hop2 = get_fwd(current, hop1)
+        hop2 = _get_fwd(current, hop1)
+        print(f"- 前向節點 {hop2}")
+        
         if hop2 is None or hop2 == start:
+            print(f"- 跳過路徑 (前向節點無效)")
             continue
 
-        next_path = path + [current, hop1, hop2]
-        next_freed = freed | {hop1}
-
-        if fwd_check(current, hop1, freed=freed):
-            yield next_path
+        if _fwd_check(current, hop1, freed=freed):
+            result = path + [current, hop1, hop2]
+            print(f"- 前向檢查成功，產生路徑: {' -> '.join(str(c) for c in result)}")
+            yield result
         else:
-            yield from dfs_swap_path(start, hop2, depth=depth + 1, path=path + [current, hop1])
+            print(f"- 繼續深度搜尋，從 {hop2} 開始")
+            yield from _dfs_swap_path(start, hop2, depth=depth + 1, path=path + [current, hop1])
 
 
 # -----------------------------------------------------------------------------
 # 拼接前後半路徑
 # -----------------------------------------------------------------------------
 
-def merge_paths(start: 'CourseNode') -> Generator[List['CourseNode'], None, None]:
+def merge_paths(start: "CourseNode") -> Generator[List["CourseNode"], None, None]:
+    """Yield complete swap paths that start and end with a free slot reached via forward moves."""
+    print(f"\n========= 開始搜尋交換路徑 =========")
+    print(f"起點課程: {start}")
+    print(f"相鄰課程: {start.neighbors}")
+    
     for course in start.neighbors:
-        hop2 = get_fwd(start, course)
+        print(f"\n檢查相鄰課程: {course}")
+        
+        hop2 = _get_fwd(start, course)
+        print(f"前向跳轉課程：{hop2}")
         if hop2 is None or hop2 == start:
+            print("無效的前向課程，跳過")
             continue
 
-        bwd_neighbor = get_bwd(start, course)
+        bwd_neighbor = _get_bwd(start, course)
+        print(f"後向相鄰課程：{bwd_neighbor}")
         if bwd_neighbor is None:
+            print("無效的後向課程，跳過")
             continue
 
-        # 後半段
-        if bwd_check(start, course, freed=set()):
+        print("\n=== 搜尋後向路徑 ===")
+        if _bwd_check(start, course, freed=set()):
             bwd_slices = [[bwd_neighbor]]
+            print(f"後向課程可直接使用: {bwd_slices}")
         else:
-            bwd_slices = list(dfs_swap_path(start, bwd_neighbor))
+            print("開始後向深度搜尋...")
+            bwd_slices = list(_dfs_swap_path(start, bwd_neighbor))
+            print(f"找到的後向路徑: {bwd_slices}")
 
-        # 前半段：start -> course 已佔用 course，故 freed={course}
-        fwd_slices = list(dfs_swap_path(start, hop2, path=[course]))
+        print("\n=== 搜尋前向路徑 ===")
+        if hop2.is_free:
+            fwd_slices = [[course, hop2]]
+            print(f"前向課程是空堂，直接使用: {fwd_slices}")
+        else:
+            print("開始前向深度搜尋...")
+            fwd_slices = list(_dfs_swap_path(start, hop2, path=[course]))
+            print(f"找到的前向路徑: {fwd_slices}")
 
+        print("\n=== 合併路徑 ===")
         for fwd in fwd_slices:
             for bwd in bwd_slices:
-                yield list(reversed(bwd)) + [start] + fwd
+                complete_path = list(reversed(bwd)) + [start] + fwd
+                print(f"產生完整路徑: {' -> '.join(str(c) for c in complete_path)}")
+                yield complete_path
 
-
-# -----------------------------------------------------------------------------
-# Demo
-# -----------------------------------------------------------------------------
-
-def _demo() -> None:
-    A = TeacherNode('A'); B = TeacherNode('B'); C = TeacherNode('C'); D = TeacherNode('D')
-
-    # A老師的課程，大部分設為空堂
-    a1 = CourseNode('1', A)  # 這節要交換，所以不是空堂
-    a2 = CourseNode('2', A, is_free=True)
-    a3 = CourseNode('3', A, is_free=True)
-    a4 = CourseNode('4', A, is_free=True)
-    a5 = CourseNode('5', A, is_free=True)
-
-    # B老師的課程，大部分設為空堂
-    b1 = CourseNode('1', B, is_free=True)
-    b2 = CourseNode('2', B)  # 這節要交換，所以不是空堂
-    b3 = CourseNode('3', B, is_free=True)
-    b4 = CourseNode('4', B, is_free=True)
-    b5 = CourseNode('5', B, is_free=True)
-
-    # C老師的課程，大部分設為空堂
-    c1 = CourseNode('1', C, is_free=True)
-    c2 = CourseNode('2', C, is_free=True)
-    c3 = CourseNode('3', C)  # 這節要交換，所以不是空堂
-    c4 = CourseNode('4', C, is_free=True)
-    c5 = CourseNode('5', C, is_free=True)
-
-    # D老師的課程，大部分設為空堂
-    d1 = CourseNode('1', D, is_free=True)
-    d2 = CourseNode('2', D, is_free=True)
-    d3 = CourseNode('3', D)  # 這節要交換，所以不是空堂
-    d4 = CourseNode('4', D, is_free=True)
-    d5 = CourseNode('5', D, is_free=True)
-
-    # 建立課程之間可以交換的關係
-    connect_neighbors([a1, b2])
-    connect_neighbors([a2, d5])
-    connect_neighbors([c1, d3])
-    connect_neighbors([b1, c2])
-
-    print("\n可行交換路徑 (start = a1):")
-    for idx, cycle in enumerate(merge_paths(a1), 1):
-        print(f"{idx:>2}. " + " -> ".join(map(str, cycle)))
-
-
-if __name__ == "__main__":
-    _demo()
-
-
-__all__ = [
-    "TeacherNode",
-    "CourseNode",
-    "connect_neighbors",
-    "dfs_swap_path",
-    "merge_paths",
-]
