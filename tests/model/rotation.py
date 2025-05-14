@@ -26,109 +26,85 @@ def connect_neighbors(neighbors: List[CourseNode]) -> None:
     for course in neighbors:
         course.neighbors = [n for n in neighbors if n != course]
 
-def bwd_check(src: CourseNode, dst: CourseNode) -> bool:
-    """檢查換課是否會造成教師課程時間衝突
-    
-    Args:
-        src: 來源課程節點
-        dst: 目標課程節點
-    
-    Returns:
-        bool: 如果換課可行返回 True，否則返回 False
-    """
-    # 檢查目標時段教師是否已有課且不是空堂
-    course = src.teacher.courses.get(dst.time)
-    return course is None or course.is_free  # 如果該時段沒有課，可以換課
+def _get_bwd(src: "CourseNode", dst: "CourseNode") -> Optional["CourseNode"]:
+    result = src.teacher.courses.get(dst.time)
+    if result:
+        print(f"{'可以移動' if result.is_free else '不可移動'} (課程狀態：{'空堂' if result.is_free else '有課'})")
+    else:
+        print("可以移動 (無課程)")
+    return result
 
-def dfs_cycle(start: CourseNode,
+def bwd_check(src: CourseNode, dst: CourseNode) -> bool:
+    course = _get_bwd(src, dst)
+    return course is None or course.is_free
+
+def rotation(start:CourseNode, max_depth: int = 5) -> Generator[List[CourseNode], None, None]:
+    """輪調算法的主函式"""
+    def dfs_cycle(start: CourseNode,
               current: Optional[CourseNode] = None,
               depth: int = 0,
               path: Optional[List[CourseNode]] = None,
-              visited: Optional[Set[CourseNode]] = None) -> Generator[List[CourseNode], None, None]:
-    """使用深度優先搜索（DFS）來尋找換課環路
-    
-    Args:
-        start: 起始課程節點
-        current: 當前課程節點
-        depth: 當前搜索深度
-        path: 目前經過的路徑
-        visited: 已訪問過的節點集合
+              visited: Optional[Set[CourseNode]] = None,
+              ) -> Generator[List[CourseNode], None, None]:
+        # 初始化
+        if current is None:
+            current = start
+            print("\n" + "="*50)
+            print("開始搜索環路")
+            print("="*50)
+            path = [start]
+            visited = set()
+        
+        # 最大深度限制
+        if depth >= max_depth:
+            return
 
-    Yields:
-        List[CourseNode]: 找到的換課環路
+        # 遍歷當前節點的所有鄰居
+        for next_course in current.neighbors:
+            print(f"\n當前路徑: {' -> '.join(str(node) for node in path)}")
+            print(f"準備檢查: {current} -> {next_course}")
+            
+            # 檢查換課是否可行
+            if not bwd_check(current, next_course):
+                continue
+            
+            # 跳過已訪問過的節點
+            if next_course in visited:
+                print(f"已訪問過 {next_course}，跳過")
+                continue
+                
+            # 找到環路
+            if next_course == start:
+                complete_path = path + [start]
+                print("\n" + "-"*50)
+                print(f"找到環路: {' -> '.join(str(node) for node in complete_path)}")
+                print("-"*50)
+                yield complete_path
+                continue
+
+            # 繼續搜索
+            visited.add(next_course)
+            yield from dfs_cycle(start, next_course, depth + 1, path + [next_course], visited)
+            visited.remove(next_course)
+    yield from dfs_cycle(start)
+
+def _print_cycles(cycles):
     """
-    # 初始化當前節點
-    if current is None:
-        current = start
-    # 初始化路徑
-    if path is None:
-        path = [start]
-    # 初始化已訪問集合
-    if visited is None:
-        visited = set()  # 注意：這裡要創建一個空集合實例
-
-    # 設定最大深度限制，避免無限遞迴
-    if depth >= 10:
+    以更清晰的格式輸出找到的環路
+    """
+    if not cycles:
+        print("未找到任何環路")
         return
 
-    # 遍歷當前節點的所有鄰居
-    for next_course in current.neighbors:
-        # 檢查換課是否可行（教師課程時間不衝突）
-        if not bwd_check(current, next_course):
-            continue
-        # 跳過已訪問過的節點，避免產生小環路
-        if next_course in visited:
-            continue
-        # 如果回到起點，就找到一個完整的換課環路
-        if next_course == start:
-            yield path + [start]
-            continue
+    # 依照環路長度排序
+    sorted_cycles = sorted(cycles, key=len)
+    print("\n=== 環路清單（依長度排序）===")
+    for i, cycle in enumerate(sorted_cycles, 1):
+        actual_length = len(cycle)  # 實際長度（包含重複的起點）
+        depth = actual_length - 1   # 深度（不含重複的起點）
+        path_str = " -> ".join(str(node) for node in cycle)
+        print(f"\n環路 {i}:")
+        print(f"深度: {depth}, 實際長度: {actual_length}")
+        print(f"路徑: {path_str}")
 
-        # 將下一個節點加入已訪問集合
-        visited.add(next_course)
-        # 遞迴搜索
-        yield from dfs_cycle(start, next_course, depth + 1, path + [next_course], visited)
-        # 回溯時移除節點
-        visited.remove(next_course)
-
-
-# ✅ 建立測資
-A = TeacherNode('A')
-B = TeacherNode('B')
-C = TeacherNode('C')
-D = TeacherNode('D')
-
-a1 = CourseNode('1', A)
-a2 = CourseNode('2', A, is_free=True)
-a3 = CourseNode('3', A, is_free=True)
-a4 = CourseNode('4', A, is_free=True)
-A.courses = {'1': a1, '2': a2, '3': a3, '4': a4}
-
-b1 = CourseNode('1', B, is_free=True)
-b2 = CourseNode('2', B)
-b3 = CourseNode('3', B, is_free=True)
-b4 = CourseNode('4', B, is_free=True)
-B.courses = {'1': b1, '2': b2, '3': b3, '4': b4}
-
-c1 = CourseNode('1', C, is_free=True)
-c2 = CourseNode('2', C, is_free=True)
-c3 = CourseNode('3', C)
-c4 = CourseNode('4', C, is_free=True)
-C.courses = {'1': c1, '2': c2, '3': c3, '4': c4}
-
-d1 = CourseNode('1', D, is_free=True)
-d2 = CourseNode('2', D, is_free=True)
-d3 = CourseNode('3', D, is_free=True)
-d4 = CourseNode('4', D)
-D.courses = {'1': d1, '2': d2, '3': d3, '4': d4}
-
-# ✅ 建立換課環路
-connect_neighbors([a1, b2, c3, d4])  # 形成閉環！
-
-print("DFS Cycle:")
-# ✅ 測試 DFS
-for i, cycle in enumerate(dfs_cycle(a1)):
-    # 直接打印課程節點，使用 CourseNode 的 __repr__ 方法
-    print(" -> ".join(repr(course) for course in cycle))
-    print(f"Cycle: {i+1}")
-
+    print("\n總共找到", len(cycles), "個環路")

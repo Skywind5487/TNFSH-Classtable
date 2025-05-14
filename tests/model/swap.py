@@ -55,7 +55,14 @@ class CourseNode:
 def connect_neighbors(nodes: List["CourseNode"]) -> None:
     """Fully connect a group of courses so each becomes each other's neighbor."""
     for course in nodes:
-        course.neighbors = [n for n in nodes if n is not course]
+        course.neighbors = course.neighbors + [
+            n for n in nodes 
+            if (
+                n is not course
+                and not 
+                n in course.neighbors
+            )
+        ]
 
 
 def _get_fwd(src: "CourseNode", dst: "CourseNode") -> Optional["CourseNode"]:
@@ -117,7 +124,7 @@ def _dfs_swap_path(
     freed: Set["CourseNode"] = set(path)
     print(f"已釋放的節點: {freed}")
 
-    print(f"\n檢查 {current} 的所有相鄰節點:")
+    print(f"\n檢查 {current} 的所有相鄰節點: {current.neighbors}")
     for hop1 in current.neighbors:
         print(f"\n考慮相鄰節點 {hop1}:")
         
@@ -127,7 +134,12 @@ def _dfs_swap_path(
             
         if not _bwd_check(current, hop1, freed=freed):
             print(f"- 跳過 {hop1} (後向檢查失敗)")
+            print(f"- 後向檢查{_get_bwd(current, hop1)}失敗")
             continue
+        else:
+            if _get_bwd(current, hop1) in freed:
+                print(f"{hop1} (已釋放)")
+            print(f"- 後向檢查{_get_bwd(current, hop1)}成功")
 
         hop2 = _get_fwd(current, hop1)
         print(f"- 前向節點 {hop2}")
