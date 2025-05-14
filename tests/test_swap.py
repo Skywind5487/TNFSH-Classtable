@@ -165,8 +165,70 @@ def test_demo2() -> None:
     assert paths == expected_path, \
         f"預期找到路徑：{expected_path}，實際找到：{paths}"
 
+def test_demo3() -> None:
+    """測試分叉路徑的情況
+    路徑結構：
+                 E3_
+                /
+    A1 -> B2 -> C3
+                \
+                 D2_
+
+    期望找到兩條路徑：
+    1. A1 -> B2 -> C3 -> D2_
+    2. A1 -> B2 -> C3 -> E3_
+    """
+    A = TeacherNode('A')
+    B = TeacherNode('B')
+    C = TeacherNode('C')
+    D = TeacherNode('D')
+    E = TeacherNode('E')    # A老師的課程
+    a1 = CourseNode('1', A)       # 要交換的課程
+    a2 = CourseNode('2', A, is_free=True)  # B2 需要 A2 是空的才能交換
+    a3 = CourseNode('3', A, is_free=True)
+    
+    # B老師的課程
+    b1 = CourseNode('1', B, is_free=True)  # B1 需要是空的
+    b2 = CourseNode('2', B)       # 中間交換點
+    b3 = CourseNode('3', B, is_free=True)  # C3 需要 B3 是空的才能交換
+    
+    # C老師的課程
+    c1 = CourseNode('1', C, is_free=True)  # B2 需要 C1 是空的
+    c2 = CourseNode('2', C, is_free=True)  # C2 需要是空的
+    c3 = CourseNode('3', C)       # 分叉點
+    
+    # D老師的課程（提供一個空堂）
+    d1 = CourseNode('1', D, is_free=True)  # C3 需要 D1 是空的
+    d2 = CourseNode('2', D, is_free=True)  # 第一個可能的終點（空堂）
+    d3 = CourseNode('3', D, is_free=True)  # 需要空的來讓 C3 移動
+    
+    # E老師的課程（提供另一個空堂）
+    e1 = CourseNode('1', E, is_free=True)  # C3 需要 E1 是空的
+    e2 = CourseNode('2', E, is_free=True)  # 需要空的來讓 C3 移動
+    e3 = CourseNode('3', E, is_free=True)  # 第二個可能的終點（空堂）
+
+    # 建立課程之間可以交換的關係
+    connect_neighbors([a1, b2])  # A1 可以和 B2 交換
+    connect_neighbors([b2, c3])  # B2 可以和 C3 交換
+    connect_neighbors([c3, d2])  # C3 可以和 D2 交換
+    connect_neighbors([c3, e3])  # C3 也可以和 E3 交換
+    
+    print("\n可行交換路徑 (start = a1):")
+    paths = list(merge_paths(a1))
+    for idx, cycle in enumerate(paths, 1):
+        print(f"{idx:>2}. " + " -> ".join(map(str, cycle)))
+      # 檢查是否找到兩條預期的路徑
+    expected_paths = [
+        [a1, b2, c3, d2],
+        [a1, b2, c3, e3]
+    ]
+    assert len(paths) == 2, f"預期找到2條路徑，實際找到{len(paths)}條"
+    assert all(path in paths for path in expected_paths), \
+        f"預期找到路徑：{expected_paths}，實際找到：{paths}"
+
 if __name__ == "__main__":
     #test_stop_at_first_free()
     #test_demo1()
-    test_demo2()
+    #test_demo2()
+    test_demo3()
     #test_long_chain()
