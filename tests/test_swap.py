@@ -100,7 +100,7 @@ def test_no_valid_path_in_long_chain(n: int = 15):
     courses["O15"].is_free = True  # 將最後一個課程設為空堂    
     # 嘗試找出路徑
     print(courses["A1"].neighbors)
-    paths = list(merge_paths(courses["A1"]))
+    paths = list(merge_paths(courses["A1"], max_depth=10))
     print("\n找到的路徑數量:", len(paths))
     
     # 檢查是否找到路徑
