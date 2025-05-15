@@ -14,6 +14,7 @@ from time import sleep
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import concurrent.futures
+from model.class_table import PeriodTimeTable
 
 class Util:
     def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
@@ -470,13 +471,13 @@ class TNFSHClassTable:
             TableError: 當網頁請求或解析失敗時
         """
         self.class_table_index = TNFSHClassTableIndex.get_instance()
-        self.target = target
-        self.type = self._get_type()
+        self.target:str = target
+        self.type: str = self._get_type()
         self.url: str = self._get_url()
         self.soup: BeautifulSoup = self._get_soup()
         self.soup_table: Tag = self._get_soup_table()
         self.regular_soup_table: Tag = self._get_regular_soup_table()
-        self.lessons: Dict[str, List[str]] = self._get_lesson()
+        self.period_time_table: PeriodTimeTable = self._get_lesson()
         self.table: List[List[Dict[str, Dict[str, str]]]] = self._get_table()
         self.transposed_table: List[List[Dict[str, Dict[str, str]]]] = self._get_transpose_table()
         self.last_update: str = self._get_last_update()
@@ -575,7 +576,7 @@ class TNFSHClassTable:
         
         return new_table
 
-    def _get_lesson(self) -> Dict[str, List[str]]:
+    def _get_lesson(self) -> PeriodTimeTable:
         """從課表資料中提取課程時間配對"""
         
         # 檢查是否有課表資料
@@ -821,9 +822,9 @@ class TNFSHClassTable:
                 "last_update": self.last_update,
                 "url": self.url,
                 "export_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            },
+            },            
             "content": {
-                "lessons": self.lessons,
+                "lessons": self.period_time_table.to_raw_dict() if self.period_time_table else {},
                 "table": self.table
             }
         }
@@ -866,7 +867,7 @@ class TNFSHClassTable:
 
                 # 修改巢狀迴圈順序：先遍歷節次，再遍歷星期
                 for lesson_index, lessons in enumerate(self.table):
-                    lesson_index_name = list(self.lessons.keys())[lesson_index]
+                    lesson_index_name = list(self.period_time_table.keys())[lesson_index]
                     for day_index, day in enumerate(lessons):
                         if not day:
                             continue
@@ -874,7 +875,7 @@ class TNFSHClassTable:
                         if lesson_name == "":
                             continue
                         teacher = list(day.values())[0]
-                        start_time, end_time = self.lessons[lesson_index_name]
+                        start_time, end_time = self.period_time_table[lesson_index_name]
                         
                         try:
                             current_date = monday + timedelta(days=day_index)
@@ -935,7 +936,7 @@ class TNFSHClassTable:
             
             # 遍歷課表
             for lesson_index, lessons in enumerate(self.table):
-                lesson_index_name = list(self.lessons.keys())[lesson_index]
+                lesson_index_name = list(self.period_time_table.keys())[lesson_index]
                 for day_index, day in enumerate(lessons):
                     if not day:
                         continue
@@ -945,7 +946,7 @@ class TNFSHClassTable:
                         continue
                     #print(lesson_name)
                     teacher = list(day.values())[0]
-                    start_time, end_time = self.lessons[lesson_index_name]
+                    start_time, end_time = self.period_time_table[lesson_index_name]
                     
                     try:
                         current_date = monday + timedelta(days=day_index)
@@ -1008,3 +1009,7 @@ class TNFSHClassTable:
             filepath = self._export_to_ics(filepath)
         
         return filepath
+    
+if __name__ == "__main__":
+    class_ = TNFSHClassTable("307")
+    print(class_.period_time_table)

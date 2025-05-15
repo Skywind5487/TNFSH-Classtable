@@ -635,7 +635,7 @@ class AIAssistant:
             {"第一節": ["08:30", "09:30"], "第二節": ["09:30", "10:30"]......} # 代表第一節從08:30到09:30......s
         """
         class_table = TNFSHClassTable(target)
-        return class_table.lessons
+        return class_table.period_time_table
 
     def get_current_time(self) -> str:
         """
