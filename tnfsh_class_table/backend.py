@@ -14,7 +14,7 @@ from time import sleep
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import concurrent.futures
-from model.class_table import PeriodTimeTable
+from model.class_table import PeriodTimeTable, PeriodTime
 
 class Util:
     def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
@@ -574,32 +574,60 @@ class TNFSHClassTable:
             if len(row.find_all('td')) == CLASS_TABLE_CONTENT_WITH_LESSON_WITHOUT_NAP_LENGTH:
                 new_table.append(row)  # 將處理後的 row 加入新的 table
         
-        return new_table
-
+        return new_table    
+    
     def _get_lesson(self) -> PeriodTimeTable:
-        """從課表資料中提取課程時間配對"""
+        """從課表資料中提取課程時間配對
         
+        從 HTML 課表中解析節次名稱和對應的上下課時間，並建立 PeriodTimeTable 物件。
+        
+        Returns:
+            PeriodTimeTable: 課程時間表物件，包含各節次的開始和結束時間
+            
+        Raises:
+            TableError: 當時間格式不符合預期時
+        """
         # 檢查是否有課表資料
         if not self.soup_table:
-            return []
+            return PeriodTimeTable(time_table={})
 
-        lesson_names = []
-        lesson_times = []
         import re
         re_pattern = r'(\d{2})(\d{2})'
         re_sub = r'\1:\2'
-        for lesson_row in self.regular_soup_table.find_all('tr'):
-            lesson_row = lesson_row.find_all('td')
-            lesson_name = lesson_row[0].text.strip().replace("\n", "").replace("\r", "")
-            lesson_time = [re.sub(re_pattern, re_sub, time.replace(" ","")) 
-                           for time in lesson_row[1].text.strip().replace("\n", "").replace("\r", "").split("｜")]
-            lesson_names.append(str(lesson_name))
-            lesson_times.append(lesson_time)
+        time_table = {}
 
-        lessons = {}
-        for lesson_name, lesson_time in zip(lesson_names, lesson_times):
-            lessons[lesson_name] = lesson_time
-        return lessons
+        try:
+            for lesson_row in self.regular_soup_table.find_all('tr'):
+                cells = lesson_row.find_all('td')
+                if len(cells) < 2:
+                    continue
+                
+                # 解析節次名稱
+                lesson_name = cells[0].text.strip().replace("\n", "").replace("\r", "")
+                if not lesson_name:
+                    continue
+                
+                # 解析時間
+                time_text = cells[1].text.strip().replace("\n", "").replace("\r", "")
+                times = [re.sub(re_pattern, re_sub, t.replace(" ","")) 
+                        for t in time_text.split("｜")]
+                
+                # 驗證時間格式並建立 PeriodTime 物件
+                if len(times) == 2:
+                    try:
+                        # 確認時間格式是否正確 (HH:MM)
+                        datetime.strptime(times[0], "%H:%M")
+                        datetime.strptime(times[1], "%H:%M")
+                        time_table[lesson_name] = PeriodTime(start=times[0], end=times[1])
+                    except ValueError as e:
+                        print(f"警告：節次 {lesson_name} 的時間格式不正確: {times}")
+                        continue
+
+            return PeriodTimeTable(time_table=time_table)
+            
+        except Exception as e:
+            print(f"解析課表時間時發生錯誤: {str(e)}")
+            return PeriodTimeTable(time_table={})
 
     def _get_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
         """解析課表內容為結構化資料"""
@@ -867,7 +895,7 @@ class TNFSHClassTable:
 
                 # 修改巢狀迴圈順序：先遍歷節次，再遍歷星期
                 for lesson_index, lessons in enumerate(self.table):
-                    lesson_index_name = list(self.period_time_table.keys())[lesson_index]
+                    lesson_index_name = self.period_time_table.get_period_by_index(lesson_index)
                     for day_index, day in enumerate(lessons):
                         if not day:
                             continue
@@ -936,7 +964,7 @@ class TNFSHClassTable:
             
             # 遍歷課表
             for lesson_index, lessons in enumerate(self.table):
-                lesson_index_name = list(self.period_time_table.keys())[lesson_index]
+                lesson_index_name = self.period_time_table.get_period_by_index(lesson_index)
                 for day_index, day in enumerate(lessons):
                     if not day:
                         continue
@@ -995,6 +1023,7 @@ class TNFSHClassTable:
             raise IOError(f"無法存取檔案 '{filepath}': {e}")
         except Exception as e:
             raise Exception(f"匯出 ICS 時發生未預期的錯誤: {e}")    
+    
     def export(self, type:str, filepath: Optional[str] = None):
         type_list = ["json", "csv", "ics"]
         type = type.lower()
@@ -1012,4 +1041,5 @@ class TNFSHClassTable:
     
 if __name__ == "__main__":
     class_ = TNFSHClassTable("307")
-    print(class_.period_time_table)
+    class_.export("json")
+    print(class_.period_time_table.to_raw_dict())
