@@ -96,15 +96,45 @@ class ClassTable(BaseModel):
         )
 
     @classmethod
-    async def request(cls, target: str) -> "ClassTable":
+    async def _request(cls, target: str) -> "ClassTable":
         from crawler import fetch_raw_html, parse_html
         soup = await fetch_raw_html(target)
         parsed = parse_html(soup)
         return cls.from_parsed(target, parsed)
 
+    @classmethod
+    async def fetch_cached(cls, target: str, refresh: bool = False) -> "ClassTable":
+        """
+        支援三層快取的智能載入方法：
+        1. 記憶體 → 2. 本地檔案 → 3. 網路請求（可透過 refresh 強制重新建立）
+        並在 refresh 時同步更新記憶體與本地快取。
+        """
+        from tnfsh_class_table.new_backend.cache import prebuilt_cache, load_from_disk, save_to_disk
 
-if __name__ == "__main__":
-    # Example usage
-    import asyncio
-    class_table = asyncio.run(ClassTable.request("307"))
-    print(json.dumps(class_table.model_dump(), indent=4, ensure_ascii=False))
+        key = target
+
+        # 層 1：記憶體
+        if not refresh and key in prebuilt_cache:
+            return prebuilt_cache[key]
+
+        # 層 2：本地 JSON
+        if not refresh:
+            data = load_from_disk(target)
+            if data:
+                try:
+                    # 嘗試從 JSON 載入資料
+                    instance = cls.model_validate(data)
+                except Exception as e:
+                    # 如果載入失敗，則從網路請求
+                    print(f"Failed to load from disk: {e}")
+                prebuilt_cache[key] = instance
+                return instance
+
+        # 層 3：fallback → 網路 request
+        instance = await cls._request(target)
+
+        # ✅ 同步更新兩層 cache
+        prebuilt_cache[key] = instance
+        save_to_disk(target, instance)
+
+        return instance

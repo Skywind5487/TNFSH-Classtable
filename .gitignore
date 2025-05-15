@@ -52,6 +52,7 @@ coverage.xml
 !class_*.csv
 !class_*.ics
 !class_*.json
+!prebuilt_*.json
 
 # Misc
 .DS_Store
