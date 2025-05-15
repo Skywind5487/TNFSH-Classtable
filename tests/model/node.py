@@ -18,6 +18,14 @@ class TeacherNode:
         if not isinstance(other, TeacherNode):
             return NotImplemented
         return self.name == other.name
+    # --- 比較與雜湊 ---
+    def __eq__(self, other):
+        if not isinstance(other, TeacherNode):
+            return NotImplemented
+        return self.name == other.name
+
+    def __hash__(self) -> int:          # 🔥 必加：讓 TeacherNode 可當 dict key
+        return hash(self.name)
 
 
 @total_ordering
