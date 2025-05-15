@@ -1,4 +1,4 @@
-from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict
+from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
 import aiohttp
 from bs4 import BeautifulSoup
 from tnfsh_class_table.backend import TNFSHClassTableIndex
@@ -7,10 +7,21 @@ import json
 class FetchError(Exception):
     pass
 
+
+
+
+TimeInfo: TypeAlias = Tuple[str, str]
+PeriodName: TypeAlias = str
+Subject: TypeAlias = str
+CounterPart: TypeAlias = str
+Url: TypeAlias = str
+Course: TypeAlias = Dict[Subject, Dict[CounterPart, Url]]
+
 class RawParsedResult(TypedDict):
     last_update: str
-    periods: Dict[str, Tuple[str, str]]
-    table: List[List[Dict[str, Dict[str, str]]]]
+    periods: Dict[PeriodName, TimeInfo]
+    table: List[List[Course]]
+
 
 def resolve_target(
     target: str,
@@ -20,7 +31,9 @@ def resolve_target(
     """
     根據目標名稱解析別名，回傳可用於 reverse_index 的合法 key。
     """
+    
     if target in reverse_index:
+        print(f"找到 {target} 的課表網址")
         return target
 
     for alias_set in aliases:
@@ -28,6 +41,7 @@ def resolve_target(
             candidates = alias_set - {target}
             for alias in candidates:
                 if alias in reverse_index:
+                    print(f"找到 {target} 的別名 {alias}")
                     return alias
 
     return None
@@ -48,7 +62,11 @@ async def fetch_raw_html(target: str) -> BeautifulSoup:
     if real_target is None:
         raise FetchError(f"找不到 {target} 的課表網址")
 
-    relative_url = reverse_index[real_target]["url"]
+    if target == "307":
+        relative_url = "/C101307.html"
+    else:
+        relative_url = reverse_index[real_target]["url"]
+
     full_url = base_url + relative_url
 
     try:
@@ -63,15 +81,15 @@ async def fetch_raw_html(target: str) -> BeautifulSoup:
             async with session.get(full_url, headers=headers) as response:
                 response.raise_for_status()
                 content = await response.read()
-                html_text = content.decode('big5', errors='ignore')
+                #html_text = content.decode('big5', errors='ignore')
                 # 使用 BeautifulSoup 解析 HTML
-                soup = BeautifulSoup(html_text, 'html.parser')
+                soup = BeautifulSoup(content, 'html.parser')
                 return soup
                 
     except Exception as e:
         raise FetchError(f"請求失敗: {e}")
 
-def parse_html(soup: BeautifulSoup, type: Literal["class", "teacher"]) -> RawParsedResult:
+def parse_html(soup: BeautifulSoup) -> RawParsedResult:
     """
     解析原始 HTML，擷取 last_update、periods、table
     """
@@ -87,7 +105,6 @@ def parse_html(soup: BeautifulSoup, type: Literal["class", "teacher"]) -> RawPar
     main_table = None
     for table in soup.find_all("table"):
         new_table = BeautifulSoup('<table></table>', 'html.parser').table
-        
         for row in table.find_all("tr"):
             for td in row.find_all('td'):
                 if td.get('style') and 'border' in td['style']:
@@ -190,17 +207,9 @@ if __name__ == "__main__":
     import asyncio
     target = "307"
     html_content = asyncio.run(fetch_raw_html(target))
-    parsed_result = parse_html(html_content, type="class")
-    print(f"Last Update: {parsed_result['last_update']}")
-    print("Periods:")
-    for lesson, times in parsed_result['periods'].items():
-        print(f"  {lesson}: {times[0]} - {times[1]}")
-    print("Table:")
-    for row in parsed_result['table']:
-        for cell in row:
-            print("  Cell:")
-            for class_name, teachers in cell.items():
-                print(f"  {class_name}: {teachers}")
-    save_path = "class_307.json"
-    with open(save_path, "w", encoding="utf-8") as f:
-        f.write(json.dumps(parsed_result['table'], ensure_ascii=False, indent=4))
+    parsed_result = parse_html(html_content)
+    print(json.dumps(parsed_result, ensure_ascii=False, indent=4))
+    save_path = "class_307.html"
+    with open(save_path, "w") as f:
+        #f.write(json.dumps(parsed_result['table'], ensure_ascii=False, indent=4))
+        f.write(html_content.prettify())
