@@ -1,0 +1,529 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//class_307.ics_台南一中課表//TW
+BEGIN:VEVENT
+SUMMARY:體育
+DTSTART:20250512T080000
+DTEND:20250512T085000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TK07.HTML">潘帝仁-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/潘帝仁">
+ 潘帝仁-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:領域課程：科技應用專題
+DTSTART:20250513T080000
+DTEND:20250513T085000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ04.HTML">顏永進-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/顏永進">
+ 顏永進-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:藝術生活
+DTSTART:20250514T080000
+DTEND:20250514T085000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ06.HTML">董怡君-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/董怡君">
+ 董怡君-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:團體活動時間
+DTSTART:20250515T080000
+DTEND:20250515T085000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修物理-電磁現象二與量子現象
+DTSTART:20250516T080000
+DTEND:20250516T085000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TG10.HTML">汪登隴-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/汪登隴">
+ 汪登隴-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:數學甲
+DTSTART:20250512T090000
+DTEND:20250512T095000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:領域課程：科技應用專題
+DTSTART:20250513T090000
+DTEND:20250513T095000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ04.HTML">顏永進-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/顏永進">
+ 顏永進-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:藝術生活
+DTSTART:20250514T090000
+DTEND:20250514T095000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ06.HTML">董怡君-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/董怡君">
+ 董怡君-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:團體活動時間
+DTSTART:20250515T090000
+DTEND:20250515T095000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修物理-電磁現象二與量子現象
+DTSTART:20250516T090000
+DTEND:20250516T095000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TG10.HTML">汪登隴-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/汪登隴">
+ 汪登隴-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:語文表達與傳播應用
+DTSTART:20250512T101000
+DTEND:20250512T110000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:各類文學選讀
+DTSTART:20250513T101000
+DTEND:20250513T110000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:補強-數學
+DTSTART:20250514T101000
+DTEND:20250514T110000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:英文閱讀與寫作
+DTSTART:20250515T101000
+DTEND:20250515T110000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TB06.HTML">蔣銘鴻-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔣銘鴻">
+ 蔣銘鴻-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修化學-有機化學與應用科技
+DTSTART:20250516T101000
+DTEND:20250516T110000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TH13.HTML">蔡佳怡-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔡佳怡">
+ 蔡佳怡-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:語文表達與傳播應用
+DTSTART:20250512T111000
+DTEND:20250512T120000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:補強-數學
+DTSTART:20250513T111000
+DTEND:20250513T120000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:體育
+DTSTART:20250514T111000
+DTEND:20250514T120000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TK07.HTML">潘帝仁-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/潘帝仁">
+ 潘帝仁-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修化學-化學反應與平衡二
+DTSTART:20250515T111000
+DTEND:20250515T120000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TH13.HTML">蔡佳怡-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔡佳怡">
+ 蔡佳怡-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修化學-有機化學與應用科技
+DTSTART:20250516T111000
+DTEND:20250516T120000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TH13.HTML">蔡佳怡-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔡佳怡">
+ 蔡佳怡-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修化學-化學反應與平衡二
+DTSTART:20250512T131000
+DTEND:20250512T140000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TH13.HTML">蔡佳怡-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔡佳怡">
+ 蔡佳怡-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:英語聽講
+DTSTART:20250513T131000
+DTEND:20250513T140000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TB06.HTML">蔣銘鴻-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔣銘鴻">
+ 蔣銘鴻-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修物理-電磁現象一
+DTSTART:20250514T131000
+DTEND:20250514T140000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TG10.HTML">汪登隴-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/汪登隴">
+ 汪登隴-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:數學甲
+DTSTART:20250515T131000
+DTEND:20250515T140000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:健康與護理
+DTSTART:20250516T131000
+DTEND:20250516T140000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ21.HTML">黃凱羚-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/黃凱羚">
+ 黃凱羚-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:英文閱讀與寫作
+DTSTART:20250512T141000
+DTEND:20250512T150000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TB06.HTML">蔣銘鴻-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔣銘鴻">
+ 蔣銘鴻-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:英語聽講
+DTSTART:20250513T141000
+DTEND:20250513T150000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TB06.HTML">蔣銘鴻-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔣銘鴻">
+ 蔣銘鴻-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:選修物理-電磁現象一
+DTSTART:20250514T141000
+DTEND:20250514T150000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TG10.HTML">汪登隴-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/汪登隴">
+ 汪登隴-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:各類文學選讀
+DTSTART:20250515T141000
+DTEND:20250515T150000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TA20.HTML">殷念慈-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/殷念慈">
+ 殷念慈-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:數學甲
+DTSTART:20250516T141000
+DTEND:20250516T150000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:彈性-物理
+DTSTART:20250512T151000
+DTEND:20250512T160000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=MO
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TG10.HTML">汪登隴-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/汪登隴">
+ 汪登隴-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:彈性-化學
+DTSTART:20250513T151000
+DTEND:20250513T160000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TU
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TH13.HTML">蔡佳怡-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/蔡佳怡">
+ 蔡佳怡-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:音樂
+DTSTART:20250514T151000
+DTEND:20250514T160000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=WE
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TJ05.HTML">王理俐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/王理俐">
+ 王理俐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:彈性-英文
+DTSTART:20250515T151000
+DTEND:20250515T160000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=TH
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TB34.HTML">Evan-課表</a>\n本班課表連結： <a href=
+ "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課表</
+ a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/Evan">Evan-wiki<
+ /a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu.tw">南一中
+ 官網</a>\n南一中官網-課程資訊： <a href="https://www.tnfsh.tn.
+ edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度、總體計
+ 畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:數學甲
+DTSTART:20250516T151000
+DTEND:20250516T160000
+RRULE:FREQ=WEEKLY;COUNT=8;BYDAY=FR
+DESCRIPTION:教師課表連結： <a href="http://w3.tnfsh.tn.edu.tw/deano
+ fstudies/course/TC06.HTML">巫權祐-課表</a>\n本班課表連結： <a 
+ href="http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html">307-課
+ 表</a>\n新竹園wiki： <a href="https://tnfshwiki.tfcis.org/巫權祐">
+ 巫權祐-wiki</a>\n\n南一中官網： <a href="https://www.tnfsh.tn.edu
+ .tw">南一中官網</a>\n南一中官網-課程資訊： <a href="https:/
+ /www.tnfsh.tn.edu.tw/latestevent/index.aspx?Parser=22\,4\,25">教學進度
+ 、總體計畫、多元選修等等</a>
+LOCATION:701台南市東區民族路一段1號
+END:VEVENT
+END:VCALENDAR

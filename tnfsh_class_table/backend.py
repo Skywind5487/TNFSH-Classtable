@@ -14,7 +14,7 @@ from time import sleep
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import concurrent.futures
-from model.class_table import PeriodTimeTable, PeriodTime
+from tnfsh_class_table.model.class_table import PeriodTimeTable, PeriodTime
 
 class Util:
     def print_format(data: Any, format: str = "json", remove_attrs: bool = True) -> None:
@@ -895,7 +895,6 @@ class TNFSHClassTable:
 
                 # 修改巢狀迴圈順序：先遍歷節次，再遍歷星期
                 for lesson_index, lessons in enumerate(self.table):
-                    lesson_index_name = self.period_time_table.get_period_by_index(lesson_index)
                     for day_index, day in enumerate(lessons):
                         if not day:
                             continue
@@ -903,7 +902,10 @@ class TNFSHClassTable:
                         if lesson_name == "":
                             continue
                         teacher = list(day.values())[0]
-                        start_time, end_time = self.period_time_table[lesson_index_name]
+                        print("alives")
+                        period_time = self.period_time_table.get_period_by_index(lesson_index)
+                        start_time = period_time.start
+                        end_time = period_time.end
                         
                         try:
                             current_date = monday + timedelta(days=day_index)
@@ -964,7 +966,6 @@ class TNFSHClassTable:
             
             # 遍歷課表
             for lesson_index, lessons in enumerate(self.table):
-                lesson_index_name = self.period_time_table.get_period_by_index(lesson_index)
                 for day_index, day in enumerate(lessons):
                     if not day:
                         continue
@@ -974,11 +975,13 @@ class TNFSHClassTable:
                         continue
                     #print(lesson_name)
                     teacher = list(day.values())[0]
-                    start_time, end_time = self.period_time_table[lesson_index_name]
+                    period_time = self.period_time_table.get_period_by_index(lesson_index)
+                    start_time = period_time.start
+                    end_time = period_time.end
                     
                     try:
                         current_date = monday + timedelta(days=day_index)
-                        
+                    
                         start_datetime = datetime.strptime(f"{current_date.date()} {start_time}", "%Y-%m-%d %H:%M")
                         end_datetime = datetime.strptime(f"{current_date.date()} {end_time}", "%Y-%m-%d %H:%M")
                         
@@ -1041,5 +1044,6 @@ class TNFSHClassTable:
     
 if __name__ == "__main__":
     class_ = TNFSHClassTable("307")
-    class_.export("json")
+    with open("class_307.html","w", encoding="utf-8") as f:
+        f.write(class_.soup.text)    
     print(class_.period_time_table.to_raw_dict())
