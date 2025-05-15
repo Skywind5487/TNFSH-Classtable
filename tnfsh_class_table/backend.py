@@ -1043,7 +1043,6 @@ class TNFSHClassTable:
         return filepath
     
 if __name__ == "__main__":
-    class_ = TNFSHClassTable("307")
-    with open("class_307.html","w", encoding="utf-8") as f:
-        f.write(class_.soup.text)    
-    print(class_.period_time_table.to_raw_dict())
+    class_ = TNFSHClassTableIndex.get_instance()
+    class_.export_json()
+    #print(class_.period_time_table.to_raw_dict())

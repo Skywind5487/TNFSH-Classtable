@@ -16,6 +16,8 @@ dependencies = [
     "google-genai>=1.8.0",
     "networkx>=3.4.2",
     "matplotlib>=3.10.3",
+    "aiohttp>=3.11.18",
+    "chardet>=5.2.0",
 ]
 
 

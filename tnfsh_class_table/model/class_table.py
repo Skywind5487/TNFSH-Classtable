@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Dict
+from typing import Dict, List, Optional
 
 
 class PeriodTime(BaseModel):
@@ -96,3 +96,60 @@ class CourseTable(BaseModel):
     def get(self, key: str) -> PeriodTime | None:
         """安全地取得時間區段，如果不存在則返回 None"""
         return self.course_table.get(key)
+    
+
+
+class CourseInfo(BaseModel):
+    subject: str
+    target: str
+    target_url: str
+
+class TableCell(BaseModel):
+    course: Optional[CourseInfo]  # 如果沒有課，就為 None
+
+class ClassTable(BaseModel):
+    table: list[list[TableCell]]  # 8 periods x 5 weekdays
+    @classmethod
+    def from_raw_table(cls, raw_table: List[List[Dict[str, Dict[str, str]]]]) -> "ClassTable":
+        new_table = []
+
+        for period_row in raw_table:
+            row = []
+            for cell in period_row:
+                if not cell:
+                    row.append(TableCell(course=None))
+                else:
+                    # 每格只有一筆資料
+                    (subject, teacher_dict), = cell.items()
+                    (teacher, url), = teacher_dict.items()
+                    course_info = CourseInfo(
+                        subject=subject,
+                        target=teacher,
+                        target_url=url
+                    )
+                    row.append(TableCell(course=course_info))
+            new_table.append(row)
+
+        return cls(table=new_table)
+
+    def to_raw_table(self) -> List[List[Dict[str, Dict[str, str]]]]:
+        raw_table = []
+
+        for row in self.table:
+            raw_row = []
+            for cell in row:
+                if cell.course is None:
+                    raw_row.append({})
+                else:
+                    raw_row.append({
+                        cell.course.subject: {
+                            cell.course.target: cell.course.target_url
+                        }
+                    })
+            raw_table.append(raw_row)
+
+        return raw_table
+    def transpose(self) -> "ClassTable":
+        """轉置課表"""  
+        transposed = list(map(list, zip(*self.table)))
+        return ClassTable(table=transposed)
