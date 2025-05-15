@@ -1,0 +1,105 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "生命教育",
+                "main": "吳玟芷",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生命教育",
+                "main": "吳玟芷",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "生命教育",
+                "main": "吳玟芷",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "吳玟芷",
+                "counterpart": null
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "吳玟芷",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "吳玟芷",
+                "counterpart": null
+            },
+            {
+                "subject": "生命教育",
+                "main": "吳玟芷",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "吳玟芷",
+    "target_url": "TJ17.html"
+}

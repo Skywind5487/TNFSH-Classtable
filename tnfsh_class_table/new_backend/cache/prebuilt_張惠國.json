@@ -1,0 +1,191 @@
+{
+    "table": [
+        [
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "張惠國",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "張惠國",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "張惠國",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "張惠國",
+    "target_url": "TJ02.html"
+}

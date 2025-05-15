@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "鄭旭峰",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "鄭旭峰",
+    "target_url": "TC17.html"
+}

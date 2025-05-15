@@ -1,0 +1,299 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    },
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    },
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    },
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    },
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    },
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    },
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    },
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    },
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    },
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    },
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    },
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    },
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    },
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    },
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    },
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    },
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    },
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    },
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林靜吟",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林靜吟",
+    "target_url": "TI04.html"
+}

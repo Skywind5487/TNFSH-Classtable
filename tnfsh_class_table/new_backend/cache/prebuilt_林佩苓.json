@@ -1,0 +1,147 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "林佩苓",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林佩苓",
+    "target_url": "TA04.html"
+}

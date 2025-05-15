@@ -1,0 +1,170 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                "main": "陳暐捷",
+                "counterpart": null
+            }
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "陳暐捷",
+                "counterpart": null
+            },
+            {
+                "subject": "數學A",
+                "main": "陳暐捷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳暐捷",
+    "target_url": "TC32.html"
+}

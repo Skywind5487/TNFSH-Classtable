@@ -1,0 +1,174 @@
+{
+    "table": [
+        [
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "竹園物理",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "彈性-物理",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "何俊昌",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "何俊昌",
+    "target_url": "TG08.html"
+}

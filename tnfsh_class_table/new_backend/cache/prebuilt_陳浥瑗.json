@@ -1,0 +1,164 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語輔",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "高二多元選修",
+                "main": "陳浥瑗",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "陳浥瑗",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳浥瑗",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳浥瑗",
+    "target_url": "TA28.html"
+}

@@ -1,0 +1,165 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "專題研究",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "生物",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "林弘都",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林弘都",
+    "target_url": "TI06.html"
+}

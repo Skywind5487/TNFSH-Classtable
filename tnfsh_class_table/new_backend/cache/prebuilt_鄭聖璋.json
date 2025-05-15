@@ -1,0 +1,209 @@
+{
+    "table": [
+        [
+            {
+                "subject": " ",
+                "main": "鄭聖璋",
+                "counterpart": null
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "物理",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "獨立研究",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": " ",
+                "main": "鄭聖璋",
+                "counterpart": null
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-物理",
+                "main": "鄭聖璋",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "鄭聖璋",
+    "target_url": "TG12.html"
+}

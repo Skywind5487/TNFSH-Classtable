@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "數學",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "黃天賜",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃天賜",
+    "target_url": "TC08.html"
+}

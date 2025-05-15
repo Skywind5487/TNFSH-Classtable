@@ -1,0 +1,137 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "補強-歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "補強-歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "楊秀蘭",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "楊秀蘭",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "楊秀蘭",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "楊秀蘭",
+    "target_url": "TD03.html"
+}

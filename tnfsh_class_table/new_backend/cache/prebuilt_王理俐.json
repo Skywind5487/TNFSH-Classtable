@@ -1,0 +1,264 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂欣賞",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂欣賞",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "藝術生活",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "王理俐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "王理俐",
+    "target_url": "TJ05.html"
+}

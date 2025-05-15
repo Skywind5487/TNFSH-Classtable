@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "施明吉",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "施明吉",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "施明吉",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "施明吉",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "施明吉",
+    "target_url": "TC14.html"
+}

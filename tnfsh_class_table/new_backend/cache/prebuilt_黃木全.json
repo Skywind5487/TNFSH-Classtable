@@ -1,0 +1,210 @@
+{
+    "table": [
+        [
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "物理",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-物理",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "物理",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-物理",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "黃木全",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃木全",
+    "target_url": "TG09.html"
+}

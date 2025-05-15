@@ -1,0 +1,102 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "林皇德",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "林皇德",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "林皇德",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "閩南語文",
+                "main": "林皇德",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "林皇德",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林皇德",
+    "target_url": "TA23.html"
+}

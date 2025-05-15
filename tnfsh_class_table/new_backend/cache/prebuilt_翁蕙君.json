@@ -1,0 +1,209 @@
+{
+    "table": [
+        [
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "高二多元選修",
+                "main": "翁蕙君",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "翁蕙君",
+                "counterpart": null
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "翁蕙君",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "翁蕙君",
+    "target_url": "TE03.html"
+}

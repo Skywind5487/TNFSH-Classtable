@@ -1,0 +1,111 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "郭銘峰",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "郭銘峰",
+    "target_url": "TJ36.html"
+}

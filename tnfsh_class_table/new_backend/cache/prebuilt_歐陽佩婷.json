@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "歐陽佩婷",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "歐陽佩婷",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "歐陽佩婷",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "歐陽佩婷",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "歐陽佩婷",
+    "target_url": "TB04.html"
+}

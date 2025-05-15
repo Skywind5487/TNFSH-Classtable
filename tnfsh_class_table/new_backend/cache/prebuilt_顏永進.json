@@ -1,0 +1,216 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "資訊科技",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "資訊科技",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "顏永進",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "顏永進",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "顏永進",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "顏永進",
+    "target_url": "TJ04.html"
+}

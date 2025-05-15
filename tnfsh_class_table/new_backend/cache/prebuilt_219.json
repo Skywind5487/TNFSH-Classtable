@@ -1,0 +1,465 @@
+{
+    "table": [
+        [
+            {
+                "subject": "數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林湘昀",
+                        "url": "TB17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "地理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "謝承霖",
+                        "url": "TE06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全民國防教育",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "王柏中",
+                        "url": "TL26.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡閎璿",
+                        "url": "TK03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林湘昀",
+                        "url": "TB17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    },
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    },
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    },
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    },
+                    {
+                        "participant": "施怡如",
+                        "url": "TI08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    },
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    },
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    },
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    },
+                    {
+                        "participant": "施怡如",
+                        "url": "TI08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    },
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    },
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    },
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    },
+                    {
+                        "participant": "施怡如",
+                        "url": "TI08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "",
+                        "url": "Tempty.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "",
+                        "url": "Tempty.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡閎璿",
+                        "url": "TK03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國學欣賞",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文寫作",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林湘昀",
+                        "url": "TB17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生活科技應用",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生活科技應用",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "羅焜哲",
+                        "url": "TG04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "林湘昀",
+                        "url": "TB17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "219",
+                "counterpart": [
+                    {
+                        "participant": "陳榮吉",
+                        "url": "TC21.HTML"
+                    }
+                ]
+            }
+        ]
+    ],
+    "type": "class",
+    "target": "219",
+    "target_url": "C108219.html"
+}

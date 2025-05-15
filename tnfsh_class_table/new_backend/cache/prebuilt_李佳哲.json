@@ -1,0 +1,228 @@
+{
+    "table": [
+        [
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-數學",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-數學",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "李佳哲",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "李佳哲",
+    "target_url": "TC18.html"
+}

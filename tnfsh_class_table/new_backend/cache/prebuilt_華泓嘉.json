@@ -1,0 +1,97 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "華泓嘉",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "各類文學選讀",
+                "main": "華泓嘉",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "華泓嘉",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "華泓嘉",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "華泓嘉",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "華泓嘉",
+    "target_url": "TA34.html"
+}

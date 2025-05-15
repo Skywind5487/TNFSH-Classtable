@@ -1,0 +1,109 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃建彰",
+                "counterpart": null
+            },
+            {
+                "subject": "地球科學",
+                "main": "黃建彰",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "地球科學",
+                "main": "黃建彰",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "黃建彰",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "黃建彰",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃建彰",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃建彰",
+    "target_url": "TI25.html"
+}

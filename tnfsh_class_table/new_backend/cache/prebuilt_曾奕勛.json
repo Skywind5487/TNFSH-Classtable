@@ -1,0 +1,237 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "竹園物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "彈性-物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "專題研究",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "曾奕勛",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "曾奕勛",
+    "target_url": "TG23.html"
+}

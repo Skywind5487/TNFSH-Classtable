@@ -1,0 +1,192 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園化學",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "周俞伽",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "周俞伽",
+    "target_url": "TH03.html"
+}

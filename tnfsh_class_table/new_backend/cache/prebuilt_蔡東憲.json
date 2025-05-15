@@ -1,0 +1,201 @@
+{
+    "table": [
+        [
+            {
+                "subject": "數學甲",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學輔",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "補強-數學",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "補強-數學",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "蔡東憲",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡東憲",
+    "target_url": "TC11.html"
+}

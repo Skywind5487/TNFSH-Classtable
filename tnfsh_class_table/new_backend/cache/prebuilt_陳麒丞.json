@@ -1,0 +1,191 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "補強-地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "陳麒丞",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "陳麒丞",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-地理",
+                "main": "陳麒丞",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳麒丞",
+    "target_url": "TE04.html"
+}

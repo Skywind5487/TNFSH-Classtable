@@ -1,0 +1,111 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "葉桂美",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "葉桂美",
+    "target_url": "TF01.html"
+}

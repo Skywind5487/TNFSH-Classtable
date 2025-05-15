@@ -1,0 +1,237 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "陳佩均",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳佩均",
+    "target_url": "TB38.html"
+}

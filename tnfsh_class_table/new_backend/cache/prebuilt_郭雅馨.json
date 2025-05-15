@@ -1,0 +1,210 @@
+{
+    "table": [
+        [
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "歷史",
+                "main": "郭雅馨",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "郭雅馨",
+    "target_url": "TD05.html"
+}

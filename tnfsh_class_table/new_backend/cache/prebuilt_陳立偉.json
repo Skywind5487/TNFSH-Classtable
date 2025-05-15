@@ -1,0 +1,164 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "個別科學研究",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "個別科學研究",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "高二多元選修",
+                "main": "陳立偉",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "陳立偉",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "陳立偉",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳立偉",
+    "target_url": "TH10.html"
+}

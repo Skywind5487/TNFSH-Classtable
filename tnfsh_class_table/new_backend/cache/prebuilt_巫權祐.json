@@ -1,0 +1,243 @@
+{
+    "table": [
+        [
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學乙",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    },
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    },
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    },
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    },
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-數學",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "巫權祐",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "巫權祐",
+    "target_url": "TC06.html"
+}

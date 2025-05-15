@@ -1,0 +1,368 @@
+{
+    "table": [
+        [
+            {
+                "subject": "音樂",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "董怡君",
+                        "url": "TJ06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "郭雅馨",
+                        "url": "TD05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "鄭妍臻",
+                        "url": "TF13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "閩南語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "姜伯俞",
+                        "url": "TA41.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "胡凱華",
+                        "url": "TC22.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "賴政雄",
+                        "url": "TK06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生命教育",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "吳玟芷",
+                        "url": "TJ17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "姜伯俞",
+                        "url": "TA41.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "胡凱華",
+                        "url": "TC22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "胡凱華",
+                        "url": "TC22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "翁蕙君",
+                        "url": "TE03.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "公民與社會",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "鄭妍臻",
+                        "url": "TF13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "郭雅馨",
+                        "url": "TD05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "翁蕙君",
+                        "url": "TE03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "楊灝儀",
+                        "url": "TH21.HTML"
+                    },
+                    {
+                        "participant": "顏詠哲",
+                        "url": "TH27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "108",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "108",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "楊灝儀",
+                        "url": "TH21.HTML"
+                    },
+                    {
+                        "participant": "顏詠哲",
+                        "url": "TH27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "賴勇達",
+                        "url": "TJ10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "賴勇達",
+                        "url": "TJ10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "姜伯俞",
+                        "url": "TA41.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "姜伯俞",
+                        "url": "TA41.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "賴政雄",
+                        "url": "TK06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "108",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "108",
+                "counterpart": null
+            },
+            {
+                "subject": "英語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "洪鐘儒",
+                        "url": "TB07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "姜伯俞",
+                        "url": "TA41.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    },
+                    {
+                        "participant": "顏詠哲",
+                        "url": "TH27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    },
+                    {
+                        "participant": "顏詠哲",
+                        "url": "TH27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "108",
+                "counterpart": [
+                    {
+                        "participant": "胡凱華",
+                        "url": "TC22.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "108",
+    "target_url": "C101108.html"
+}

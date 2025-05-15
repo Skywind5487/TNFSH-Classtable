@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "林高義",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "林高義",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "林高義",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "林高義",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林高義",
+    "target_url": "TK05.html"
+}

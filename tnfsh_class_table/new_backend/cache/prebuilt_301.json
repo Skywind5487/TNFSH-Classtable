@@ -1,0 +1,367 @@
+{
+    "table": [
+        [
+            {
+                "subject": "各類文學選讀",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "林文瑜",
+                        "url": "TA15.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "黃逸民",
+                        "url": "TJ08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "黃逸民",
+                        "url": "TJ08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "張惠智",
+                        "url": "TB16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "潘帝仁",
+                        "url": "TK07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "林文瑜",
+                        "url": "TA15.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "林文瑜",
+                        "url": "TA15.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-公民與社會",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-地理",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "張惠智",
+                        "url": "TB16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "張惠智",
+                        "url": "TB16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-歷史",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "301",
+                "counterpart": null
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "林文瑜",
+                        "url": "TA15.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "潘帝仁",
+                        "url": "TK07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "空間資訊科技",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "健康與護理",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "黃凱羚",
+                        "url": "TJ21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-國文",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "林文瑜",
+                        "url": "TA15.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-英文",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "301",
+                "counterpart": [
+                    {
+                        "participant": "張惠智",
+                        "url": "TB16.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "301",
+    "target_url": "C101301.html"
+}

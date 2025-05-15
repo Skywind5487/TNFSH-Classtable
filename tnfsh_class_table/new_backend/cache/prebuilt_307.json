@@ -1,0 +1,372 @@
+{
+    "table": [
+        [
+            {
+                "subject": "體育",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "潘帝仁",
+                        "url": "TK07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔣銘鴻",
+                        "url": "TB06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "汪登隴",
+                        "url": "TG10.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "領域課程：科技應用專題",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔣銘鴻",
+                        "url": "TB06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔣銘鴻",
+                        "url": "TB06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "藝術生活",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "董怡君",
+                        "url": "TJ06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "藝術生活",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "董怡君",
+                        "url": "TJ06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "潘帝仁",
+                        "url": "TK07.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "汪登隴",
+                        "url": "TG10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "汪登隴",
+                        "url": "TG10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔣銘鴻",
+                        "url": "TB06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-英文",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "汪登隴",
+                        "url": "TG10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "汪登隴",
+                        "url": "TG10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "蔡佳怡",
+                        "url": "TH13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "健康與護理",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "黃凱羚",
+                        "url": "TJ21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "307",
+                "counterpart": [
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "307",
+    "target_url": "C101307.html"
+}

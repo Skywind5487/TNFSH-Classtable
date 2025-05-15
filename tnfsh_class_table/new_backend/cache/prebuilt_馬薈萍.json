@@ -1,0 +1,129 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "馬薈萍",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "馬薈萍",
+    "target_url": "TA09.html"
+}

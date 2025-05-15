@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            {
+                "subject": "英語聽講",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "張志成",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "張志成",
+    "target_url": "TB25.html"
+}

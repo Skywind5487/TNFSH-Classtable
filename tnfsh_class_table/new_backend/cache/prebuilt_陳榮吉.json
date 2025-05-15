@@ -1,0 +1,200 @@
+{
+    "table": [
+        [
+            {
+                "subject": "數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "專題研究",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "陳榮吉",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "陳榮吉",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "竹園數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "陳榮吉",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            }
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳榮吉",
+    "target_url": "TC21.html"
+}

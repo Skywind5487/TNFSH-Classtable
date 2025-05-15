@@ -1,0 +1,168 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語輔",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "歐美瑩",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "歐美瑩",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "歐美瑩",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "歐美瑩",
+                "counterpart": null
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "歐美瑩",
+    "target_url": "TA03.html"
+}

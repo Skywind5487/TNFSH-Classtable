@@ -1,0 +1,192 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "張雅玫",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "張雅玫",
+    "target_url": "TB13.html"
+}

@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "胡凱華",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "胡凱華",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "胡凱華",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "胡凱華",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "胡凱華",
+    "target_url": "TC22.html"
+}

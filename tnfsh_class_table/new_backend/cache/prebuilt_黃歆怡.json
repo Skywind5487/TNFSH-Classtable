@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "黃歆怡",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃歆怡",
+    "target_url": "TA45.html"
+}

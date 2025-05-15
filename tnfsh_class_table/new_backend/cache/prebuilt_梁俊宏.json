@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "專題研究",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "梁俊宏",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "梁俊宏",
+    "target_url": "TC20.html"
+}

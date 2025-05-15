@@ -1,0 +1,219 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "探究與實作：地理與人文社會科學研究",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "探究與實作：地理與人文社會科學研究",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "賴秀茹",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "賴秀茹",
+    "target_url": "TE05.html"
+}

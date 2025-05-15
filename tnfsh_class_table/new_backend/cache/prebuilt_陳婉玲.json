@@ -1,0 +1,155 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "國學欣賞",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "陳婉玲",
+                "counterpart": null
+            },
+            {
+                "subject": " ",
+                "main": "陳婉玲",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳婉玲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳婉玲",
+    "target_url": "TA05.html"
+}

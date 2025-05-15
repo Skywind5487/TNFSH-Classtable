@@ -1,0 +1,223 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": " ",
+                "main": "蔡良昇",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "蔡良昇",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡良昇",
+    "target_url": "TD08.html"
+}

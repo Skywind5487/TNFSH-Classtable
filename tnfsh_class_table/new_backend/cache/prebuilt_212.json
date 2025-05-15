@@ -1,0 +1,392 @@
+{
+    "table": [
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "丘念佳",
+                        "url": "TA43.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    },
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    },
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "丘念佳",
+                        "url": "TA43.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    },
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    },
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭名志",
+                        "url": "TG21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭名志",
+                        "url": "TG21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳佩均",
+                        "url": "TB38.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳佩均",
+                        "url": "TB38.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "公民與社會",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭妍臻",
+                        "url": "TF13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "林高義",
+                        "url": "TK05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳建宏",
+                        "url": "TD02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭名志",
+                        "url": "TG21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "212",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "212",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "家政",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "潘智惠",
+                        "url": "TJ20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "家政",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "潘智惠",
+                        "url": "TJ20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳佩均",
+                        "url": "TB38.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳建宏",
+                        "url": "TD02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "鄭妍臻",
+                        "url": "TF13.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-生物",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "212",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "212",
+                "counterpart": null
+            },
+            {
+                "subject": "體育",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "林高義",
+                        "url": "TK05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "陳佩均",
+                        "url": "TB38.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "212",
+                "counterpart": [
+                    {
+                        "participant": "周博信",
+                        "url": "TC16.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "212",
+    "target_url": "C101212.html"
+}

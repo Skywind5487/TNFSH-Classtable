@@ -1,0 +1,367 @@
+{
+    "table": [
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃棨堯",
+                        "url": "TC25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-英文",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-歷史",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "體育",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-公民與社會",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃棨堯",
+                        "url": "TC25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "美術",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃逸民",
+                        "url": "TJ08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃逸民",
+                        "url": "TJ08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-國文",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "健康與護理",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃凱羚",
+                        "url": "TJ21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "302",
+                "counterpart": null
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "空間資訊科技",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科技、環境與藝術的歷史",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "楊秀蘭",
+                        "url": "TD03.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃棨堯",
+                        "url": "TC25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "黃棨堯",
+                        "url": "TC25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "李奇璋",
+                        "url": "TB20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "阮雋絜",
+                        "url": "TF05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-地理",
+                "main": "302",
+                "counterpart": [
+                    {
+                        "participant": "陳麒丞",
+                        "url": "TE04.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "302",
+    "target_url": "C101302.html"
+}

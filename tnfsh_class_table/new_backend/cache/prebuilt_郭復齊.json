@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "郭復齊",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "郭復齊",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "郭復齊",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "郭復齊",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "郭復齊",
+    "target_url": "TF02.html"
+}

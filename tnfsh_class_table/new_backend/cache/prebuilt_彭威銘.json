@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學A",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "彭威銘",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "彭威銘",
+    "target_url": "TC09.html"
+}

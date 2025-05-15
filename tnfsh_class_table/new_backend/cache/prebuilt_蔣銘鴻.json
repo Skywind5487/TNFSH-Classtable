@@ -1,0 +1,169 @@
+{
+    "table": [
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "英語文",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": " ",
+                "main": "蔣銘鴻",
+                "counterpart": null
+            },
+            {
+                "subject": "英語聽講",
+                "main": "蔣銘鴻",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔣銘鴻",
+    "target_url": "TB06.html"
+}

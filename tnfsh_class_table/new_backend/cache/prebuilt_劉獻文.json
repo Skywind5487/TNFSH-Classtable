@@ -1,0 +1,209 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "劉獻文",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "劉獻文",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "劉獻文",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "劉獻文",
+    "target_url": "TH17.html"
+}

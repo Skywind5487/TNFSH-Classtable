@@ -1,0 +1,191 @@
+{
+    "table": [
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "李奇璋",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "李奇璋",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "李奇璋",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "李奇璋",
+    "target_url": "TB20.html"
+}

@@ -1,0 +1,91 @@
+{
+    "table": [
+        [
+            {
+                "subject": "運動新視野",
+                "main": "王泰焜",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "運動新視野",
+                "main": "王泰焜",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "王泰焜",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "王泰焜",
+                "counterpart": null
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "王泰焜",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "王泰焜",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "王泰焜",
+    "target_url": "TK01.html"
+}

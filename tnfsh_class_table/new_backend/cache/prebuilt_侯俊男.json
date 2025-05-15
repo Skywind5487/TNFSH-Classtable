@@ -1,0 +1,201 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-物質構造與反應速率",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-物質構造與反應速率",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "侯俊男",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "侯俊男",
+    "target_url": "TH06.html"
+}

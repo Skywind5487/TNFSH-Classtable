@@ -1,0 +1,165 @@
+{
+    "table": [
+        [
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "黃大倬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃大倬",
+    "target_url": "TA01.html"
+}

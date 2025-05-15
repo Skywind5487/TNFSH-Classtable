@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李青舍",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "李青舍",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "李青舍",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "李青舍",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "李青舍",
+    "target_url": "TC31.html"
+}

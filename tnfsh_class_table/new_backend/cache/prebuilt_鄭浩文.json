@@ -1,0 +1,93 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "鄭浩文",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "鄭浩文",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "鄭浩文",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "鄭浩文",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "鄭浩文",
+    "target_url": "TA42.html"
+}

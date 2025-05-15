@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-公民與社會",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "民主政治與法律",
+                "main": "阮雋絜",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "阮雋絜",
+    "target_url": "TF05.html"
+}

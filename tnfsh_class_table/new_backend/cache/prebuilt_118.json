@@ -1,0 +1,401 @@
+{
+    "table": [
+        [
+            {
+                "subject": "英語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "李俊文",
+                        "url": "TB03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "綠能科技探究(1)",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "綠能科技探究(1)",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "賴勇達",
+                        "url": "TJ10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "李俊文",
+                        "url": "TB03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "黃子容",
+                        "url": "TA29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "郭雅馨",
+                        "url": "TD05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "賴政雄",
+                        "url": "TK06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學輔",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    },
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    },
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    },
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    },
+                    {
+                        "participant": "黃建彰",
+                        "url": "TI25.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    },
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    },
+                    {
+                        "participant": "鄭淑君",
+                        "url": "TH11.HTML"
+                    },
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    },
+                    {
+                        "participant": "黃建彰",
+                        "url": "TI25.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "118",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "118",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "鄭聖璋",
+                        "url": "TG12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "黃子容",
+                        "url": "TA29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "黃子容",
+                        "url": "TA29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "賴政雄",
+                        "url": "TK06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "李俊文",
+                        "url": "TB03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "郭雅馨",
+                        "url": "TD05.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "118",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "118",
+                "counterpart": null
+            },
+            {
+                "subject": "生物",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "蔡東憲",
+                        "url": "TC11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "黃子容",
+                        "url": "TA29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "118",
+                "counterpart": [
+                    {
+                        "participant": "李俊文",
+                        "url": "TB03.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "118",
+    "target_url": "C106118.html"
+}

@@ -1,0 +1,218 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究, 專題研究",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "118",
+                        "url": "C106118.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "生物",
+                "main": "江佩娟",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            }
+        ]
+    ],
+    "type": "teacher",
+    "target": "江佩娟",
+    "target_url": "TI05.html"
+}

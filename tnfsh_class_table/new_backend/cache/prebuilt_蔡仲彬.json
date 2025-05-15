@@ -1,0 +1,191 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-數學",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "補強-數學",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "蔡仲彬",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "高二多元選修",
+                "main": "蔡仲彬",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "蔡仲彬",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡仲彬",
+    "target_url": "TC10.html"
+}

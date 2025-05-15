@@ -1,0 +1,74 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "地理",
+                "main": "謝承霖",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "高二多元選修",
+                "main": "謝承霖",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "謝承霖",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "謝承霖",
+    "target_url": "TE06.html"
+}

@@ -1,0 +1,205 @@
+{
+    "table": [
+        [
+            {
+                "subject": "選修物理-波動、光及聲音",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": " ",
+                "main": "楊盛智",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "彈性-物理",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "306",
+                        "url": "C101306.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "科證猛於唬Ⅱ",
+                "main": "楊盛智",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "楊盛智",
+    "target_url": "TG20.html"
+}

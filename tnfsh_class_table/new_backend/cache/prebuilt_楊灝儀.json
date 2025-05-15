@@ -1,0 +1,201 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "110",
+                        "url": "C101110.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "化學",
+                "main": "楊灝儀",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "楊灝儀",
+    "target_url": "TH21.HTML"
+}

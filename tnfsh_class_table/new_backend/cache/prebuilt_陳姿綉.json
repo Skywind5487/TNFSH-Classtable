@@ -1,0 +1,159 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": " ",
+                "main": "陳姿綉",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳姿綉",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "陳姿綉",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "陳姿綉",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳姿綉",
+    "target_url": "TA02.html"
+}

@@ -1,0 +1,146 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "杜思谷",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "杜思谷",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "杜思谷",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "杜思谷",
+    "target_url": "TG03.html"
+}

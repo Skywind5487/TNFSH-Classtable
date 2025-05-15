@@ -1,0 +1,120 @@
+{
+    "table": [
+        [
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "李芬蘭",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "李芬蘭",
+    "target_url": "TJ22.html"
+}

@@ -1,0 +1,228 @@
+{
+    "table": [
+        [
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-國文",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "彈性-國文",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "彈性-國文",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "楊子賢",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "楊子賢",
+    "target_url": "TA37.html"
+}

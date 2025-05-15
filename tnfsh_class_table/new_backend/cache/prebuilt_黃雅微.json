@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "黃雅微",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃雅微",
+    "target_url": "TB18.html"
+}

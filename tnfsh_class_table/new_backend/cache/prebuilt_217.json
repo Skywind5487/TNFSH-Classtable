@@ -1,0 +1,401 @@
+{
+    "table": [
+        [
+            {
+                "subject": "補強-化學",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "黃聖勛",
+                        "url": "TH28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "黃聖勛",
+                        "url": "TH28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "鄭旭峰",
+                        "url": "TC17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "賴秀茹",
+                        "url": "TE05.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "林立婷",
+                        "url": "TG11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "林立婷",
+                        "url": "TG11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "賴秀茹",
+                        "url": "TE05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語輔",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳禹齊",
+                        "url": "TA26.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "陳建良",
+                        "url": "TC07.HTML"
+                    },
+                    {
+                        "participant": "黃詩珊",
+                        "url": "TE12.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳禹齊",
+                        "url": "TA26.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "陳建良",
+                        "url": "TC07.HTML"
+                    },
+                    {
+                        "participant": "黃詩珊",
+                        "url": "TE12.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "217",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "217",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "陳浥瑗",
+                        "url": "TA28.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "SDGs國際議題探討",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "SDGs國際議題探討",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "林立婷",
+                        "url": "TG11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "鄭旭峰",
+                        "url": "TC17.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "鄭旭峰",
+                        "url": "TC17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "鄭旭峰",
+                        "url": "TC17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "217",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "217",
+                "counterpart": null
+            },
+            {
+                "subject": "補強-生物",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "217",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "217",
+    "target_url": "C101217.html"
+}

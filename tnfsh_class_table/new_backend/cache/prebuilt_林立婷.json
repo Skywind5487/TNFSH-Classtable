@@ -1,0 +1,219 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-物理",
+                "main": "林立婷",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林立婷",
+    "target_url": "TG11.html"
+}

@@ -1,0 +1,408 @@
+{
+    "table": [
+        [
+            {
+                "subject": "全民國防教育",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "謝卓勳",
+                        "url": "TL24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林佳慧",
+                        "url": "TA40.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林佳慧",
+                        "url": "TA40.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "賴秀茹",
+                        "url": "TE05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A, 數學B",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    },
+                    {
+                        "participant": "鄭詠純",
+                        "url": "TC33.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "探究與實作：公共議題與社會探究",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    },
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "殷念慈",
+                        "url": "TA20.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "巫權祐",
+                        "url": "TC06.HTML"
+                    },
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "徐敏凱",
+                        "url": "TK09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A, 數學B",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    },
+                    {
+                        "participant": "鄭詠純",
+                        "url": "TC33.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全民國防教育",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "謝卓勳",
+                        "url": "TL24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "探究與實作：歷史學探究",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "生活科技",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生活科技",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-英語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "201",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "201",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "徐敏凱",
+                        "url": "TK09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A, 數學B",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    },
+                    {
+                        "participant": "鄭詠純",
+                        "url": "TC33.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "探究與實作：地理與人文社會科學研究",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "賴秀茹",
+                        "url": "TE05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林佳慧",
+                        "url": "TA40.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林佳慧",
+                        "url": "TA40.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "張雅玫",
+                        "url": "TB13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "201",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "201",
+                "counterpart": null
+            },
+            {
+                "subject": "補強-國語文",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林佳慧",
+                        "url": "TA40.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A, 數學B",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    },
+                    {
+                        "participant": "鄭詠純",
+                        "url": "TC33.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "201",
+                "counterpart": [
+                    {
+                        "participant": "賴秀茹",
+                        "url": "TE05.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "201",
+    "target_url": "C101201.html"
+}

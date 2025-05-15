@@ -1,0 +1,102 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "林偌婷",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "林偌婷",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "林偌婷",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "林偌婷",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "林偌婷",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林偌婷",
+    "target_url": "TH16.html"
+}

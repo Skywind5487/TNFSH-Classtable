@@ -1,0 +1,187 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "洪鐘儒",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "洪鐘儒",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "洪鐘儒",
+    "target_url": "TB07.html"
+}

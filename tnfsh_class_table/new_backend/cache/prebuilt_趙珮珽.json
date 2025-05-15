@@ -1,0 +1,205 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": " ",
+                "main": "趙珮珽",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "趙珮珽",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "趙珮珽",
+    "target_url": "TA46.html"
+}

@@ -1,0 +1,201 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "化學",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "彈性-化學",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            null,
+            {
+                "subject": "專題研究",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "蔡佳怡",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡佳怡",
+    "target_url": "TH13.html"
+}

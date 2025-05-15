@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "閩南語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "111",
+                        "url": "C101111.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳秀枝",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳秀枝",
+    "target_url": "TA10.html"
+}

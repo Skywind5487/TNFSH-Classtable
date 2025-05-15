@@ -1,0 +1,219 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "彈性-物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "羅焜哲",
+                "counterpart": [
+                    {
+                        "participant": "308",
+                        "url": "C101308.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "羅焜哲",
+    "target_url": "TG04.html"
+}

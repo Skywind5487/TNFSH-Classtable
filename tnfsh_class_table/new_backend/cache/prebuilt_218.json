@@ -1,0 +1,401 @@
+{
+    "table": [
+        [
+            {
+                "subject": "公民與社會",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "蔡閎璿",
+                        "url": "TK03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全民國防教育",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "王柏中",
+                        "url": "TL26.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "手機實驗室第二季",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "歐美瑩",
+                        "url": "TA03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語輔",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "歐美瑩",
+                        "url": "TA03.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "彈性-數學",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "宋忠義",
+                        "url": "TB21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "歐美瑩",
+                        "url": "TA03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "公民與社會",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-物質構造與反應速率",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-物質構造與反應速率",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-力學二與熱學",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    },
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    },
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    },
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    },
+                    {
+                        "participant": "施怡如",
+                        "url": "TI08.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    },
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    },
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    },
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    },
+                    {
+                        "participant": "施怡如",
+                        "url": "TI08.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "218",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "218",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "侯俊男",
+                        "url": "TH06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "朱達鈞",
+                        "url": "TD06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "蔡閎璿",
+                        "url": "TK03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高層思考(2)：, 線性代數",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "陳盈言",
+                        "url": "TC19.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "歐美瑩",
+                        "url": "TA03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "歐美瑩",
+                        "url": "TA03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "宋忠義",
+                        "url": "TB21.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "宋忠義",
+                        "url": "TB21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "宋忠義",
+                        "url": "TB21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "218",
+                "counterpart": null
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "218",
+                "counterpart": null
+            },
+            {
+                "subject": "全球議題(2)：動植物與生態平衡(2)",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全球議題(2)：動植物與生態平衡(2)",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "詹濠先",
+                        "url": "TI01.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-力學二與熱學",
+                "main": "218",
+                "counterpart": [
+                    {
+                        "participant": "王俊乃",
+                        "url": "TG13.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "218",
+    "target_url": "C106218.html"
+}

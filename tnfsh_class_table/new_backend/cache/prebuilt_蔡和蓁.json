@@ -1,0 +1,261 @@
+{
+    "table": [
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    },
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    },
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    },
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    },
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    },
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    },
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "116",
+                        "url": "C101116.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "蔡和蓁",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡和蓁",
+    "target_url": "TI27.HTML"
+}

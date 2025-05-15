@@ -1,0 +1,255 @@
+{
+    "table": [
+        [
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "109",
+                        "url": "C101109.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "顏詠哲",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "顏詠哲",
+    "target_url": "TH27.html"
+}

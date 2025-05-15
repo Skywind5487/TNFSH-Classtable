@@ -1,0 +1,451 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "陳婉玲",
+                        "url": "TA05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "閩南語文, 臺灣手語",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "黃子容",
+                        "url": "TA29.HTML"
+                    },
+                    {
+                        "participant": "黃素楨",
+                        "url": "TJ24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生命教育",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "吳玟芷",
+                        "url": "TJ17.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文寫作",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "劉哲夫",
+                        "url": "TB09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "生物",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文寫作",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "劉哲夫",
+                        "url": "TB09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國學欣賞",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "陳婉玲",
+                        "url": "TA05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園化學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "體育",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "柯東成",
+                        "url": "TK12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "資訊科技",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    },
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    },
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    },
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    },
+                    {
+                        "participant": "黃建彰",
+                        "url": "TI25.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    },
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    },
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    },
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    },
+                    {
+                        "participant": "黃建彰",
+                        "url": "TI25.HTML"
+                    },
+                    {
+                        "participant": "顏永進",
+                        "url": "TJ04.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "119",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "119",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園化學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "歷史",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "郭雅馨",
+                        "url": "TD05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "陳婉玲",
+                        "url": "TA05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "陳婉玲",
+                        "url": "TA05.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "劉哲夫",
+                        "url": "TB09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "劉哲夫",
+                        "url": "TB09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "梁俊宏",
+                        "url": "TC20.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "柯東成",
+                        "url": "TK12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "黃先明",
+                        "url": "TH12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生物",
+                "main": "119",
+                "counterpart": [
+                    {
+                        "participant": "江佩娟",
+                        "url": "TI05.HTML"
+                    }
+                ]
+            }
+        ]
+    ],
+    "type": "class",
+    "target": "119",
+    "target_url": "C108119.html"
+}

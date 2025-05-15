@@ -1,0 +1,210 @@
+{
+    "table": [
+        [
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "手機實驗室第二季",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "選修物理-力學二與熱學",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "108",
+                        "url": "C101108.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-力學二與熱學",
+                "main": "王俊乃",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "王俊乃",
+    "target_url": "TG13.html"
+}

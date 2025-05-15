@@ -1,0 +1,144 @@
+{
+    "table": [
+        [
+            {
+                "subject": "臺灣手語",
+                "main": "黃素楨",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    },
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "臺灣手語",
+                "main": "黃素楨",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    },
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "＊間接服務",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略",
+                "main": "黃素楨",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊間接服務",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊間接服務",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊間接服務",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -社會技巧",
+                "main": "黃素楨",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程\r, , , -社會技巧",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程\r, , , -學習策略",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃素楨",
+                "counterpart": null
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃素楨",
+    "target_url": "TJ24.html"
+}

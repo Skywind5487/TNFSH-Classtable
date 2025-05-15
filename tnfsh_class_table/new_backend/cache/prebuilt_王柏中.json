@@ -1,0 +1,84 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "全民國防教育",
+                "main": "王柏中",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "全民國防教育",
+                "main": "王柏中",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全民國防教育",
+                "main": "王柏中",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "王柏中",
+    "target_url": "TL26.html"
+}

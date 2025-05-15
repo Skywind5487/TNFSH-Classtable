@@ -1,0 +1,165 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "竹園數學",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "319",
+                        "url": "C108319.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學A",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "314",
+                        "url": "C101314.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "林倉億",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "林倉億",
+    "target_url": "TC24.html"
+}

@@ -1,0 +1,237 @@
+{
+    "table": [
+        [
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "203",
+                        "url": "C101203.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "114",
+                        "url": "C101114.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "117",
+                        "url": "C101117.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "自然科學探究與實作",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "112",
+                        "url": "C101112.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "105",
+                        "url": "C101105.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "化學",
+                "main": "黃聖勛",
+                "counterpart": [
+                    {
+                        "participant": "103",
+                        "url": "C101103.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃聖勛",
+    "target_url": "TH28.html"
+}

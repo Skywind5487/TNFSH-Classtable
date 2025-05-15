@@ -1,0 +1,246 @@
+{
+    "table": [
+        [
+            {
+                "subject": "運動新視野",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "王泰焜",
+                        "url": "TK01.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林皇德",
+                        "url": "TA23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林皇德",
+                        "url": "TA23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂欣賞",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "竹園生物",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "鄭楷騰",
+                        "url": "TI09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園數學",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林倉億",
+                        "url": "TC24.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "個別科學研究",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "陳立偉",
+                        "url": "TH10.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "個別科學研究",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "陳立偉",
+                        "url": "TH10.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "英語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "張志成",
+                        "url": "TB25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "張志成",
+                        "url": "TB25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園物理",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "何俊昌",
+                        "url": "TG08.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "音樂欣賞",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "何俊昌",
+                        "url": "TG08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "何俊昌",
+                        "url": "TG08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林皇德",
+                        "url": "TA23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "運動新視野",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "王泰焜",
+                        "url": "TK01.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "林皇德",
+                        "url": "TA23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園化學",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "周俞伽",
+                        "url": "TH03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "張志成",
+                        "url": "TB25.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "319",
+                "counterpart": [
+                    {
+                        "participant": "張志成",
+                        "url": "TB25.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "319",
+    "target_url": "C108319.html"
+}

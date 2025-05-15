@@ -1,0 +1,235 @@
+{
+    "table": [
+        [
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "305",
+                        "url": "C101305.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "315",
+                        "url": "C101315.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "309",
+                        "url": "C101309.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "307",
+                        "url": "C101307.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "311",
+                        "url": "C101311.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "303",
+                        "url": "C101303.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "313",
+                        "url": "C101313.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "301",
+                        "url": "C101301.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "潘帝仁",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "潘帝仁",
+                "counterpart": null
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "潘帝仁",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "潘帝仁",
+                "counterpart": null
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "潘帝仁",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "潘帝仁",
+    "target_url": "TK07.html"
+}

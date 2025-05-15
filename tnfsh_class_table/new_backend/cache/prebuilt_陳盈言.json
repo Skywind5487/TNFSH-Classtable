@@ -1,0 +1,174 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "彈性-數學",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "獨立研究",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "獨立研究",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "高層思考(2)：, 線性代數",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "陳盈言",
+                "counterpart": [
+                    {
+                        "participant": "102",
+                        "url": "C101102.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳盈言",
+    "target_url": "TC19.html"
+}

@@ -1,0 +1,210 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            }
+        ],
+        [
+            {
+                "subject": "化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "104",
+                        "url": "C101104.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "專題研究",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "專題研究",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "竹園化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "補強-化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "化學",
+                "main": "黃先明",
+                "counterpart": [
+                    {
+                        "participant": "119",
+                        "url": "C108119.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃先明",
+    "target_url": "TH12.html"
+}

@@ -1,0 +1,187 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            {
+                "subject": "數學乙",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學乙",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": " ",
+                "main": "黃棨堯",
+                "counterpart": null
+            },
+            {
+                "subject": "數學甲",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "312",
+                        "url": "C101312.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學乙",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學乙",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "302",
+                        "url": "C101302.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "黃棨堯",
+                "counterpart": [
+                    {
+                        "participant": "115",
+                        "url": "C101115.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "黃棨堯",
+    "target_url": "TC25.html"
+}

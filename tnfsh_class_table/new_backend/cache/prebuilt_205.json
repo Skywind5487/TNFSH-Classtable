@@ -1,0 +1,392 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃詩珊",
+                        "url": "TE12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "陳建良",
+                        "url": "TC07.HTML"
+                    },
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "梁佳雯",
+                        "url": "TA21.HTML"
+                    },
+                    {
+                        "participant": "Evan",
+                        "url": "TB34.HTML"
+                    },
+                    {
+                        "participant": "陳建良",
+                        "url": "TC07.HTML"
+                    },
+                    {
+                        "participant": "廖翠雰",
+                        "url": "TF06.HTML"
+                    },
+                    {
+                        "participant": "林靜吟",
+                        "url": "TI04.HTML"
+                    },
+                    {
+                        "participant": "高英耀",
+                        "url": "TJ09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃郁喬",
+                        "url": "TB29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "物理",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "杜思谷",
+                        "url": "TG03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳暐捷",
+                        "url": "TC32.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "補強-生物",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-生物",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "蔡和蓁",
+                        "url": "TI27.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃郁喬",
+                        "url": "TB29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳暐捷",
+                        "url": "TC32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "宋照生",
+                        "url": "TH09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-化學",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "宋照生",
+                        "url": "TH09.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "徐敏凱",
+                        "url": "TK09.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "全民國防教育",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "謝卓勳",
+                        "url": "TL24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃郁喬",
+                        "url": "TB29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "杜思谷",
+                        "url": "TG03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-物理",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "杜思谷",
+                        "url": "TG03.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "205",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性學習時間",
+                "main": "205",
+                "counterpart": null
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃郁喬",
+                        "url": "TB29.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生活科技",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "生活科技",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "莊淑如",
+                        "url": "TJ11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "地理",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "黃詩珊",
+                        "url": "TE12.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳暐捷",
+                        "url": "TC32.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "國語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳姿綉",
+                        "url": "TA02.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "高二多元選修",
+                "main": "205",
+                "counterpart": null
+            },
+            {
+                "subject": "彈性-多元選修",
+                "main": "205",
+                "counterpart": null
+            },
+            {
+                "subject": "數學A",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "陳暐捷",
+                        "url": "TC32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "全民國防教育",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "謝卓勳",
+                        "url": "TL24.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "205",
+                "counterpart": [
+                    {
+                        "participant": "徐敏凱",
+                        "url": "TK09.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "205",
+    "target_url": "C101205.html"
+}

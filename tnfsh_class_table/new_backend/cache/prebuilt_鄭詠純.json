@@ -1,0 +1,221 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學B",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學B",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學B",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "101",
+                        "url": "C101101.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "106",
+                        "url": "C101106.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": " ",
+                "main": "鄭詠純",
+                "counterpart": null
+            },
+            {
+                "subject": "數學",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "113",
+                        "url": "C101113.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學B",
+                "main": "鄭詠純",
+                "counterpart": [
+                    {
+                        "participant": "201",
+                        "url": "C101201.HTML"
+                    },
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "鄭詠純",
+    "target_url": "TC33.html"
+}

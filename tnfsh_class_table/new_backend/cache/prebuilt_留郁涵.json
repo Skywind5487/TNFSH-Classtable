@@ -1,0 +1,183 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "317",
+                        "url": "C101317.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "304",
+                        "url": "C101304.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "留郁涵",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "留郁涵",
+    "target_url": "TB32.html"
+}

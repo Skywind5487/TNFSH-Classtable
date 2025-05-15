@@ -1,0 +1,205 @@
+{
+    "table": [
+        [
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    },
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    },
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    },
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    },
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "213",
+                        "url": "C101213.HTML"
+                    },
+                    {
+                        "participant": "214",
+                        "url": "C101214.HTML"
+                    },
+                    {
+                        "participant": "215",
+                        "url": "C101215.HTML"
+                    },
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    },
+                    {
+                        "participant": "217",
+                        "url": "C101217.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "陳禹齊",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "陳禹齊",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "國語文",
+                "main": "陳禹齊",
+                "counterpart": [
+                    {
+                        "participant": "207",
+                        "url": "C101207.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "陳禹齊",
+    "target_url": "TA26.html"
+}

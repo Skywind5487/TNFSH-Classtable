@@ -1,0 +1,225 @@
+{
+    "table": [
+        [
+            {
+                "subject": "竹園專題探索",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    },
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    },
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    },
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "竹園專題探索",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "209",
+                        "url": "C101209.HTML"
+                    },
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    },
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    },
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "211",
+                        "url": "C101211.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "216",
+                        "url": "C101216.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "main": "周博信",
+                "counterpart": [
+                    {
+                        "participant": "212",
+                        "url": "C101212.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "周博信",
+    "target_url": "TC16.html"
+}

@@ -1,0 +1,219 @@
+{
+    "table": [
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "彈性-數學",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            {
+                "subject": "數學甲",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "316",
+                        "url": "C101316.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-數學",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "318",
+                        "url": "C106318.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "補強-數學",
+                "main": "周東賢",
+                "counterpart": [
+                    {
+                        "participant": "310",
+                        "url": "C101310.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "周東賢",
+    "target_url": "TC13.html"
+}

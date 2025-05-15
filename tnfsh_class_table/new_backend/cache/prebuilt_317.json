@@ -1,0 +1,372 @@
+{
+    "table": [
+        [
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "辛佩珊",
+                        "url": "TA22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "語文表達與傳播應用",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "辛佩珊",
+                        "url": "TA22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "李佳哲",
+                        "url": "TC18.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象一",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "彈性-物理",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "李佳哲",
+                        "url": "TC18.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英語聽講",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "辛佩珊",
+                        "url": "TA22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生命的起源與植物體的構造與功能",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "數學甲",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "李佳哲",
+                        "url": "TC18.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "各類文學選讀",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "辛佩珊",
+                        "url": "TA22.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "音樂",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "王理俐",
+                        "url": "TJ05.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "健康與護理",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "黃凱羚",
+                        "url": "TJ21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "英文閱讀與寫作",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-化學",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林偌婷",
+                        "url": "TH16.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "團體活動時間",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "留郁涵",
+                        "url": "TB32.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林偌婷",
+                        "url": "TH16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-有機化學與應用科技",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林偌婷",
+                        "url": "TH16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "美術",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "黃逸民",
+                        "url": "TJ08.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "健康與護理",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "黃凱羚",
+                        "url": "TJ21.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "彈性-數學",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "李佳哲",
+                        "url": "TC18.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林偌婷",
+                        "url": "TH16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修化學-化學反應與平衡二",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林偌婷",
+                        "url": "TH16.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修物理-電磁現象二與量子現象",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾奕勛",
+                        "url": "TG23.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學甲",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "李佳哲",
+                        "url": "TC18.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "曾冠騰",
+                        "url": "TK11.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "選修生物-生態、演化及生物多樣性",
+                "main": "317",
+                "counterpart": [
+                    {
+                        "participant": "林弘都",
+                        "url": "TI06.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "class",
+    "target": "317",
+    "target_url": "C101317.html"
+}

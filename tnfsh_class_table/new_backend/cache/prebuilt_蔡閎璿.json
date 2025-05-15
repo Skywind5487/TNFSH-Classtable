@@ -1,0 +1,227 @@
+{
+    "table": [
+        [
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null,
+            null
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            {
+                "subject": "團體活動時間",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "團體活動時間",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "107",
+                        "url": "C101107.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "219",
+                        "url": "C108219.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "218",
+                        "url": "C106218.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "208",
+                        "url": "C101208.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "202",
+                        "url": "C101202.HTML"
+                    }
+                ]
+            },
+            null
+        ],
+        [
+            {
+                "subject": "高一多元選修",
+                "main": "蔡閎璿",
+                "counterpart": null
+            },
+            {
+                "subject": "高一多元選修",
+                "main": "蔡閎璿",
+                "counterpart": null
+            },
+            null,
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "204",
+                        "url": "C101204.HTML"
+                    }
+                ]
+            },
+            null,
+            {
+                "subject": "體育",
+                "main": "蔡閎璿",
+                "counterpart": [
+                    {
+                        "participant": "210",
+                        "url": "C101210.HTML"
+                    }
+                ]
+            },
+            null
+        ]
+    ],
+    "type": "teacher",
+    "target": "蔡閎璿",
+    "target_url": "TK03.html"
+}
