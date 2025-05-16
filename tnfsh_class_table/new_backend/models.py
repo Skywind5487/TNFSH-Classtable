@@ -124,11 +124,11 @@ class ClassTable(BaseModel):
                 try:
                     # 嘗試從 JSON 載入資料
                     instance = cls.model_validate(data)
+                    # 更新上層
+                    prebuilt_cache[key] = instance
                 except Exception as e:
                     # 如果載入失敗，則從網路請求
                     print(f"Failed to load from disk: {e}")
-                prebuilt_cache[key] = instance
-                return instance
 
         # 層 3：fallback → 網路 request
         instance = await cls._request(target)
