@@ -1,13 +1,13 @@
 from typing import Dict
 from pathlib import Path
 import json
-import logging
-import os
 from tnfsh_class_table.new_backend.models import ClassTable
+from tnfsh_class_table.utils.logger import get_logger
 
 # 設定日誌
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+
+logger = get_logger(logger_level="INFO")
+
 
 # 第一層：記憶體快取
 prebuilt_cache: Dict[str, ClassTable] = {}
@@ -94,5 +94,10 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5):
 if __name__ == "__main__":
     # 測試用
     import asyncio
-    asyncio.run(preload_all(only_missing=False))
-    print("預載入完成")
+    from tnfsh_class_table.backend import TNFSHClassTableIndex
+    # 測試preload_all
+    async def test_preload_all():
+        await preload_all(only_missing=True, max_concurrent=5)
+    asyncio.run(test_preload_all())
+
+

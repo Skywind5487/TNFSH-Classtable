@@ -5,6 +5,10 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import ClassVar
 import json
+from tnfsh_class_table.utils.logger import get_logger
+
+# 設定日誌
+logger = get_logger(logger_level="INFO")
 
 
 class ScheduleEntry(BaseModel):
@@ -96,13 +100,6 @@ class ClassTable(BaseModel):
         )
 
     @classmethod
-    async def _request(cls, target: str) -> "ClassTable":
-        from crawler import fetch_raw_html, parse_html
-        soup = await fetch_raw_html(target)
-        parsed = parse_html(soup)
-        return cls.from_parsed(target, parsed)
-
-    @classmethod
     async def fetch_cached(cls, target: str, refresh: bool = False) -> "ClassTable":
         """
         支援三層快取的智能載入方法：
@@ -115,26 +112,58 @@ class ClassTable(BaseModel):
 
         # 層 1：記憶體
         if not refresh and key in prebuilt_cache:
+            logger.debug(f"✨ 從記憶體快取取得課表：{target}")
             return prebuilt_cache[key]
 
         # 層 2：本地 JSON
         if not refresh:
+            logger.debug(f"💾 嘗試從本地快取載入：{target}")
             data = load_from_disk(target)
             if data:
                 try:
                     # 嘗試從 JSON 載入資料
                     instance = cls.model_validate(data)
+                    prebuilt_cache[key] = instance
+                    logger.debug(f"📥 成功從本地快取載入：{target}")
+                    return instance
                 except Exception as e:
-                    # 如果載入失敗，則從網路請求
-                    print(f"Failed to load from disk: {e}")
-                prebuilt_cache[key] = instance
-                return instance
+                    logger.error(f"❌ 本地快取資料無效：{target}，錯誤：{e}")
 
         # 層 3：fallback → 網路 request
+        logger.info(f"🌐 從網路抓取課表資料：{target}")
         instance = await cls._request(target)
 
-        # ✅ 同步更新兩層 cache
+        # 同步更新兩層 cache
         prebuilt_cache[key] = instance
         save_to_disk(target, instance)
+        logger.debug(f"💾 已更新快取：{target}")
 
         return instance
+
+    @classmethod
+    async def _request(cls, target: str) -> "ClassTable":
+        """從網路抓取課表資料。"""
+        from crawler import fetch_raw_html, parse_html
+        try:
+            logger.debug(f"📡 正在抓取課表頁面：{target}")
+            soup = await fetch_raw_html(target)
+            logger.debug(f"🔍 解析課表資料：{target}")
+            parsed = parse_html(soup)
+            logger.debug(f"✅ 課表資料解析完成：{target}")
+            return cls.from_parsed(target, parsed)
+        except Exception as e:
+            logger.error(f"❌ 抓取課表失敗：{target}，錯誤：{e}")
+            raise
+
+if __name__ == "__main__":
+    # 測試用
+    import asyncio
+    from tnfsh_class_table.backend import TNFSHClassTableIndex
+
+    async def main():
+        logger.info("🚀 開始測試課表載入")
+        table = await ClassTable.fetch_cached("317", refresh=True)
+        logger.info("✨ 測試完成，輸出課表資料")
+        #print(table.model_dump_json(indent=4))
+
+    asyncio.run(main())

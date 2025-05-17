@@ -2,7 +2,11 @@ from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAli
 import aiohttp
 from bs4 import BeautifulSoup
 from tnfsh_class_table.backend import TNFSHClassTableIndex
+from tnfsh_class_table.utils.logger import get_logger
 import json
+
+# 設定日誌
+logger = get_logger(logger_level="INFO")
 
 class FetchError(Exception):
     pass
@@ -33,7 +37,7 @@ def resolve_target(
     """
     
     if target in reverse_index:
-        print(f"找到 {target} 的課表網址")
+        logger.debug(f"🎯 找到 {target} 的課表網址")
         return target
 
     for alias_set in aliases:
@@ -41,7 +45,7 @@ def resolve_target(
             candidates = alias_set - {target}
             for alias in candidates:
                 if alias in reverse_index:
-                    print(f"找到 {target} 的別名 {alias}")
+                    logger.info(f"🔄 將 {target} 解析為別名 {alias}")
                     return alias
 
     return None
@@ -58,16 +62,19 @@ async def fetch_raw_html(target: str) -> BeautifulSoup:
         {"朱蒙", "吳銘"}
     ]
     
+    logger.debug(f"🔍 解析目標：{target}")
     real_target = resolve_target(target, reverse_index, aliases)
     if real_target is None:
+        logger.error(f"❌ 找不到 {target} 的課表網址")
         raise FetchError(f"找不到 {target} 的課表網址")
 
     if target == "307":
-        relative_url = "/C101307.html"
+        relative_url = "C101307.html"
     else:
         relative_url = reverse_index[real_target]["url"]
 
     full_url = base_url + relative_url
+    logger.debug(f"🌐 準備請求網址：{full_url}")
 
     try:
         headers = {
@@ -78,30 +85,37 @@ async def fetch_raw_html(target: str) -> BeautifulSoup:
         }
         
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:
+            logger.debug(f"📡 發送請求：{target}")
             async with session.get(full_url, headers=headers) as response:
                 response.raise_for_status()
                 content = await response.read()
-                #html_text = content.decode('big5', errors='ignore')
-                # 使用 BeautifulSoup 解析 HTML
+                logger.debug(f"📥 收到回應：{target}")
                 soup = BeautifulSoup(content, 'html.parser')
+                logger.debug(f"✅ HTML 解析完成：{target}")
                 return soup
                 
     except Exception as e:
+        logger.error(f"❌ 網路請求失敗：{target}，錯誤：{e}")
         raise FetchError(f"請求失敗: {e}")
 
 def parse_html(soup: BeautifulSoup) -> RawParsedResult:
     """
     解析原始 HTML，擷取 last_update、periods、table
     """
+    logger.debug("🔄 開始解析 HTML")
+    
     # 擷取更新日期
     update_element = soup.find('p', class_='MsoNormal', align='center')
     if update_element:
         spans = update_element.find_all('span')
         last_update = spans[1].text if len(spans) > 1 else "No update date found."
+        logger.debug(f"📅 更新日期：{last_update}")
     else:
         last_update = "No update date found."
+        logger.warning("⚠️ 找不到更新日期")
 
     # 擷取課表 table 並移除 border
+    logger.debug("🔍 搜尋主要課表")
     main_table = None
     for table in soup.find_all("table"):
         new_table = BeautifulSoup('<table></table>', 'html.parser').table
@@ -117,8 +131,10 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
             break
 
     if main_table is None:
+        logger.error("❌ 找不到符合格式的課表")
         raise FetchError("找不到符合格式的課表 table")
 
+    logger.debug("📊 解析課表時間")
     # 擷取 periods
     import re
     re_pattern = r'(\d{2})(\d{2})'
@@ -196,6 +212,7 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
         if row_data:
             table.append(row_data)
 
+    logger.info("✅ HTML 解析完成")
     return RawParsedResult(
         last_update=last_update,
         periods=periods,
@@ -205,11 +222,20 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
 
 if __name__ == "__main__":
     import asyncio
-    target = "307"
-    html_content = asyncio.run(fetch_raw_html(target))
-    parsed_result = parse_html(html_content)
-    print(json.dumps(parsed_result, ensure_ascii=False, indent=4))
-    save_path = "class_307.html"
-    with open(save_path, "w") as f:
-        #f.write(json.dumps(parsed_result['table'], ensure_ascii=False, indent=4))
-        f.write(html_content.prettify())
+    
+    async def main():
+        target = "307"
+        logger.info(f"🚀 開始抓取課表：{target}")
+        html_content = await fetch_raw_html(target)
+        parsed_result = parse_html(html_content)
+        logger.info(f"✨ 課表抓取完成：{target}")
+        
+        save_path = "class_307.html"
+        with open(save_path, "w") as f:
+            f.write(html_content.prettify())
+        logger.info(f"💾 已儲存 HTML 至：{save_path}")
+        
+        logger.debug("📝 輸出解析結果")
+        print(json.dumps(parsed_result, ensure_ascii=False, indent=4))
+
+    asyncio.run(main())
