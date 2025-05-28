@@ -15,6 +15,9 @@ dependencies = [
     "google>=3.0.0",
     "google-genai>=1.8.0",
     "networkx>=3.4.2",
+    "tnfsh-timetable-core>=0.0.6",
+    "pytest-asyncio>=1.0.0",
+    "nest-asyncio>=1.6.0",
 ]
 
 

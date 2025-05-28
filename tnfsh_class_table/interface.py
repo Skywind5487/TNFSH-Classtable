@@ -1,16 +1,28 @@
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 from tnfsh_class_table.depth_1_change_course import change_course
+from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
-from typing import Any, List
+from typing import Any, List, Union, Optional
 import gradio as gr
 import requests
 from google import genai
 import threading
+import asyncio
 from bs4 import BeautifulSoup, Comment
 from datetime import datetime
-from typing import Union, List
-from google.genai import types
 import os
+import concurrent.futures
+from google.genai import types
+
+
+import asyncio
+
+try:
+    import nest_asyncio
+    nest_asyncio.apply()
+except ImportError:
+    pass  # nest_asyncio is optional but recommended for environments with an existing event loop
+
 
 def print_result(func):
     """
@@ -474,13 +486,14 @@ class AIAssistant:
             self.get_class_table_link, 
             self.get_wiki_link, 
             self.get_wiki_content, 
-            self.get_swap_course, 
+            self.get_swap_course,
+            self.get_rotation_course,  # 添加輪調功能
             self.get_specific_course,
             self.get_class_table_index_base_url,
             self.get_class_table_index,
             self.get_wiki_teacher_index,
             self.final_resoloution_get_all_table      
-            ]
+        ]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
         """
@@ -620,7 +633,7 @@ class AIAssistant:
 
     def get_lesson(self, target: str) -> dict[str, list[str]]:
         """
-        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入
+        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入力
         範圍涵蓋多個年級。
 
         Args:
@@ -748,52 +761,208 @@ class AIAssistant:
         
         return result
 
-    def get_swap_course(self, source_teacher: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
+    def get_swap_course(
+            self,
+            source_teacher: str,
+            day: int,
+            period: int,
+            max_depth: int = 2,
+            base_url: Optional[str] = None
+        ) -> Union[SwapPaths, str]:
+            """
+            同步介面：取得指定教師的調課資訊，對外保持簡單，內部包裝 async 執行。
+            """
+            async def async_impl():
+                from tnfsh_timetable_core import TNFSHTimetableCore
+                
+                core = TNFSHTimetableCore()
+                if not base_url:
+                    base_url_ = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course"
+                else:
+                    base_url_ = base_url
+
+                scheduling = await core.scheduling_swap(source_teacher, day, period, max_depth=max_depth)
+                paths = list(scheduling)
+
+                if not paths:
+                    return "無法找到可調動的課程，請確認教師名稱、星期和節次是否正確"
+
+                async def process_path(path):
+                    steps = []
+                    nodes = path[1:-1]
+
+                    for i in range(0, len(nodes), 2):
+                        if i + 1 < len(nodes):
+                            from_node = nodes[i]
+                            to_node = nodes[i + 1]
+
+                            from_teachers, from_classes = [], []
+                            for teacher in from_node.teachers.values():
+                                url_result = await core.fetch_timetable(target=teacher.teacher_name)
+                                url = f"{base_url_}/{url_result.target_url}"
+                                from_teachers.append(URLMap(name=teacher.teacher_name, url=url))
+                            for class_ in from_node.classes.values():
+                                url_result = await core.fetch_timetable(target=class_.class_code)
+                                url = f"{base_url_}/{url_result.target_url}"
+                                from_classes.append(URLMap(name=class_.class_code, url=url))
+
+                            to_teachers, to_classes = [], []
+                            for teacher in to_node.teachers.values():
+                                url_result = await core.fetch_timetable(target=teacher.teacher_name)
+                                url = f"{base_url_}/{url_result.target_url}"
+                                to_teachers.append(URLMap(name=teacher.teacher_name, url=url))
+                            for class_ in to_node.classes.values():
+                                url_result = await core.fetch_timetable(target=class_.class_code)
+                                url = f"{base_url_}/{url_result.target_url}"
+                                to_classes.append(URLMap(name=class_.class_code, url=url))
+
+                            steps.append(SwapStep(
+                                from_=CourseInfo(
+                                    teacher=from_teachers,
+                                    subject=from_node.subject,
+                                    class_=from_classes,
+                                    weekday=from_node.time.weekday,
+                                    period=from_node.time.period,
+                                    streak=from_node.time.streak if from_node.time.streak != 1 else None,
+                                ),
+                                to=CourseInfo(
+                                    teacher=to_teachers,
+                                    subject=to_node.subject,
+                                    class_=to_classes,
+                                    weekday=to_node.time.weekday,
+                                    period=to_node.time.period,
+                                    streak=to_node.time.streak if to_node.time.streak != 1 else None,
+                                )
+                            ))
+
+                    if steps:
+                        return SwapSinglePath(steps=steps)
+                    return None
+
+                tasks = [process_path(path) for path in paths]
+                processed_paths = await asyncio.gather(*tasks)
+                return SwapPaths(target=source_teacher, paths=[p for p in processed_paths if p is not None])
+
+            try:
+                loop = asyncio.get_event_loop()
+                return loop.run_until_complete(async_impl())
+            except RuntimeError as e:
+                raise ValueError(f"調課過程中發生錯誤（請確認 event loop 狀態）: {str(e)}")
+
+        
+
+    def get_rotation_course(
+        self, 
+        source_teacher: str, 
+        day: int, 
+        period: int, 
+        max_depth: int = 2,
+        base_url: Optional[str] = None
+    ):
         """
-        取得指定教師的調課資訊，包含可調動的課程列表。
+        同步介面：取得指定教師的輪調資訊，對外保持簡單，內部包裝 async 執行。
+        輪調是指一個老師把自己的某堂課輪流調到不同時段。
 
         Args:
             source_teacher (str): 來源教師姓名
             day (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
+            max_depth (int, optional): 最大搜尋深度. Defaults to 20.
+            base_url (Optional[str], optional): URL 基礎路徑. Defaults to None.
 
         Returns:
-            dict[str, Union[str, int, tuple[int, int], dict[str, Union[str, int]]]]: 調課結果
-            包含以下鍵值：
-            - source_teacher: 來源教師姓名
-            - streak_start_time: 連續課程的起始時間 (星期, 節次)
-            - streak: 連續課程的長度 # 回應時應註明來源課程所在的連慮課程的起始時間與長度
-            - source_course: 來源課程名稱
-            - can_swap_courses: 可調動的課程列表，每個元素包含目標教師、目標課程、目標時間等資訊        
-
-        Example:
-        {
-            "source_teacher": "顏永進",
-            "streak_start_time": (3, 2),
-            "streak": 2,
-            "source_course": "數學",
-            "can_swap_courses": [
-                {
-                    "target_teacher": "空堂，無老師",
-                    "target_course": "空堂，無課程",
-                    "target_day": 3,
-                    "target_period": 2
-                },
-                {
-                    "target_teacher": "王小明",
-                    "target_course": "物理",
-                    "target_day": 3,
-                    "target_period": 3
-                }, ...
-            ]
-        }
+            Union[RotationPaths, str]: 輪調結果或錯誤訊息
+            如果成功，返回 RotationPaths 物件，包含以下資訊：
+            - target: 目標教師姓名
+            - paths: 可能的輪調路徑列表，每個路徑包含：
+                - steps: 輪調步驟列表，每個步驟包含：
+                    - from_: 來源課程資訊，包含完整的課程和老師資訊
+                    - to: 目標課程資訊，包含完整的課程和老師資訊
+                    - next_teacher: 下一個時段的教師資訊
         """
-        # 調課邏輯實現
-        courses = change_course(source_teacher, (day, period))
-        if courses == []:
-            return "Please tell user there is no course could be swapped."
-        return courses
-    
+        from tnfsh_timetable_core import TNFSHTimetableCore
+        from .models import TeacherClassInfo, RotationStep, RotationSinglePath, RotationPaths, URLMap
+        import asyncio
+
+        core = TNFSHTimetableCore()
+
+        async def async_impl():
+            if not base_url:
+                base_url_ = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course"
+            else:
+                base_url_ = base_url            # 獲取課程調度器
+            scheduling = await core.fetch_scheduling()
+            cycles = await scheduling.rotation(source_teacher, day, period, max_depth=max_depth)
+            cycles_list = list(cycles)
+            
+            if not cycles_list:
+                return "無法找到可輪調的課程，請確認教師名稱、星期和節次是否正確"
+            
+            paths = []
+            for cycle in cycles_list:
+                steps = []
+                # 每兩個節點為一組，處理輪調步驟 (1-2, 2-3, 3-4...)
+                for j in range(len(cycle)-1):  # 修改為只需要兩個節點
+                    node1 = cycle[j]
+                    node2 = cycle[j+1]
+                    
+                    # 來源課程資訊
+                    from_teachers = []
+                    from_classes = []
+                    for teacher in node1.teachers.values():
+                        url_result = await core.fetch_timetable(target=teacher.teacher_name)
+                        url = f"{base_url_}/{url_result.target_url}"
+                        from_teachers.append(URLMap(name=teacher.teacher_name, url=url))
+                    for class_ in node1.classes.values():
+                        url_result = await core.fetch_timetable(target=class_.class_code)
+                        url = f"{base_url_}/{url_result.target_url}"
+                        from_classes.append(URLMap(name=class_.class_code, url=url))
+
+                    # 目標課程資訊（使用 node2 的老師）
+                    to_teachers = []
+                    to_classes = []
+                    for teacher in node2.teachers.values():
+                        url_result = await core.fetch_timetable(target=teacher.teacher_name)
+                        url = f"{base_url_}/{url_result.target_url}"
+                        to_teachers.append(URLMap(name=teacher.teacher_name, url=url))
+                    for class_ in node2.classes.values():
+                        url_result = await core.fetch_timetable(target=class_.class_code)
+                        url = f"{base_url_}/{url_result.target_url}"
+                        to_classes.append(URLMap(name=class_.class_code, url=url))
+
+                    steps.append(RotationStep(
+                        from_=TeacherClassInfo(
+                            teacher=from_teachers,
+                            class_=from_classes,
+                            subject=node1.subject,
+                            weekday=node1.time.weekday,
+                            period=node1.time.period,
+                            streak=node1.time.streak if node1.time.streak != 1 else None,
+                        ),
+                        to=TeacherClassInfo(
+                            teacher=to_teachers,
+                            class_=to_classes,
+                            subject=node2.subject,
+                            weekday=node2.time.weekday,
+                            period=node2.time.period,
+                            streak=node2.time.streak if node2.time.streak != 1 else None,
+                        ),
+                        next_teacher=to_teachers  # 使用目標節點的老師資訊
+                    ))
+
+                if steps:  # 只有當有實際的輪調步驟時才添加路徑
+                    paths.append(RotationSinglePath(steps=steps))
+
+            return RotationPaths(target=source_teacher, paths=paths)
+
+        try:
+            loop = asyncio.get_event_loop()
+            return loop.run_until_complete(async_impl())
+        except RuntimeError as e:
+            raise ValueError(f"輪調過程中發生錯誤（請確認 event loop 狀態）: {str(e)}")
+        
+
+
     @print_result
     def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
         """
