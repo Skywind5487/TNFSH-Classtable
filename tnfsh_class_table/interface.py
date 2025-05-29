@@ -484,12 +484,12 @@ class AIAssistant:
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
         """
-        返回目標的竹園Wiki連結。
+        返回目標的竹園Wiki相關連結。
         目標可以不是老師，也可以是其他內容。
         例如: "欽發麵店"、"分類:科目"
         只是對於老師有較多檢查和 fallback。
         當使用者的要求不是得到連結時，應考慮使用別的方法。
-        提供使用者連結使使用者能檢查。
+        提供使用者連結方便使用者能檢查。
 
 
         Args:
