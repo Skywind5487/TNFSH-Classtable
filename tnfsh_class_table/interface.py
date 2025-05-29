@@ -766,12 +766,22 @@ class AIAssistant:
             source_teacher: str,
             weekday: int,
             period: int,
-            page: int = 1,
-            max_depth: int = 2,
-            base_url: Optional[str] = None
-        ) -> Union[SwapPaths, str]:
+            page: int,
+            max_depth: int,
+            
+        ):
         """
-        同步介面：取得指定教師的調課資訊，對外保持簡單，內部包裝 async 執行。
+        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        Args:
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+            page (int): 分頁數，從1開始
+            max_depth (int): 最大深度，通常max_depth=1就好，最大到3
+        Returns:
+            可能的調課路徑們，以及一些除錯資訊
         """
         from tnfsh_class_table.ai_tools import swap
         return asyncio.run(swap(
@@ -788,12 +798,25 @@ class AIAssistant:
         source_teacher: str,
         weekday: int, 
         period: int,
-        page: int = 1, 
-        max_depth: int = 2,
-        base_url: Optional[str] = None
+        page: int, 
+        max_depth: int,
     ):
-        from tnfsh_class_table.ai_tools import swap
-        return asyncio.run(swap(
+        """
+        基於老師間將課程移動，最後形成一個環的輪換算法。有點像大風吹。
+        請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        Args:
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+            page (int): 分頁數，從1開始
+            max_depth (int): 調課需要互換多少次(請主動向使用者解釋)，通常max_depth=1就好，最大到3
+        Returns:
+            可能的調課路徑們，以及一些除錯資訊
+        """
+        from tnfsh_class_table.ai_tools import rotation
+        return asyncio.run(rotation(
             source_teacher=source_teacher,
             weekday=weekday,
             period=period,
