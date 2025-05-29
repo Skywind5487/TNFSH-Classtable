@@ -1,16 +1,28 @@
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 from tnfsh_class_table.depth_1_change_course import change_course
+from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
-from typing import Any, List
+from typing import Any, List, Union, Optional
 import gradio as gr
 import requests
 from google import genai
 import threading
+import asyncio
 from bs4 import BeautifulSoup, Comment
 from datetime import datetime
-from typing import Union, List
-from google.genai import types
 import os
+import concurrent.futures
+from google.genai import types
+
+
+import asyncio
+
+try:
+    import nest_asyncio
+    nest_asyncio.apply()
+except ImportError:
+    pass  # nest_asyncio is optional but recommended for environments with an existing event loop
+
 
 def print_result(func):
     """
@@ -474,13 +486,14 @@ class AIAssistant:
             self.get_class_table_link, 
             self.get_wiki_link, 
             self.get_wiki_content, 
-            self.get_swap_course, 
+            self.get_swap_course,
+            self.get_rotation_course,  # 添加輪調功能
             self.get_specific_course,
             self.get_class_table_index_base_url,
             self.get_class_table_index,
             self.get_wiki_teacher_index,
             self.final_resoloution_get_all_table      
-            ]
+        ]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
         """
@@ -620,7 +633,7 @@ class AIAssistant:
 
     def get_lesson(self, target: str) -> dict[str, list[str]]:
         """
-        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入
+        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入力
         範圍涵蓋多個年級。
 
         Args:
@@ -748,52 +761,70 @@ class AIAssistant:
         
         return result
 
-    def get_swap_course(self, source_teacher: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
+    def get_swap_course(
+            self,
+            source_teacher: str,
+            weekday: int,
+            period: int,
+            page: int,
+            max_depth: int,
+            
+        ):
         """
-        取得指定教師的調課資訊，包含可調動的課程列表。
+        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
 
         Args:
-            source_teacher (str): 來源教師姓名
-            day (int): 星期幾(1-5)
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
-
+            page (int): 分頁數，從1開始
+            max_depth (int): 最大深度，通常max_depth=1就好，最大到3
         Returns:
-            dict[str, Union[str, int, tuple[int, int], dict[str, Union[str, int]]]]: 調課結果
-            包含以下鍵值：
-            - source_teacher: 來源教師姓名
-            - streak_start_time: 連續課程的起始時間 (星期, 節次)
-            - streak: 連續課程的長度 # 回應時應註明來源課程所在的連慮課程的起始時間與長度
-            - source_course: 來源課程名稱
-            - can_swap_courses: 可調動的課程列表，每個元素包含目標教師、目標課程、目標時間等資訊        
-
-        Example:
-        {
-            "source_teacher": "顏永進",
-            "streak_start_time": (3, 2),
-            "streak": 2,
-            "source_course": "數學",
-            "can_swap_courses": [
-                {
-                    "target_teacher": "空堂，無老師",
-                    "target_course": "空堂，無課程",
-                    "target_day": 3,
-                    "target_period": 2
-                },
-                {
-                    "target_teacher": "王小明",
-                    "target_course": "物理",
-                    "target_day": 3,
-                    "target_period": 3
-                }, ...
-            ]
-        }
+            可能的調課路徑們，以及一些除錯資訊
         """
-        # 調課邏輯實現
-        courses = change_course(source_teacher, (day, period))
-        if courses == []:
-            return "Please tell user there is no course could be swapped."
-        return courses
-    
+        from tnfsh_class_table.ai_tools import swap
+        return asyncio.run(swap(
+            source_teacher=source_teacher,
+            weekday=weekday,
+            period=period,
+            page=page,
+            max_depth=max_depth,
+        ))
+
+
+    def get_rotation_course(
+        self,
+        source_teacher: str,
+        weekday: int, 
+        period: int,
+        page: int, 
+        max_depth: int,
+    ):
+        """
+        基於老師間將課程移動，最後形成一個環的輪換算法。有點像大風吹。
+        請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        Args:
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+            page (int): 分頁數，從1開始
+            max_depth (int): 調課需要互換多少次(請主動向使用者解釋)，通常max_depth=1就好，最大到3
+        Returns:
+            可能的調課路徑們，以及一些除錯資訊
+        """
+        from tnfsh_class_table.ai_tools import rotation
+        return asyncio.run(rotation(
+            source_teacher=source_teacher,
+            weekday=weekday,
+            period=period,
+            max_depth=max_depth,
+            page=page
+        ))       
+
+
     @print_result
     def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
         """
