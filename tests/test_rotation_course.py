@@ -112,3 +112,11 @@ async def test_get_rotation_course_empty_slot():
     else:
         assert isinstance(result, str)
         assert "無法找到" in result or "錯誤" in result
+
+def test_get_rotation():
+    """測試輪調功能"""
+    ai = AIAssistant()
+    
+    # 測試有效的輪調請求
+    result = ai.get_rotation_course("顏永進", 3, 2)  # 測試星期三第二節
+    print(result.model_dump_json(indent=4))

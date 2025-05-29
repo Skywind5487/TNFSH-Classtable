@@ -78,3 +78,9 @@ async def test_get_swap_course_empty_slot():
     with pytest.raises(Exception):
         result = ai.get_swap_course("顏永進", 3, 7)
     
+def test_new_get_swap_course():
+    from tnfsh_class_table.interface import AIAssistant
+    ai = AIAssistant()
+    # 測試有效的調課請求
+    result = ai.get_swap_course("顏永進", 3, 2)  # 測試星期三第二節
+    print(result.model_dump_json(indent=4))
