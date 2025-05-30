@@ -2,7 +2,7 @@ from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, New
 from tnfsh_class_table.depth_1_change_course import change_course
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
-from typing import Any, List, Union, Optional
+from typing import Any, List, Union, Optional, Literal
 import gradio as gr
 import requests
 from google import genai
@@ -489,6 +489,7 @@ class AIAssistant:
             self.get_swap_course,
             self.get_rotation_course,  # 添加輪調功能
             self.get_specific_course,
+            self.get_substitute_course,
             self.get_class_table_index_base_url,
             self.get_class_table_index,
             self.get_wiki_teacher_index,
@@ -779,7 +780,7 @@ class AIAssistant:
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始
-            max_depth (int): 最大深度，通常max_depth=1就好，最大到3
+            max_depth (int): 調課需要兩個老師互換多少次(請主動向使用者解釋最大深度的意義)。最大深度，通常max_depth=1就好，最大到3
         Returns:
             可能的調課路徑們，以及一些除錯資訊
         """
@@ -811,7 +812,7 @@ class AIAssistant:
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始
-            max_depth (int): 調課需要互換多少次(請主動向使用者解釋)，通常max_depth=1就好，最大到3
+            max_depth (int): 調課需要移動多少次(請主動向使用者解釋最大深度的意義)，通常max_depth=2~3。預設為2
         Returns:
             可能的調課路徑們，以及一些除錯資訊
         """
@@ -823,6 +824,49 @@ class AIAssistant:
             max_depth=max_depth,
             page=page
         ))       
+
+    def get_substitute_course(self, 
+                       source_teacher:str, 
+                       weekday:int, 
+                       period:int,
+                       mode: str,
+                       page: int):
+        """
+        這是三種scheduling方法的其中一種。
+        第一種叫多次互換調課，對應到get_swap_course。
+        第二種叫多角調，內部別名輪調，對應到get_rotation_course。
+        第三種叫代課，對應到get_substitute_course。
+        當使用者沒有明確指出方法時，應以多角調，max_depth=2為預設，
+        並在輸出結果後主動告知別的調課方法、下一頁的可能、最大深度。
+        
+
+        若沒有特別指定請以官網來源、page=1為預設，並告訴使用者可以使用wiki。
+        請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        Args:
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+            wiki ("official_website","wiki"): 從官網或wiki擷取來源。官網優點為全面，但分類不夠精確。wiki優點為精確，但依賴社群協作，因此資訊可能有缺漏。
+            page (int): 分頁數，從1開始
+        Returns:
+            可能的調課路徑們，以及一些除錯資訊
+        """
+        try:
+            from tnfsh_class_table.ai_tools import substitute
+            return asyncio.run(substitute(
+                source_teacher=source_teacher,
+                weekday=weekday,
+                period=period,
+                mode=mode,
+                page=page
+            )) 
+        except Exception as e:
+            from tnfsh_timetable_core import TNFSHTimetableCore
+            core = TNFSHTimetableCore()
+            logger = core.get_logger()
+            logger.info(f"error: {e}")
 
 
     @print_result

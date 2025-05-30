@@ -290,7 +290,7 @@ class NewWikiTeacherIndex:
         Returns:
             str: 行動版 URL
         """
-        url = f"{self.base_url}/index.php?title={title}"
+        url = f"{self.base_url}/index.php?title={title}&mobileaction=toggle_view_mobile"
         return url
     
     def _get_new_wiki_teacher_index(self, executor: ThreadPoolExecutor) -> Dict[str, Dict[str, Union[str, Dict[str, str]]]]:
