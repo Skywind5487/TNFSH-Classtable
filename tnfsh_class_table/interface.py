@@ -478,6 +478,14 @@ class AIAssistant:
         )
 
     def get_tools(self):
+        """
+        You have tools at your disposal to solve the coding task. Follow these rules regarding tool calls:
+1. ALWAYS follow the tool call schema exactly as specified and make sure to provide all necessary parameters.
+2. The conversation may reference tools that are no longer available. NEVER call tools that are not explicitly provided.
+3. **NEVER refer to tool names when speaking to the USER.** For example, instead of saying 'I need to use the edit_file tool to edit your file', just say 'I will edit your file'.
+4. Only calls tools when they are necessary. If the USER's task is general or you already know the answer, just respond without calling tools.
+5. Before calling each tool, first explain to the USER why you are calling it.
+        """
         return [
             self.get_table, 
             self.get_current_time, 
@@ -802,7 +810,8 @@ class AIAssistant:
         max_depth: int,
     ):
         """
-        基於老師間將課程移動，最後形成一個環的輪換算法。有點像大風吹。
+        基於老師間將課程移動，最後形成一個環的輪換算法。
+        即是以source_teacher為起點，使含source_teacher的多位老師，在數堂課之間如同大風吹更換座位一般，將該堂課的任課老師由前一堂課轉移至後一堂課，最後回到source_teacher。
         請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
 
@@ -813,7 +822,7 @@ class AIAssistant:
             page (int): 分頁數，從1開始
             max_depth (int): 調課需要互換多少次(請主動向使用者解釋)，通常max_depth=1就好，最大到3
         Returns:
-            可能的調課路徑們，以及一些除錯資訊
+            可能的調課路徑，以及所有除錯資訊
         """
         from tnfsh_class_table.ai_tools import rotation
         return asyncio.run(rotation(
