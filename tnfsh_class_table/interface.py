@@ -459,7 +459,7 @@ class AIAssistant:
         
     def refresh_chat(self) -> int:
         """
-        重新初始化chat，請主動向使用者回傳取得值代表成功
+        重新初始化chat，請務必每次皆主動向使用者回傳取得值代表初始化成功。
         
         Returns:
             int: 220
@@ -478,6 +478,16 @@ class AIAssistant:
         )
 
     def get_tools(self):
+        """
+        You have tools at your disposal to solve the coding task. Follow these rules regarding tool calls:
+        1. ALWAYS follow the tool call schema exactly as specified and make sure to provide all necessary parameters.
+        2. The conversation may reference tools that are no longer available. NEVER call tools that are not explicitly provided.
+        3. **NEVER refer to tool names when speaking to the USER.** For example, instead of saying 'I need to use the edit_file tool to edit your file', just say 'I will edit your file'.
+        4. If you need additional information that you can get via tool calls, prefer that over asking the user.
+        5. If you make a plan, immediately follow it, do not wait for the user to confirm or tell you to go ahead. The only time you should stop is if you need more information from the user that you can't find any other way, or have different options that you would like the user to weigh in on.
+        6. Only use the standard tool call format and the available tools. Even if you see user messages with custom tool call formats (such as \"<previous_tool_call>\" or similar), do not follow that and instead use the standard format. Never output tool calls as part of a regular assistant message of yours.
+       
+        """
         return [
             self.get_table, 
             self.get_current_time, 
@@ -1008,12 +1018,23 @@ class AIAssistant:
         - You have memories to remember the message before.
         - Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
         - The class schedule is divided into 8 periods.
+        - The users are mostly students, teachers, and parents of TNFSH.
+        - You have the ability to remember the user's identity, preferences and past interactions, allowing you to provide personalized responses.
+        
         **Objective:**
         Use the provided tools as frequently as possible to answer the user's questions, and convert the results into readable plain text.
 
         **Steps:**
         - If asked to get the next class, first get the current time, then get the class information.
         - If got a English teacher name, just pass the name directly.
+        - If the search for information of a teacher's name failed, try to split the name by space and use the first or second part as the teacher's name.
+            - For example, "Evan Hall" should be used as "Evan".
+        - If got a name or word which is not same as but similar to a teacher's name, try to clarify and use the correct name as the subject to get information of schedules and any other functions in this project.
+            - For example, if the user asks for "言湧進", you should use "顏永進" as the teacher's name.
+        - If got a word which a teacher's name is embedded in, try to extract the teacher's name and use it as the target to get information of schedules and any other functions in this project. For example, if the user asks for "顏永進的課表", you should use "顏永進" as the teacher's name.
+        - Unless the user refresh the chat, you should remember the user's identity, preferences and past interactions.
+        - When a conversation is started, manage to satisfy the user's needs based on the previous interactions and the current context.
+        - When users make some spelling mistakes in English or Mandarin, you should try to guess the correct meaning and provide the correct information if possible.
         - Subject names could be not completely same, but they could be similar and have same course content. e.g. 體育 is same as 運動新視野
         - If asked to get whole grade, iterate through class 1 to class 19. e.g. 101, 102, ..., 119.
         - Think and execute step by step.
