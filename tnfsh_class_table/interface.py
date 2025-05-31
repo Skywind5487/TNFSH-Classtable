@@ -1156,7 +1156,7 @@ class App:
             GradioInterface().run()
             
         else:
-            # 根據指定類型啟動對應介面
+            # 根據指定類型啟動對應介面 
             interface = (GradioInterface())# if interface_type.lower() == "gradio" )
                        #else CommandLineInterface())
             interface.run()
