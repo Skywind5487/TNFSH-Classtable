@@ -503,7 +503,7 @@ class AIAssistant:
             self.get_class_table_index_base_url,
             self.get_class_table_index,
             self.get_wiki_teacher_index,
-            self.final_resoloution_get_all_table      
+            self.final_resolution_get_all_table      
         ]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
@@ -968,7 +968,7 @@ class AIAssistant:
         return index.index
     
     @print_result
-    def final_resoloution_get_all_table(self) -> Any:
+    def final_resolution_get_all_table(self) -> Any:
         """
         使用前必定要詢問使用者
         獲取所有課表內容的最終解決方案
@@ -1079,7 +1079,8 @@ class App:
             print("請等待gradio開啟完畢再輸入指令\n")
             # 使用執行緒來運行命令列介面
             def run_cmd_with_delay():
-                sleep(3)  # 等待3秒
+                pass
+                #sleep(3)  # 等待3秒
                 #CommandLineInterface().run()
             
             cmd_thread = threading.Thread(
