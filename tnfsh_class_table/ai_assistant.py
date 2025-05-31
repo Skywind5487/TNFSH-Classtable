@@ -24,8 +24,6 @@ class AIAssistant:
         )
         self.chat = chat
         
-    
-    
     def get_config(self):
         return types.GenerateContentConfig(
             temperature=0.8,
@@ -65,6 +63,12 @@ class AIAssistant:
             self.final_solution_get_all_table      
         ]
 
+    def get_wiki_teacher_index(self) -> dict[str, dict[str, str]]:
+        """
+        從竹園Wiki索引資料，包括科目與老師名稱、其連結
+        """
+        from tnfsh_class_table.ai_tools.wiki.wiki_teacher_index import get_wiki_teacher_index
+        return get_wiki_teacher_index()
     
     def get_wiki_link(self, target: str) -> Union[str, List[str]]:
         """
@@ -85,9 +89,6 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.wiki.wiki_link import get_wiki_link
         return get_wiki_link(target)
 
-    
-        
-
     def get_wiki_content(self, target: str) -> str:
         """
         取得特定目標的Wiki內容，可以不是老師，也可以是其他內容。
@@ -103,27 +104,8 @@ class AIAssistant:
         """
         from tnfsh_class_table.ai_tools.wiki.wiki_content import get_wiki_content
         return get_wiki_content(target)
+
     
-    def get_class_table_link(self, target: str) -> str:
-        """
-        取得指定目標的課表連結，如果想查詢二年五班，應該轉換成205輸入
-        範圍涵蓋多個年級。
-        當使用者的要求不是得到連結時，應考慮使用別的方法。
-        提供使用者連結使使用者能檢查。
-
-        Args:
-            target: 班級或老師名稱
-
-        Returns:
-            str: 課表連結
-
-        Example:
-            >>> get_class_table_link("307")
-            "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html"
-        """
-        from tnfsh_class_table.ai_tools.timetable.class_table_link import get_class_table_link
-        return get_class_table_link(target)
-
     def get_class_table_index_base_url(self) -> str:
         """
         取得課表索引的基本網址。
@@ -136,44 +118,17 @@ class AIAssistant:
         """
         from tnfsh_class_table.ai_tools.index.class_table_index_base_url import get_class_table_index_base_url
         return get_class_table_index_base_url()
-
-    def get_lesson(self, target: str) -> Dict[str, List[str]]:
+    
+    def get_class_table_index(self) -> dict[str, dict[str, str]]:
         """
-        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入力
-        範圍涵蓋多個年級。
-
+        從源頭課表網站獲取課表索引資料，包括科目與老師名稱、其連結
         Args:
-            target: 班級或老師名稱
-
-        Returns:
-            Dict[str, List[str]]: 各節次時間
-
-
-        Example:
-            >>> get_lesson("307")
-            {"第一節": ["08:30", "09:30"], "第二節": ["09:30", "10:30"]......} # 代表第一節從08:30到09:30......s
+            None
         """
-        from tnfsh_class_table.ai_tools.timetable.lesson import get_lesson
-        return get_lesson(target)
+        from tnfsh_class_table.ai_tools.index.index import get_class_table_index
+        return get_class_table_index()
 
-    def get_current_time(self) -> str:
-        """
-        取得目前時間，包含年、月、日、星期、時、分、秒
-        與時間相關的請求請考慮使用此工具，例如明天是今天的+1天，前天是今天的-2天等
-
-        Args:
-            There is no args needed.
-
-        Returns:
-            str: 目前時間
-        
-        Example:
-            >>> get_current_time()
-            "2025-03-31 Friday 17:24:31"
-        """
-        from tnfsh_class_table.ai_tools.current_time import get_current_time
-        return get_current_time()
-
+    
     def get_table(self, target: str) -> dict[str, Union[str, list[dict[str, Union[str, list[dict[str, Union[str, list[dict[str, str]]]]]]]]]]:
         """
         取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成"205"輸入。
@@ -199,6 +154,84 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.timetable.timetable import get_table
         return get_table(target)
 
+    def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
+        """
+        取得指定班級或老師的課程資訊。
+
+        Args:
+            target (str): 班級或老師名稱
+            day (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+
+        Returns:
+            dict[str, Union[str, list[dict[str, str]]]]: 課程資訊
+            # 可能的回傳格式有兩種，依據班級或老師的不同而有所區別。
+            # 1. 如果是班級，返回課程中老師資訊
+            # 2. 如果是老師，返回課程對應的學生資訊
+            # 3. 如果是空堂，返回"該節是空堂"
+        """
+        from tnfsh_class_table.ai_tools.timetable.specific_course import get_specific_course
+        return get_specific_course(target, day, period)
+
+    def get_class_table_link(self, target: str) -> str:
+        """
+        取得指定目標的課表連結，如果想查詢二年五班，應該轉換成205輸入
+        範圍涵蓋多個年級。
+        當使用者的要求不是得到連結時，應考慮使用別的方法。
+        提供使用者連結使使用者能檢查。
+
+        Args:
+            target: 班級或老師名稱
+
+        Returns:
+            str: 課表連結
+
+        Example:
+            >>> get_class_table_link("307")
+            "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html"
+        """
+        from tnfsh_class_table.ai_tools.timetable.class_table_link import get_class_table_link
+        return get_class_table_link(target)
+
+    def get_lesson(self, target: str) -> Dict[str, List[str]]:
+        """
+        取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入力
+        範圍涵蓋多個年級。
+
+        Args:
+            target: 班級或老師名稱
+
+        Returns:
+            Dict[str, List[str]]: 各節次時間
+
+
+        Example:
+            >>> get_lesson("307")
+            {"第一節": ["08:30", "09:30"], "第二節": ["09:30", "10:30"]......} # 代表第一節從08:30到09:30......s
+        """
+        from tnfsh_class_table.ai_tools.timetable.lesson import get_lesson
+        return get_lesson(target)
+    
+    def final_solution_get_all_table(self) -> Any:
+        """
+        又稱最終解決方案。
+        使用前必定要詢問使用者
+        獲取所有課表內容的最終解決方案。
+
+        警告！
+        - 只有當其他方法(除了直接給連結)都不能完成使用者需求時才調用
+        - 這個函數會導致程式變慢，使用前必定要詢問使用者。
+
+        Args:
+            None
+        """
+        from tnfsh_timetable_core import TNFSHTimetableCore
+        
+        from tnfsh_class_table.ai_tools.timetable.final_solution import final_solution
+        import asyncio
+        return asyncio.run(final_solution())
+            
+    
     def get_swap_course(
             self,
             source_teacher: str,
@@ -240,7 +273,6 @@ class AIAssistant:
             page=page,
             max_depth=max_depth,
         ))
-
 
     def get_rotation_course(
         self,
@@ -314,63 +346,25 @@ class AIAssistant:
             logger = core.get_logger()
             logger.info(f"error: {e}")
 
-
     
-    def get_specific_course(self, target: str, day: int, period: int) -> Union[dict[str, Union[str, list[dict[str, str]]]], str]:
+    def get_current_time(self) -> str:
         """
-        取得指定班級或老師的課程資訊。
+        取得目前時間，包含年、月、日、星期、時、分、秒
+        與時間相關的請求請考慮使用此工具，例如明天是今天的+1天，前天是今天的-2天等
 
         Args:
-            target (str): 班級或老師名稱
-            day (int): 星期幾(1-5)
-            period (int): 第幾節(1-8)
+            There is no args needed.
 
         Returns:
-            dict[str, Union[str, list[dict[str, str]]]]: 課程資訊
-            # 可能的回傳格式有兩種，依據班級或老師的不同而有所區別。
-            # 1. 如果是班級，返回課程中老師資訊
-            # 2. 如果是老師，返回課程對應的學生資訊
-            # 3. 如果是空堂，返回"該節是空堂"
-        """
-        from tnfsh_class_table.ai_tools.timetable.specific_course import get_specific_course
-        return get_specific_course(target, day, period)
-    
-    def get_class_table_index(self) -> dict[str, dict[str, str]]:
-        """
-        從源頭課表網站獲取課表索引資料，包括科目與老師名稱、其連結
-        Args:
-            None
-        """
-        from tnfsh_class_table.ai_tools.index.index import get_class_table_index
-        return get_class_table_index()
-    
-    def get_wiki_teacher_index(self) -> dict[str, dict[str, str]]:
-        """
-        從竹園Wiki索引資料，包括科目與老師名稱、其連結
-        """
-        from tnfsh_class_table.ai_tools.wiki.wiki_teacher_index import get_wiki_teacher_index
-        return get_wiki_teacher_index()
-    
-    def final_solution_get_all_table(self) -> Any:
-        """
-        又稱最終解決方案。
-        使用前必定要詢問使用者
-        獲取所有課表內容的最終解決方案。
-
-        警告！
-        - 只有當其他方法(除了直接給連結)都不能完成使用者需求時才調用
-        - 這個函數會導致程式變慢，使用前必定要詢問使用者。
-
-        Args:
-            None
-        """
-        from tnfsh_timetable_core import TNFSHTimetableCore
+            str: 目前時間
         
-        from tnfsh_class_table.ai_tools.timetable.final_solution import final_solution
-        import asyncio
-        return asyncio.run(final_solution())
-            
-    
+        Example:
+            >>> get_current_time()
+            "2025-03-31 Friday 17:24:31"
+        """
+        from tnfsh_class_table.ai_tools.current_time import get_current_time
+        return get_current_time()
+
     def refresh_chat(self) -> str:
         """
         重新初始化chat，請務必每次皆主動向使用者回傳取得值代表初始化成功。
