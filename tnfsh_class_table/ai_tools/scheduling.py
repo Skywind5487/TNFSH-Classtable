@@ -3,6 +3,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 from math import ceil
 from typing import Literal
+from tnfsh_class_table.utils.log_func import log_func
 from tnfsh_timetable_core import TNFSHTimetableCore
 core = TNFSHTimetableCore()
 logger = core.get_logger()
@@ -175,8 +176,11 @@ class PaginatedSubstituteResult(BaseModel):
             items_per_page=self.items_per_page
         )
 
+
 async def rotation(source_teacher: str, weekday: int, period: int, max_depth: int, page: int = 1) -> PaginatedResult:
     """輪調課程的AI助手"""
+    # logger: start
+    logger.info(f"開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={max_depth}, 頁碼={page}")
     from tnfsh_timetable_core import TNFSHTimetableCore
     core = TNFSHTimetableCore()
     options = await core.scheduling_rotation(
@@ -221,11 +225,14 @@ async def rotation(source_teacher: str, weekday: int, period: int, max_depth: in
     )
     
     # 返回指定頁碼的結果
+    logger.debug(f"輪調課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(rotation_paths)}")
     return result.get_page(page)
 
 
 async def swap(source_teacher: str, weekday: int, period: int, max_depth: int, page: int = 1) -> PaginatedResult:
     """交換課程的AI助手"""
+    # logger: start
+    logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={max_depth}, 頁碼={page}")
     from tnfsh_timetable_core import TNFSHTimetableCore
     core = TNFSHTimetableCore()
     options = await core.scheduling_swap(
@@ -275,6 +282,7 @@ async def swap(source_teacher: str, weekday: int, period: int, max_depth: int, p
     )
     
     # 返回指定頁碼的結果
+    logger.debug(f"交換課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(swap_paths)}")
     return result.get_page(page)
 
 class TeacherNotFoundError(Exception):
@@ -305,6 +313,7 @@ async def substitute(source_teacher:str, weekday:int, period:int, mode: Literal[
         InvalidDataError: 資料格式不正確或缺少必要資料
         ValueError: 參數錯誤或其他錯誤
     """
+    logger.info(f"開始尋找代課教師：{source_teacher}, 星期={weekday}, 節次={period}, 模式={mode}, 頁碼={page}")
 
     # 驗證基本參數
     if not isinstance(weekday, int) or not 1 <= weekday <= 5:
@@ -443,6 +452,9 @@ async def substitute(source_teacher:str, weekday:int, period:int, mode: Literal[
     total_items = len(free_substitute_teachers)
     total_pages = ceil(total_items / items_per_page)
     
+    # logger
+    logger.debug(f"代課教師數量：{total_items}, 總頁數：{total_pages}, 頁碼：{page}")
+
     return PaginatedSubstituteResult(
         target=source_teacher,
         mode=mode,
