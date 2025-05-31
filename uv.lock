@@ -1169,7 +1169,7 @@ dev = [
 
 [[package]]
 name = "tnfsh-timetable-core"
-version = "0.0.8"
+version = "0.0.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -1182,9 +1182,9 @@ dependencies = [
     { name = "pytest-asyncio" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/32/9c/ed854d8d19cf4888070c681801ee309a75d4a894be84ec608e1e2d6a1301/tnfsh_timetable_core-0.0.8.tar.gz", hash = "sha256:39ad2b8e72914faf49396a75b3b359d168b5ea7dd603ec164d6d429c48a9fefa", size = 30102 }
+sdist = { url = "https://files.pythonhosted.org/packages/91/ed/5705f97ffc740a77aa13e377e205dfb4a091675b8c1ab1a9351561c066a0/tnfsh_timetable_core-0.0.9.tar.gz", hash = "sha256:bb9128c097cb8e6ac00a073b374e3d6775a90fb5b67d133b4bd30eabfcdf9277", size = 30136 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0f/8c/01530438ed4f59b1f9a68cdb9b0379624e32c24fbc8413962a85995ae03b/tnfsh_timetable_core-0.0.8-py3-none-any.whl", hash = "sha256:1413b87feb773f7443270b0983a351ffae734678f1a81645976bf56f7914df5a", size = 39932 },
+    { url = "https://files.pythonhosted.org/packages/dc/dc/b464f6308b0e20aaf01e1c28db1fd165453fc11916a33523460088353bac/tnfsh_timetable_core-0.0.9-py3-none-any.whl", hash = "sha256:b386e2fb8d6854cda318551c741ef6ab670d4a913025a7e86c7f2ffee4caa2c4", size = 39970 },
 ]
 
 [[package]]
