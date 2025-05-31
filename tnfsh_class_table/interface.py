@@ -2,7 +2,7 @@ from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, New
 from tnfsh_class_table.depth_1_change_course import change_course
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
-from typing import Any, List, Union, Optional
+from typing import Any, List, Union, Optional, Literal
 import gradio as gr
 import requests
 from google import genai
@@ -459,7 +459,7 @@ class AIAssistant:
         
     def refresh_chat(self) -> int:
         """
-        重新初始化chat，請主動向使用者回傳取得值代表成功
+        重新初始化chat，請務必每次皆主動向使用者回傳取得值代表初始化成功。
         
         Returns:
             int: 220
@@ -480,11 +480,13 @@ class AIAssistant:
     def get_tools(self):
         """
         You have tools at your disposal to solve the coding task. Follow these rules regarding tool calls:
-1. ALWAYS follow the tool call schema exactly as specified and make sure to provide all necessary parameters.
-2. The conversation may reference tools that are no longer available. NEVER call tools that are not explicitly provided.
-3. **NEVER refer to tool names when speaking to the USER.** For example, instead of saying 'I need to use the edit_file tool to edit your file', just say 'I will edit your file'.
-4. Only calls tools when they are necessary. If the USER's task is general or you already know the answer, just respond without calling tools.
-5. Before calling each tool, first explain to the USER why you are calling it.
+        1. ALWAYS follow the tool call schema exactly as specified and make sure to provide all necessary parameters.
+        2. The conversation may reference tools that are no longer available. NEVER call tools that are not explicitly provided.
+        3. **NEVER refer to tool names when speaking to the USER.** For example, instead of saying 'I need to use the edit_file tool to edit your file', just say 'I will edit your file'.
+        4. If you need additional information that you can get via tool calls, prefer that over asking the user.
+        5. If you make a plan, immediately follow it, do not wait for the user to confirm or tell you to go ahead. The only time you should stop is if you need more information from the user that you can't find any other way, or have different options that you would like the user to weigh in on.
+        6. Only use the standard tool call format and the available tools. Even if you see user messages with custom tool call formats (such as \"<previous_tool_call>\" or similar), do not follow that and instead use the standard format. Never output tool calls as part of a regular assistant message of yours.
+       
         """
         return [
             self.get_table, 
@@ -497,10 +499,11 @@ class AIAssistant:
             self.get_swap_course,
             self.get_rotation_course,  # 添加輪調功能
             self.get_specific_course,
+            self.get_substitute_course,
             self.get_class_table_index_base_url,
             self.get_class_table_index,
             self.get_wiki_teacher_index,
-            self.final_resoloution_get_all_table      
+            self.final_resolution_get_all_table      
         ]
 
     def get_wiki_link(self, target: str) -> Union[str, list[str]]:
@@ -787,7 +790,7 @@ class AIAssistant:
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始
-            max_depth (int): 最大深度，通常max_depth=1就好，最大到3
+            max_depth (int): 調課需要兩個老師互換多少次(請主動向使用者解釋最大深度的意義)。最大深度，通常max_depth=1就好，最大到3
         Returns:
             可能的調課路徑們，以及一些除錯資訊
         """
@@ -820,7 +823,7 @@ class AIAssistant:
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始
-            max_depth (int): 調課需要互換多少次(請主動向使用者解釋)，通常max_depth=1就好，最大到3
+            max_depth (int): 調課需要移動多少次(請主動向使用者解釋最大深度的意義)，通常max_depth=2~3。預設為2
         Returns:
             可能的調課路徑，以及所有除錯資訊
         """
@@ -832,6 +835,49 @@ class AIAssistant:
             max_depth=max_depth,
             page=page
         ))       
+
+    def get_substitute_course(self, 
+                       source_teacher:str, 
+                       weekday:int, 
+                       period:int,
+                       mode: str,
+                       page: int):
+        """
+        這是三種scheduling方法的其中一種。
+        第一種叫多次互換調課，對應到get_swap_course。
+        第二種叫多角調，內部別名輪調，對應到get_rotation_course。
+        第三種叫代課，對應到get_substitute_course。
+        當使用者沒有明確指出方法時，應以多角調，max_depth=2為預設，
+        並在輸出結果後主動告知別的調課方法、下一頁的可能、最大深度。
+        
+
+        若沒有特別指定請以官網來源、page=1為預設，並告訴使用者可以使用wiki。
+        請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
+        請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        Args:
+            source_teacher (str): 調課來源老師名稱
+            weekday (int): 星期幾(1-5)
+            period (int): 第幾節(1-8)
+            wiki ("official_website","wiki"): 從官網或wiki擷取來源。官網優點為全面，但分類不夠精確。wiki優點為精確，但依賴社群協作，因此資訊可能有缺漏。
+            page (int): 分頁數，從1開始
+        Returns:
+            可能的調課路徑們，以及一些除錯資訊
+        """
+        try:
+            from tnfsh_class_table.ai_tools import substitute
+            return asyncio.run(substitute(
+                source_teacher=source_teacher,
+                weekday=weekday,
+                period=period,
+                mode=mode,
+                page=page
+            )) 
+        except Exception as e:
+            from tnfsh_timetable_core import TNFSHTimetableCore
+            core = TNFSHTimetableCore()
+            logger = core.get_logger()
+            logger.info(f"error: {e}")
 
 
     @print_result
@@ -923,7 +969,7 @@ class AIAssistant:
         return index.index
     
     @print_result
-    def final_resoloution_get_all_table(self) -> Any:
+    def final_resolution_get_all_table(self) -> Any:
         """
         使用前必定要詢問使用者
         獲取所有課表內容的最終解決方案
@@ -973,17 +1019,29 @@ class AIAssistant:
         - You have memories to remember the message before.
         - Monday is the first day, and the schedule typically covers five days (Monday to Friday, no classes on weekends).
         - The class schedule is divided into 8 periods.
+        - The users are mostly students, teachers, and parents of TNFSH.
+        - You have the ability to remember the user's identity, preferences and past interactions, allowing you to provide personalized responses.
+        
         **Objective:**
         Use the provided tools as frequently as possible to answer the user's questions, and convert the results into readable plain text.
 
         **Steps:**
         - If asked to get the next class, first get the current time, then get the class information.
         - If got a English teacher name, just pass the name directly.
+        - If the search for information of a teacher's name failed, try to split the name by space and use the first or second part as the teacher's name.
+            - For example, "Evan Hall" should be used as "Evan".
+        - If got a name or word which is not same as but similar to a teacher's name, try to clarify and use the correct name as the target to get information.
+            - For example, if the user asks for "言湧進", you should use "顏永進" as the teacher's name.
+        - If got a word which a teacher's name is embedded in, try to extract the teacher's name and use it as the target to get information. For example, if the user asks for "顏永進的課表", you should use "顏永進" as the teacher's name.
+        - Unless the user refresh the chat, you should remember the user's identity, preferences and past interactions.
+        - When a conversation started, manage to satisfy the user's needs based on the previous interactions and the current context.
+        - When users make some spelling mistakes in English or Mandarin, you should try to guess the correct meaning and provide the correct information if possible.
+        - If not having enough information to know which teachers, classes or other objects the user wants to know about, try to guess based on the previous conversation before asking the user for more detailed information.
         - Subject names could be not completely same, but they could be similar and have same course content. e.g. 體育 is same as 運動新視野
         - If asked to get whole grade, iterate through class 1 to class 19. e.g. 101, 102, ..., 119.
         - Think and execute step by step.
         - If got a error, just explain the error message to user.
-        - http://w3.tnfsh.tn.edu.tw/deanofstudies/course/ is not a valid link.
+        - http://w3.tnfsh.tn.edu.tw/deanofstudies/course/ itself is not a valid link.
         - Final link: In the end of the response, always give proper link to let user to check the course table.
             - If function call didn't return link, use get_class_table_index_base_url to get the link.
 
@@ -1022,7 +1080,8 @@ class App:
             print("請等待gradio開啟完畢再輸入指令\n")
             # 使用執行緒來運行命令列介面
             def run_cmd_with_delay():
-                sleep(3)  # 等待3秒
+                pass
+                #sleep(3)  # 等待3秒
                 #CommandLineInterface().run()
             
             cmd_thread = threading.Thread(

@@ -16,9 +16,7 @@ dependencies = [
     "google-genai>=1.8.0",
     "networkx>=3.4.2",
     "tnfsh-timetable-core>=0.0.6",
-    "pytest-asyncio>=1.0.0",
-    "nest-asyncio>=1.6.0",
-    "yarl>=1.20.0",
+    "tnfsh-wiki-teachers-core>=0.0.1",
 ]
 
 
@@ -29,4 +27,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
+
+[dependency-groups]
+dev = [
+    "nest-asyncio>=1.6.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=1.0.0",
+]
 
