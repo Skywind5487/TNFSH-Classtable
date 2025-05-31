@@ -1114,6 +1114,7 @@ dependencies = [
     { name = "pytest-asyncio" },
     { name = "requests" },
     { name = "tnfsh-timetable-core" },
+    { name = "tnfsh-wiki-teachers-core" },
 ]
 
 [package.metadata]
@@ -1128,6 +1129,7 @@ requires-dist = [
     { name = "pytest-asyncio", specifier = ">=1.0.0" },
     { name = "requests", specifier = ">=2.32.3,<3.0.0" },
     { name = "tnfsh-timetable-core", specifier = ">=0.0.6" },
+    { name = "tnfsh-wiki-teachers-core", specifier = ">=0.0.1" },
 ]
 
 [[package]]
@@ -1148,6 +1150,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/6c/f5/76fb21ad0fd5324ee409ecbad7272429719fb01fd3f3917362d3210e5f09/tnfsh_timetable_core-0.0.6.tar.gz", hash = "sha256:c39063cfbfb873109ffb68446f4bcbe2dd695aa886eec6e2cb2a8355cdecb6b2", size = 30110 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/bf/54/939186bfbf38ec1e4c636ff1a51687cd84d20a4f0077d1e325238622726c/tnfsh_timetable_core-0.0.6-py3-none-any.whl", hash = "sha256:a023072f6a32d4fb0962786dd7fbcda2bfb06277f7c55585402221d18a6e79b1", size = 39898 },
+]
+
+[[package]]
+name = "tnfsh-wiki-teachers-core"
+version = "0.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "dotenv" },
+    { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/22/a6/badec9653baa0597bcd5d55aaf29e4d2f4409b21b5403676b283a2b8292b/tnfsh_wiki_teachers_core-0.0.1.tar.gz", hash = "sha256:106e6b21d49ca7c6bb669ef9a502362ec05e7c802b562d8fd14f65eb26146334", size = 11297 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/67/89/936492d4d7b20b8dc937c4a4c5c892f963bab728cc1e75a1bf63253a0864/tnfsh_wiki_teachers_core-0.0.1-py3-none-any.whl", hash = "sha256:c137415ba36692cf6aa257fb7bbb902c3e52c782135406b941501a81d7b74449", size = 14646 },
 ]
 
 [[package]]

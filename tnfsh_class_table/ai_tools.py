@@ -343,8 +343,9 @@ async def substitute(source_teacher:str, weekday:int, period:int, mode: Literal[
             if url[1] == src_teacher_prefix:
                 substitute_teachers[teacher] = url
     elif mode == 'wiki':
-        from tnfsh_class_table.backend import NewWikiTeacherIndex
-        wiki_index = NewWikiTeacherIndex.get_instance()
+        from tnfsh_wiki_teachers_core import TNFSHWikiTeachersCore
+        wiki_core = TNFSHWikiTeachersCore()
+        wiki_index = await wiki_core.fetch_index()
         forward_wiki_index = wiki_index.index
         reversed_wiki_index = wiki_index.reverse_index
         
@@ -353,13 +354,13 @@ async def substitute(source_teacher:str, weekday:int, period:int, mode: Literal[
             logger.error(f"❌ 在 Wiki 中找不到教師：{source_teacher}")
             raise TeacherNotFoundError(f"在 Wiki 中找不到教師 {source_teacher} 的資訊")
             
-        src_teacher_category = teacher_info.get("category")
+        src_teacher_category = teacher_info.category
         if not src_teacher_category:
             logger.error(f"❌ 教師 {source_teacher} 在 Wiki 中缺少類別資訊")
             raise InvalidDataError(f"教師 {source_teacher} 在 Wiki 中缺少類別資訊")
             
         logger.debug(f"📚 找到教師類別：{src_teacher_category}")
-        candidate_teachers = forward_wiki_index.get(src_teacher_category, {}).get("teachers", {})
+        candidate_teachers = forward_wiki_index.get(src_teacher_category, {}).teachers
         substitute_teachers = {}
         for teacher, wiki_url in candidate_teachers.items():
             if teacher == source_teacher:
@@ -462,10 +463,10 @@ if __name__ == "__main__":
     # 測試函數
     async def test():
         # 測試代課
-        result = await substitute("殷念慈", 1, 3, mode="wiki", page=1)
+        result = await substitute("顏永進", 1, 3, mode="wiki", page=1)
         print("代課結果：")
         for i in range(1, result.total_pages + 1):
-            result = await substitute("殷念慈", 1, 3, mode="wiki", page=i)
+            result = await substitute("顏永進", 1, 3, mode="wiki", page=i)
             print(result.model_dump_json(indent=4))
 
     asyncio.run(test())
