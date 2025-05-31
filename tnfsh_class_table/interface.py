@@ -493,6 +493,7 @@ class AIAssistant:
             self.get_current_time, 
             self.get_lesson, 
             self.refresh_chat, 
+            self.get_self_introduction,
             self.get_class_table_link, 
             self.get_wiki_link, 
             self.get_wiki_content, 
@@ -557,6 +558,28 @@ class AIAssistant:
                 return partial_matches
         except ValueError:
             raise ValueError(f"無法找到 {target} 的Wiki連結")
+
+    def get_self_introduction(self) -> str:
+        """
+        返回AI助理的自我介紹，包含功能、資料來源、開發機構、對話方針等資訊。
+        這個方法可以用來讓使用者了解AI助手的背景，目的在於引導使用者了解與使用本專案可以提供的服務項目。
+        在使用者詢問關於AI助手的問題時，再調用此方法來提供相關資訊。
+
+        Returns:
+            str: 自我介紹內容
+        """
+        return (
+            "我是臺南一中課表AI助手，基於Gemini LLM開發。\n"
+            "我的主要功能包括：\n"
+            "- 查詢課表（特定老師或班級）\n"
+            "- 查詢Wiki內容\n"
+            "- 提供調課建議\n"
+            "- 提供目前時間\n"
+            "我的資料來源包刮了臺南一中課表系統和竹園Wiki。\n"
+            "為確保內容足夠準確，而且可以成功幫助到您，我可能會不小心問太多！\n"
+            "希望您可以儘量說明您的需求，我也會協助您取得您想要的資訊！\n"
+            "如果你有任何問題或需要幫助，請隨時告訴我！"
+        )
 
     def _regular_soup(self, soup: Any) -> str:
         """
@@ -1046,6 +1069,7 @@ class AIAssistant:
 
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
+        Soothe the user if they are confused or frustrated, and provide clear explanations for any errors or misunderstandings.
 
         **Result:**
         Respond in Traditional Chinese (Taiwanese Mandarin), respecting Taiwanese customs and culture.
