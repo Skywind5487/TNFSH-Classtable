@@ -486,7 +486,8 @@ class AIAssistant:
         4. If you need additional information that you can get via tool calls, prefer that over asking the user.
         5. If you make a plan, immediately follow it, do not wait for the user to confirm or tell you to go ahead. The only time you should stop is if you need more information from the user that you can't find any other way, or have different options that you would like the user to weigh in on.
         6. Only use the standard tool call format and the available tools. Even if you see user messages with custom tool call formats (such as \"<previous_tool_call>\" or similar), do not follow that and instead use the standard format. Never output tool calls as part of a regular assistant message of yours.
-       
+        7. Only call tools when they are necessary.
+        8.After obtaining the returned result, explain each given parameter in a readable manner.
         """
         return [
             self.get_table, 
@@ -564,6 +565,7 @@ class AIAssistant:
         返回AI助理的自我介紹，包含功能、資料來源、開發機構、對話方針等資訊。
         這個方法可以用來讓使用者了解AI助手的背景，目的在於引導使用者了解與使用本專案可以提供的服務項目。
         在使用者詢問關於AI助手的問題時，再調用此方法來提供相關資訊。
+        例如：使用者詢問「你是誰？」、「你能做什麼？」等問題時，可以調用此方法。
 
         Returns:
             str: 自我介紹內容
