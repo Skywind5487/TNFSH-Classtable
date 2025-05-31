@@ -425,13 +425,24 @@ class AIAssistant:
     def send_message(self, message: str, history: Any) -> str:
         """
         Send a message to the chat and return the response.
-        
+
         Args:
             message (str): The message to send.
-        
+
         Returns:
-            str: The response from the chat.
+            str: The response from the chat, or an error message if failed.
         """
-        #print(message, args)
-        response = self.chat.send_message(message)
-        return response.text
+        from google.genai.errors import ServerError
+        for attempt in range(3):
+            try:
+                response = self.chat.send_message(message)
+                return response.text
+            except ServerError as e:
+                print(f"[嘗試第 {attempt+1} 次] 模型過載，稍後再試... ({e})")
+                import time
+                time.sleep(2 * (attempt + 1))  # 遞增等待時間
+            except Exception as e:
+                print(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
+                break
+
+        return "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
