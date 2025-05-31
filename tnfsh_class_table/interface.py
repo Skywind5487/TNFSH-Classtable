@@ -515,7 +515,7 @@ class AIAssistant:
         例如: "欽發麵店"、"分類:科目"
         只是對於老師有較多檢查和 fallback。
         當使用者的要求不是得到連結時，應考慮使用別的方法。
-        提供使用者連結方便使用者能檢查。
+        最後應提供使用者連結方便使用者能檢查。
 
 
         Args:
@@ -575,7 +575,7 @@ class AIAssistant:
             "我的主要功能包括：\n"
             "- 查詢課表（特定老師或班級）\n"
             "- 查詢Wiki內容\n"
-            "- 提供調課建議\n"
+            "- 提供調課建議（內容會分頁面輸出）\n"
             "- 提供目前時間\n"
             "我的資料來源包刮了臺南一中課表系統和竹園Wiki。\n"
             "為確保內容足夠準確，而且可以成功幫助到您，我可能會不小心問太多！\n"
@@ -616,7 +616,9 @@ class AIAssistant:
     def get_wiki_content(self, target: str) -> str:
         """
         取得特定目標的Wiki內容，可以不是老師，也可以是其他內容。
-        例如"分類:科目"、或是"欽發麵店"
+        例如"分類:科目"、或是"欽發麵店"以及"四大胖子"等等。
+        若無法直接以使用者提供的資訊取得Wiki內容，則可嘗試從前後文推理最接近且wiki內也有紀錄的關鍵字，或使用其他方法。
+        應提供使用者連結使使用者能檢查。
 
         Args:
             target (str): 目標名稱
@@ -807,8 +809,10 @@ class AIAssistant:
             
         ):
         """
-        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊
+        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊，但不要直接提及變數名稱。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+        當使用者沒有明確指出方法時，應以get_swap_course多次互換調課為預設方式，max_depth=2。
+        並在輸出結果後主動告知別的調課方法、下一頁的可能、max_depth。
 
         Args:
             source_teacher (str): 調課來源老師名稱
@@ -871,9 +875,6 @@ class AIAssistant:
         第一種叫多次互換調課，對應到get_swap_course。
         第二種叫多角調，內部別名輪調，對應到get_rotation_course。
         第三種叫代課，對應到get_substitute_course。
-        當使用者沒有明確指出方法時，應以多角調，max_depth=2為預設，
-        並在輸出結果後主動告知別的調課方法、下一頁的可能、最大深度。
-        
 
         若沒有特別指定請以官網來源、page=1為預設，並告訴使用者可以使用wiki。
         請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
@@ -1068,6 +1069,7 @@ class AIAssistant:
         - http://w3.tnfsh.tn.edu.tw/deanofstudies/course/ itself is not a valid link.
         - Final link: In the end of the response, always give proper link to let user to check the course table.
             - If function call didn't return link, use get_class_table_index_base_url to get the link.
+        - If the user asks for rescheduling or swapping classes, use the get_swap_course as the default method, with max_depth = 2.
 
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
