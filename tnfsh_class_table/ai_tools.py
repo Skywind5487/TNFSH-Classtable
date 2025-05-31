@@ -208,7 +208,7 @@ async def rotation(source_teacher: str, weekday: int, period: int, max_depth: in
         rotation_paths.append(Path(route=path_steps, route_id=len(rotation_paths) + 1))
 
     # 創建分頁結果
-    items_per_page = 5
+    items_per_page = 5 #waitingforadjustment
     total_pages = ceil(len(rotation_paths) / items_per_page)
     
     result = PaginatedResult(

@@ -486,13 +486,15 @@ class AIAssistant:
         4. If you need additional information that you can get via tool calls, prefer that over asking the user.
         5. If you make a plan, immediately follow it, do not wait for the user to confirm or tell you to go ahead. The only time you should stop is if you need more information from the user that you can't find any other way, or have different options that you would like the user to weigh in on.
         6. Only use the standard tool call format and the available tools. Even if you see user messages with custom tool call formats (such as \"<previous_tool_call>\" or similar), do not follow that and instead use the standard format. Never output tool calls as part of a regular assistant message of yours.
-       
+        7. Only call tools when they are necessary.
+        8.After obtaining the returned result, explain each given parameter in a readable manner.
         """
         return [
             self.get_table, 
             self.get_current_time, 
             self.get_lesson, 
             self.refresh_chat, 
+            self.get_self_introduction,
             self.get_class_table_link, 
             self.get_wiki_link, 
             self.get_wiki_content, 
@@ -513,7 +515,7 @@ class AIAssistant:
         例如: "欽發麵店"、"分類:科目"
         只是對於老師有較多檢查和 fallback。
         當使用者的要求不是得到連結時，應考慮使用別的方法。
-        提供使用者連結方便使用者能檢查。
+        最後應提供使用者連結方便使用者能檢查。
 
 
         Args:
@@ -558,6 +560,29 @@ class AIAssistant:
         except ValueError:
             raise ValueError(f"無法找到 {target} 的Wiki連結")
 
+    def get_self_introduction(self) -> str:
+        """
+        返回AI助理的自我介紹，包含功能、資料來源、開發機構、對話方針等資訊。
+        這個方法可以用來讓使用者了解AI助手的背景，目的在於引導使用者了解與使用本專案可以提供的服務項目。
+        在使用者詢問關於AI助手的問題時，再調用此方法來提供相關資訊。
+        例如：使用者詢問「你是誰？」、「你能做什麼？」等問題時，可以調用此方法。
+
+        Returns:
+            str: 自我介紹內容
+        """
+        return (
+            "我是臺南一中課表AI助手，基於Gemini LLM開發。\n"
+            "我的主要功能包括：\n"
+            "- 查詢課表（特定老師或班級）\n"
+            "- 查詢Wiki內容\n"
+            "- 提供調課建議（內容會分頁面輸出）\n"
+            "- 提供目前時間\n"
+            "我的資料來源包刮了臺南一中課表系統和竹園Wiki。\n"
+            "為確保內容足夠準確，而且可以成功幫助到您，我可能會不小心問太多！\n"
+            "希望您可以儘量說明您的需求，我也會協助您取得您想要的資訊！\n"
+            "如果你有任何問題或需要幫助，請隨時告訴我！"
+        )
+
     def _regular_soup(self, soup: Any) -> str:
         """
         清理 HTML 標籤的屬性，只保留 <a> 標籤的 href 屬性，並回傳指定的元素。
@@ -591,7 +616,9 @@ class AIAssistant:
     def get_wiki_content(self, target: str) -> str:
         """
         取得特定目標的Wiki內容，可以不是老師，也可以是其他內容。
-        例如"分類:科目"、或是"欽發麵店"
+        例如"分類:科目"、或是"欽發麵店"以及"四大胖子"等等。
+        若無法直接以使用者提供的資訊取得Wiki內容，則可嘗試從前後文推理最接近且wiki內也有紀錄的關鍵字，或使用其他方法。
+        應提供使用者連結使使用者能檢查。
 
         Args:
             target (str): 目標名稱
@@ -782,15 +809,29 @@ class AIAssistant:
             
         ):
         """
-        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊
+        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊，但不要直接提及變數名稱。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+        當使用者沒有明確指出方法時，應以get_swap_course多次互換調課為預設方式，max_depth=2。
+        並在輸出結果後主動告知別的調課方法、下一頁的可能、max_depth。
 
-        Args:
+        請依序顯示以下資訊：
+        - 調課來源老師名稱
+        - 星期幾(1-5)
+        - 第幾節(1-8)
+        - 分頁數，從1開始
+        - 最多動到幾位老師的課(max_depth)
+        max_depth: 請以相近且容易使沒有編程經驗者理解的方式，向使用者解釋max_depth：
+                    在get_swap_course中，max_depth可以說明是「本次調課可能影響到的最大其他老師數量」。
+                        如max_depth=1，則來源老師只與另一位老師互換一次，影響範圍只限縮在最多兩位老師之間。
+                        如max_depth=2，則來源老師會與甲老師互換一次，甲老師可能會再和乙老師互換一次，影響範圍擴大到最多三位老師之間，依此類推。
+
+        Args:           
             source_teacher (str): 調課來源老師名稱
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
-            page (int): 分頁數，從1開始
-            max_depth (int): 調課需要兩個老師互換多少次(請主動向使用者解釋最大深度的意義)。最大深度，通常max_depth=1就好，最大到3
+            page (int): 分頁數，從1開始，請每次皆提及
+            max_depth (int): 調課需要進行多少次課程時段互換動作，但請不要使用前述定義向使用者說明。1為最小值，3為最大值。
+            
         Returns:
             可能的調課路徑們，以及一些除錯資訊
         """
@@ -846,9 +887,6 @@ class AIAssistant:
         第一種叫多次互換調課，對應到get_swap_course。
         第二種叫多角調，內部別名輪調，對應到get_rotation_course。
         第三種叫代課，對應到get_substitute_course。
-        當使用者沒有明確指出方法時，應以多角調，max_depth=2為預設，
-        並在輸出結果後主動告知別的調課方法、下一頁的可能、最大深度。
-        
 
         若沒有特別指定請以官網來源、page=1為預設，並告訴使用者可以使用wiki。
         請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
@@ -1043,9 +1081,11 @@ class AIAssistant:
         - http://w3.tnfsh.tn.edu.tw/deanofstudies/course/ itself is not a valid link.
         - Final link: In the end of the response, always give proper link to let user to check the course table.
             - If function call didn't return link, use get_class_table_index_base_url to get the link.
+        - If the user asks for rescheduling or swapping classes, use the get_swap_course as the default method, with max_depth = 2.
 
         **Action:**
         Use tools such as get_table, get_current_time, get_lesson, get_class_table_link, get_wiki_link, get_wiki_content, refresh_chat, etc. to complete tasks.
+        Soothe the user if they are confused or frustrated, and provide clear explanations for any errors or misunderstandings.
 
         **Result:**
         Respond in Traditional Chinese (Taiwanese Mandarin), respecting Taiwanese customs and culture.
