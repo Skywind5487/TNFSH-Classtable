@@ -242,7 +242,7 @@ class AIAssistant:
             
         ):
         """
-        基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊，但不要直接提及變數名稱。
+        get_swap_course是基於老師間兩兩互換的算法。請在調用後告訴使用者你給予的參數、回傳的各個json資訊，但不要直接提及變數名稱。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
         當使用者沒有明確指出方法時，應以get_swap_course多次互換調課為預設方式，max_depth=2。
         並在輸出結果後主動告知其他調課方法、鼓勵翻頁。
@@ -253,17 +253,17 @@ class AIAssistant:
         - 第幾節(1-8)
         - 頁碼，從1開始(請以"<頁碼>/<總頁數>"的格式顯示)
         - 會動到幾位老師(max_depth)
-        - 調課路徑
+        - 可能的調課路徑
 
         Args:           
             source_teacher (str): 調課來源老師名稱
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始，請每次查詢皆提及當前頁碼。
-            max_depth (int): 調課需要進行多少次課程時段互換動作，但請不要使用前述定義向使用者說明。1為最小值，3為最大值。
+            max_depth (int): 調課需要進行多少次課程時段互換動作，但請不要使用前述定義向使用者說明。2為最小值，3為最大值。
             
         Returns:
-            可能的調課路徑們，以及一些除錯資訊
+            可能的調課路徑，以及一些除錯資訊
         """
         from tnfsh_class_table.ai_tools.scheduling import swap
         return asyncio.run(swap(
@@ -271,7 +271,7 @@ class AIAssistant:
             weekday=weekday,
             period=period,
             page=page,
-            max_depth=max_depth,
+            max_depth=max_depth - 1 # 因為不含源老師，所以需要減1 
         ))
 
     def get_rotation_course(
@@ -283,16 +283,27 @@ class AIAssistant:
         max_depth: int,
     ):
         """
-        基於老師間將課程移動，最後形成一個環的輪換算法。有點像大風吹。
+        又稱多角調。
+        基於老師間將課程循環移動的算法，在時程表中，由依序令前一位老師使用後一位老師的時段的輪換算法。有點像大風吹。
+            如:甲、乙、丙老師的課程，甲老師的課程會移動到乙老師的時段，乙老師的課程會移動到丙老師的時段，丙老師的課程會移動到甲老師的時段。
+        這是三種scheduling方法的其中一種。
         請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        請依序顯示以下資訊：
+        - 調課來源老師名稱
+        - 星期幾(1-5)
+        - 第幾節(1-8)
+        - 頁碼，從1開始(請以"<頁碼>/<總頁數>"的格式顯示)
+        - 會動到幾位老師(max_depth)
+        - 可能的調課路徑
 
         Args:
             source_teacher (str): 調課來源老師名稱
             weekday (int): 星期幾(1-5)
             period (int): 第幾節(1-8)
             page (int): 分頁數，從1開始
-            max_depth (int): 調課需要移動多少次(請主動向使用者解釋最大深度的意義)，通常max_depth=2~3，預設為2。
+            max_depth (int): 通常max_depth=2~3，預設為2。
 
         Returns:
             可能的調課路徑們，以及一些除錯資訊
@@ -314,13 +325,21 @@ class AIAssistant:
                        page: int):
         """
         這是三種scheduling方法的其中一種。
-        第一種叫多次互換調課，對應到get_swap_course。
+        第一種叫多次互調，對應到get_swap_course。
         第二種叫多角調，內部別名輪調，對應到get_rotation_course。
         第三種叫代課，對應到get_substitute_course。
 
         若沒有特別指定請以官網來源、page=1為預設，並告訴使用者可以使用wiki。
         請在調用後告訴使用者你給予的參數、回傳的各個json資訊。
         請以[]()來包裹連結，讓使用者能點擊連結查看詳細資訊。
+
+        請依序顯示以下資訊：
+        - 調課來源老師名稱
+        - 星期幾(1-5)
+        - 第幾節(1-8)
+        - 模式: "official_website"或"wiki"，代表從官網或wiki擷取來源。官網優點為全面，但分類不夠精確。wiki優點為精確，但依賴社群協作，因此資訊可能有缺漏。
+        - 頁碼，從1開始(請以"<頁碼>/<總頁數>"的格式顯示)
+        - 可能的調課路徑
 
         Args:
             source_teacher (str): 調課來源老師名稱
@@ -329,7 +348,7 @@ class AIAssistant:
             wiki ("official_website","wiki"): 從官網或wiki擷取來源。官網優點為全面，但分類不夠精確。wiki優點為精確，但依賴社群協作，因此資訊可能有缺漏。
             page (int): 分頁數，從1開始
         Returns:
-            可能的調課路徑們，以及一些除錯資訊
+            可能的調課路徑，以及一些除錯資訊
         """
         try:
             from tnfsh_class_table.ai_tools.scheduling import substitute
