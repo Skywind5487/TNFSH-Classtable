@@ -2,7 +2,7 @@ from tnfsh_class_table.utils.log_func import log_func
 
 
 @log_func
-def get_class_table_link(self, target: str) -> str:
+def get_class_table_link(target: str) -> str:
     """
     取得指定目標的課表連結，如果想查詢二年五班，應該轉換成205輸入
     範圍涵蓋多個年級。

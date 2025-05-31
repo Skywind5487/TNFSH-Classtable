@@ -3,7 +3,7 @@ from tnfsh_class_table.utils.log_func import log_func
 
 
 @log_func
-def get_lesson(self, target: str) -> Dict[str, List[str]]:
+def get_lesson(target: str) -> Dict[str, List[str]]:
     """
     取得指定目標的各節時間，如果想查詢二年五班，應該轉換成205輸入力
     範圍涵蓋多個年級。
