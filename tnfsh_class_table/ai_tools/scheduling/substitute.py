@@ -1,4 +1,3 @@
-from __future__ import annotations
 from typing import Literal, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -9,6 +8,7 @@ core = TNFSHTimetableCore()
 logger = core.get_logger()
 
 from tnfsh_class_table.ai_tools.scheduling.models import random_seed
+from tnfsh_class_table.ai_tools.scheduling.models import PaginatedSubstituteResult
 
 async def async_substitute(
         source_teacher:str, 

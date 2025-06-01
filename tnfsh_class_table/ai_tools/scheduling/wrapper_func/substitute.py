@@ -4,7 +4,7 @@ def substitute(
         source_teacher: str,
         weekday: int,
         period: int,
-        source: Literal["official_website", "wiki"],
+        source: str,
         page: int):
     """
     尋找代課教師。
@@ -25,4 +25,12 @@ def substitute(
     """
     import asyncio
     from tnfsh_class_table.ai_tools.scheduling.substitute import async_substitute
-    asyncio.run(async_substitute(source_teacher, weekday, period, source, page))
+    return asyncio.run(async_substitute(source_teacher, weekday, period, source, page))
+
+if __name__ == "__main__":
+    # 測試用例
+    try:
+        result = substitute(source_teacher="顏永進", weekday=3, period=2, source="wiki", page=1)
+        print(result)
+    except Exception as e:
+        print(f"發生錯誤: {e}")
