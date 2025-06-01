@@ -2,9 +2,19 @@ from typing import Union
 
 def get_table(target: str) -> dict[str, Union[str, list[dict[str, Union[str, list[dict[str, Union[str, list[dict[str, str]]]]]]]]]]:
         """
-        取得指定班級或老師的課表，如果想查詢二年五班，應該轉換成"205"輸入。
-        如果想取得"Nicole老師的課表"，請輸入"Nicole"
-        範圍涵蓋多個年級、多位老師。
+        取得指定班級或老師的課表
+        
+        使用指引:
+            1. 如果想查詢二年五班，應該轉換成205輸入
+            2. 如果想取得"Nicole老師的課表"，請輸入"Nicole"
+
+        使用場景:
+            1. 當使用者需要查詢特定班級或老師的課表時
+            2. 當使用者希望獲取課表資訊以便進一步檢查或分析時
+            3. 幾乎所有跟課表有關的查詢都可以使用此方法
+
+        Args:
+            target (str): 班級或老師名稱
         
         Returns:
             dict[str, Union[str, list[dict[str, str]]]]: 課表資訊

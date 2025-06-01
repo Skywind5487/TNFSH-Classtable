@@ -181,6 +181,7 @@ class GradioInterface:
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
                 )
+                refresh_btn = gr.Button("刷新歷史紀錄")
 
             with gr.Tab("顯示課表") as class_tab:
                 with gr.Row():
@@ -274,6 +275,12 @@ class GradioInterface:
                 fn=lambda t, f: self._save_teacher_file(t, f),
                 inputs=[save_teacher, save_teacher_format],
                 outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
+            )
+
+            refresh_btn.click(
+                fn=self.Ai.refresh_chat,
+                inputs=[],
+                outputs=[gr.Textbox(label="已經刷新歷史紀錄")]
             )
 
             # 啟動介面

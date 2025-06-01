@@ -11,10 +11,16 @@ def swap(
         source_teacher: 原授課教師名稱
         weekday: 星期（1-5）
         period: 節次（1-8）
-        teacher_involved: 參與交換的其他教師數量
-        page: 分頁頁碼，從1開始計數，以"<當前頁碼>/<回傳的總頁碼>"形式表示
+        teacher_involved（2-5）: 參與交換的教師總數
+            - 預設為2，表示只涉及原授課教師與一名其他教師
+        page: 分頁頁碼
+            - 從1開始計數，預設為1
+            - 以"<當前頁碼>/<回傳的總頁碼>"形式表示
+
     Raises:
         ValueError: 如果無法找到交換課程，或參數不正確
+        TypeError: 如果參數類型不正確
+
     Returns:
         PaginatedResult: 分頁結果，包含交換課程的詳細資訊
     """

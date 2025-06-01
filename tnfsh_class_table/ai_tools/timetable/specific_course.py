@@ -3,6 +3,11 @@ def get_specific_course(target: str, day: int, period: int) -> Union[dict[str, U
         """
         取得指定班級或老師的課程資訊。
 
+        使用場景:
+            1. 當使用者需要查詢特定班級或老師在某一天某一節的課程資訊時
+            2. 當使用者需要了解該節課程的老師或學生資訊時
+            3. 當使用者需要確認某節課是否為空堂時
+
         Args:
             target (str): 班級或老師名稱
             day (int): 星期幾(1-5)

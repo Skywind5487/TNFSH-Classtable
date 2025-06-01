@@ -20,6 +20,7 @@ async def async_swap(
     """
     async 方法，請調用非 async 方法 `swap` 來使用。
     """
+    teacher_involved = teacher_involved - 1 # 因為 source_teacher 已經算在內了，所以實際上參與交換的教師數量是 teacher_involved - 1
     # logger: start
     logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
     from tnfsh_timetable_core import TNFSHTimetableCore

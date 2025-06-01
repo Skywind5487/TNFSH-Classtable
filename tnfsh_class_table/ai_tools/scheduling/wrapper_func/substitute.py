@@ -8,12 +8,19 @@ def substitute(
         page: int):
     """
     尋找代課教師。
+    
     Args:
         source_teacher: 原授課教師名稱
         weekday: 星期（1-5）
         period: 節次（1-8）
         source: 資訊來源（"official_website" 或 "wiki"）
+            - "official_website": 使用官方網站的資料，分類較不精確，但資料完整
+            - "wiki": 使用台南一中社群編寫的 Wiki 資料，分類較精確，但資料可能不夠完整
+            - 預設為 "wiki"
         page: 分頁頁碼
+            - 從1開始計數，預設為1
+            - 以"<當前頁碼>/<回傳的總頁碼>"形式表示
+
     Raises:
         TeacherNotFoundError: 找不到指定的教師
         CourseNotFoundError: 指定的時段沒有課程
