@@ -6,6 +6,7 @@ def swap(
         page: int):
     """
     交換課程的AI助手
+    
     Args:
         source_teacher: 原授課教師名稱
         weekday: 星期（1-5）
