@@ -11,11 +11,11 @@ def rotation(
         source_teacher: 原授課教師名稱
         weekday: 星期（1-5）
         period: 節次（1-8）
-        teacher_involved: 參與輪調的教師數量
-        page: 分頁頁碼
+        teacher_involved: 參與多角調的其他教師數量
+        page: 分頁頁碼，從1開始計數，以"<當前頁碼>/<回傳的總頁碼>"形式表示
 
     Raises:
-        ValueError: 如果無法找到輪調課程，或參數不正確
+        ValueError: 如果無法找到多角調課程，或參數不正確
     
     Returns:
         PaginatedResult: 分頁結果，包含輪調課程的詳細資訊
