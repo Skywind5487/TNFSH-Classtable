@@ -1,3 +1,4 @@
+from tnfsh_class_table.ai_tools.index.index import get_timetable_index
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 
 from typing import Any, List, Union, Optional, Literal, Dict
@@ -44,25 +45,56 @@ class AIAssistant:
         7. Only call tools when they are necessary.
         8.After obtaining the returned result, explain each given parameter in a readable manner.
         """
-        return [
-            self.get_table, 
-            self.get_current_time, 
-            self.get_lesson, 
-            self.refresh_chat, 
-            self.get_self_introduction,
-            self.get_class_table_link, 
-            self.get_wiki_link, 
-            self.get_wiki_content, 
-            self.get_swap_course,
-            self.get_rotation_course,  # 添加輪調功能
-            self.get_specific_course,
-            self.get_substitute_course,
-            self.get_class_table_index_base_url,
-            self.get_class_table_index,
-            self.get_wiki_teacher_index,
-            self.final_solution_get_all_table      
-        ]
+        from tnfsh_class_table.ai_tools.index.index import get_timetable_index
+        from tnfsh_class_table.ai_tools.index.timetable_official_website_url import get_timetable_official_website_url
+        
+        
+        from tnfsh_class_table.ai_tools.timetable.timetable import get_table
+        from tnfsh_class_table.ai_tools.timetable.specific_course import get_specific_course
+        from tnfsh_class_table.ai_tools.timetable.timetable_link import get_timetable_link
+        from tnfsh_class_table.ai_tools.timetable.lesson import get_lesson
+        from tnfsh_class_table.ai_tools.timetable.wrapper_func.final_solution import final_solution
 
+        from tnfsh_class_table.ai_tools.wiki.wiki_link import get_wiki_link
+        from tnfsh_class_table.ai_tools.wiki.wiki_content import get_wiki_content
+        from tnfsh_class_table.ai_tools.wiki.wiki_teacher_index import get_wiki_teacher_index
+        
+        from tnfsh_class_table.ai_tools.scheduling.wrapper_func.swap import swap
+        from tnfsh_class_table.ai_tools.scheduling.wrapper_func.rotation import rotation
+        from tnfsh_class_table.ai_tools.scheduling.wrapper_func.substitute import substitute
+
+        from tnfsh_class_table.ai_tools.system.self_introduction import get_self_introduction
+        from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
+        from tnfsh_class_table.ai_tools.system.current_time import get_current_time
+
+
+        return [
+            # index
+            get_timetable_index,
+            get_timetable_official_website_url,
+
+            # timetable
+            get_table,
+            get_specific_course,
+            get_timetable_link,
+            get_lesson,
+            final_solution,
+
+            # wiki
+            get_wiki_link,
+            get_wiki_content,
+            get_wiki_teacher_index,
+
+            # scheduling
+            swap,
+            rotation,
+            substitute,
+            
+            # system
+            get_self_introduction,
+            get_system_instruction,
+            get_current_time
+        ]
     def get_wiki_teacher_index(self) -> dict[str, dict[str, str]]:
         """
         從竹園Wiki索引資料，包括科目與老師名稱、其連結
@@ -116,8 +148,8 @@ class AIAssistant:
         Returns:
             str: 課表索引的基本網址
         """
-        from tnfsh_class_table.ai_tools.index.class_table_index_base_url import get_class_table_index_base_url
-        return get_class_table_index_base_url()
+        from tnfsh_class_table.ai_tools.index.timetable_official_website_url import get_timetable_official_website_url
+        return get_timetable_official_website_url()
     
     def get_class_table_index(self) -> dict[str, dict[str, str]]:
         """
@@ -125,8 +157,8 @@ class AIAssistant:
         Args:
             None
         """
-        from tnfsh_class_table.ai_tools.index.index import get_class_table_index
-        return get_class_table_index()
+        from tnfsh_class_table.ai_tools.index.index import get_timetable_index
+        return get_timetable_index()
 
     
     def get_table(self, target: str) -> dict[str, Union[str, list[dict[str, Union[str, list[dict[str, Union[str, list[dict[str, str]]]]]]]]]]:
@@ -190,8 +222,8 @@ class AIAssistant:
             >>> get_class_table_link("307")
             "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/C101307.html"
         """
-        from tnfsh_class_table.ai_tools.timetable.class_table_link import get_class_table_link
-        return get_class_table_link(target)
+        from tnfsh_class_table.ai_tools.timetable.timetable_link import get_timetable_link
+        return get_timetable_link(target)
 
     def get_lesson(self, target: str) -> Dict[str, List[str]]:
         """
@@ -227,9 +259,9 @@ class AIAssistant:
         """
         from tnfsh_timetable_core import TNFSHTimetableCore
         
-        from tnfsh_class_table.ai_tools.timetable.final_solution import final_solution
+        from tnfsh_class_table.ai_tools.timetable.final_solution import async_final_solution
         import asyncio
-        return asyncio.run(final_solution())
+        return asyncio.run(async_final_solution())
             
     
     def get_swap_course(
@@ -265,7 +297,7 @@ class AIAssistant:
         Returns:
             可能的調課路徑，以及一些除錯資訊
         """
-        from tnfsh_class_table.ai_tools.scheduling import swap
+        from tnfsh_class_table.ai_tools.scheduling.scheduling import swap
         return asyncio.run(swap(
             source_teacher=source_teacher,
             weekday=weekday,
@@ -308,7 +340,7 @@ class AIAssistant:
         Returns:
             可能的調課路徑們，以及一些除錯資訊
         """
-        from tnfsh_class_table.ai_tools.scheduling import rotation
+        from tnfsh_class_table.ai_tools.scheduling.scheduling import rotation
         return asyncio.run(rotation(
             source_teacher=source_teacher,
             weekday=weekday,
@@ -351,7 +383,7 @@ class AIAssistant:
             可能的調課路徑，以及一些除錯資訊
         """
         try:
-            from tnfsh_class_table.ai_tools.scheduling import substitute
+            from tnfsh_class_table.ai_tools.scheduling.scheduling import substitute
             return asyncio.run(substitute(
                 source_teacher=source_teacher,
                 weekday=weekday,
@@ -381,7 +413,7 @@ class AIAssistant:
             >>> get_current_time()
             "2025-03-31 Friday 17:24:31"
         """
-        from tnfsh_class_table.ai_tools.current_time import get_current_time
+        from tnfsh_class_table.ai_tools.system.current_time import get_current_time
         return get_current_time()
 
     def refresh_chat(self) -> str:
@@ -446,3 +478,4 @@ class AIAssistant:
                 break
 
         return "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
+    

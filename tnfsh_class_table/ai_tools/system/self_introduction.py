@@ -2,7 +2,7 @@ from tnfsh_class_table.utils.log_func import log_func
 
 
 @log_func
-def get_self_introduction() -> str:
+def get_self_introduction():
         """
         返回AI助理的自我介紹，包含功能、資料來源、開發機構、對話方針等資訊。
         這個方法可以用來讓使用者了解AI助手的背景，目的在於引導使用者了解與使用本專案可以提供的服務項目。
@@ -12,6 +12,7 @@ def get_self_introduction() -> str:
         Returns:
             str: 自我介紹內容
         """
+        
         return """
         我是臺南一中課表AI助手，基於Gemini LLM開發。
         我的主要功能包括：

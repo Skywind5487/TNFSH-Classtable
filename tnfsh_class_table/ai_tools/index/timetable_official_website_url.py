@@ -2,7 +2,7 @@ from tnfsh_class_table.utils.log_func import log_func
 
 
 @log_func
-def get_class_table_index_base_url(self) -> str:
+def get_timetable_official_website_url() -> str:
     """
     取得課表索引的基本網址
     當使用者的要求不是得到連結時，應考慮使用別的方法。

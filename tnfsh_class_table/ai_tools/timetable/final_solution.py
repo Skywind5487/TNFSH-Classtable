@@ -1,4 +1,8 @@
-async def final_solution():
+
+async def async_final_solution():
+    """
+    async 方法，請調用非 async 方法 `final_solution` 來使用。
+    """
     import asyncio
     from tnfsh_timetable_core import TNFSHTimetableCore
     core = TNFSHTimetableCore()
@@ -24,5 +28,5 @@ async def final_solution():
 
 if __name__ == "__main__":
     import asyncio
-    result = asyncio.run(final_solution())
+    result = asyncio.run(async_final_solution())
     print(result)
