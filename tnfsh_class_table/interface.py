@@ -181,7 +181,7 @@ class GradioInterface:
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
                 )
-                refresh_btn = gr.Button("刷新歷史紀錄")
+                refresh_btn = gr.Button("重新整理")
 
             with gr.Tab("顯示課表") as class_tab:
                 with gr.Row():
@@ -226,6 +226,30 @@ class GradioInterface:
                     for teacher in teachers.keys():
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
+                # 下拉式選單分別顯示科目與老師
+                dropdown_list = {}
+                subject_dropdown = []
+                
+                def choose_subject(dropdown_list, sbjt):
+                    teacher_choice.update(choices=dropdown_list[sbjt])
+                    
+                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
+                    subject_dropdown.append(subject)
+                    teacher_dropdown = []
+                    for teacher in teachers.keys():
+                        teacher_dropdown.append(teachers)
+                    dropdown_list[subject] = teacher_dropdown
+                with gr.Row():
+                    subject_choice = gr.Dropdown(choices = subject_dropdown, label="科目")
+                    teacher_choice = gr.Dropdown(choices = ["test1", "test2", "test3"], label = "老師")
+                
+                subject_choice.select(
+                    fn=lambda sbjt: choose_subject(dropdown_list, sbjt)
+                )
+                #
+
+
+
             
             
             
@@ -280,7 +304,7 @@ class GradioInterface:
             refresh_btn.click(
                 fn=self.Ai.refresh_chat,
                 inputs=[],
-                outputs=[gr.Textbox(label="已經刷新歷史紀錄")]
+                outputs=[gr.Textbox(label="重新整理紀錄")]
             )
 
             # 啟動介面
