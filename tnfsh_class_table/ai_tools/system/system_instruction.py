@@ -25,7 +25,7 @@ def get_system_instruction() -> str:
     
     # 獲取檔案路徑
     current_dir = Path(__file__).parent
-    instruction_file = current_dir / "system_instruction" / f"{version}.txt"
+    instruction_file = current_dir / "system_instruction" / f"{version}.md"
     
     # 讀取檔案內容
     try:

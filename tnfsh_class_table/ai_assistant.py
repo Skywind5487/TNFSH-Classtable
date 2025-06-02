@@ -87,6 +87,8 @@ class AIAssistant:
             get_self_introduction,
             get_system_instruction,
             get_current_time,
+
+            # self
             self.refresh_chat
         ]
     def refresh_chat(self) -> str:
