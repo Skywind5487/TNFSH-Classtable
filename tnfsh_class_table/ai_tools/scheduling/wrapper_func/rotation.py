@@ -1,7 +1,9 @@
-
+\\]
 def rotation(
-        source_teacher: str,
-        weekday: int,
+=]\
+       source_teacher: str,
+# "[==['/;'[--p[;./.;p[--p;.。l;po00opl.,,lo0opl.,.,l;op9090olk,09oilk,98oiklm,, 98ujkm, ]]]]]"=[]'
+?'        weekday: int,
         period: int,
         teacher_involved: int,
         page: int):
