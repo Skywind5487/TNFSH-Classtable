@@ -203,6 +203,8 @@ class GradioInterface:
                 )
             
             with gr.Tab("顯示老師課表") as teacher_tab:
+                """
+                原本的老師課表顯示方式
                 with gr.Row():
                     display_teacher = gr.Textbox(label="老師名稱")
                     display_teacher_btn = gr.Button("顯示老師課表")
@@ -214,12 +216,9 @@ class GradioInterface:
                     inputs=[display_teacher],
                     outputs=[display_teacher_table, teacher_message]
                 )
-                teacher_tab.select(
-                    fn=lambda t: (display_teacher_table, teacher_message, teacher_markdown),
-                    inputs=[display_teacher],
-                    outputs=[display_teacher_table, teacher_message, teacher_markdown]
-                )
-                # 下拉式選單分別顯示科目與老師
+                """
+                
+                # =====下拉式選單分別顯示科目與老師=====
 
                 dropdown_list = {} 
                 subject_dropdown = [] 
@@ -237,19 +236,30 @@ class GradioInterface:
                 with gr.Row():
                     subject_choice = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
                     teacher_choice = gr.Dropdown(choices=[], label="老師", interactive=True)
+                    dropdown_teacher_btn = gr.Button("顯示老師課表")
                 
                 subject_choice.change(  # 改用 .change() 而不是 .select()
                     fn=choose_subject,
                     inputs=[subject_choice],
                     outputs=[teacher_choice]
                 )
-                #顯示老師列表
+                dropdown_teacher_table = gr.Dataframe(label="老師課表")
+                dropdown_teacher_btn.click(
+                    fn=lambda t: self._display_teacher_table(t),
+                    inputs=[teacher_choice],
+                    outputs=[dropdown_teacher_table, teacher_message]
+                )
+                # ======下拉式選單結束=====
+                """
+                原先印出的各科目老師名單
                 teacher_list_md = ""
                 for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
                     teacher_list_md += f"### {subject}\n"
                     for teacher in teachers.keys():
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
+                """
+                
 
 
             with gr.Tab("下載老師課表"):
