@@ -219,40 +219,39 @@ class GradioInterface:
                     inputs=[display_teacher],
                     outputs=[display_teacher_table, teacher_message, teacher_markdown]
                 )
-                # 顯示老師列表
+                # 下拉式選單分別顯示科目與老師
+
+                dropdown_list = {} 
+                subject_dropdown = [] 
+                
+                def choose_subject(sbjt):
+                    return gr.Dropdown(choices=dropdown_list[sbjt])
+                    
+                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
+                    subject_dropdown.append(subject)
+                    teacher_dropdown = []
+                    for teacher in teachers.keys():
+                        teacher_dropdown.append(teacher)  # 修正：直接加入教師名稱
+                    dropdown_list[subject] = teacher_dropdown
+                    
+                with gr.Row():
+                    subject_choice = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
+                    teacher_choice = gr.Dropdown(choices=[], label="老師", interactive=True)
+                
+                subject_choice.change(  # 改用 .change() 而不是 .select()
+                    fn=choose_subject,
+                    inputs=[subject_choice],
+                    outputs=[teacher_choice]
+                )
+                #顯示老師列表
                 teacher_list_md = ""
                 for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
                     teacher_list_md += f"### {subject}\n"
                     for teacher in teachers.keys():
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
-                # 下拉式選單分別顯示科目與老師
-                dropdown_list = {} #下拉式選單資料結構，包含科目與老師
-                subject_dropdown = [] 
-                
-                def choose_subject(dropdown_list, sbjt):
-                    teacher_choice.update(choices=dropdown_list[sbjt])
-                    
-                for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
-                    subject_dropdown.append(subject)
-                    teacher_dropdown = []
-                    for teacher in teachers.keys():
-                        teacher_dropdown.append(teachers)
-                    dropdown_list[subject] = teacher_dropdown
-                with gr.Row():
-                    subject_choice = gr.Dropdown(choices = subject_dropdown, label="科目")
-                    teacher_choice = gr.Dropdown(choices = ["test1", "test2", "test3"], label = "老師")
-                
-                subject_choice.select(
-                    fn=lambda sbjt: choose_subject(dropdown_list, sbjt)
-                )
-                #
 
 
-
-            
-            
-            
             with gr.Tab("下載老師課表"):
                 with gr.Row():
                     save_teacher = gr.Textbox(label="老師名稱")
