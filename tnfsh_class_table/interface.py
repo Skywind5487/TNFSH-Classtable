@@ -227,8 +227,8 @@ class GradioInterface:
                         teacher_list_md += f"- {teacher}\n"
                 gr.Markdown(teacher_list_md)
                 # 下拉式選單分別顯示科目與老師
-                dropdown_list = {}
-                subject_dropdown = []
+                dropdown_list = {} #下拉式選單資料結構，包含科目與老師
+                subject_dropdown = [] 
                 
                 def choose_subject(dropdown_list, sbjt):
                     teacher_choice.update(choices=dropdown_list[sbjt])
