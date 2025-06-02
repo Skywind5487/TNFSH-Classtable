@@ -219,7 +219,7 @@ class GradioInterface:
                 """
                 
                 # =====下拉式選單分別顯示科目與老師=====
-
+                # <下拉式選單>
                 dropdown_list = {} 
                 subject_dropdown = [] 
                 
@@ -243,6 +243,8 @@ class GradioInterface:
                     inputs=[subject_choice],
                     outputs=[teacher_choice]
                 )
+                # </下拉式選單>
+                teacher_message = gr.Textbox(label="訊息")
                 dropdown_teacher_table = gr.Dataframe(label="老師課表")
                 dropdown_teacher_btn.click(
                     fn=lambda t: self._display_teacher_table(t),
@@ -275,12 +277,41 @@ class GradioInterface:
                     inputs=[save_teacher, save_teacher_format],
                     outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
                 )
-                teacher_list_md = ""
+                # =====下拉式選單儲存老師課表檔案=====
+
+                dropdown_list = {} 
+                subject_dropdown = [] 
+                
+                def choose_subject(sbjt):
+                    return gr.Dropdown(choices=dropdown_list[sbjt])
+                    
                 for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
-                    teacher_list_md += f"### {subject}\n"
+                    subject_dropdown.append(subject)
+                    teacher_dropdown = []
                     for teacher in teachers.keys():
-                        teacher_list_md += f"- {teacher}\n"
-                gr.Markdown(teacher_list_md)
+                        teacher_dropdown.append(teacher)  # 修正：直接加入教師名稱
+                    dropdown_list[subject] = teacher_dropdown
+                    
+                with gr.Row():
+                    save_subject = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
+                    save_teacher = gr.Dropdown(choices=[], label="老師", interactive=True)
+                    save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_teacher_btn = gr.Button("下載老師課表")
+                
+                subject_choice.change(  # 改用 .change() 而不是 .select()
+                    fn=choose_subject,
+                    inputs=[save_subject],
+                    outputs=[save_teacher]
+                )
+                save_teacher_file = gr.File(label="下載檔案")
+                teacher_file_info = gr.TextArea(label="檔案資訊", interactive=False)
+                teacher_save_message = gr.Textbox(label="訊息")
+                gr.Button("下載老師課表").click(
+                    fn=lambda t, f: self._save_teacher_file(t, f),
+                    inputs=[save_teacher, save_teacher_format],
+                    outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
+                )
+                # ======下拉式選單結束=====
             
             
 
@@ -292,11 +323,11 @@ class GradioInterface:
                 outputs=[display_table, class_message]
             )
 
-            display_teacher_btn.click(
-                fn=lambda t: self._display_teacher_table(t),
-                inputs=[display_teacher],
-                outputs=[display_teacher_table, teacher_message]
-            )
+            #display_teacher_btn.click(
+            #    fn=lambda t: self._display_teacher_table(t),
+            #    inputs=[display_teacher],
+            #    outputs=[display_teacher_table, teacher_message]
+            #)
 
             save_btn.click(
                 fn=lambda g, c, f: self._save_class_file(g, c, f),
