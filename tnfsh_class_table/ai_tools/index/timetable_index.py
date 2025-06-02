@@ -1,3 +1,4 @@
+from calendar import c
 from tnfsh_class_table.utils.log_func import log_func
 
 @log_func
@@ -17,6 +18,14 @@ def get_timetable_index() -> dict[str, dict[str, str]]:
     Returns:
         dict[str, dict[str, str]]: 課表索引資料，格式為 {科目: {老師名稱: 連結}}
     """
-    from tnfsh_class_table.backend import TNFSHClassTableIndex
-    index = TNFSHClassTableIndex()
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    import asyncio
+    index = asyncio.run(core.fetch_index())
     return index.index
+
+if __name__ == "__main__":
+    # For testing purposes
+    timetable_index = get_timetable_index()
+    print(timetable_index)
+    # Example output: {'數學': {'陳老師': 'https://example.com/teacher/chen', ...}, ...}
