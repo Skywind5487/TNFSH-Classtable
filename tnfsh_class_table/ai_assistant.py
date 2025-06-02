@@ -20,7 +20,7 @@ class AIAssistant:
     @log_func
     def get_chat(self) -> None:
         chat = self.client.chats.create(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash-preview-05-20",
             config=self.get_config()
         )
         self.chat = chat
