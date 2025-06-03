@@ -25,6 +25,7 @@ async def async_rotation(
         period: int, 
         teacher_involved: int, 
         page: int = 1,
+        items_per_page: int = 3,
         filter_params: FilterParams = None
     ) -> PaginatedResult:
     """
@@ -101,15 +102,13 @@ async def async_rotation(
             node1, node2 = path[j], path[j+1]
             step = await RotationStep.create(node1, node2, j)
             path_steps.append(step)
-        rotation_paths.append(Path(route=path_steps, route_id=len(rotation_paths) + 1))
-
-    # 創建分頁結果
-    items_per_page = 5 #waitingforadjustment
+        rotation_paths.append(Path(route=path_steps, route_id=len(rotation_paths) + 1))    # 創建分頁結果
     total_pages = ceil(len(rotation_paths) / items_per_page)
-    
     result = PaginatedResult(
         target=source_teacher,
         mode="rotation",
+        weekday=weekday,
+        period=period,
         current_page=page,
         total_pages=total_pages,
         options=rotation_paths,

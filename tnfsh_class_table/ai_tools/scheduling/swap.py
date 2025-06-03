@@ -22,6 +22,7 @@ async def async_swap(
         period: int, 
         teacher_involved: int, 
         page: int = 1,
+        items_per_page: int = 3,
         filter_params: 'FilterParams' = None
     ) -> "PaginatedResult":
     """
@@ -92,14 +93,13 @@ async def async_swap(
                 step = await SwapStep.create(node1, node2, j//2)  # j//2 因為每兩個節點算一步
                 path_steps.append(step)
         if path_steps:  # 只有當有步驟時才加入路徑
-            swap_paths.append(Path(route=path_steps, route_id=len(swap_paths) + 1))
-
-    # 創建分頁結果
-    items_per_page = 3
+            swap_paths.append(Path(route=path_steps, route_id=len(swap_paths) + 1))      # 創建分頁結果
     total_pages = ceil(len(swap_paths) / items_per_page)
     result = PaginatedResult(
         target=source_teacher,
         mode="swap",
+        weekday=weekday,
+        period=period,
         current_page=page,
         total_pages=total_pages,
         options=swap_paths,

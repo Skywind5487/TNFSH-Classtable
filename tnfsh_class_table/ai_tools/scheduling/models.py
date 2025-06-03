@@ -102,8 +102,10 @@ class Path(BaseModel):
 
 class PaginatedResult(BaseModel):
     """分頁後的輪調結果"""
-    target: str
-    mode: str 
+    target: str  # 目標教師
+    mode: str  # rotation或swap
+    weekday: int  # 星期
+    period: int  # 節次
     current_page: int
     total_pages: int
     items_per_page: int = 5
@@ -112,7 +114,6 @@ class PaginatedResult(BaseModel):
     @property
     def total_items(self) -> int:
         return len(self.options)
-    
     def get_page(self, page: int) -> 'PaginatedResult':
         """獲取指定頁碼的結果"""
         if page < 1 or page > self.total_pages:
@@ -123,8 +124,10 @@ class PaginatedResult(BaseModel):
         
         return PaginatedResult(
             target=self.target,
-            current_page=page,
             mode=self.mode,
+            weekday=self.weekday,  # 保持星期不變
+            period=self.period,    # 保持節次不變
+            current_page=page,
             total_pages=self.total_pages,
             options=self.options[start_idx:end_idx],
             items_per_page=self.items_per_page

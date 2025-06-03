@@ -13,7 +13,9 @@ def rotation(
     afternoon_only: bool = False,
     destination_teacher: str | None = None,
     # 路徑過濾條件
-    exclude_teachers: list[str | None] = []
+    exclude_teachers: list[str | None] = [],
+    # 分頁設定
+    items_per_page: int = 5
 ):
     """
     多角調，內部又稱為輪調，是用於調課的其中一種方法。

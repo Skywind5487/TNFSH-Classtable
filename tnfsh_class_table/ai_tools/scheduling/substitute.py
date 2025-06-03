@@ -15,7 +15,8 @@ async def async_substitute(
         weekday:int, 
         period:int, 
         source: Literal["official_website", "wiki"], 
-        page:int) -> PaginatedSubstituteResult:
+        page:int,
+        items_per_page: int = 10) -> PaginatedSubstituteResult:
     """
     async 方法，請調用非 async 方法 `substitute` 來使用。
     """
@@ -156,9 +157,7 @@ async def async_substitute(
             # 忽略無法獲取課程節點的教師
             logger.error(f"無法獲取 {substitute_teacher} 的課程節點: {e}")
             continue
-    logger.info(f"teacher_category: {src_teacher_category}")
-    # 將結果分頁
-    items_per_page = 5
+    logger.info(f"teacher_category: {src_teacher_category}")    # 將結果分頁
     total_items = len(free_substitute_teachers)
     total_pages = ceil(total_items / items_per_page)
     
