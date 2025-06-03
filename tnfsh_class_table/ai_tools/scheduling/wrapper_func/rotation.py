@@ -135,14 +135,14 @@ if __name__ == "__main__":    # 測試輪調功能
         period=2,               # 第二節
         teacher_involved=2,      # 兩位教師參與
         page=1,                 # 第一頁結果
-        include_weekdays=[4],     # 限制只能是星期四
+        include_weekdays=[],     # 限制只能是星期四
         exclude_weekdays=[],     # 不排除任何星期
         include_periods=[],      # 不限制節次
         exclude_periods=[],      # 不排除任何節次
         morning_only=False,      # 不限制只能早上
         afternoon_only=False,    # 不限制只能下午
-        exclude_teachers=[],     # 不排除任何教師
-        destination_teacher="黃先明"      # 指定要找這位老師的課
+        exclude_teachers=["梁俊宏"],     # 不排除任何教師
+        destination_teacher=None      # 指定要找這位老師的課
     )
     from google.genai import types
     from google import genai

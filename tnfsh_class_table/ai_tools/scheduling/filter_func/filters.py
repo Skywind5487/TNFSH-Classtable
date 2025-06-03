@@ -62,7 +62,7 @@ class RotationFirstCandidateFilter(FirstCandidateCourseFilter):
             if teacher_id != self.filters.destination_teacher:
                 from tnfsh_timetable_core import TNFSHTimetableCore
                 core = TNFSHTimetableCore()
-                core.get_logger().debug(f"節點 {node.short()} 的教師 {teacher_id} 不是目標教師 {self.filters.destination_teacher}")
+                core.get_logger().debug(f"節點教師 {teacher_id} 不是目標教師 {self.filters.destination_teacher}")
                 return False
 
         return True
@@ -148,7 +148,7 @@ class SwapFirstCandidateFilter(FirstCandidateCourseFilter):
             if teacher_id != self.filters.destination_teacher:
                 from tnfsh_timetable_core import TNFSHTimetableCore
                 core = TNFSHTimetableCore()
-                core.get_logger().debug(f"節點 {node.short()} 的教師 {teacher_id} 不是目標教師 {self.filters.destination_teacher}")
+                core.get_logger().debug(f"教師 {teacher_id} 不是目標教師 {self.filters.destination_teacher}")
                 return False
 
         return True
@@ -209,7 +209,7 @@ class TeacherPathFilter(PathFilter):
             return True  # 允許空堂
 
         if self.filters.exclude_teachers and teacher_id in self.filters.exclude_teachers:
-            self.core.get_logger().debug(f"節點 {node} 的教師 {teacher_id} 在排除的教師清單中")
+            self.core.get_logger().debug(f"教師 {teacher_id} 在排除的教師清單中")
             return False
 
         return True

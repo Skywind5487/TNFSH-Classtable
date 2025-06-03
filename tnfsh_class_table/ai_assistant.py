@@ -29,7 +29,7 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
         return types.GenerateContentConfig(
             temperature=0.8,
-            max_output_tokens=1000,
+            max_output_tokens=2000,
             tools=self.get_tools(),
             system_instruction=get_system_instruction()
         )
@@ -101,31 +101,51 @@ class AIAssistant:
         return "台灣的平均交流電電壓是220V，我已刷新紀錄，請問有什麼可以幫助您的？"
 
     def send_message(self, message: str, history: Any) -> str:
-        """
-        Send a message to the chat and return the response.
-
-        Args:
-            message (str): The message to send.
-
-        Returns:
-            str: The response from the chat, or an error message if failed.
-        """
         from google.genai.errors import ServerError
+        from tnfsh_timetable_core import TNFSHTimetableCore
+        import time
+
+        core = TNFSHTimetableCore()
+        logger = core.get_logger()
+
+        logger.info(f"[User Input] {message}")
+
         for attempt in range(3):
             try:
-                response = self.chat.send_message(message)
-                from tnfsh_timetable_core import TNFSHTimetableCore
-                core = TNFSHTimetableCore()
-                logger = core.get_logger()
-                logger.info(f"AI Assistant 回覆: {response.text}")
-                return response.text
+                raw_response = self.chat.send_message(message)
+                try:
+                    if hasattr(raw_response, "candidates") and raw_response.candidates:
+                        finish_reason = raw_response.candidates[0].finish_reason
+                        logger.info(f"[Gemini] Finish reason: {finish_reason}")
+                    else:
+                        logger.debug("[Logger] 無法取得 finish_reason，candidates 為空。")
+                except Exception as e:
+                    logger.debug(f"[Logger] Finish reason 資訊無法取得: {e}")
+
+                logger.info(f"[AI Assistant][Full] {raw_response.text}")
+
+                # 記錄模型與 token 資訊（如果有）
+                try:
+                    usage = raw_response.usage_metadata
+                    if usage:
+                        logger.info(
+                            f"[Gemini] tokens: prompt={usage.prompt_token_count}, "
+                            f"response={usage.candidates_token_count}, total={usage.total_token_count}"
+                        )
+                    else:
+                        logger.debug("[Logger] 無法取得 usage_metadata。")
+                except Exception as e:
+                    logger.debug(f"[Logger] Token 資訊無法取得: {e}")
+                if not raw_response.text:
+                    logger.warning("[AI Assistant] 回應內容為空，請檢查輸入訊息或模型狀態。")
+                    return "⚠️ 抱歉，沒有收到有效的回應。請稍後再試。"  
+                return raw_response.text
+
             except ServerError as e:
-                logger.warning(f"[嘗試第 {attempt+1} 次] 模型過載，稍後再試... ({e})")
-                import time
-                time.sleep(2 * (attempt + 1))  # 遞增等待時間
+                logger.warning(f"[Retry {attempt+1}] 模型過載，稍後再試... ({e})")
+                time.sleep(2 * (attempt + 1))
             except Exception as e:
                 logger.error(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
                 break
 
         return "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
-
