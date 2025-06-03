@@ -114,14 +114,18 @@ class AIAssistant:
         for attempt in range(3):
             try:
                 response = self.chat.send_message(message)
+                from tnfsh_timetable_core import TNFSHTimetableCore
+                core = TNFSHTimetableCore()
+                logger = core.get_logger()
+                logger.info(f"AI Assistant 回覆: {response.text}")
                 return response.text
             except ServerError as e:
-                print(f"[嘗試第 {attempt+1} 次] 模型過載，稍後再試... ({e})")
+                logger.warning(f"[嘗試第 {attempt+1} 次] 模型過載，稍後再試... ({e})")
                 import time
                 time.sleep(2 * (attempt + 1))  # 遞增等待時間
             except Exception as e:
-                print(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
+                logger.error(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
                 break
 
         return "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
-    
+

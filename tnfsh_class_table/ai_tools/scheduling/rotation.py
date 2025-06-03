@@ -1,5 +1,10 @@
 from __future__ import annotations
-from typing import Literal, TYPE_CHECKING
+from typing import Literal, TYPE_CHECKING, Callable, List
+from click import option
+from pydantic import BaseModel
+
+from tnfsh_timetable_core.scheduling.models import CourseNode
+from tnfsh_class_table.ai_tools.scheduling.filter_func.filters import RotationFirstCandidateFilter, TeacherPathFilter
 
 if TYPE_CHECKING:
     from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
@@ -9,6 +14,9 @@ core = TNFSHTimetableCore()
 logger = core.get_logger()
 
 from tnfsh_class_table.ai_tools.scheduling.models import random_seed
+from tnfsh_class_table.ai_tools.scheduling.filter_func.base import FilterParams
+
+
 
 
 async def async_rotation(
@@ -16,9 +24,22 @@ async def async_rotation(
         weekday: int, 
         period: int, 
         teacher_involved: int, 
-        page: int = 1) -> PaginatedResult:
+        page: int = 1,
+        filter_params: FilterParams = None
+    ) -> PaginatedResult:
     """
     async 方法，請調用非 async 方法 `rotation` 來使用。
+
+    Args:
+        source_teacher: 原授課教師名稱
+        weekday: 星期（1-5）
+        period: 節次（1-8）
+        teacher_involved: 參與輪調的教師總數（2-5）
+        page: 分頁頁碼（從1開始計數）
+        filter_params: 過濾器參數，包含：
+            - source.destination_teacher: 目標教師名稱（作為第一候選的教師）
+            - source: 其他第一候選課程的過濾條件
+            - path: 路徑過濾條件
     """
     # logger: start
     logger.info(f"開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
@@ -32,10 +53,37 @@ async def async_rotation(
     )
     if not options:
         raise ValueError("無法找到輪調課程，請確認教師名稱、星期和節次是否正確。")
+    # 建立過濾器
+    first_candidate_filter = RotationFirstCandidateFilter(
+        source_teacher, 
+        weekday, 
+        period,
+        filters=filter_params.source if filter_params else None
+    )
     
-    # 過濾掉深度不符合要求的路徑
-    options = [path for path in options if len(path) == teacher_involved + 1]
-    
+    path_filter = None
+    if filter_params and filter_params.path:
+        path_filter = TeacherPathFilter(filters=filter_params.path)
+
+    # 過濾選項
+    filtered_options = []
+    for path in options:
+        # 先檢查長度
+        if len(path) != teacher_involved + 1:
+            continue
+            
+        # 應用第一候選過濾器
+        if not await first_candidate_filter.apply(path):
+            continue
+            
+        # 應用路徑過濾器
+        if path_filter and not await path_filter.apply(path):
+            continue
+            
+        filtered_options.append(path)
+
+    options = filtered_options
+
     # random shuffle paths with fixed seed
     import random
     random.seed(random_seed)  # 設定固定的 seed

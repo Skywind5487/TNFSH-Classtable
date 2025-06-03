@@ -1,6 +1,5 @@
 import networkx as nx
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
+
 import math
 import random as rand
 from typing import List, Dict

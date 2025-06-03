@@ -1,9 +1,14 @@
+"""交換課程相關功能"""
 from typing import Literal, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
 
-from tnfsh_timetable_core import TNFSHTimetableCore 
+
+from tnfsh_timetable_core import TNFSHTimetableCore
+from tnfsh_class_table.ai_tools.scheduling.filter_func.filters import SwapFirstCandidateFilter, TeacherPathFilter
+from tnfsh_class_table.ai_tools.scheduling.filter_func.base import FilterParams
+
 core = TNFSHTimetableCore()
 logger = core.get_logger()
 
@@ -16,15 +21,17 @@ async def async_swap(
         weekday: int, 
         period: int, 
         teacher_involved: int, 
-        page: int = 1) -> "PaginatedResult":
+        page: int = 1,
+        filter_params: 'FilterParams' = None
+    ) -> "PaginatedResult":
     """
     async 方法，請調用非 async 方法 `swap` 來使用。
     """
     teacher_involved = teacher_involved - 1 # 因為 source_teacher 已經算在內了，所以實際上參與交換的教師數量是 teacher_involved - 1
+    
     # logger: start
     logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
-    from tnfsh_timetable_core import TNFSHTimetableCore
-    core = TNFSHTimetableCore()
+    
     options = await core.scheduling_swap(
         teacher_name=source_teacher,
         weekday=weekday,
@@ -33,11 +40,36 @@ async def async_swap(
     )
     if not options:
         raise ValueError("無法找到交換課程，請確認教師名稱、星期和節次是否正確。")
+      # 建立過濾器
+    first_candidate_filter = SwapFirstCandidateFilter(
+        source_teacher, 
+        weekday, 
+        period,
+        filters=filter_params.source if filter_params else None
+    )
     
-    # 過濾掉深度不符合要求的路徑
-    #options = list(options)  # 確保 options 是列表
-    options = [path for path in options if len(path) == teacher_involved * 2 + 2]
+    path_filter = None
+    if filter_params and filter_params.path:
+        path_filter = TeacherPathFilter(filters=filter_params.path)
+
+    # 過濾選項
+    filtered_options = []
+    for path in options:
+        # 先檢查長度 (對調路徑長度必須為 teacher_involved * 2 + 2)
+        if len(path) != teacher_involved * 2 + 2:
+            continue
+            
+        # 應用第一候選過濾器
+        if not await first_candidate_filter.apply(path):
+            continue
+            
+        # 應用路徑過濾器
+        if path_filter and not await path_filter.apply(path):
+            continue
+            
+        filtered_options.append(path)
     
+    options = filtered_options
 
 
     # random shuffle paths with fixed seed
