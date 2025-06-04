@@ -175,12 +175,15 @@ class GradioInterface:
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
                 )
-                refresh_btn = gr.Button("重新整理")
+                a_space = gr.Markdown("\n\n")
+                with gr.Row():
+                    refresh_btn = gr.Button(value = "重新整理")
+                    refresh_message=gr.Textbox(label="重新整理紀錄")
 
                 refresh_btn.click(
                 fn=self.Ai.refresh_chat,
                 inputs=[],
-                outputs=[gr.Textbox(label="重新整理紀錄")]
+                outputs=[refresh_message]
                 )
             
             with gr.Tab("顯示班級課表") as class_tab:
