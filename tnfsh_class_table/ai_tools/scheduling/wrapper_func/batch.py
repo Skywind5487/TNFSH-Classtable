@@ -150,5 +150,5 @@ if __name__ == "__main__":
 
     fn_decl = types.FunctionDeclaration.from_callable(callable=batch_process, client=client)
     import json
-    print(f"函數聲明: {json.dumps(fn_decl.to_json_dict(), indent=2, ensure_ascii=False)}")      
+    #print(f"函數聲明: {json.dumps(fn_decl.to_json_dict(), indent=2, ensure_ascii=False)}")      
     print(result)

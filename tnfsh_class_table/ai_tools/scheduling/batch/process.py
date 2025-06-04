@@ -126,7 +126,12 @@ async def async_batch_process(
         # 如果是連續課程，跳到第一節前一節；否則往前一節
         current_period = working_period - 1    
         period_results.reverse()  # 反轉結果，因為我們是從後往前處理的
-    logger.debug(f"[Batch] 找到 {len(period_results)} 節課程的調動結果")
+    for result_item in period_results:
+        if not result_item.options:
+            logger.warning(f"[Batch] 在星期 {weekday} 第 {result_item.period} 節沒有找到任何可用的調課選項")
+        else:
+            logger.debug(f"[Batch] 在星期 {weekday} 第 {result_item.period} 節找到 {len(result_item.options)} 個調課選項")
+    logger.debug(f"[Batch] 找到 {len(period_results)} 節課程的調課結果")
     return BatchResult(
         teacher=source_teacher,
         mode=mode,
@@ -230,6 +235,11 @@ async def async_batch_substitute(
         # 如果是連續課程，跳到第一節前一節；否則往前一節
         current_period = working_period - 1    
         period_results.reverse()  # 反轉結果，因為我們是從後往前處理的
+    for result_item in period_results:
+        if not result_item.options:
+            logger.warning(f"[Batch Substitute] 在星期 {weekday} 第 {result_item.period} 節沒有找到任何可用的代課選項")
+        else:
+            logger.debug(f"[Batch Substitute] 在星期 {weekday} 第 {result_item.period} 節找到 {len(result_item.options)} 個代課選項")
     logger.debug(f"[Batch Substitute] 找到 {len(period_results)} 節課程的代課結果")
     return BatchSubstituteResult(
         teacher=source_teacher,
