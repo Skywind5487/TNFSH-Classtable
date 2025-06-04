@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from tnfsh_timetable_core.scheduling.models import CourseNode
 from tnfsh_class_table.ai_tools.scheduling.filter_func.filters import RotationFirstCandidateFilter, TeacherPathFilter
+from tnfsh_class_table.ai_tools.scheduling.cache import scheduling_cache, CacheKey
 
 from tnfsh_timetable_core import TNFSHTimetableCore
 
@@ -44,8 +45,7 @@ async def async_rotation(
     """
     # logger: start
     logger.info(f"開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
-    from tnfsh_timetable_core import TNFSHTimetableCore
-    core = TNFSHTimetableCore()
+    
     scheduling = await core.fetch_scheduling()
     try:
         src_course_node = await scheduling.fetch_course_node(
@@ -59,12 +59,28 @@ async def async_rotation(
         logger.warning(f"無法找到原課程節點: {str(e)}")
         streak = 1  # 如果找不到節點，預設為 1
 
-    options = await core.scheduling_rotation(
+    # 嘗試從快取獲取結果
+    cache_key = CacheKey(
         teacher_name=source_teacher,
         weekday=weekday,
         period=period,
-        max_depth=teacher_involved
-    )    
+        func_name="rotation",
+        params=(teacher_involved,)
+    )
+    
+    options = scheduling_cache.get(cache_key)
+    if options is None:
+        # 快取未命中，重新計算並存入快取
+        options = await core.scheduling_rotation(
+            teacher_name=source_teacher,
+            weekday=weekday,
+            period=period,
+            max_depth=teacher_involved
+        )
+        scheduling_cache.set(cache_key, options)
+        logger.debug("排課結果已快取")
+
+    # 如果沒有選項，返回空結果
     if not options:
         logger.warning("無法找到輪調課程")
         from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult

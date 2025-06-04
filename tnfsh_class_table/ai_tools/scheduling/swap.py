@@ -8,6 +8,7 @@ if TYPE_CHECKING:
 from tnfsh_timetable_core import TNFSHTimetableCore
 from tnfsh_class_table.ai_tools.scheduling.filter_func.filters import SwapFirstCandidateFilter, TeacherPathFilter
 from tnfsh_class_table.ai_tools.scheduling.filter_func.base import FilterParams
+from tnfsh_class_table.ai_tools.scheduling.cache import scheduling_cache, CacheKey
 
 core = TNFSHTimetableCore()
 logger = core.get_logger()
@@ -47,12 +48,27 @@ async def async_swap(
         logger.warning(f"無法找到原課程節點: {str(e)}")
         streak = 1  # 如果找不到節點，預設為 1
     
-    options = await core.scheduling_swap(
+    # 嘗試從快取獲取結果
+    cache_key = CacheKey(
         teacher_name=source_teacher,
         weekday=weekday,
         period=period,
-        max_depth=teacher_involved
+        func_name="swap",
+        params=(teacher_involved,)
     )
+    
+    options = scheduling_cache.get(cache_key)
+    if options is None:
+        # 快取未命中，重新計算並存入快取
+        options = await core.scheduling_swap(
+            teacher_name=source_teacher,
+            weekday=weekday,
+            period=period,
+            max_depth=teacher_involved
+        )
+        scheduling_cache.set(cache_key, options)
+        logger.debug("排課結果已快取")
+
     if not options:
         logger.warning("無法找到交換課程")
         from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
