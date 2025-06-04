@@ -141,4 +141,12 @@ if __name__ == "__main__":
         source="wiki",
         page=1,
     )
+    from google.genai import types
+    from google import genai
+    import os
+    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+    fn_decl = types.FunctionDeclaration.from_callable(callable=batch_process, client=client)
+    import json
+    print(f"函數聲明: {json.dumps(fn_decl.to_json_dict(), indent=2, ensure_ascii=False)}")      
     print(result)
