@@ -67,8 +67,11 @@ async def async_swap(
             period=period,
             max_depth=teacher_involved
         )
+        options = list(options)  # 確保是列表格式
         scheduling_cache.set(cache_key, options)
         logger.debug("排課結果已快取")
+    else:
+        logger.debug(f"使用快取的排課結果，長度={len(options)}")
 
     if not options:
         logger.warning("無法找到交換課程")

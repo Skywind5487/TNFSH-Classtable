@@ -63,23 +63,27 @@ async def async_rotation(
     # 嘗試從快取獲取結果
     cache_key = CacheKey(
         teacher_name=source_teacher,
-        weekday=weekday,
-        period=period,
+        weekday=src_course_node.time.weekday,
+        period=src_course_node.time.period,
         func_name="rotation",
         params=(teacher_involved,)
     )
     
     options = scheduling_cache.get(cache_key)
+
     if options is None:
         # 快取未命中，重新計算並存入快取
         options = await core.scheduling_rotation(
             teacher_name=source_teacher,
-            weekday=weekday,
-            period=period,
+            weekday=src_course_node.time.weekday,
+            period=src_course_node.time.period,
             max_depth=teacher_involved
         )
+        options = list(options)  # 確保是列表格式
         scheduling_cache.set(cache_key, options)
         logger.debug("排課結果已快取")
+    else:
+        logger.debug(f"從快取中獲取排課結果，長度={len(options)}")
 
     # 如果沒有選項，返回空結果
     if not options:

@@ -1,5 +1,8 @@
 """批量處理的包裝函數"""
+from calendar import week
 from typing import List, Literal, Union
+
+from tomlkit import item
 
 def batch_process(
     source_teacher: str,
@@ -19,7 +22,9 @@ def batch_process(
     # 路徑過濾條件（僅用於 rotation 和 swap 模式）
     exclude_teachers: list[str | None] = [],
     # 代課模式專用參數
-    source: Literal["official_website", "wiki"] = "wiki"
+    source: Literal["official_website", "wiki"] = "wiki",
+    # 分頁設定
+    items_per_page: int = 3
 ):
     """
     批量處理一位老師在指定時段內的所有課程調動或代課安排
@@ -53,15 +58,13 @@ def batch_process(
         source: 代課資料來源
             - "official_website": 使用官方網站的資料
             - "wiki": 使用台南一中社群編寫的 Wiki 資料
+        
+        # 分頁設定
+        items_per_page: 每頁顯示的結果數量（輪調、互換預設為3，代課預設為10）
 
     Returns:
         批量處理結果
     """
-
-    if mode in ["rotation", "swap"]:
-        items_per_page = 3
-    elif mode == "substitute":
-        items_per_page = 5
     import asyncio
     from tnfsh_class_table.ai_tools.scheduling.batch.process import (
         async_batch_process,
@@ -135,20 +138,21 @@ if __name__ == "__main__":
         exclude_teachers=[]
     )
     """
-    result = batch_process(
-        source_teacher="汪登隴",
-        weekday=2,
-        time_range="full_day",
-        mode="swap",
-        teacher_involved=2,
-        page=2,
-    )
-    from google.genai import types
-    from google import genai
-    import os
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
-    fn_decl = types.FunctionDeclaration.from_callable(callable=batch_process, client=client)
-    import json
-    #print(f"函數聲明: {json.dumps(fn_decl.to_json_dict(), indent=2, ensure_ascii=False)}")      
-    print(result)
+    source_teacher = "汪登隴"
+    weekday = 2
+    time_range = "full_day"
+    mode = "substitute"
+    source = "wiki"
+    for page in range(1, 4):
+        print(f"處理第 {page} 頁的結果...")
+        result = batch_process(
+            source_teacher=source_teacher,
+            weekday=weekday,
+            time_range=time_range,
+            mode=mode,
+            page=page,
+            source=source,
+            items_per_page=2  # 每頁顯示10個結果
+        )
+        print(result)
+    
