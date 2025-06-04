@@ -4,8 +4,8 @@ from typing import List, Literal, Union
 def batch_process(
     source_teacher: str,
     weekday: int,
-    time_range: Literal["morning", "afternoon", "full_day"],
-    mode: Literal["rotation", "swap", "substitute"],
+    time_range: str,
+    mode: str,
     teacher_involved: int = 2,
     page: int = 1,
     # 第一候選課程過濾條件（僅用於 rotation 和 swap 模式）
@@ -55,8 +55,12 @@ def batch_process(
             - "wiki": 使用台南一中社群編寫的 Wiki 資料
 
     Returns:
-        Union[BatchResult, BatchSubstituteResult]: 批量處理結果
+        批量處理結果
     """
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    logger = core.get_logger()
+    logger.info(f"開始批量處理：教師={source_teacher}, 星期={weekday}, 時段={time_range}, 模式={mode}, 頁碼={page}")
     if mode in ["rotation", "swap"]:
         items_per_page = 3
     elif mode == "substitute":
@@ -101,7 +105,7 @@ def batch_process(
 
     # 檢查參數邏輯
     filter_params.logic_check()
-
+    
     return asyncio.run(async_batch_process(
         source_teacher=source_teacher,
         weekday=weekday,
@@ -111,7 +115,8 @@ def batch_process(
         page=page,
         items_per_page=items_per_page,
         filter_params=filter_params
-    ))
+    )).model_dump_json()
+
 
 if __name__ == "__main__":
     # 測試用例

@@ -24,7 +24,7 @@ async def async_batch_process(
     page: int = 1,
     items_per_page: int = 3,
     filter_params: FilterParams = None
-) -> BatchResult:
+):
     """
     批量處理一位老師在指定時段內的所有課程調動
 
@@ -136,7 +136,7 @@ async def async_batch_substitute(
     source: Literal["official_website", "wiki"] = "wiki",
     page: int = 1,
     items_per_page: int = 5
-) -> BatchSubstituteResult:
+):
     """
     批量處理一位老師在指定時段內的所有課程代課安排
 

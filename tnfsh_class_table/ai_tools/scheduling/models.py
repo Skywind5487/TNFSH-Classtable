@@ -116,7 +116,7 @@ class PaginatedResult(BaseModel):
     def total_items(self) -> int:
         return len(self.options)
 
-    def get_page(self, page: int) -> 'PaginatedResult':
+    def get_page(self, page: int):
         """獲取指定頁碼的結果"""
         if page < 1 or page > self.total_pages:
             raise ValueError(f"頁碼必須在 1 到 {self.total_pages} 之間")

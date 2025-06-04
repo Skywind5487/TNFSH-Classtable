@@ -3,9 +3,8 @@ from abc import ABC, abstractmethod
 from typing import Set, TYPE_CHECKING
 from pydantic import BaseModel, Field
 
-if TYPE_CHECKING:
-    from tnfsh_class_table.ai_tools.scheduling.models import Path
-    from tnfsh_class_table.change_class import CourseNode
+
+from tnfsh_class_table.ai_tools.scheduling.models import Path
 
 
 class FirstCandidateCourseFilters(BaseModel):

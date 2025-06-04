@@ -29,7 +29,7 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
         return types.GenerateContentConfig(
             temperature=0.8,
-            max_output_tokens=2000,
+            max_output_tokens=10000,
             tools=self.get_tools(),
             system_instruction=get_system_instruction()
         )
