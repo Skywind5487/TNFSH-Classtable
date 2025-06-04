@@ -202,7 +202,7 @@ class GradioInterface:
                 save_file = gr.File(label="下載檔案")
                 file_info = gr.TextArea(label="檔案資訊", interactive=False)
                 save_message = gr.Textbox(label="訊息")
-                gr.Button("下載課表").click(
+                save_btn.click(
                     fn=lambda g, c, f: self._save_class_file(g, c, f),
                     inputs=[save_grade, save_class, save_format],
                     outputs=[save_file, save_message, file_info],
@@ -244,7 +244,7 @@ class GradioInterface:
                     teacher_choice = gr.Dropdown(choices=[], label="老師", interactive=True)
                     dropdown_teacher_btn = gr.Button("顯示老師課表")
                 
-                subject_choice.select(  # 改用 .change() 而不是 .select()
+                teacher_tab.select(  # 改用 .change() 而不是 .select()
                     fn=choose_subject,
                     inputs=[subject_choice],
                     outputs=[teacher_choice]
@@ -270,7 +270,7 @@ class GradioInterface:
                 
 
 
-            with gr.Tab("下載老師課表"):
+            with gr.Tab("下載老師課表") as teacher_download_tab:
                 """
                 原本的老師課表下載方式
                 with gr.Row():
@@ -306,17 +306,18 @@ class GradioInterface:
                     save_subject = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
                     save_teacher = gr.Dropdown(choices=[], label="老師", interactive=True)
                     save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_teacher_btn = gr.Button("下載老師課表至此")
+                    save_teacher_btn = gr.Button("下載老師課表")
                 
-                subject_choice.select(  # 改用 .change() 而不是 .select()
+                teacher_download_tab.select(  
                     fn=choose_subject,
                     inputs=[save_subject],
                     outputs=[save_teacher]
                 )
+
                 save_teacher_file = gr.File(label="下載檔案")
                 teacher_file_info = gr.TextArea(label="檔案資訊", interactive=False)
                 teacher_save_message = gr.Textbox(label="訊息")
-                gr.Button("下載老師課表至本機").click(
+                save_teacher_btn.click(
                     fn=lambda t, f: self._save_teacher_file(t, f),
                     inputs=[save_teacher, save_teacher_format],
                     outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
