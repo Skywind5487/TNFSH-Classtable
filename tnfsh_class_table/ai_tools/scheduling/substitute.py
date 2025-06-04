@@ -21,6 +21,8 @@ async def async_substitute(
     """
     async 方法，請調用非 async 方法 `substitute` 來使用。
     """
+    # logger: start
+    logger.info(f"[Substitute] 開始尋找代課教師：{source_teacher}, 星期={weekday}, 節次={period}, 模式={source}, 頁碼={page}")
     try:
         # 驗證基本參數
         if not isinstance(weekday, int) or not 1 <= weekday <= 5:
@@ -52,7 +54,7 @@ async def async_substitute(
                 time=StreakTime(weekday=weekday, period=period, streak=streak)
             )
 
-        logger.info(f"開始尋找代課教師：{source_teacher}, 星期={weekday}, 節次={period}, 模式={source}, 頁碼={page}")
+        logger.info(f"[Substitute] 開始尋找代課教師：{source_teacher}, 星期={weekday}, 節次={period}, 模式={source}, 頁碼={page}")
 
         # 嘗試從快取獲取結果
         cache_key = CacheKey(
@@ -231,8 +233,8 @@ async def async_substitute(
         # 無論是使用快取還是新計算的結果，都用相同的邏輯處理分頁
         total_items = len(free_substitute_teachers)
         total_pages = ceil(total_items / items_per_page)
-        
-        logger.debug(f"代課教師數量：{total_items}, 總頁數：{total_pages}, 頁碼={page}")
+
+        logger.debug(f"[Substitute] 代課教師數量：{total_items}, 總頁數：{total_pages}, 頁碼={page}")
         result = PaginatedSubstituteResult(
             target=source_teacher,
             mode=source,

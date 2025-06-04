@@ -142,8 +142,8 @@ if __name__ == "__main__":
         source_teacher="汪登隴",
         weekday=2,
         time_range="full_day",
-        mode="substitute",
-        source="wiki",
+        mode="rotation",
+        teacher_involved=2,
         page=1,
     )
     from google.genai import types

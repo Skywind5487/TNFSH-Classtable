@@ -69,13 +69,6 @@ def swap(
     import asyncio
     from tnfsh_class_table.ai_tools.scheduling.swap import async_swap
     from tnfsh_class_table.ai_tools.scheduling.filter_func.base import FilterParams, FirstCandidateCourseFilters, PathFilters
-    from tnfsh_timetable_core import TNFSHTimetableCore
-    
-    core = TNFSHTimetableCore()
-    logger = core.get_logger()
-
-    logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
-    logger.debug(f"過濾條件：包含星期={include_weekdays}, 排除星期={exclude_weekdays}, \n包含節次={include_periods}, 排除節次={exclude_periods}, \n只要早上課={morning_only}, 只要下午課={afternoon_only}, \n排除教師={exclude_teachers}, 目標教師={destination_teacher}")
 
     # 將 list 轉換成 set
     filter_params = FilterParams(
@@ -103,7 +96,6 @@ def swap(
         page=page,
         filter_params=filter_params
     ))
-    logger.info(f"找到 {len(result.options)} 條交換課程")
     return result
 
 

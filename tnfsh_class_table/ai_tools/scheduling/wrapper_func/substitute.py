@@ -1,4 +1,5 @@
 from typing import Literal
+from venv import logger
 
 def substitute(
         source_teacher: str,
@@ -32,8 +33,8 @@ def substitute(
     """
     import asyncio
     from tnfsh_class_table.ai_tools.scheduling.substitute import async_substitute
-    return asyncio.run(async_substitute(source_teacher, weekday, period, source, page))
-
+    result = asyncio.run(async_substitute(source_teacher, weekday, period, source, page))
+    return result
 if __name__ == "__main__":
     # 測試用例
     try:

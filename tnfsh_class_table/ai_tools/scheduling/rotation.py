@@ -44,8 +44,9 @@ async def async_rotation(
             - path: 路徑過濾條件
     """
     # logger: start
-    logger.info(f"開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
-    
+    logger.info(f"[Rotation] 開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
+    logger.info(f"[Rotation] 過濾條件: {filter_params}")
+
     scheduling = await core.fetch_scheduling()
     try:
         src_course_node = await scheduling.fetch_course_node(
@@ -191,7 +192,7 @@ async def async_rotation(
     )
     
     # 返回指定頁碼的結果
-    logger.debug(f"輪調課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(rotation_paths)}")
+    logger.debug(f"[Rotation] 輪調課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(rotation_paths)}")
     return result.get_page(page)
 
 

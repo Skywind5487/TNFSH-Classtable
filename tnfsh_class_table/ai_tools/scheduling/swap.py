@@ -32,8 +32,9 @@ async def async_swap(
     teacher_involved = teacher_involved - 1 # 因為 source_teacher 已經算在內了，所以實際上參與交換的教師數量是 teacher_involved - 1
     
     # logger: start
-    logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
-    
+    logger.info(f"[Swap] 開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
+    logger.info(f"[Swap] 過濾條件: {filter_params}")
+
     # 獲取原課程節點
     scheduling = await core.fetch_scheduling()
     try:
@@ -169,7 +170,7 @@ async def async_swap(
     )
 
     # 返回指定頁碼的結果
-    logger.debug(f"交換課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(swap_paths)}")
+    logger.debug(f"[Swap] 交換課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(swap_paths)}")
     return result.get_page(page)
 
 if __name__ == "__main__":
