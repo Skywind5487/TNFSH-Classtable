@@ -41,7 +41,7 @@ def batch_process(
             - "swap": 交換模式
             - "substitute": 代課模式
         teacher_involved: 參與調課的教師數量（預設為2，僅用於 rotation 和 swap 模式）
-        page: 分頁頁碼（從1開始計數）
+        page: 分頁頁碼（從1開始計數）。可以增加此參數將各個結果都統一翻到下一頁。
         items_per_page: 每頁顯示的結果數量
 
         # 以下參數僅用於 rotation 和 swap 模式
@@ -141,8 +141,8 @@ if __name__ == "__main__":
     source_teacher = "汪登隴"
     weekday = 2
     time_range = "full_day"
-    mode = "substitute"
-    source = "wiki"
+    mode = "swap"
+    teacher_involved = 2
     for page in range(1, 4):
         print(f"處理第 {page} 頁的結果...")
         result = batch_process(
@@ -151,8 +151,8 @@ if __name__ == "__main__":
             time_range=time_range,
             mode=mode,
             page=page,
-            source=source,
-            items_per_page=2  # 每頁顯示10個結果
+            teacher_involved=teacher_involved,
+            items_per_page=3  # 每頁顯示3個結果
         )
         print(result)
     
