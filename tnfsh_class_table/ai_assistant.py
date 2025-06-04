@@ -1,3 +1,4 @@
+import random
 from tnfsh_class_table.ai_tools.index.timetable_index import get_timetable_index
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 
@@ -10,6 +11,8 @@ from datetime import datetime
 import os
 from google.genai import types
 from tnfsh_class_table.utils.log_func import log_func
+
+random_seed = 42  # 固定隨機種子以確保可重現性
 
 class AIAssistant:
     def __init__(self):
@@ -29,9 +32,11 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
         return types.GenerateContentConfig(
             temperature=0.3,
+            top_p=0.95,
             max_output_tokens=4000,
             tools=self.get_tools(),
-            system_instruction=get_system_instruction()
+            system_instruction=get_system_instruction(),
+            seed=random_seed
         )
 
     def get_tools(self):
