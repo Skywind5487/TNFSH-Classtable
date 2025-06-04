@@ -8,7 +8,7 @@ class BatchResult(BaseModel):
     teacher: str
     mode: Literal["rotation", "swap"]
     time_range: Literal["morning", "afternoon", "full_day"]
-    results: List[PaginatedResult]
+    period_results: List[PaginatedResult]
 
 
 class BatchSubstituteResult(BaseModel):
@@ -16,4 +16,4 @@ class BatchSubstituteResult(BaseModel):
     teacher: str
     mode: Literal["substitute"]
     time_range: Literal["morning", "afternoon", "full_day"]
-    results: List[PaginatedSubstituteResult]
+    period_results: List[PaginatedSubstituteResult]
