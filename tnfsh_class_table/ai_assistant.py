@@ -28,7 +28,7 @@ class AIAssistant:
     def get_config(self):
         from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
         return types.GenerateContentConfig(
-            temperature=0.8,
+            temperature=0.3,
             max_output_tokens=4000,
             tools=self.get_tools(),
             system_instruction=get_system_instruction()
