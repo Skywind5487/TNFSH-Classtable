@@ -84,7 +84,7 @@ async def async_batch_process(
             logger.debug(f"course_node: {course_node.short()}")
             if course_node.time.period + course_node.time.streak - 1 < current_period:
                 # 如果課程的實際節次小於當前節次，則跳過
-                raise ValueError(f"可能是因為有一老師對多班級等情況出現") 
+                raise ValueError(f"可能是因為一堂課同時要教多班級等情況出現")
 
         except ValueError as e:
             current_period -= 1
@@ -204,7 +204,7 @@ async def async_batch_substitute(
             logger.debug(f"course_node: {course_node.short()}")
             if course_node.time.period + course_node.time.streak - 1 < current_period:
                 # 如果課程的實際節次小於當前節次，則跳過
-                raise ValueError(f"可能是因為有一老師對多班級等情況出現")
+                raise ValueError(f"可能是因為一堂課同時要教多班級等情況出現")
 
         except ValueError as e:
             current_period -= 1
