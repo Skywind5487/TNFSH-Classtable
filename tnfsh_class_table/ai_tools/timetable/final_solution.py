@@ -1,5 +1,4 @@
-
-async def async_final_solution():
+async def async_final_solution() -> str:
     """
     async 方法，請調用非 async 方法 `final_solution` 來使用。
     """
@@ -28,5 +27,8 @@ async def async_final_solution():
 
 if __name__ == "__main__":
     import asyncio
-    result = asyncio.run(async_final_solution())
-    print(result)
+    with open("final_solution_result.json", "w", encoding="utf-8") as f:
+        result = asyncio.run(async_final_solution())
+        import json
+        result = json.loads(result)
+        f.write(json.dumps(result, ensure_ascii=False, indent=4))
