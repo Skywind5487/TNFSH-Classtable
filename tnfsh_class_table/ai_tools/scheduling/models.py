@@ -1,4 +1,5 @@
 from __future__ import annotations
+from gc import enable
 from typing import List, Optional
 from pydantic import BaseModel
 from math import ceil
@@ -9,6 +10,7 @@ core = TNFSHTimetableCore()
 logger = core.get_logger()
 
 random_seed = 42  # 設定固定的隨機種子
+enable_subject_and_class_in_main_instruction = False  # 是否在主要指令中包含科目和班級資訊
 
 class RotationStep(BaseModel):
     """輪調步驟的資料模型"""
@@ -26,12 +28,21 @@ class RotationStep(BaseModel):
         class2 = ','.join(c.class_code for c in node2.classes.values())
 
         # 設定主要指令
-        main_instruction = (
-            f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節上的{node1.subject}"
-            f"{str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
-            f"({class1}) 搬到 週{node2.time.weekday}第{node2.time.period}節"
-            f"{str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''} ({class2})"
-        )
+        if enable_subject_and_class_in_main_instruction:
+                
+            main_instruction = (
+                f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節上的{node1.subject}"
+                f"{str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
+                f"({class1}) 搬到 週{node2.time.weekday}第{node2.time.period}節"
+                f"{str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''} ({class2})"
+            )
+        else:
+            main_instruction = (
+                f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節"
+                f"{'的'+str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
+                f"搬到 週{node2.time.weekday}第{node2.time.period}節"
+                f"{'的'+str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''}"
+            )
 
         # 建立實例
         instance = cls(
@@ -72,14 +83,25 @@ class SwapStep(RotationStep):
         teacher2 = ','.join(t.teacher_name for t in node2.teachers.values())
         class2 = ','.join(c.class_code for c in node2.classes.values())
 
-        # 設定主要指令（互換格式）
-        main_instruction = (
-            f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節上的{node1.subject}"
-            f"{str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
-            f"({class1}) 與 {teacher2} 老師週{node2.time.weekday}第{node2.time.period}節上的{node2.subject}"
-            f"{str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''} "
-            f"({class2}) 互換"
-        )
+        if enable_subject_and_class_in_main_instruction:
+                
+            # 設定主要指令（互換格式）
+            main_instruction = (
+                f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節上的{node1.subject}"
+                f"{str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
+                f"({class1}) 與 {teacher2} 老師週{node2.time.weekday}第{node2.time.period}節上的{node2.subject}"
+                f"{str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''} "
+                f"({class2}) 互換"
+            )
+        else:
+            # 設定主要指令（互換格式）
+            main_instruction = (
+                f"將 {teacher1} 老師週{node1.time.weekday}第{node1.time.period}節"
+                f"{'的'+str(node1.time.streak)+'連堂' if node1.time.streak and node1.time.streak != 1 else ''} "
+                f"與 {teacher2} 老師週{node2.time.weekday}第{node2.time.period}節"
+                f"{'的'+str(node2.time.streak)+'連堂' if node2.time.streak and node2.time.streak != 1 else ''} "
+                f"互換"
+            )
 
         # 建立實例
         instance = cls(
