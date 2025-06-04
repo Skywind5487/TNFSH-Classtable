@@ -134,8 +134,20 @@ class GradioInterface:
             theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
         ) as demo:
             gr.Markdown("# 臺南一中課表查詢系統")
-            gr.Markdown("[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
-            with gr.Tab("AI Assistant"):
+            gr.Markdown("關於本系統：[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
+            
+            with gr.Tab("首頁"):
+                gr.Markdown("## 歡迎使用臺南一中課表查詢系統")
+                gr.Markdown("### 功能介紹")
+                gr.Markdown("""
+                - **AI 助手**：與其對話，查詢調課與代課方式、竹園Wiki、課表等資訊。
+                - **顯示班級課表**：選擇年級和班級，顯示該班級的課表。
+                - **下載班級課表**：選擇年級和班級，下載該班級的課表檔案。
+                - **顯示老師課表**：選擇科目與老師，顯示該老師的課表。
+                - **下載老師課表**：選擇科目與老師，下載該老師的課表檔案。
+                """)
+
+            with gr.Tab("AI 助手"):
                 gr.Markdown("# 臺南一中 AI 助手")
                 gr.Markdown("## 功能介紹")
                 gr.Markdown("""
@@ -250,13 +262,14 @@ class GradioInterface:
                     outputs=[teacher_choice]
                 )
                 # </下拉式選單>
-                teacher_message = gr.Textbox(label="訊息")
+                
                 dropdown_teacher_table = gr.Dataframe(label="老師課表")
                 dropdown_teacher_btn.click(
                     fn=lambda t: self._display_teacher_table(t),
                     inputs=[teacher_choice],
                     outputs=[dropdown_teacher_table, teacher_message]
                 )
+                teacher_message = gr.Textbox(label="訊息")
                 # ======下拉式選單結束=====
                 """
                 原先印出的各科目老師名單
