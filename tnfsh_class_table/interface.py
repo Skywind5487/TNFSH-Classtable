@@ -135,24 +135,6 @@ class GradioInterface:
         ) as demo:
             gr.Markdown("# 臺南一中課表查詢系統")
             gr.Markdown("[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
-            with gr.Tab("下載課表"):
-                gr.Markdown("# 下載到Google Calendar")
-                gr.Markdown("請選ICS格式，並下載檔案後，請參考說明進行匯入")
-                gr.Markdown("說明: [Google匯入日曆說明](https://support.google.com/calendar/answer/37118?hl=zh-Hant)")
-                with gr.Row():
-                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
-                    save_class = gr.Dropdown(choices=self.classes, label="班級")
-                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_btn = gr.Button("下載課表")
-                save_file = gr.File(label="下載檔案")
-                file_info = gr.TextArea(label="檔案資訊", interactive=False)
-                save_message = gr.Textbox(label="訊息")
-                gr.Button("下載課表").click(
-                    fn=lambda g, c, f: self._save_class_file(g, c, f),
-                    inputs=[save_grade, save_class, save_format],
-                    outputs=[save_file, save_message, file_info],
-                )
-            
             with gr.Tab("AI Assistant"):
                 gr.Markdown("# 臺南一中 AI 助手")
                 gr.Markdown("## 功能介紹")
@@ -183,7 +165,13 @@ class GradioInterface:
                 )
                 refresh_btn = gr.Button("重新整理")
 
-            with gr.Tab("顯示課表") as class_tab:
+                refresh_btn.click(
+                fn=self.Ai.refresh_chat,
+                inputs=[],
+                outputs=[gr.Textbox(label="重新整理紀錄")]
+                )
+            
+            with gr.Tab("顯示班級課表") as class_tab:
                 with gr.Row():
                     display_grade = gr.Dropdown(choices=self.grades, label="年級")
                     display_class = gr.Dropdown(choices=self.classes, label="班級")
@@ -200,6 +188,24 @@ class GradioInterface:
                     fn=lambda: (display_table, class_message, class_markdown),
                     inputs=[],
                     outputs=[display_table, class_message, class_markdown]
+                )
+            
+            with gr.Tab("下載班級課表"):
+                gr.Markdown("# 下載到Google Calendar")
+                gr.Markdown("請選ICS格式，並下載檔案後，請參考說明進行匯入")
+                gr.Markdown("說明: [Google匯入日曆說明](https://support.google.com/calendar/answer/37118?hl=zh-Hant)")
+                with gr.Row():
+                    save_grade = gr.Dropdown(choices=self.grades, label="年級")
+                    save_class = gr.Dropdown(choices=self.classes, label="班級")
+                    save_format = gr.Dropdown(choices=self.export_formats, label="格式")
+                    save_btn = gr.Button("下載課表")
+                save_file = gr.File(label="下載檔案")
+                file_info = gr.TextArea(label="檔案資訊", interactive=False)
+                save_message = gr.Textbox(label="訊息")
+                gr.Button("下載課表").click(
+                    fn=lambda g, c, f: self._save_class_file(g, c, f),
+                    inputs=[save_grade, save_class, save_format],
+                    outputs=[save_file, save_message, file_info],
                 )
             
             with gr.Tab("顯示老師課表") as teacher_tab:
@@ -238,7 +244,7 @@ class GradioInterface:
                     teacher_choice = gr.Dropdown(choices=[], label="老師", interactive=True)
                     dropdown_teacher_btn = gr.Button("顯示老師課表")
                 
-                subject_choice.change(  # 改用 .change() 而不是 .select()
+                subject_choice.select(  # 改用 .change() 而不是 .select()
                     fn=choose_subject,
                     inputs=[subject_choice],
                     outputs=[teacher_choice]
@@ -265,6 +271,8 @@ class GradioInterface:
 
 
             with gr.Tab("下載老師課表"):
+                """
+                原本的老師課表下載方式
                 with gr.Row():
                     save_teacher = gr.Textbox(label="老師名稱")
                     save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
@@ -277,6 +285,8 @@ class GradioInterface:
                     inputs=[save_teacher, save_teacher_format],
                     outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
                 )
+                """
+
                 # =====下拉式選單儲存老師課表檔案=====
 
                 dropdown_list = {} 
@@ -296,9 +306,9 @@ class GradioInterface:
                     save_subject = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
                     save_teacher = gr.Dropdown(choices=[], label="老師", interactive=True)
                     save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
-                    save_teacher_btn = gr.Button("下載老師課表")
+                    save_teacher_btn = gr.Button("下載老師課表至此")
                 
-                subject_choice.change(  # 改用 .change() 而不是 .select()
+                subject_choice.select(  # 改用 .change() 而不是 .select()
                     fn=choose_subject,
                     inputs=[save_subject],
                     outputs=[save_teacher]
@@ -306,7 +316,7 @@ class GradioInterface:
                 save_teacher_file = gr.File(label="下載檔案")
                 teacher_file_info = gr.TextArea(label="檔案資訊", interactive=False)
                 teacher_save_message = gr.Textbox(label="訊息")
-                gr.Button("下載老師課表").click(
+                gr.Button("下載老師課表至本機").click(
                     fn=lambda t, f: self._save_teacher_file(t, f),
                     inputs=[save_teacher, save_teacher_format],
                     outputs=[save_teacher_file, teacher_save_message, teacher_file_info],
@@ -339,12 +349,6 @@ class GradioInterface:
                 fn=lambda t, f: self._save_teacher_file(t, f),
                 inputs=[save_teacher, save_teacher_format],
                 outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
-            )
-
-            refresh_btn.click(
-                fn=self.Ai.refresh_chat,
-                inputs=[],
-                outputs=[gr.Textbox(label="重新整理紀錄")]
             )
 
             # 啟動介面
