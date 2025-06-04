@@ -55,6 +55,7 @@ class AIAssistant:
         from tnfsh_class_table.ai_tools.scheduling.wrapper_func.swap import swap
         from tnfsh_class_table.ai_tools.scheduling.wrapper_func.rotation import rotation
         from tnfsh_class_table.ai_tools.scheduling.wrapper_func.substitute import substitute
+        from tnfsh_class_table.ai_tools.scheduling.wrapper_func.batch import batch_process
 
         from tnfsh_class_table.ai_tools.system.self_introduction import get_self_introduction
         from tnfsh_class_table.ai_tools.system.system_instruction import get_system_instruction
@@ -82,6 +83,7 @@ class AIAssistant:
             swap,
             rotation,
             substitute,
+            batch_process,
             
             # system
             get_self_introduction,
