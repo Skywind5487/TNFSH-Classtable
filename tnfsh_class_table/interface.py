@@ -1,5 +1,4 @@
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
-from tnfsh_class_table.depth_1_change_course import change_course
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
 from typing import Any, List, Union, Optional, Literal
