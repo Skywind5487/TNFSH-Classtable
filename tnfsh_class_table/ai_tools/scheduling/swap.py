@@ -33,6 +33,20 @@ async def async_swap(
     # logger: start
     logger.info(f"開始交換課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
     
+    # 獲取原課程節點
+    scheduling = await core.fetch_scheduling()
+    try:
+        src_course_node = await scheduling.fetch_course_node(
+            teacher_name=source_teacher, 
+            weekday=weekday, 
+            period=period,
+            ignore_condition=False  # 忽略條件，確保能找到節點
+        )
+        streak = src_course_node.time.streak
+    except Exception as e:
+        logger.warning(f"無法找到原課程節點: {str(e)}")
+        streak = 1  # 如果找不到節點，預設為 1
+    
     options = await core.scheduling_swap(
         teacher_name=source_teacher,
         weekday=weekday,
@@ -40,8 +54,21 @@ async def async_swap(
         max_depth=teacher_involved
     )
     if not options:
-        raise ValueError("無法找到交換課程，請確認教師名稱、星期和節次是否正確。")
-      # 建立過濾器
+        logger.warning("無法找到交換課程")
+        from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+        return PaginatedResult(
+            target=source_teacher,
+            mode="swap",
+            weekday=weekday,
+            period=period,
+            streak=streak,  # 使用從節點獲取到的或預設的 streak
+            current_page=1,
+            total_pages=0,
+            options=[],
+            items_per_page=items_per_page
+        )
+
+    # 建立過濾器
     first_candidate_filter = SwapFirstCandidateFilter(
         source_teacher, 
         weekday, 
@@ -69,16 +96,31 @@ async def async_swap(
             continue
             
         filtered_options.append(path)
-    
-    options = filtered_options
 
+    # 如果過濾後沒有結果，直接返回空結果
+    if not filtered_options:
+        from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+        logger.warning("過濾後沒有符合條件的交換課程")
+        return PaginatedResult(
+            target=source_teacher,
+            mode="swap",
+            weekday=weekday,
+            period=period,
+            streak=streak,  # 使用從節點獲取到的或預設的 streak
+            current_page=1,
+            total_pages=0,
+            options=[],
+            items_per_page=items_per_page
+        )
+
+    options = filtered_options
 
     # random shuffle paths with fixed seed
     import random
     random.seed(random_seed)  # 設定固定的 seed
     random.shuffle(options)
     random.seed()    # 重設 seed
-    
+
     from math import ceil
     from tnfsh_class_table.ai_tools.scheduling.models import SwapStep, Path, PaginatedResult
 
@@ -93,19 +135,23 @@ async def async_swap(
                 step = await SwapStep.create(node1, node2, j//2)  # j//2 因為每兩個節點算一步
                 path_steps.append(step)
         if path_steps:  # 只有當有步驟時才加入路徑
-            swap_paths.append(Path(route=path_steps, route_id=len(swap_paths) + 1))      # 創建分頁結果
+            swap_paths.append(Path(route=path_steps, route_id=len(swap_paths) + 1))
+
+    # 創建分頁結果
     total_pages = ceil(len(swap_paths) / items_per_page)
+    from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
     result = PaginatedResult(
         target=source_teacher,
         mode="swap",
-        weekday=weekday,
-        period=period,
+        weekday=src_course_node.time.weekday if src_course_node else weekday,  # 從節點獲取 weekday，如果節點不存在則使用輸入參數
+        period=src_course_node.time.period if src_course_node else period,      # 從節點獲取 period，如果節點不存在則使用輸入參數
+        streak=src_course_node.time.streak if src_course_node else streak,      # 從節點獲取 streak，如果節點不存在則使用預設值
         current_page=page,
         total_pages=total_pages,
         options=swap_paths,
         items_per_page=items_per_page
     )
-    
+
     # 返回指定頁碼的結果
     logger.debug(f"交換課程結果：總頁數={total_pages}, 頁碼={page}, 項目數={len(swap_paths)}")
     return result.get_page(page)

@@ -8,7 +8,6 @@ def batch_process(
     mode: Literal["rotation", "swap", "substitute"],
     teacher_involved: int = 2,
     page: int = 1,
-    items_per_page: int = 3,
     # 第一候選課程過濾條件（僅用於 rotation 和 swap 模式）
     include_weekdays: list[int | None] = [],
     exclude_weekdays: list[int | None] = [],
@@ -58,6 +57,10 @@ def batch_process(
     Returns:
         Union[BatchResult, BatchSubstituteResult]: 批量處理結果
     """
+    if mode in ["rotation", "swap"]:
+        items_per_page = 3
+    elif mode == "substitute":
+        items_per_page = 5
     import asyncio
     from tnfsh_class_table.ai_tools.scheduling.batch.process import (
         async_batch_process,
@@ -109,3 +112,33 @@ def batch_process(
         items_per_page=items_per_page,
         filter_params=filter_params
     ))
+
+if __name__ == "__main__":
+    # 測試用例
+    """
+    result = batch_process(
+        source_teacher="顏永進",
+        weekday=2,
+        time_range="morning",
+        mode="rotation",
+        teacher_involved=3,
+        page=1,
+        include_weekdays=[],
+        exclude_weekdays=[],
+        include_periods=[],
+        exclude_periods=[],
+        morning_only=False,
+        afternoon_only=False,
+        destination_teacher=None,
+        exclude_teachers=[]
+    )
+    """
+    result = batch_process(
+        source_teacher="汪登隴",
+        weekday=2,
+        time_range="full_day",
+        mode="substitute",
+        source="wiki",
+        page=1,
+    )
+    print(result)

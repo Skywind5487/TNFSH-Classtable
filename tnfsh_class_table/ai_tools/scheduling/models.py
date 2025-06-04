@@ -106,14 +106,16 @@ class PaginatedResult(BaseModel):
     mode: str  # rotation或swap
     weekday: int  # 星期
     period: int  # 節次
+    streak: int  # 連堂節數
     current_page: int
     total_pages: int
     items_per_page: int = 5
-    options: List[Path]
+    options: List[Path] = []
     
     @property
     def total_items(self) -> int:
         return len(self.options)
+
     def get_page(self, page: int) -> 'PaginatedResult':
         """獲取指定頁碼的結果"""
         if page < 1 or page > self.total_pages:
@@ -122,16 +124,17 @@ class PaginatedResult(BaseModel):
         start_idx = (page - 1) * self.items_per_page
         end_idx = start_idx + self.items_per_page
         
-        return PaginatedResult(
-            target=self.target,
+        return PaginatedResult(            target=self.target,
             mode=self.mode,
             weekday=self.weekday,  # 保持星期不變
             period=self.period,    # 保持節次不變
+            streak=self.streak,    # 保持連堂節數不變
             current_page=page,
             total_pages=self.total_pages,
             options=self.options[start_idx:end_idx],
             items_per_page=self.items_per_page
         )
+
 
 from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 from tnfsh_timetable_core.timetable.models import CourseInfo
@@ -142,17 +145,19 @@ class PaginatedSubstituteResult(BaseModel):
     """分頁後的代課結果"""
     target: str
     mode: Literal["official_website", "wiki"]
+    weekday: int  # 星期
+    period: int  # 節次
+    streak: int  # 連堂節數
     current_page: int
     total_pages: int
     items_per_page: int = 5
     teacher_category: str  # 原老師的類別
     source_course: CourseInfoWithTime  # 原課程的資訊
-    options: dict[str, str]  # 包含教師名稱和URL的字典
+    options: dict[str, str] = {}  # 包含教師名稱和URL的字典
     
     @property
     def total_items(self) -> int:
         return len(self.options)
-
 
     def get_page(self, page: int) -> 'PaginatedSubstituteResult':
         """獲取指定頁碼的結果"""
@@ -164,9 +169,12 @@ class PaginatedSubstituteResult(BaseModel):
         
         option_items = list(self.options.items())
 
-        return PaginatedSubstituteResult(
+        return PaginatedSubstituteResult(            
             target=self.target,
             mode=self.mode,
+            weekday=self.weekday,
+            period=self.period,
+            streak=self.streak,
             current_page=page,
             total_pages=self.total_pages,
             teacher_category=self.teacher_category,
@@ -190,18 +198,3 @@ class CourseNotFoundError(Exception):
 class InvalidDataError(Exception):
     """資料無效時拋出的例外"""
     pass
-
-class BatchResult(BaseModel):
-    """一位老師在一個時段內的多堂課調課結果"""
-    teacher: str
-    mode: Literal["rotation", "swap"]
-    time_range: Literal["morning", "afternoon", "full_day"]
-    results: List[PaginatedResult]
-
-
-class BatchResult(BaseModel):
-    """一位老師在一個時段內的多堂課調課結果"""
-    teacher: str
-    mode: Literal["substitute"]
-    time_range: Literal["morning", "afternoon", "full_day"]
-    results: List[PaginatedSubstituteResult]

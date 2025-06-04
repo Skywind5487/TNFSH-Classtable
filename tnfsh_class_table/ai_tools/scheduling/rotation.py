@@ -1,19 +1,19 @@
+"""輪調相關功能"""
 from __future__ import annotations
 from typing import Literal, TYPE_CHECKING, Callable, List
+from math import ceil
 from click import option
 from pydantic import BaseModel
 
 from tnfsh_timetable_core.scheduling.models import CourseNode
 from tnfsh_class_table.ai_tools.scheduling.filter_func.filters import RotationFirstCandidateFilter, TeacherPathFilter
 
-if TYPE_CHECKING:
-    from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+from tnfsh_timetable_core import TNFSHTimetableCore
 
-from tnfsh_timetable_core import TNFSHTimetableCore 
 core = TNFSHTimetableCore()
 logger = core.get_logger()
 
-from tnfsh_class_table.ai_tools.scheduling.models import random_seed
+from tnfsh_class_table.ai_tools.scheduling.models import random_seed, RotationStep, Path, PaginatedResult
 from tnfsh_class_table.ai_tools.scheduling.filter_func.base import FilterParams
 
 
@@ -46,14 +46,40 @@ async def async_rotation(
     logger.info(f"開始輪調課程：教師={source_teacher}, 星期={weekday}, 節次={period}, 最大深度={teacher_involved}, 頁碼={page}")
     from tnfsh_timetable_core import TNFSHTimetableCore
     core = TNFSHTimetableCore()
+    scheduling = await core.fetch_scheduling()
+    try:
+        src_course_node = await scheduling.fetch_course_node(
+            teacher_name=source_teacher, 
+            weekday=weekday, 
+            period=period,
+            ignore_condition=False  # 忽略條件，確保能找到節點
+        )
+        streak = src_course_node.time.streak
+    except Exception as e:
+        logger.warning(f"無法找到原課程節點: {str(e)}")
+        streak = 1  # 如果找不到節點，預設為 1
+
     options = await core.scheduling_rotation(
         teacher_name=source_teacher,
         weekday=weekday,
         period=period,
         max_depth=teacher_involved
-    )
+    )    
     if not options:
-        raise ValueError("無法找到輪調課程，請確認教師名稱、星期和節次是否正確。")
+        logger.warning("無法找到輪調課程")
+        from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+        return PaginatedResult(
+            target=source_teacher,
+            mode="rotation",
+            weekday=weekday,
+            period=period,
+            streak=streak,  # 使用從節點獲取到的或預設的 streak
+            current_page=1,
+            total_pages=0,
+            options=[],
+            items_per_page=items_per_page
+        )
+
     # 建立過濾器
     first_candidate_filter = RotationFirstCandidateFilter(
         source_teacher, 
@@ -83,8 +109,24 @@ async def async_rotation(
             
         filtered_options.append(path)
 
-    options = filtered_options
+    # 如果過濾後沒有結果，直接返回空結果
+    if not filtered_options:
+        logger.warning("過濾後沒有符合條件的輪調課程")
+        from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+        return PaginatedResult(
+            target=source_teacher,
+            mode="rotation",
+            weekday=weekday,
+            period=period,
+            streak=streak,  # 使用從節點獲取到的或預設的 streak
+            current_page=1,
+            total_pages=0,
+            options=[],
+            items_per_page=items_per_page
+        )
 
+    options = filtered_options
+    
     # random shuffle paths with fixed seed
     import random
     random.seed(random_seed)  # 設定固定的 seed
@@ -92,8 +134,6 @@ async def async_rotation(
     random.seed()    # 重設 seed
 
 
-    from math import ceil
-    from tnfsh_class_table.ai_tools.scheduling.models import RotationStep, Path, PaginatedResult
     # 處理所有路徑並轉換成 RotationStep 物件
     rotation_paths = []
     for path in options:
@@ -102,13 +142,32 @@ async def async_rotation(
             node1, node2 = path[j], path[j+1]
             step = await RotationStep.create(node1, node2, j)
             path_steps.append(step)
-        rotation_paths.append(Path(route=path_steps, route_id=len(rotation_paths) + 1))    # 創建分頁結果
+        rotation_paths.append(Path(route=path_steps, route_id=len(rotation_paths) + 1))
+    
+    # 如果沒有可用的路徑，返回空結果
+    if not rotation_paths:
+        from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
+        return PaginatedResult(
+            target=source_teacher,
+            mode="rotation",
+            weekday=weekday,
+            period=period,
+            streak=streak,  # 使用從節點獲取到的或預設的 streak
+            current_page=1,
+            total_pages=0,
+            options=[],
+            items_per_page=items_per_page
+        )
+
+    # 創建分頁結果
     total_pages = ceil(len(rotation_paths) / items_per_page)
+    from tnfsh_class_table.ai_tools.scheduling.models import PaginatedResult
     result = PaginatedResult(
         target=source_teacher,
         mode="rotation",
-        weekday=weekday,
-        period=period,
+        weekday=src_course_node.time.weekday,  # 從節點獲取 weekday
+        period=src_course_node.time.period,    # 從節點獲取 period
+        streak=src_course_node.time.streak,    # 從節點獲取 streak
         current_page=page,
         total_pages=total_pages,
         options=rotation_paths,
