@@ -20,7 +20,7 @@ class SchedulingCache:
     """排課相關功能的快取
     使用 LRU (Least Recently Used) 策略管理快取
     """
-    def __init__(self, max_size: int = 100, ttl: int = 3600):
+    def __init__(self, max_size: int = 100, ttl: int = 36000):
         self._cache: Dict[CacheKey, Tuple[Any, float]] = {}  # (value, timestamp)
         self._max_size = max_size
         self._ttl = ttl  # Time To Live in seconds
