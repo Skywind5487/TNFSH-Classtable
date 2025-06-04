@@ -57,10 +57,7 @@ def batch_process(
     Returns:
         批量處理結果
     """
-    from tnfsh_timetable_core import TNFSHTimetableCore
-    core = TNFSHTimetableCore()
-    logger = core.get_logger()
-    logger.info(f"開始批量處理：教師={source_teacher}, 星期={weekday}, 時段={time_range}, 模式={mode}, 頁碼={page}")
+
     if mode in ["rotation", "swap"]:
         items_per_page = 3
     elif mode == "substitute":
@@ -142,9 +139,9 @@ if __name__ == "__main__":
         source_teacher="汪登隴",
         weekday=2,
         time_range="full_day",
-        mode="rotation",
+        mode="swap",
         teacher_involved=2,
-        page=1,
+        page=2,
     )
     from google.genai import types
     from google import genai

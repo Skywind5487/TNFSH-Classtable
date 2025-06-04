@@ -126,6 +126,7 @@ async def async_batch_process(
         # 如果是連續課程，跳到第一節前一節；否則往前一節
         current_period = working_period - 1    
         period_results.reverse()  # 反轉結果，因為我們是從後往前處理的
+    logger.debug(f"[Batch] 找到 {len(period_results)} 節課程的調動結果")
     return BatchResult(
         teacher=source_teacher,
         mode=mode,
@@ -229,6 +230,7 @@ async def async_batch_substitute(
         # 如果是連續課程，跳到第一節前一節；否則往前一節
         current_period = working_period - 1    
         period_results.reverse()  # 反轉結果，因為我們是從後往前處理的
+    logger.debug(f"[Batch Substitute] 找到 {len(period_results)} 節課程的代課結果")
     return BatchSubstituteResult(
         teacher=source_teacher,
         mode="substitute",
