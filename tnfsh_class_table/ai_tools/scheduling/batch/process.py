@@ -46,6 +46,11 @@ async def async_batch_process(
     Returns:
         BatchResult: 批量處理結果
     """
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    logger = core.get_logger()
+    logger.info(f"[Batch] 開始批量處理：教師={source_teacher}, 星期={weekday}, 時段={time_range}, 模式={mode}, 頁碼={page}")
+    logger.info(f"[Batch] 過濾條件: {filter_params}")
     # 確定要處理的節次範圍
     if time_range == "morning":
         start_period = 1
@@ -156,6 +161,10 @@ async def async_batch_substitute(
     Returns:
         BatchSubstituteResult: 批量處理代課結果
     """
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    logger = core.get_logger()
+    logger.info(f"[Batch Substitute] 開始批量處理代課：教師={source_teacher}, 星期={weekday}, 時段={time_range}, 資料來源={source}, 頁碼={page}")
     # 確定要處理的節次範圍
     if time_range == "morning":
         start_period = 1
