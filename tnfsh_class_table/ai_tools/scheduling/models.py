@@ -191,3 +191,17 @@ class InvalidDataError(Exception):
     """資料無效時拋出的例外"""
     pass
 
+class BatchResult(BaseModel):
+    """一位老師在一個時段內的多堂課調課結果"""
+    teacher: str
+    mode: Literal["rotation", "swap"]
+    time_range: Literal["morning", "afternoon", "full_day"]
+    results: List[PaginatedResult]
+
+
+class BatchResult(BaseModel):
+    """一位老師在一個時段內的多堂課調課結果"""
+    teacher: str
+    mode: Literal["substitute"]
+    time_range: Literal["morning", "afternoon", "full_day"]
+    results: List[PaginatedSubstituteResult]
