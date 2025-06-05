@@ -167,14 +167,16 @@ class GradioInterface:
 
             with gr.Tab("AI 助手"):
                 gr.Markdown("# 臺南一中 AI 助手")
+                gr.Markdown("---------")
                 gr.Markdown("## 第一句從問好開始吧！")
                 gr.Markdown("""
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
                 如果有連結無效、解釋不清楚的問題，可以嘗試向AI再次詢問。\n
-                使用重新整理按鍵可以清除對話紀錄，並重新開始對話。\n
+                使用清除記憶按鍵可以清除AI對話記憶，並重新開始對話。\n
+                想要清空版面請注意對話框右上角的垃圾桶圖標。\n
                 """)
                 gr.Markdown("## ")
-                gr.ChatInterface(
+                chatbox = gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
@@ -182,14 +184,15 @@ class GradioInterface:
                 )
                 a_space = gr.Markdown("\n\n\n")
                 with gr.Row():
-                    refresh_btn = gr.Button(value = "重新整理")
-                    refresh_message=gr.Textbox(label="重新整理紀錄")
+                    refresh_btn = gr.Button(value = "清除記憶")
+                    refresh_message=gr.Textbox(label="清除成功訊息")
 
                 refresh_btn.click(
                 fn=self.Ai.refresh_chat,
                 inputs=[],
                 outputs=[refresh_message]
                 )
+
             
             with gr.Tab("顯示班級課表") as class_tab:
                 with gr.Row():
