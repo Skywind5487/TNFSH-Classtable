@@ -2,7 +2,7 @@ import random
 from tnfsh_class_table.ai_tools.index.timetable_index import get_timetable_index
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 
-from typing import Any, List, Union, Optional, Literal, Dict
+from typing import Any, List, Union, Optional, Literal, Dict, Generator
 import requests
 from google import genai
 import asyncio
@@ -129,15 +129,24 @@ class AIAssistant:
                 )
         return new_history
     
-    def send_message(self, message: str, history: Any) -> str:
+    def send_message(self, message: str, history: Any) -> Generator[str, None, None]:
+        """
+        發送訊息並以字符流的形式返回回應
+        
+        Args:
+            message: 用戶輸入的訊息
+            history: 聊天歷史記錄
+            
+        Yields:
+            str: 逐字符的回應
+        """
         from google.genai.errors import ServerError
         from tnfsh_timetable_core import TNFSHTimetableCore
         import time
         
         core = TNFSHTimetableCore()
         logger = core.get_logger()
-
-         
+        
         logger.info(f"[User Input] {message}")
 
         self.chat = self.client.chats.create(
@@ -148,34 +157,46 @@ class AIAssistant:
 
         for attempt in range(3):
             try:
-                raw_response = self.chat.send_message(message)
-                try:
-                    if hasattr(raw_response, "candidates") and raw_response.candidates:
-                        finish_reason = raw_response.candidates[0].finish_reason
-                        logger.info(f"[Gemini] Finish reason: {finish_reason}")
-                    else:
-                        logger.debug("[Logger] 無法取得 finish_reason，candidates 為空。")
-                except Exception as e:
-                    logger.debug(f"[Logger] Finish reason 資訊無法取得: {e}")
+                # 使用流式輸出
+                response_stream = self.chat.send_message_stream(message)
+                
+                accumulated_text = ""
+                for chunk in response_stream:
+                    if not chunk.text:
+                        continue
+                        
+                    # 逐字符輸出
+                    for char in chunk.text:
+                        accumulated_text += char
+                        time.sleep(0.01)  # 模擬逐字符輸出，避免過快
+                        yield accumulated_text  # 返回目前累積的全部文本
+                    
+                    # 記錄日誌
+                    logger.info(f"[AI Assistant][Chunk] {chunk.text}")
 
-                logger.info(f"[AI Assistant][Full] {raw_response.text}")
+                    try:
+                        if hasattr(chunk, "candidates") and chunk.candidates:
+                            finish_reason = chunk.candidates[0].finish_reason
+                            logger.info(f"[Gemini] Finish reason: {finish_reason}")
+                    except Exception as e:
+                        logger.debug(f"[Logger] Finish reason 資訊無法取得: {e}")
 
-                # 記錄模型與 token 資訊（如果有）
-                try:
-                    usage = raw_response.usage_metadata
-                    if usage:
-                        logger.info(
-                            f"[Gemini] tokens: prompt={usage.prompt_token_count}, "
-                            f"response={usage.candidates_token_count}, total={usage.total_token_count}"
-                        )
-                    else:
-                        logger.debug("[Logger] 無法取得 usage_metadata。")
-                except Exception as e:
-                    logger.debug(f"[Logger] Token 資訊無法取得: {e}")
-                if not raw_response.text:
+                    try:
+                        usage = chunk.usage_metadata
+                        if usage:
+                            logger.info(
+                                f"[Gemini] tokens: prompt={usage.prompt_token_count}, "
+                                f"response={usage.candidates_token_count}, total={usage.total_token_count}"
+                            )
+                    except Exception as e:
+                        logger.debug(f"[Logger] Token 資訊無法取得: {e}")
+
+                if not accumulated_text:
                     logger.warning("[AI Assistant] 回應內容為空，請檢查輸入訊息或模型狀態。")
-                    return "⚠️ 抱歉，沒有收到有效的回應。請稍後再試。"  
-                return raw_response.text
+                    yield "⚠️ 抱歉，沒有收到有效的回應。請稍後再試。"
+                    return
+
+                return
 
             except ServerError as e:
                 logger.warning(f"[Retry {attempt+1}] 模型過載，稍後再試... ({e})")
@@ -184,4 +205,20 @@ class AIAssistant:
                 logger.error(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
                 break
 
-        return "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
+        yield "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
+
+
+def main():
+    assistant = AIAssistant()
+    history = [
+        {"role": "user", "content": "你好"},
+        {"role": "assistant", "content": "你好！有什麼我可以幫忙的嗎？"}
+    ]
+    message = "請問今天的課表是什麼？"
+
+    print("AI 回應：")
+    for response in assistant.send_message(message, history):
+        print(response)
+
+if __name__ == "__main__":
+    main()

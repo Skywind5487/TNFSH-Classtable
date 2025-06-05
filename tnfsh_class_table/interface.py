@@ -180,7 +180,7 @@ class GradioInterface:
                 examples = [
                     "你好",
                     "顏永進星期二整天可以怎麼調課？",
-                ]
+                ]                
                 chatbox = gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
@@ -191,7 +191,7 @@ class GradioInterface:
                     cache_mode="eager",
                     autofocus=True,
                     fill_height=True,
-                    save_history=True,
+                    save_history=True
                 )
                 chatbox.chatbot.clear(
                     fn=self.Ai.refresh_chat,
