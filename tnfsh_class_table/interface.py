@@ -203,18 +203,6 @@ class GradioInterface:
                     inputs=[],
                     outputs=[]
                 )
-
-                a_space = gr.Markdown("\n\n\n")
-                with gr.Row():
-                    refresh_btn = gr.Button(value = "清除記憶")
-                    refresh_message=gr.Textbox(label="清除成功訊息")
-
-                refresh_btn.click(
-                fn=self.Ai.refresh_chat,
-                inputs=[],
-                outputs=[refresh_message]
-                )
-
             
             with gr.Tab("顯示班級課表") as class_tab:
                 with gr.Row():
