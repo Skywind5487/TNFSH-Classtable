@@ -5,7 +5,7 @@ from tenacity import retry
 from tnfsh_class_table.ai_tools.index.timetable_index import get_timetable_index
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 
-from typing import Any, List, Union, Optional, Literal, Dict, Generator
+from typing import Any, List, Union, Optional, Literal, Dict, Generator, final
 import requests
 from google import genai
 import asyncio
@@ -220,14 +220,14 @@ class AIAssistant:
 def main():
     assistant = AIAssistant()
     history = [
-        {"role": "user", "content": "你好"},
-        {"role": "assistant", "content": "你好！有什麼我可以幫忙的嗎？"}
     ]
-    message = "請問今天的課表是什麼？"
+    message = "顏永進老師星期三第二節的代課?"
 
     print("AI 回應：")
+    final_response = ""
     for response in assistant.send_message(message, history):
-        print(response)
-
+        final_response = response
+        
+    print(final_response)
 if __name__ == "__main__":
     main()
