@@ -151,7 +151,7 @@ class GradioInterface:
                 - **代課人選**\n
                 本專案可以比對班級課程與空堂，甚至偵測連堂，讓連續課程的調換也不成問題！\n
                 更是透過循環查找，在1分鐘之內提供多種調課選擇！\n
-                只要選擇 **「AI助手」** 標籤，在對話框提出您的需求，AI將引導您完成調、代課！\n
+                ## 選擇 **「AI助手」** 標籤，在對話框提出您的需求，AI將引導您完成調、代課！\n
                 更重要的是本專案創立於開源的社群，相當歡迎使用者提供反饋，如果在使用上出現不方便或bug，歡迎在github或利用gmail聯繫我們團隊(?，我們會盡快回復並修正！
                 - Github: https://github.com/Skywind5487/TNFSH-Classtable
                 - Gmail: skywind5487@gmail.com
@@ -261,7 +261,7 @@ class GradioInterface:
                     
                 with gr.Row():
                     subject_choice = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
-                    teacher_choice = gr.Dropdown(choices=[], label="老師", interactive=True)
+                    teacher_choice = gr.Dropdown(choices=dropdown_list.get(subject_choice.value, []), label="老師", interactive=True)
                     dropdown_teacher_btn = gr.Button("顯示老師課表")
                 
                 subject_choice.change(  # 改用 .change() 而不是 .select()
@@ -301,7 +301,7 @@ class GradioInterface:
                     
                 with gr.Row():
                     save_subject = gr.Dropdown(choices=subject_dropdown, label="科目", interactive=True)
-                    save_teacher = gr.Dropdown(choices=[], label="老師", interactive=True)
+                    save_teacher = gr.Dropdown(choices=dropdown_list.get(save_subject.value, []), label="老師", interactive=True)
                     save_teacher_format = gr.Dropdown(choices=self.export_formats, label="格式")
                     save_teacher_btn = gr.Button("下載老師課表")
                 
