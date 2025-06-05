@@ -153,7 +153,7 @@ class AIAssistant:
         logger = core.get_logger()
         print("test")
         logger.info(f"[User Input] {message}")
-        logger.info(f"[History] {history}")
+
 
         from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type
         @retry(
@@ -168,24 +168,23 @@ class AIAssistant:
                 history=self.convert_to_gemini_format(history)
             )        # 使用流式輸出        
             response_stream = self.chat.send_message_stream(message)
+            # 測試 tenacity retry 功能
+            print("測試 tenacity retry 功能")
             return response_stream  # 返回生成器，逐步返回回應的片段
         response_stream = send_message_stream(message, history)
 
 
         
         accumulated_text = ""
-        seen_parts = set()  # 用於追蹤已經處理過的部分，避免重複輸出
         for chunk in response_stream:
-            parts = chunk.candidates[0].content.parts
-            for part in parts:
-                if getattr(part, "text", None) and not getattr(part, "thought", False):
-                    if part.text in seen_parts:
-                        continue
-                    seen_parts.add(part.text)
-                    for char in part.text:
-                        accumulated_text += char
-                        time.sleep(0.01)
-                        yield accumulated_text
+            if not chunk.text:
+                continue
+                
+            # 逐字符輸出
+            for char in chunk.text:
+                accumulated_text += char
+                time.sleep(0.01)  # 模擬逐字符輸出，避免過快
+                yield accumulated_text  # 返回目前累積的全部文本
             
             # 記錄日誌
             logger.info(f"[AI Assistant][Chunk] {chunk.text}")
@@ -221,14 +220,14 @@ class AIAssistant:
 def main():
     assistant = AIAssistant()
     history = [
-        
+        {"role": "user", "content": "你好"},
+        {"role": "assistant", "content": "你好！有什麼我可以幫忙的嗎？"}
     ]
-    message = "顏永進星期三第二節可以找誰代課？"
-
+    message = "請問今天的課表是什麼？"
 
     print("AI 回應：")
     for response in assistant.send_message(message, history):
-        response = response.strip()
-    print(response)
+        print(response)
+
 if __name__ == "__main__":
     main()
