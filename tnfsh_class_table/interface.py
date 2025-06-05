@@ -1,7 +1,6 @@
 from enum import auto
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
-
 from typing import Any, List, Union, Optional, Literal
 import gradio as gr
 import requests
@@ -136,35 +135,7 @@ class GradioInterface:
             gr.Markdown("# 臺南一中課表查詢系統")
             gr.Markdown("關於本系統：[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
             
-            with gr.Tab("首頁"):
-                gr.Markdown("## 歡迎使用臺南一中課表查詢系統")
-                gr.Markdown("""
-                - 各位老師，你還在為了調課和代課而煩惱嗎？\n
-                - 只是想放個假或去研習、去參加活動，卻要花費大量時間在翻閱課表上嗎？\n
-                - 已經眼睛痠痛、精神疲勞、手指長繭只為了翻課表的你，是否想過……有一款程式能夠讓您解脫？
-                """)
-                gr.Markdown("### 專案特色(您們來對地方啦！)")
-                gr.Markdown("""
-                本系統讓臺南一中老師可以快速安排：\n
-                - **多次互調**
-                - **多角調課**
-                - **代課人選**\n
-                本專案可以比對班級課程與空堂，甚至偵測連堂，讓連續課程的調換也不成問題！\n
-                更是透過循環查找，在1分鐘之內提供多種調課選擇！\n
-                ## 選擇 **「AI助手」** 標籤，在對話框提出您的需求，AI將引導您完成調、代課！\n
-                更重要的是本專案創立於開源的社群，相當歡迎使用者提供反饋，如果在使用上出現不方便或bug，歡迎在github或利用gmail聯繫我們團隊(?，我們會盡快回復並修正！
-                - Github: https://github.com/Skywind5487/TNFSH-Classtable
-                - Gmail: skywind5487@gmail.com
-                
-                """)
-                gr.Markdown("### 功能介紹")
-                gr.Markdown("""
-                - **AI 助手**：對話查詢(1)調課與代課方式(2)竹園Wiki(3)老師或班級課表。
-                - **顯示班級課表**：選擇年級和班級，顯示該班級的課表。
-                - **下載班級課表**：選擇年級和班級，下載該班級的課表檔案。
-                - **顯示老師課表**：選擇科目與老師，顯示該老師的課表。
-                - **下載老師課表**：選擇科目與老師，下載該老師的課表檔案。
-                """)
+            
 
             with gr.Tab("AI 助手"):
                 gr.Markdown("# 臺南一中 AI 助手")
@@ -173,13 +144,15 @@ class GradioInterface:
                 gr.Markdown("""
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
                 如果有連結無效、解釋不清楚的問題，可以嘗試向AI再次詢問。\n
-                使用清除記憶按鍵可以清除AI對話記憶，並重新開始對話。\n
-                想要清空版面請注意對話框右上角的垃圾桶圖標。\n                """)
+                使用「+new chat」按鍵可以清空聊天室，並重新開始對話。\n               """)
                 gr.Markdown("## ")
                 
                 examples = [
                     "你好",
                     "顏永進星期二整天可以怎麼調課？",
+                    "我想代課",
+                    "請問南一中的四大胖子是誰？",
+                    "請問三年一班的課表是什麼？",
                 ]
                 
                 
@@ -329,8 +302,51 @@ class GradioInterface:
                 )
                 # ======下拉式選單結束=====
             
-            
+            with gr.Tab("關於我們"):
+                gr.Markdown("## 關於我們")
+                gr.Markdown("""
+                - 各位老師，你還在為了調課和代課而煩惱嗎？\n
+                - 只是想放個假或去研習、去參加活動，卻要花費大量時間在翻閱課表上嗎？\n
+                - 已經眼睛痠痛、精神疲勞、手指長繭只為了翻課表的你，是否想過……有一款程式能夠讓您解脫？
+                """)
+                gr.Markdown("### 專案特色(您們來對地方啦！)")
+                gr.Markdown("""
+                本系統讓臺南一中老師可以快速安排：\n
+                - **多次互調**
+                - **多角調課**
+                - **代課人選**\n
+                本專案可以比對班級課程與空堂，甚至偵測連堂，讓連續課程的調換也不成問題！\n
+                更是透過循環查找，在1分鐘之內提供多種調課選擇！\n
+                ## 選擇 **「AI助手」** 標籤，在對話框提出您的需求，AI將引導您完成調、代課！\n
+                
+                
+                """)
+                gr.Markdown("### 功能介紹")
+                gr.Markdown("""
+                - **AI 助手**：對話查詢(1)調課與代課方式(2)竹園Wiki(3)老師或班級課表。
+                - **顯示班級課表**：選擇年級和班級，顯示該班級的課表。
+                - **下載班級課表**：選擇年級和班級，下載該班級的課表檔案。
+                - **顯示老師課表**：選擇科目與老師，顯示該老師的課表。
+                - **下載老師課表**：選擇科目與老師，下載該老師的課表檔案。
+                """)
 
+                gr.Markdown("### 製作團隊")
+                gr.Markdown("""
+                - **Skywind5487**：專案發起人，負責主要程式設計、課表整理與AI助手開發。
+                - **WisleyWise**：協作者，負責系統測試、使用者介面設計與功能建議。
+                """)
+                gr.Markdown("### 其他貢獻者")
+                gr.Markdown("""
+                感謝所有參與測試和提供建議的老師們，你們的支持讓這個專案更完善！
+                """)
+                gr.Markdown("### 聯絡我們")
+                gr.Markdown("""
+                如果您有任何問題或建議，歡迎聯繫我們：
+                - Github: https://github.com/Skywind5487/TNFSH-Classtable
+                - Gmail: skywind5487@gmail.com
+                """)
+
+            # 設定按鈕事件
 
 
             display_btn.click(
@@ -357,9 +373,11 @@ class GradioInterface:
                 outputs=[save_teacher_file, teacher_save_message, teacher_file_info]
             )
 
+            
+
             # 啟動介面
             demo.launch(
-                #share=True,
+                share=True,
                 #inbrowser=True, 
                 show_error=True,
                 debug=True,
