@@ -154,11 +154,14 @@ class GradioInterface:
                 更重要的是本專案創立於開源的社群，相當歡迎使用者提供反饋，如果在使用上出現不方便或bug，歡迎在github或利用gmail聯繫我們團隊(?，我們會盡快回復並修正！
                 - Github: https://github.com/Skywind5487/TNFSH-Classtable
                 - Gmail: skywind5487@gmail.com
-                只需選擇年級和班級，或是科目和老師，即可顯示或下載課表。
+                
                 """)
                 gr.Markdown("### 功能介紹")
                 gr.Markdown("""
                 - **AI 助手**：對話查詢調課與代課方式、竹園Wiki、老師或班級課表。
+                            - 調課、代課查詢
+                            - 竹園Wiki查詢
+                            - 課表查詢
                 - **顯示班級課表**：選擇年級和班級，顯示該班級的課表。
                 - **下載班級課表**：選擇年級和班級，下載該班級的課表檔案。
                 - **顯示老師課表**：選擇科目與老師，顯示該老師的課表。
@@ -167,35 +170,19 @@ class GradioInterface:
 
             with gr.Tab("AI 助手"):
                 gr.Markdown("# 臺南一中 AI 助手")
-                gr.Markdown("## 功能介紹")
+                gr.Markdown("## 第一句從問好開始吧！")
                 gr.Markdown("""
-                - **調課、代課查詢**：給定老師、節次，AI將提供課程上可以調課的老師。
-                    - 例如：
-                        - 普通請求: 請告訴我「顏永進老師」「星期三第二節」可以調到哪裡
-                        - 進階請求: 請告訴我「顏永進老師」「星期三第二節」可以怎麼「多次互調(多角調、代課)」，牽涉的教師數量希望是「３」位
-                - **查詢 Wiki**：獲取教師或其他條目的 Wiki 內容。
-                    - 例如：
-                        - 請告訴我顏永進老師的Wiki內容
-                        - 請告訴我欽發麵店的Wiki內容
-                        - 請告訴我巫權祐老師的Wiki連結
-                        - 請告訴我南一中四大胖子是誰？
-                - **查詢課表**：獲取班級或教師的課表資訊。
-                    - 例如：
-                        - 請告訴我205班的課表
-                        - 請告訴我顏永進老師的課表
-                        - 請告訴我307課表連結
-                        - 請告訴我殷念慈老師的課表連結
-                        - 今天116有什麼課
-                - **重新整理對話**：請大語言模型重新整理，即可開始新的聊天會話。
+                AI助手將為您介紹自身功能，並引導您進行對話。
+                使用重新整理按鍵可以清除對話紀錄，並重新開始對話。
                 """)
-                gr.Markdown("## 從第一句問好開始吧！")
+                gr.Markdown("## ")
                 gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
                 )
-                a_space = gr.Markdown("\n\n")
+                a_space = gr.Markdown("\n\n\n")
                 with gr.Row():
                     refresh_btn = gr.Button(value = "重新整理")
                     refresh_message=gr.Textbox(label="重新整理紀錄")
