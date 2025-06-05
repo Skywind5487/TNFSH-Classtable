@@ -170,7 +170,8 @@ class GradioInterface:
                 gr.Markdown("## 第一句從問好開始吧！")
                 gr.Markdown("""
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
-                使用重新整理按鍵可以清除對話紀錄，並重新開始對話。
+                如果有連結無效、解釋不清楚的問題，可以嘗試向AI再次詢問。\n
+                使用重新整理按鍵可以清除對話紀錄，並重新開始對話。\n
                 """)
                 gr.Markdown("## ")
                 gr.ChatInterface(
