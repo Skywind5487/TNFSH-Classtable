@@ -198,6 +198,11 @@ class GradioInterface:
                     inputs=[],
                     outputs=[]
                 )
+                chatbox.new_chat_button.click(
+                    fn=self.Ai.refresh_chat,
+                    inputs=[],
+                    outputs=[]
+                )
 
                 a_space = gr.Markdown("\n\n\n")
                 with gr.Row():
