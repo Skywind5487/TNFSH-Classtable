@@ -173,12 +173,18 @@ class GradioInterface:
                 使用重新整理按鍵可以清除對話紀錄，並重新開始對話。
                 """)
                 gr.Markdown("## ")
-                gr.ChatInterface(
+                chat_interface = gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
                 )
+                chat_interface.chatbot.clear(
+                    fn=self.Ai.refresh_chat,
+                    inputs=[],
+                    outputs=[]
+                )
+
                 a_space = gr.Markdown("\n\n\n")
                 with gr.Row():
                     refresh_btn = gr.Button(value = "重新整理")
@@ -235,8 +241,8 @@ class GradioInterface:
                 dropdown_list = {} 
                 subject_dropdown = [] 
                 
-                def choose_subject(sbjt):
-                    return gr.Dropdown(choices=dropdown_list[sbjt])
+                def choose_subject(subject):
+                    return gr.Dropdown(choices=dropdown_list[subject])
                     
                 for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
                     subject_dropdown.append(subject)
@@ -275,8 +281,8 @@ class GradioInterface:
                 dropdown_list = {} 
                 subject_dropdown = [] 
                 
-                def choose_subject(sbjt):
-                    return gr.Dropdown(choices=dropdown_list[sbjt])
+                def choose_subject(subject):
+                    return gr.Dropdown(choices=dropdown_list[subject])
                     
                 for subject, teachers in self.teacher_index.index["teacher"]["data"].items():
                     subject_dropdown.append(subject)
