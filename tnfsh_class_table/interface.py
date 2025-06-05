@@ -1,3 +1,4 @@
+from enum import auto
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
@@ -167,7 +168,7 @@ class GradioInterface:
 
             with gr.Tab("AI 助手"):
                 gr.Markdown("# 臺南一中 AI 助手")
-                gr.Markdown("---------")
+                gr.Markdown("---")
                 gr.Markdown("## 第一句從問好開始吧！")
                 gr.Markdown("""
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
@@ -176,13 +177,23 @@ class GradioInterface:
                 想要清空版面請注意對話框右上角的垃圾桶圖標。\n
                 """)
                 gr.Markdown("## ")
+                examples = [
+                    "你好",
+                    "顏永進星期二整天可以怎麼調課？",
+                ]
                 chatbox = gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
                     description="使用 Gemini LLM 回答問題，並提供課表、課程和 Wiki 相關資訊。",
                     type="messages",
+                    examples=examples,
+                    cache_examples=True,
+                    cache_mode="eager",
+                    autofocus=True,
+                    fill_height=True,
+                    save_history=True,
                 )
-                chat_interface.chatbot.clear(
+                chatbox.chatbot.clear(
                     fn=self.Ai.refresh_chat,
                     inputs=[],
                     outputs=[]
