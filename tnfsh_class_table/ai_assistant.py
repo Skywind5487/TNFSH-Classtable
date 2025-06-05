@@ -18,12 +18,13 @@ class AIAssistant:
     def __init__(self):
         self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
         self.chat = None
+        self.model_name = "gemini-2.5-flash-preview-05-20"
         self.get_chat()
 
     @log_func
     def get_chat(self) -> None:
         chat = self.client.chats.create(
-            model="gemini-2.5-flash-preview-05-20",
+            model=self.model_name,
             config=self.get_config()
         )
         self.chat = chat
@@ -98,6 +99,7 @@ class AIAssistant:
             # self
             self.refresh_chat
         ]
+    
     def refresh_chat(self) -> str:
         """
         當使用者說「重新初始化」、「刷新」、"refresh"時，調用此方法。
@@ -107,15 +109,42 @@ class AIAssistant:
         self.get_chat()
         return "台灣的平均交流電電壓是220V，我已刷新紀錄，請問有什麼可以幫助您的？"
 
+    from google.genai.types import Content  # 👈 加上這行
+
+    def convert_to_gemini_format(self, history: list[dict]) -> list[Content]:
+        from google.genai.types import Content, Part
+        new_history = []
+        for h in history:
+            role = h.get("role")
+            content = h.get("content")
+
+            if role == "assistant":
+                role = "model"  # ✅ Gemini 用 "model" 表示 AI 回應者
+            elif role == "user":
+                role = "user"   # ✅ OK
+
+            if role and content:
+                new_history.append(
+                    Content(role=role, parts=[Part(text=content)])
+                )
+        return new_history
+    
     def send_message(self, message: str, history: Any) -> str:
         from google.genai.errors import ServerError
         from tnfsh_timetable_core import TNFSHTimetableCore
         import time
-
+        
         core = TNFSHTimetableCore()
         logger = core.get_logger()
 
+         
         logger.info(f"[User Input] {message}")
+
+        self.chat = self.client.chats.create(
+            model=self.model_name,
+            config=self.get_config(),
+            history=self.convert_to_gemini_format(history)
+        )
 
         for attempt in range(3):
             try:
