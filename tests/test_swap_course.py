@@ -1,5 +1,5 @@
 import pytest
-from tnfsh_class_table.interface import AIAssistant
+from tnfsh_class_table.ai_assistant import AIAssistant
 from tnfsh_class_table.models import CourseInfo, SwapStep, SwapSinglePath, SwapPaths, URLMap
 
 
