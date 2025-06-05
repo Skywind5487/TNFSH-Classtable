@@ -182,10 +182,7 @@ class GradioInterface:
                     "顏永進星期二整天可以怎麼調課？",
                 ]
                 
-                chatbot = gr.Chatbot(
-                    show_copy_button=True,
-                    type="messages",
-                )
+                
                 
                 chatbox = gr.ChatInterface(
                     fn=self.Ai.send_message,
@@ -198,7 +195,10 @@ class GradioInterface:
                     autofocus=True,
                     fill_height=True,
                     save_history=True,
-                    chatbot=chatbot,
+                    chatbot=gr.Chatbot(
+                        show_copy_button=True,
+                        type="messages",
+                    ),
                     delete_cache=(3600, 3600),  # 每小時清除一次快取
                 )
                 
