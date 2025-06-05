@@ -168,8 +168,6 @@ class AIAssistant:
                 history=self.convert_to_gemini_format(history)
             )        # 使用流式輸出        
             response_stream = self.chat.send_message_stream(message)
-            # 測試 tenacity retry 功能
-            print("測試 tenacity retry 功能")
             return response_stream  # 返回生成器，逐步返回回應的片段
         response_stream = send_message_stream(message, history)
 
