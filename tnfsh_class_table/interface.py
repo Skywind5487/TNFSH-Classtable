@@ -195,12 +195,11 @@ class GradioInterface:
                     autofocus=True,
                     fill_height=True,
                     save_history=True,
-                    chatbot=gr.Chatbot(
-                        show_copy_button=True,
-                        type="messages",
-                    ),
+
                     delete_cache=(3600, 3600),  # 每小時清除一次快取
                 )
+                chatbox.chatbot.show_copy_button = True
+                chatbox.chatbot.show_copy_all_button = True
                 
                 chatbox.chatbot.clear(
                     fn=self.Ai.refresh_chat,
