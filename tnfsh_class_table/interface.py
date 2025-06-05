@@ -174,16 +174,19 @@ class GradioInterface:
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
                 如果有連結無效、解釋不清楚的問題，可以嘗試向AI再次詢問。\n
                 使用清除記憶按鍵可以清除AI對話記憶，並重新開始對話。\n
-                想要清空版面請注意對話框右上角的垃圾桶圖標。\n
-                """)
+                想要清空版面請注意對話框右上角的垃圾桶圖標。\n                """)
                 gr.Markdown("## ")
+                
                 examples = [
                     "你好",
                     "顏永進星期二整天可以怎麼調課？",
                 ]
+                
                 chatbot = gr.Chatbot(
                     show_copy_button=True,
-                )                
+                    type="messages",
+                )
+                
                 chatbox = gr.ChatInterface(
                     fn=self.Ai.send_message,
                     title="臺南一中 Gemini 聊天助手",
@@ -196,6 +199,7 @@ class GradioInterface:
                     fill_height=True,
                     save_history=True,
                     chatbot=chatbot,
+                    delete_cache=(3600, 3600),  # 每小時清除一次快取
                 )
                 
                 chatbox.chatbot.clear(
