@@ -17,6 +17,7 @@ dependencies = [
     "networkx>=3.4.2",
     "tnfsh-timetable-core>=0.0.6",
     "tnfsh-wiki-teachers-core>=0.0.1",
+    "tenacity>=9.1.2",
 ]
 
 

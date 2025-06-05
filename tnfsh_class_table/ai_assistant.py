@@ -1,4 +1,7 @@
 import random
+from urllib import response
+
+from tenacity import retry
 from tnfsh_class_table.ai_tools.index.timetable_index import get_timetable_index
 from tnfsh_class_table.backend import TNFSHClassTableIndex, TNFSHClassTable, NewWikiTeacherIndex
 
@@ -128,7 +131,9 @@ class AIAssistant:
                     Content(role=role, parts=[Part(text=content)])
                 )
         return new_history
+      
     
+
     def send_message(self, message: str, history: Any) -> Generator[str, None, None]:
         """
         發送訊息並以字符流的形式返回回應
@@ -146,66 +151,70 @@ class AIAssistant:
         
         core = TNFSHTimetableCore()
         logger = core.get_logger()
-        
+        print("test")
         logger.info(f"[User Input] {message}")
 
-        self.chat = self.client.chats.create(
-            model=self.model_name,
-            config=self.get_config(),
-            history=self.convert_to_gemini_format(history)
+
+        from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type
+        @retry(
+            stop=stop_after_attempt(3),
+            wait=wait_fixed(2),
+            retry=retry_if_exception_type(ValueError)   
         )
+        def send_message_stream(message: str, history: list[dict]) -> Generator[str, None, None]:
+            self.chat = self.client.chats.create(
+                model=self.model_name,
+                config=self.get_config(),
+                history=self.convert_to_gemini_format(history)
+            )        # 使用流式輸出        
+            response_stream = self.chat.send_message_stream(message)
+            # 測試 tenacity retry 功能
+            print("測試 tenacity retry 功能")
+            return response_stream  # 返回生成器，逐步返回回應的片段
+        response_stream = send_message_stream(message, history)
 
-        for attempt in range(3):
-            try:
-                # 使用流式輸出
-                response_stream = self.chat.send_message_stream(message)
+
+        
+        accumulated_text = ""
+        for chunk in response_stream:
+            if not chunk.text:
+                continue
                 
-                accumulated_text = ""
-                for chunk in response_stream:
-                    if not chunk.text:
-                        continue
-                        
-                    # 逐字符輸出
-                    for char in chunk.text:
-                        accumulated_text += char
-                        time.sleep(0.01)  # 模擬逐字符輸出，避免過快
-                        yield accumulated_text  # 返回目前累積的全部文本
-                    
-                    # 記錄日誌
-                    logger.info(f"[AI Assistant][Chunk] {chunk.text}")
+            # 逐字符輸出
+            for char in chunk.text:
+                accumulated_text += char
+                time.sleep(0.01)  # 模擬逐字符輸出，避免過快
+                yield accumulated_text  # 返回目前累積的全部文本
+            
+            # 記錄日誌
+            logger.info(f"[AI Assistant][Chunk] {chunk.text}")
 
-                    try:
-                        if hasattr(chunk, "candidates") and chunk.candidates:
-                            finish_reason = chunk.candidates[0].finish_reason
-                            logger.info(f"[Gemini] Finish reason: {finish_reason}")
-                    except Exception as e:
-                        logger.debug(f"[Logger] Finish reason 資訊無法取得: {e}")
-
-                    try:
-                        usage = chunk.usage_metadata
-                        if usage:
-                            logger.info(
-                                f"[Gemini] tokens: prompt={usage.prompt_token_count}, "
-                                f"response={usage.candidates_token_count}, total={usage.total_token_count}"
-                            )
-                    except Exception as e:
-                        logger.debug(f"[Logger] Token 資訊無法取得: {e}")
-
-                if not accumulated_text:
-                    logger.warning("[AI Assistant] 回應內容為空，請檢查輸入訊息或模型狀態。")
-                    yield "⚠️ 抱歉，沒有收到有效的回應。請稍後再試。"
-                    return
-
-                return
-
-            except ServerError as e:
-                logger.warning(f"[Retry {attempt+1}] 模型過載，稍後再試... ({e})")
-                time.sleep(2 * (attempt + 1))
+            try:
+                if hasattr(chunk, "candidates") and chunk.candidates:
+                    finish_reason = chunk.candidates[0].finish_reason
+                    logger.info(f"[Gemini] Finish reason: {finish_reason}")
             except Exception as e:
-                logger.error(f"[錯誤] 發送訊息時發生非預期錯誤: {e}")
-                break
+                logger.debug(f"[Logger] Finish reason 資訊無法取得: {e}")
 
-        yield "⚠️ 抱歉，目前模型過載或出現錯誤，請稍後再試一次。"
+            try:
+                usage = chunk.usage_metadata
+                if usage:
+                    logger.info(
+                        f"[Gemini] tokens: prompt={usage.prompt_token_count}, "
+                        f"response={usage.candidates_token_count}, total={usage.total_token_count}"
+                    )
+            except Exception as e:
+                logger.debug(f"[Logger] Token 資訊無法取得: {e}")
+
+        if not accumulated_text:
+            logger.warning("[AI Assistant] 回應內容為空，請檢查輸入訊息或模型狀態。")
+            yield "⚠️ 抱歉，沒有收到有效的回應。請稍後再試。"
+            return
+        return
+
+        
+
+
 
 
 def main():
