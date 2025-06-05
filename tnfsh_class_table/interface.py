@@ -351,8 +351,8 @@ class GradioInterface:
 
             # 啟動介面
             demo.launch(
-                share=True,
-                inbrowser=True, 
+                #share=True,
+                #inbrowser=True, 
                 show_error=True,
                 debug=True,
                 prevent_thread_lock=True
