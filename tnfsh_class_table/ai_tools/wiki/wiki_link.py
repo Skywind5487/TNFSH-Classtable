@@ -21,8 +21,8 @@ def get_wiki_link(target: str) -> Union[str, list[str]]:
     """
     # use logger to log func start
     from tnfsh_timetable_core import TNFSHTimetableCore
-    core = TNFSHTimetableCore()
-    logger = core.get_logger()
+    wiki_core = TNFSHTimetableCore()
+    logger = wiki_core.get_logger()
 
     logger.info(f"get_wiki_link")
 
@@ -32,18 +32,28 @@ def get_wiki_link(target: str) -> Union[str, list[str]]:
     import requests
     # 先檢查 URL 是否有效
     try:
-        response = requests.head(wiki_url, timeout=5)
+        import tenacity
+        @tenacity.retry(
+            stop=tenacity.stop_after_attempt(3),
+            wait=tenacity.wait_fixed(1),
+            retry=tenacity.retry_if_exception_type(requests.RequestException)
+        )
+        def request_head(url: str, timeout: int = 3) -> requests.Response:
+            return requests.head(url, timeout=timeout)
+        response = request_head(wiki_url)
         if response.status_code == 200:
             return wiki_url
     except requests.RequestException:
         pass
+    except tenacity.RetryError:
+        pass
 
     # 如果是老師，進行額外檢查
     try:
-        from tnfsh_timetable_core import TNFSHTimetableCore
-        core = TNFSHTimetableCore()
+        from tnfsh_wiki_teachers_core import TNFSHWikiTeachersCore
+        wiki_core = TNFSHWikiTeachersCore()
         import asyncio
-        index = asyncio.run(core.fetch_index())
+        index = asyncio.run(wiki_core.fetch_index())
         teacher_data = index.reverse_index.root
 
         # 先直接搜尋完全匹配的教師名稱
@@ -67,7 +77,7 @@ def get_wiki_link(target: str) -> Union[str, list[str]]:
 
 if __name__ == "__main__":
     # 測試 get_wiki_link 函數
-    print(get_wiki_link(None, "欽發麵店"))
-    print(get_wiki_link(None, "分類:科目"))
-    print(get_wiki_link(None, "陳老師"))  # 假設有這位老師
-    print(get_wiki_link(None, "不存在的老師"))  # 假設沒有這位老師
+    print(get_wiki_link("欽發麵店"))
+    print(get_wiki_link("分類:科目"))
+    print(get_wiki_link("顏永進"))  # 假設有這位老師
+    print(get_wiki_link("不存在的老師"))  # 假設沒有這位老師

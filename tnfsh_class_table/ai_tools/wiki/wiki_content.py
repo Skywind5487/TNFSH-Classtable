@@ -54,3 +54,11 @@ def get_wiki_content(target: str) -> str:
     soup = soup.find('div', {'id': 'bodyContent'})
     soup = _regular_soup(soup)
     return str(soup)
+
+
+if __name__ == "__main__":
+    # 測試用例
+    target = "四大胖子"
+    content = get_wiki_content(target)
+    print(content)
+    # 這裡可以進一步處理 content，例如輸出到文件或其他操作
