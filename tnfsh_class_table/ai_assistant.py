@@ -37,7 +37,7 @@ class AIAssistant:
         return types.GenerateContentConfig(
             temperature=0.3,
             top_p=0.95,
-            max_output_tokens=6000,
+            max_output_tokens=10000,
             tools=self.get_tools(),
             system_instruction=get_system_instruction(),
             seed=random_seed
