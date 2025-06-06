@@ -330,8 +330,57 @@ class GradioInterface:
                 )
                 # ======下拉式選單結束=====
             
-            
+            with gr.Tab("關於我們"):
+                gr.Markdown("## 我們在幹嘛?")
+                gr.Markdown("""
+                - 各位老師，你還在為了調課和代課而煩惱嗎？\n
+                - 只是想放個假或去研習、去參加活動，卻要花費大量時間在翻閱課表上嗎？\n
+                - 已經眼睛痠痛、精神疲勞、手指長繭只為了翻課表的你，是否想過……有一款程式能夠讓您解脫？
+                """)
+                gr.Markdown("### 專案特色(您們來對地方啦！)")
+                gr.Markdown("""
+                本系統讓臺南一中老師可以快速安排：\n
+                - **多次互調**
+                - **多角調課**
+                - **代課人選**\n
+                本專案可以比對班級課程與空堂，甚至偵測連堂，讓連續課程的調換也不成問題！\n
+                更是透過循環查找，在1分鐘之內提供多種調課選擇！\n
+                ## 選擇 **「AI助手」** 標籤，在對話框提出您的需求，AI將引導您完成調、代課！\n
+                
+                
+                """)
+                gr.Markdown("### 功能介紹")
+                gr.Markdown("""
+                - **AI 助手**：對話查詢(1)調課與代課方式(2)竹園Wiki(3)老師或班級課表。
+                - **顯示班級課表**：選擇年級和班級，顯示該班級的課表。
+                - **下載班級課表**：選擇年級和班級，下載該班級的課表檔案。
+                - **顯示老師課表**：選擇科目與老師，顯示該老師的課表。
+                - **下載老師課表**：選擇科目與老師，下載該老師的課表檔案。
+                """)
 
+                gr.Markdown("### 製作團隊")
+                gr.Markdown("""
+                - **Skywind5487**：專案發起人，負責主要程式設計、課表整理與AI助手開發。
+                - **WisleyWise**：協作者，負責系統測試、使用者介面設計與功能建議。
+                """)
+                gr.Markdown("### 其他貢獻者")
+                gr.Markdown("""
+                感謝所有參與測試和提供建議的老師們，你們的支持讓這個專案更完善！
+                """)
+                gr.Markdown("### 聯絡我們")
+                gr.Markdown("""
+                如果您有任何問題或建議，歡迎聯繫我們：
+                - Github: https://github.com/Skywind5487/TNFSH-Classtable
+                - Gmail: skywind5487@gmail.com
+                """)
+                gr.Markdown("## 其他參考資料")
+                gr.Markdown("""
+                - [如何調課 - 兩種調課演算法](https://hackmd.io/@sky-wind-note/how_to_swap_course)
+                - [南一中課表](http://w3.tnfsh.tn.edu.tw/deanofstudies/course/course.html)
+                - [南一中竹園 Wiki](https://tnfshwiki.tfcis.org/%E7%AB%B9%E5%9C%92Wiki:%E9%A6%96%E9%A0%81)
+                """)
+
+            # 設定按鈕事件
 
 
             display_btn.click(
