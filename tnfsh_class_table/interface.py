@@ -129,18 +129,16 @@ class GradioInterface:
     def run(self) -> None:
         """啟動 Gradio 介面"""
         with gr.Blocks(
-            title="臺南一中課表查詢系統",
+            title="AI調課助手",
             theme=gr.themes.Soft(font=gr.themes.GoogleFont("Iansui")),
         ) as demo:
-            gr.Markdown("# 臺南一中課表查詢系統")
+            gr.Markdown("# 臺南一中AI調課助手")
             gr.Markdown("關於本系統：[Hackmd](https://hackmd.io/@Skywind5487/tnfsh_class_table/edit)")
             
             
 
             with gr.Tab("AI 助手"):
-                gr.Markdown("# 臺南一中 AI 助手")
-                gr.Markdown("---")
-                gr.Markdown("## 第一句從問好開始吧！")
+                gr.Markdown("# 第一句從問好開始吧！")
                 gr.Markdown("""
                 AI助手將為您介紹自身功能，並引導您進行對話。\n
                 如果有連結無效、解釋不清楚的問題，可以嘗試向AI再次詢問。\n
