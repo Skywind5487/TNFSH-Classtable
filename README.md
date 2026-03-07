@@ -51,6 +51,9 @@ doc(尚在準備) 📄：[兩種調課算法](https://hackmd.io/@sky-wind-note/h
 
 ---
 
+# 依賴後端
+[tnfsh-timetable-core](https://github.com/Skywind5487/tnfsh-timetable-core/tree/main)
+
 # Github
 
 Github: [Skywind5487/TNFSH-Classtable](https://github.com/Skywind5487/TNFSH-Classtable)
